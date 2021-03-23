@@ -7,7 +7,7 @@ In this guide, we'll show you how you can integrate Web3API into your JavaScript
 
 ## **Prerequisites**
 
-As prequisites for this guide, we'll be using the React frontend library and we recommend TypeScript.
+As prerequisites for this guide, we'll be using the React frontend library and we recommend TypeScript.
 
 ## **Installation**
 
