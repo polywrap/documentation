@@ -18,9 +18,9 @@ We know software docs can be overwhelming, especially for something as technical
 
 If you're interested in understanding Web3API at a high-level, we recommend watching [this introductory video on our website](https://web3api.dev). No deep technical knowledge required.
 
-If after that you're still wanting more, checkout this deeper dive from our [ETH Denver presentation](https://youtu.be/9HhB4XL4AR4). This presentation not only cover the tech, but also the ecosystem that's helping make Web3API a reality!
+If after that you're still wanting more, check out this deeper dive from our [ETH Denver presentation](https://youtu.be/9HhB4XL4AR4). This presentation not only covers the tech, but also the ecosystem that's helping make Web3API a reality!
 
-If you'd like to see Web3API in action, checkout our [SimpleStorage on Ethereum demo](/demos/simplestorage-eth).
+If you'd like to see Web3API in action, check out our [SimpleStorage on Ethereum demo](/demos/simplestorage-eth).
 
 ### **For: developers**
 
