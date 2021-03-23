@@ -37,7 +37,7 @@ client.query({ uri: 'api.helloworld.web3api.eth', query: '{ sayHello }' })
 
 Most Web3APIs require plugins before they can be used.
 
-## **Implementing Plugins**
+## **Implementing plugins**
 
 > The example code below uses the MetaMask global API injected at `window.ethereum`. This isn't needed if your dApp doesn't use Ethereum.
 
@@ -106,7 +106,7 @@ For React applications, you'll also install the `@web3api/react` package.
 npm install --save-dev @web3api/react
 ```
 
-### **Web3ApiProvider**
+### `**Web3ApiProvider**`
 
 The `Web3ApiProvider` component makes redirects available to any nested components that need access to them.
 
@@ -145,7 +145,7 @@ ReactDOM.render(
 >
 > ```
 
-### **useWeb3ApiQuery()**
+### `**useWeb3ApiQuery()**`
 
 After implementing the provider, your dApp can send queries using the `useWeb3ApiQuery` method.
 
