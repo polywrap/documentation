@@ -106,7 +106,7 @@ For React applications, you'll also install the `@web3api/react` package.
 npm install --save-dev @web3api/react
 ```
 
-### `**Web3ApiProvider**`
+### **`Web3ApiProvider`**
 
 The `Web3ApiProvider` component makes redirects available to any nested components that need access to them.
 
@@ -145,7 +145,7 @@ ReactDOM.render(
 >
 > ```
 
-### `**useWeb3ApiQuery()**`
+### **`useWeb3ApiQuery()`**
 
 After implementing the provider, your dApp can send queries using the `useWeb3ApiQuery` method.
 
