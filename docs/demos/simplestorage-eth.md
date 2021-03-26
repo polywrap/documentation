@@ -38,7 +38,7 @@ And that's it 🎉! You're ready to use the Web3API SimpleStorage website demo.
    - If you're unfamiliar with ENS and IPFS, this article does a great job explaining how they work: [A Guide to ENS Domains + IPFS by Fleek](https://medium.com/fleek/guide-ens-domains-ipfs-ethereum-name-service-26d6092cfadf).
 2. IPFS
    - This is where the SimpleStorage Web3API is stored. Feel free to click the "IPFS" link to see the package's contents. It should show the following files: `web3api.yaml`, `schema.graphql`, `query.wasm`, and `mutation.wasm`.
-   - We'll cover these files in detail in the _For: Developers_ section. These files are the core of Web3API -- enabling dApps that can easily query any blockchain, using _any_ programming language.
+   - We'll cover these files in detail in the [_For: Developers_](/#for-developers) section. These files are the core of Web3API -- enabling dApps that can use any blockchain, from _any_ programming language.
 3. Deploy `SimpleStorage.sol`
    - Clicking this button will cause the Web3API client to fetch the Web3API package. It will first sending a request to the ENS domain which resolves to the IPFS content identifier. At that point, our dApp will download the Web3API from IPFS. At this point we're ready to execute some API logic.
 4. GraphQL query
