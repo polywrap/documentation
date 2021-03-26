@@ -14,7 +14,7 @@ slug: /
 
 We know software docs can be overwhelming, especially for something as technical as a developer toolchain. That's why we've made this guide user-friendly for anyone interested in Web3API, whether you're a non-techie or an experienced programmer.
 
-### **For: the casually interested reader**
+### **For: The Casually Interested Reader**
 
 If you're interested in understanding Web3API at a high-level, we recommend watching [this introductory video on our website](https://web3api.dev). No deep technical knowledge required.
 
@@ -22,20 +22,18 @@ If after that you're still wanting more, check out this deeper dive from our [ET
 
 If you'd like to see Web3API in action, check out our [SimpleStorage on Ethereum demo](/demos/simplestorage-eth).
 
-### **For: developers**
+### **For: Developers**
 
-_This section is under construction_
+If you're a developer interested in building with Web3API, we recommend starting with our introductory guide: [Building With Web3API](/developers/building-with-web3api).
 
-- Try the demo!
-- Building on Web3API
-- Create a Web3API [WASM Package, dApp, JS Plugin]
+It introduces you to Web3API through a technical lense, explaining how it works at a high level, and the many benefits it brings. From there you'll be directed to one of our development guides, where you'll build something that fits your use-case (dApp, Web3API, Plugin).
 
-### **For: technical specification information**
+If you'd like to see Web3API in action, check out our [SimpleStorage on Ethereum demo](/demos/simplestorage-eth).
 
-_This section is under construction_
+### **For: Technical Specification Information**
 
-- Link to spec
+If you're looking for the most low-level details of how Web3API works, you've come to the right place!
 
----
+Head over the our [specification repository](https://github.com/Web3-API/specification) (still very WIP) to get a look at how the standard functions, regardless of what language you're using Web3API in.
 
-<br/>
+You definitely don't need to go through this material in order to build Web3APIs or dApps using Web3API. However it is quite useful to shine some light on the black boxes that exist when using new frameworks.
