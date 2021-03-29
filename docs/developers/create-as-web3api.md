@@ -142,7 +142,7 @@ It's time to build your own Web3API! We'll start with the mutation schema and im
 
    - Notice that the only mutation schema here is for the `set()` function. We'll need to add ones for `setHash()` as well.
 
-   ```
+   ```js
    #import { Mutation } into Ipfs from "w3://ens/ethereum.web3api.eth"
    #import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
@@ -190,7 +190,7 @@ It's time to build your own Web3API! We'll start with the mutation schema and im
 
     - This file contains the function for our GraphQL mutation type service. For now, we only have two mutation functions, `setData` and `deployContract`. Let's implement a `setIpfsData` function as well.
 
-```
+```js
 import {
     Ethereum_Mutation,
     Ipfs_Mutation
