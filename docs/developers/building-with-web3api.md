@@ -14,9 +14,9 @@ title: Building With Web3API
   * We recommend [re-writing your existing SDKs as WASM based Web3APIs](/developers/create-as-web3api).
 
 ## Why?
-Currently, Web3 dApps have are "heavy", executing a lot of business logic on behalf of protocols. In Web2 this same problem doesn't exist, since business logic can be executed on behalf of users on central servers.
+Currently, Web3 dApps are "heavy", executing a lot of business logic on behalf of protocols. In Web2 this same problem doesn't exist, since business logic can be executed on behalf of users on central servers.
 
-A byproduct of this that's easy to see are language specific SDKs for Web3 protocols. For example, IPFS has SDKs in many different languages (JavaScript, Python, Rust, Go, etc), which all have to be maintained into the future.
+A byproduct of this that's easy to see are language specific SDKs for Web3 protocols. For example, IPFS has SDKs in many different languages (JavaScript, Python, Rust, Go, etc).  A major downside to SDKs is that they all have to be maintained into the future.
 
 Our goal is to get Web3 protocols developers to move away from language specific SDKs, and develop Web3APIs in their place.
 
