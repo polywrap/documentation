@@ -19,7 +19,7 @@ npm install --save-dev @web3api/client-js
 
 You can create a Web3ApiClient simply by instantiating it.
 
-```
+```js
 import { Web3ApiClient } from "@web3api/client-js";
 
 const client = new Web3ApiClient()
@@ -27,7 +27,7 @@ const client = new Web3ApiClient()
 
 At this point, you can already send queries to Web3APIs. In the simple example below, we send one to a "hello world" Web3API.
 
-```
+```js
 client.query({ uri: 'api.helloworld.web3api.eth', query: '{ sayHello }' })
 ```
 
@@ -125,14 +125,14 @@ ReactDOM.render(
 >
 > The `Web3ApiProvider` uses the same constructor arguments as the `Web3ApiClient`. You can pass down redirects as props to the `Web3ApiProvider` component.
 >
-> ```
-> <Web3ApiProvider redirects={ [...] }>
+> ```jsx
+> <Web3ApiProvider redirects={ [...] }/>
 > ```
 >
 > **Advanced usage**
 > If you need to use multiple providers, you can do so using the `createWeb3ApiProvider(<string>)` method, which accepts the name of your provider as an argument.
 >
-> ```
+> ```jsx
 > const OtherWeb3ApiProvider = createWeb3ApiProvider('other');
 >
 > <OtherWeb3ApiProvider>
@@ -158,7 +158,7 @@ const { data, error, loading } = useWeb3ApiQuery({
 >
 > If you'd like to specific a provider to use, simple set the optional provider property:
 >
-> ```
+> ```js
 > const { data, error, loading } = useWeb3ApiQuery({
 >  provider: 'other',
 >  uri: 'ens/helloworld.web3api.eth',
