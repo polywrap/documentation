@@ -12,12 +12,8 @@ As prerequisites for this guide, we'll be using the React frontend library and w
 ## **Installation**
 
 ```
-npm install --save-dev @web3api
+npm install --save-dev @web3api/client-js
 ```
-
-> ⚠️
->
-> **Note:** The @web3api package is currently not available on npm. Please stay tuned!
 
 ## **Getting started**
 
