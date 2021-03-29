@@ -45,7 +45,7 @@ Our example's redirects includes URIs for Ethereum, IPFS, and ENS, which point t
 
 The `Web3ApiClient` iterates through all redirects, searching for plugins and implementing them. After the final plugin has been resolved, it then resolves the Web3API package.
 
-```
+```js
 import { Web3ApiClient, UriRedirect } from "@web3api/client-js";
 import { ensPlugin } from "@web3api/ens-plugin-js";
 import { ethereumPlugin } from "@web3api/ethereum-plugin-js";
@@ -80,7 +80,7 @@ export async function setupWeb3ApiClient(): Promise<Web3ApiClient> {
 
 The redirects can not only be used for forwarding Web3API requests to plugins, but also to any other URI.
 
-```
+```js
 // Example custom redirect
 const client = new Web3ApiClient({
   redirects: [
@@ -108,7 +108,7 @@ The `Web3ApiProvider` component makes redirects available to any nested componen
 
 To use the provider, simply wrap it around the rendered `<App />` component.
 
-```
+```jsx
 import React from "react";
 import ReactDOM from "react-dom";
 import { Web3ApiProvider } from '@web3api/react';
@@ -147,7 +147,7 @@ After implementing the provider, your dApp can send queries using the `useWeb3Ap
 
 Here's what our "hello world" query from above would look like if we used this method.
 
-```
+```js
 const { data, error, loading } = useWeb3ApiQuery({
   uri: 'ens/helloworld.web3api.eth',
   query: '{ sayHello }'
