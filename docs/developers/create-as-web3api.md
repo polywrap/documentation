@@ -7,7 +7,7 @@ In this guide, we'll walk you through how you can create your own Web3API using 
 
 ## **Prerequisites**
 
-This guide walks you through building a Web3API using [AssemblyScript](https://www.assemblyscript.org/). AssemblyScript has similiar syntax to [TypeScript](https://www.typescriptlang.org/) and compiles to [WebAssembly](https://webassembly.org/).
+You'll need knowledge using [AssemblyScript](https://www.assemblyscript.org/). AssemblyScript has similiar syntax to [TypeScript](https://www.typescriptlang.org/) and compiles to [WebAssembly](https://webassembly.org/).
 
 > In the future, you'll have the options to use other languages that compile to WebAssembly, such as Rust or Go.
 
@@ -51,7 +51,7 @@ The `web3api.yaml` is a manifest file containing metadata for the group of relev
 
 The `src/` folder is where you would write your schemas for GraphQL queries and mutations (in GraphQL, a "mutation" is a write operation).
 
-⭐ The `index.ts` file within the `mutation/` and `query/` is where we would write our AssemblyScript-based Web3APIs.
+⭐ The `index.ts` file within the `mutation/` and `query/` is where you would write your AssemblyScript-based Web3APIs.
 
 ### **`recipes/`**
 
@@ -68,8 +68,6 @@ This deploy contract script will run as part of the query recipe.
 ## **Trying out the Sample Web3API**
 
 This command gives you a sample project upon which you could build your Web3API. To check out a Web3API that interacts with our sample "SimpleStorage" smart contract, run the following commands in the project folder:
-
-<br/>
 
 First, we'll need to install `nvm` and `yarn`:
 
