@@ -19,11 +19,11 @@ We believe in learning by doing so we've put together a simple tutorial that sho
    - We can get test ETH at a faucet like this [one](http://rinkeby-faucet.com/).
    - Copy your Rinkeby address from MetaMask and paste it into the website then click the "Submit" button.
 
-And that's it 🎉! You're ready to use the Web3API website demo.
+And that's it 🎉! You're ready to use the Web3API SimpleStorage website demo.
 
-### **Website demo**
+### **dApp Overview**
 
-🏁 To begin, visit our Simple Storage dApp that's deployed on this website: [Web3API Demo](https://demo-simplestorage-web3api.on.fleek.co/). <br/>
+🏁 To begin, visit our SimpleStorage dApp that's deployed [here](https://demo.simplestorage.web3api.dev). Be sure to set your MetaMask's network to Rinkeby.<br/>
 
 **Here's an overview of our demo:**<br/>
 
@@ -37,30 +37,20 @@ And that's it 🎉! You're ready to use the Web3API website demo.
    - This is the ENS domain name that will be resolved to the underlying IPFS content identifier.
    - If you're unfamiliar with ENS and IPFS, this article does a great job explaining how they work: [A Guide to ENS Domains + IPFS by Fleek](https://medium.com/fleek/guide-ens-domains-ipfs-ethereum-name-service-26d6092cfadf).
 2. IPFS
-   - Once the Simple Storage smart contract has been deployed, you can view the storage on IPFS, which contains the downloaded Web3API.
+   - This is where the SimpleStorage Web3API is stored. Feel free to click the "IPFS" link to see the package's contents. It should show the following files: `web3api.yaml`, `schema.graphql`, `query.wasm`, and `mutation.wasm`.
+   - We'll cover these files in detail in the [_For: Developers_](/#for-developers) section. These files are the core of Web3API -- enabling dApps that can use any blockchain, from _any_ programming language.
 3. Deploy `SimpleStorage.sol`
-   - Clicking this button will initialize the Web3API client, sending a request to the ENS domain which resolves to the IPFS content identifier. At that point, our dApp will download the Web3API from IPFS.
+   - Clicking this button will cause the Web3API client to fetch the Web3API package. It will first sending a request to the ENS domain which resolves to the IPFS content identifier. At that point, our dApp will download the Web3API from IPFS. At this point we're ready to execute some API logic.
 4. GraphQL query
    - We've added a codeblock to help you see the GraphQL query that will be fired off when you click the deploy button.
-   - [GraphQL](https://graphql.org/) is a query language for APIs. Access to GraphQL's simple data querying and manipulation is one of the reasons that Web3API is so easy to use -- Web3API enables the use a tool that's popular amongst Web2 developers to be used on Web3 projects.
+   - [GraphQL](https://graphql.org/) is a query language for APIs. Using GraphQL is one of the reasons that Web3API is so easy to use, as GraphQL is very popular amongst existing Web2 developers.
 
-Once you click the deploy button, you'll be prompted by MetaMask to send a transaction using your test ether (make sure you're still on the Rinkeby network).
+### **Deploy The SimpleStorage Contract**
+By clicking the deploy button, you'll be prompted by MetaMask to send a transaction using your test ether.
 
-After a few moments, an Etherscan link will appear to let you know that the `SimpleStorage.sol` smart contract has been deployed, and if you check the `api.simplestorage.eth` domain again, you'll see that it's been resolved to the IPFS content identifier. Click on the IPFS link to see the Web3API that was downloaded.
+After a few moments, an Ethereum address will appear to let you know that the `SimpleStorage.sol` smart contract has been deployed.
 
-### **A quick note on the Web3API package**
-
-After clicking the IPFS link, you'll be redirected to the IPFS storage containing the Web3API. It consists of the following files:
-
-- `mutation.wasm`
-- `query.wasm`
-- `schema.graphql`
-- `web3api.yaml`
-
-We'll cover these files in detail in the _For: Developers_ section. These files are the core of Web3API -- they allow Web3 developers to build dApps that can easily query any blockchain, using _any_ programming language.
-
-### **Back to the demo**
-
+### **Set Storage Values**
 Now that your smart contract has been deployed and your application has downloaded the Web3API, your app has access to a new query to set the storage value on the smart contract.
 
 Press the up or down arrow on the value input and then click the "Set Value" button to send a GraphQL "mutation" which modifies the storage value.

@@ -3,5 +3,6 @@ id: the-web3api-technical-standard
 title: The Web3API Technical Standard
 ---
 
-- the Web3API technical standard
-- - link to the specification repo
+---
+
+The Web3API Technical Specification is currently under development [here](https://github.com/Web3-API/specification).
