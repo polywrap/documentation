@@ -3,18 +3,7 @@ id: create-as-web3api
 title: Create an AssemblyScript Web3API
 ---
 
-- WASM Package
-- - Description: ...
-- - Steps:
-- - - Setup (w3 create)
-- - - Define schema
-- - - Import dependencies
-- - - Implement schema's functions
-- - - Build Web3API
-- - - Deploy
-- - - Test
-
-In this guide, we'll walk you through how you can create your own Web3API.
+In this guide, we'll walk you through how you can create your own Web3API using AssemblyScript and GraphQL.
 
 <br/>
 
@@ -317,4 +306,96 @@ export function deployContract(): string {
 
 #### **Query schema and implementation**
 
-Back to the `SimpleStorage.sol` file. In the previous section, we completed the schema and implementation for the `mutation` functions, `set()` and `setHash()`. In this next section, we'll be doing the same for `get()` and `getHash()`.
+1. Back to the `SimpleStorage.sol` file. In the previous section, we completed the schema and implementation for the `mutation` functions, `set()` and `setHash()`. In this next section, we'll be doing the same for `get()` and `getHash()`.
+
+2. Update the `query/schema.graphql` file.
+
+```
+   #import { Query } into Ipfs from "w3://ens/ethereum.web3api.eth"
+   #import { Query } into Ipfs from "w3://ens/ipfs.web3api.eth"
+
+    type Query {
+    getData(
+        address: String!
+    ): Int!
+
+    getIpfsData(
+        address: String!
+    ): String!
+    }
+
+    type GetIpfsDataOptions {
+      address: String!
+    }
+
+    type GetIpfsDataResult {
+      ipfsHash: String!
+      txReceipt: String!
+    }
+
+    type GetDataOptions {
+      address: String!
+    }
+
+    type GetDataResult {
+      txReceipt: String!
+    }
+```
+
+3. Update the `query/index.ts` file (the AssemblyScript implementation)
+
+```
+import {
+    Ethereum_Query,
+    Ipfs_Query
+ } from "./w3/imported";
+
+import {
+    Input_getData,
+    GetDataResult,
+    Input_getIpfsData,
+    GetIpfsDataResult
+ } from "./w3";
+
+ export function getData(input: Input_getData): GetDataResult {
+  const res = Ethereum_Query.callView({
+    address: input.address,
+    method: "function get() view returns (uint256)",
+    args: []
+  });
+
+  return U32.parseInt(res);
+}
+
+export function getIpfsData(input: Input_getIpfsData): GetIpfsDataResult {
+  return {
+    ipfsHash,
+    txReceipt
+  };
+}
+
+```
+
+Congrats! You've implemented a Web3API.
+
+## <br/>
+
+### **Build and Deploy your Web3API**
+
+If you want to build your Web3API without deploying, you can simply run the following command in your project folder:
+
+```
+npx w3 build
+```
+
+To deploy your build, you can add arguments to your command. Here's how you would deploy to an IPFS address:
+
+```
+npx w3 build \
+--ipfs <ipfs address>
+
+```
+
+### **Conclusion**
+
+And that's it! Congrats on building a Web3API and deploying it. For now, you can test your Web3API by customizing the `e2e.json` file and then running the `npx w3 query ./receipes/e2e.json --test-ens` command. In the future, we'll have a more robust testing suite for your Web3API development needs.
