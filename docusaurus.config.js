@@ -11,7 +11,7 @@ const customFields = {
 };
 
 module.exports = {
-  title: 'Web3API',
+  title: 'Web3API (Pre-Alpha)',
   tagline: 'The Universal Web3 Integration Standard',
   url: 'https://docs.web3api.dev',
   baseUrl: '/',
@@ -22,7 +22,7 @@ module.exports = {
   projectName: 'monorepo',
   themeConfig: {
     navbar: {
-      title: 'Web3API',
+      title: 'Web3API (Pre-Alpha)',
       logo: {
         alt: 'Web3API Icon',
         src: 'img/Web3API_Icon.svg',
