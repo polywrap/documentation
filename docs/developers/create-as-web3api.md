@@ -5,8 +5,6 @@ title: Create an AssemblyScript Web3API
 
 In this guide, we'll walk you through how you can create your own Web3API using AssemblyScript and GraphQL.
 
-<br/>
-
 ## **Prerequisites**
 
 This guide walks you through building a Web3API using [AssemblyScript](https://www.assemblyscript.org/). AssemblyScript has similiar syntax to [TypeScript](https://www.typescriptlang.org/) and compiles to [WebAssembly](https://webassembly.org/).
@@ -19,8 +17,6 @@ You'll need the following installed before building your Web3API:
 - `yarn`
 - `docker`
 - `docker-compose`
-
-<br/>
 
 ## **Getting started**
 
@@ -68,8 +64,6 @@ In addition, it contains the `e2e.json` file, which we'll pass into our `w3 quer
 This deploy contract script will run as part of the query recipe.
 
 ##
-
-<br/>
 
 ## **Trying out the Sample Web3API**
 
@@ -119,7 +113,6 @@ npx w3 query ./recipes/e2e.json --test-ens
 
 This query initiates the recipe `e2e.json`, which deploys the smart contract and then sets and gets values.
 
-<br/>
 
 ### **The `build/` directory**
 
@@ -378,7 +371,6 @@ export function getIpfsData(input: Input_getIpfsData): GetIpfsDataResult {
 
 Congrats! You've implemented a Web3API.
 
-## <br/>
 
 ### **Build and Deploy your Web3API**
 
