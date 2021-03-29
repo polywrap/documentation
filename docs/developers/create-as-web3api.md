@@ -241,7 +241,7 @@ export function deployContract(): string {
 
 Let's break down this AssemblyScript Web3API implementation, starting with our module imports:
 
-```
+```js
 import {
   Ethereum_Mutation,
   Ipfs_Mutation
@@ -262,7 +262,7 @@ The second import brings in the `SetDataResult` and `SetIpfsDataResult` function
 
 The next block of code is for the `setData` implementation:
 
-```
+```js
  export function setData(input: Input_setData): SetDataResult {
   const hash = Ethereum_Mutation.sendTransaction({
     address: input.options.address,
@@ -288,7 +288,7 @@ The return value of `setData()` is an object containing the transaction receipt 
 
 Our last part of the code is a function to deploy the contract:
 
-```
+```js
 export function deployContract(): string {
   return Ethereum_Mutation.deployContract(...);
   // needs to updated with the new ABI
@@ -301,7 +301,7 @@ export function deployContract(): string {
 
 2. Update the `query/schema.graphql` file.
 
-```
+```js
    #import { Query } into Ipfs from "w3://ens/ethereum.web3api.eth"
    #import { Query } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
@@ -335,7 +335,7 @@ export function deployContract(): string {
 
 3. Update the `query/index.ts` file (the AssemblyScript implementation)
 
-```
+```js
 import {
     Ethereum_Query,
     Ipfs_Query
