@@ -35,7 +35,7 @@ resolvers.ts                  # Resolvers for GraphQL schemas
 schema.graphql                # GraphQL schema for queries / mutations
 ```
 
-Let's take a look at each of these files.
+Let's take a look at each of these files!
 
 ### **`schema.graphql`**
 
@@ -45,34 +45,43 @@ In the file, we have `type Query` and `type Mutation`.
 
 ```js
 type Query {
-  sampleQuery(query: String!): String!
+  getData(id: String!): String!
 }
 
 type Mutation {
-  sampleMutation(data: Bytes!): SampleResult!
+  setData(id: String!, data: Bytes!): SampleResult!
 }
 ```
 
 ### **`resolvers.ts`**
 
-> ### 🚧 Under Construction
-
-This file contains the resolvers.
+The `resolvers.ts` file is the implementation of the GraphQL schemas declared in `schema.graphql`.
 
 ```js
 import { SamplePlugin } from '.';
-
 import { PluginModule } from '@web3api/core-js';
 
 export const query = (plugin: SamplePlugin): PluginModule => ({
-  sampleQuery: async (input: { query: string }) => {
-    return await plugin.sampleQuery(input.query);
+  getData: async (input: { query: string }) => {
+    return await plugin.getData(input.query);
   },
 });
 
 export const mutation = (plugin: SamplePlugin): PluginModule => ({
-  sampleMutation: async (input: { data: Uint8Array }) => {
-    return await plugin.sampleMutation(input.data);
+  setData: async (input: { id: string, data: Uint8Array }) => {
+    return await plugin.setData(input.id, input.data);
   },
 });
 ```
+
+In this file, we've created two functions that take in plugins as parameters (explained in the next section).
+
+### **`index.ts`**
+
+In this file, we have a `SamplePlugin` class that contains the business logic for your JavaScript Plugin.
+
+### **`manifest.ts`**
+
+This file contains the `PluginManifest`. Here, you would define the API's schema, the API dependencies imported by this plugin(`imported`), and all abstract APIs implemented plugin (`implemented`).
+
+> **Note**: The abstract APIs plugins haven't been fully developed yet. We plan this feature to work as Web3API interfaces (schemas with no implementation). Please stay tuned!
