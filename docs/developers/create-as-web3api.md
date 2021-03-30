@@ -9,7 +9,10 @@ In this guide, we'll walk you through how you can create your own Web3API using 
 
 You'll need knowledge using [AssemblyScript](https://www.assemblyscript.org/). AssemblyScript has similiar syntax to [TypeScript](https://www.typescriptlang.org/) and compiles to [WebAssembly](https://webassembly.org/).
 
-> In the future, you'll have the options to use other languages that compile to WebAssembly, such as Rust or Go.
+:::tip
+In the future, you'll have the options to use other languages that compile to WebAssembly, such as Rust or Go.
+
+:::
 
 You'll need the following installed before building your Web3API:
 
