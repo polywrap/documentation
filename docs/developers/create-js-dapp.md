@@ -35,7 +35,11 @@ Most Web3APIs require plugins before they can be used.
 
 ## **Implementing plugins**
 
-> The example code below uses the MetaMask global API injected at `window.ethereum`. This isn't needed if your dApp doesn't use Ethereum.
+:::note
+
+The example code below uses the MetaMask global API injected at `window.ethereum`. This isn't needed if your dApp doesn't use Ethereum.
+
+:::
 
 In the code snippet below, we declare a variable `redirects` which stores an array of URI redirects.
 
@@ -121,7 +125,7 @@ ReactDOM.render(
 );
 ```
 
-> Note:
+> **Note**:
 >
 > The `Web3ApiProvider` uses the same constructor arguments as the `Web3ApiClient`. You can pass down redirects as props to the `Web3ApiProvider` component.
 >
@@ -154,7 +158,7 @@ const { data, error, loading } = useWeb3ApiQuery({
 })
 ```
 
-> Note:
+> **Note**:
 >
 > If you'd like to specific a provider to use, simple set the optional provider property:
 >
