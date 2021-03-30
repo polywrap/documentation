@@ -16,7 +16,10 @@ title: Create a JavaScript Plugin
 
 In this guide, we'll walk you through a JavaScript plugin that you can build into your Web3API.
 
-> Note: Plugins do not retain all of Web3API's benefits. We recommend re-writing your existing SDKs as WebAssembly-based Web3APIs.
+:::caution
+Note: Plugins do not retain all of Web3API's benefits. We recommend re-writing your existing SDKs as WebAssembly-based Web3APIs.
+
+:::
 
 ## **Getting started**
 
