@@ -160,7 +160,7 @@ const { data, error, loading } = useWeb3ApiQuery({
 
 > **Note**:
 >
-> If you'd like to specific a provider to use, simple set the optional provider property:
+> If you'd like to specific a provider to use, simply set the optional provider property:
 >
 > ```js
 > const { data, error, loading } = useWeb3ApiQuery({
