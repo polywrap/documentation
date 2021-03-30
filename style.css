@@ -16,6 +16,7 @@
   --ifm-color-primary-lightest: rgb(122, 228, 252);
   --ifm-code-font-size: 95%;
   --ifm-navbar-sidebar-width: 250px;
+  --ifm-heading-color: #65b898;
 }
 
 .docusaurus-highlight-code-line {
@@ -172,12 +173,4 @@ html[data-theme='dark'] .gitcoin-logo:after {
     no-repeat;
   background-size: contain;
   filter: grayscale(1) invert(1);
-}
-
-h1 {
-  color: '#65B898';
-}
-
-h3 {
-  color: '#65B898';
 }
