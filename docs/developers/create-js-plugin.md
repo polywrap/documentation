@@ -85,3 +85,11 @@ In this file, we have a `SamplePlugin` class that contains the business logic fo
 This file contains the `PluginManifest`. Here, you would define the API's schema, the API dependencies imported by this plugin(`imported`), and all abstract APIs implemented plugin (`implemented`).
 
 > **Note**: The abstract APIs plugins haven't been fully developed yet. We plan this feature to work as Web3API interfaces (schemas with no implementation). Please stay tuned!
+
+### **Building the plugin**
+
+To build your plugin, all you need is the following command:
+
+```
+yarn build
+```
