@@ -35,7 +35,7 @@ Most Web3APIs require plugins before they can be used.
 
 ## **Implementing plugins**
 
-:::note
+:::tip
 
 The example code below uses the MetaMask global API injected at `window.ethereum`. This isn't needed if your dApp doesn't use Ethereum.
 
