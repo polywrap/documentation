@@ -16,7 +16,10 @@
   --ifm-color-primary-lightest: rgb(122, 228, 252);
   --ifm-code-font-size: 95%;
   --ifm-navbar-sidebar-width: 250px;
-  --ifm-heading-color: #65b898;
+}
+
+html[data-theme='dark'] h1 {
+  color: '#519BAB';
 }
 
 .docusaurus-highlight-code-line {
