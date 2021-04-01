@@ -7,7 +7,7 @@ In this guide, we'll walk you through how you can create your own Web3API using 
 
 ## **Prerequisites**
 
-You'll need knowledge using [AssemblyScript](https://www.assemblyscript.org/). AssemblyScript has similiar syntax to [TypeScript](https://www.typescriptlang.org/) and compiles to [WebAssembly](https://webassembly.org/).
+You'll be using [AssemblyScript](https://www.assemblyscript.org/) (don't worry, its syntax is similar to TypeScript's). AssemblyScript compiles to [WebAssembly](https://webassembly.org/).
 
 :::tip
 In the future, you'll have the options to use other languages that compile to WebAssembly, such as Rust or Go.
@@ -23,7 +23,7 @@ You'll need the following installed before building your Web3API:
 
 ## **Getting started**
 
-You can begin create the project folder by using the following command.
+Let's begin creating the project folder by using the following command.
 
 ```
 npx w3 create api assemblyscript <project-name>
@@ -54,7 +54,7 @@ The `web3api.yaml` is a manifest file containing metadata for the group of relev
 
 The `src/` folder is where you would write your schemas for GraphQL queries and mutations (in GraphQL, a "mutation" is a write operation).
 
-⭐ The `index.ts` file within the `mutation/` and `query/` is where you would write your AssemblyScript-based Web3APIs.
+⭐ The `index.ts` file within `mutation/` and `query/` is where you would write your AssemblyScript-based Web3APIs.
 
 ### **`recipes/`**
 
@@ -114,7 +114,6 @@ npx w3 query ./recipes/e2e.json --test-ens
 
 This query initiates the recipe `e2e.json`, which deploys the smart contract and then sets and gets values.
 
-
 ### **The `build/` directory**
 
 `mutation.wasm`  
@@ -146,7 +145,7 @@ It's time to build your own Web3API! We'll start with the mutation schema and im
    - Notice that the only mutation schema here is for the `set()` function. We'll need to add ones for `setHash()` as well.
 
    ```js
-   #import { Mutation } into Ipfs from "w3://ens/ethereum.web3api.eth"
+   #import { Mutation } into Ethereum from "w3://ens/ethereum.web3api.eth"
    #import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
     type Mutation {
@@ -245,18 +244,14 @@ export function deployContract(): string {
 Let's break down this AssemblyScript Web3API implementation, starting with our module imports:
 
 ```js
-import {
-  Ethereum_Mutation,
-  Ipfs_Mutation
-} from '.w3/imported/
+import { Ethereum_Mutation, Ipfs_Mutation } from '.w3/imported';
 
 import {
-    Input_setData,
-    SetDataResult,
-    Input_setIpfsData,
-    SetIpfsDataResult
- } from "./w3";
-
+  Input_setData,
+  SetDataResult,
+  Input_setIpfsData,
+  SetIpfsDataResult,
+} from './w3';
 ```
 
 The first import brings in the `Ethereum_Mutation` and `Ipfs_Mutation` modules, which lets your Web3API interact with the Ethereum network and IPFS, respectively. These are both available to you already, so you don't have to write the implementation for them.
@@ -266,19 +261,18 @@ The second import brings in the `SetDataResult` and `SetIpfsDataResult` function
 The next block of code is for the `setData` implementation:
 
 ```js
- export function setData(input: Input_setData): SetDataResult {
+export function setData(input: Input_setData): SetDataResult {
   const hash = Ethereum_Mutation.sendTransaction({
     address: input.options.address,
-    method: "function set(uint256 value)",
-    args: [input.options.value.toString()]
+    method: 'function set(uint256 value)',
+    args: [input.options.value.toString()],
   });
 
   return {
     txReceipt: hash,
-    value: input.options.value
+    value: input.options.value,
   };
 }
-
 ```
 
 This is AssemblyScript code. It looks very similar to TypeScript!
@@ -305,7 +299,7 @@ export function deployContract(): string {
 2. Update the `query/schema.graphql` file.
 
 ```js
-   #import { Query } into Ipfs from "w3://ens/ethereum.web3api.eth"
+   #import { Query } into Ethereum from "w3://ens/ethereum.web3api.eth"
    #import { Query } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
     type Query {
@@ -339,23 +333,20 @@ export function deployContract(): string {
 3. Update the `query/index.ts` file (the AssemblyScript implementation)
 
 ```js
-import {
-    Ethereum_Query,
-    Ipfs_Query
- } from "./w3/imported";
+import { Ethereum_Query, Ipfs_Query } from './w3/imported';
 
 import {
-    Input_getData,
-    GetDataResult,
-    Input_getIpfsData,
-    GetIpfsDataResult
- } from "./w3";
+  Input_getData,
+  GetDataResult,
+  Input_getIpfsData,
+  GetIpfsDataResult,
+} from './w3';
 
- export function getData(input: Input_getData): GetDataResult {
+export function getData(input: Input_getData): GetDataResult {
   const res = Ethereum_Query.callView({
     address: input.address,
-    method: "function get() view returns (uint256)",
-    args: []
+    method: 'function get() view returns (uint256)',
+    args: [],
   });
 
   return U32.parseInt(res);
@@ -364,14 +355,12 @@ import {
 export function getIpfsData(input: Input_getIpfsData): GetIpfsDataResult {
   return {
     ipfsHash,
-    txReceipt
+    txReceipt,
   };
 }
-
 ```
 
 Congrats! You've implemented a Web3API.
-
 
 ### **Build and Deploy your Web3API**
 

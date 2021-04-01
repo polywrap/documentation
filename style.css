@@ -4,10 +4,14 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: rgb(96, 192, 147);
+  /* --ifm-color-primary: rgb(96, 192, 147); */
+  --ifm-color-primary: #529dad;
+  --ifm-link-color: #529dad;
+  --ifm-blockquote-color: #d8d8d8;
   --ifm-color-primary-dark: rgb(59, 81, 94);
   --ifm-color-primary-darker: rgb(40, 56, 65);
   --ifm-color-primary-darkest: rgb(28, 39, 45);
@@ -16,10 +20,9 @@
   --ifm-color-primary-lightest: rgb(122, 228, 252);
   --ifm-code-font-size: 95%;
   --ifm-navbar-sidebar-width: 250px;
-}
-
-html[data-theme='dark'] h1 {
-  color: '#519BAB';
+  --ifm-font-family-base: 'Montserrat', sans-serif;
+  --ifm-background-color: rgb(28, 39, 45);
+  --ifm-navbar-background-color: rgb(28, 39, 45);
 }
 
 .docusaurus-highlight-code-line {
