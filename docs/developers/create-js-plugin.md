@@ -3,17 +3,6 @@ id: create-js-plugin
 title: Create a JavaScript Plugin
 ---
 
-- JS Plugin
-- - Description: ...
-- - Steps:
-- - - Setup (w3 create)
-- - - Define schema
-- - - Import & List Web3API imports
-- - - Implement schema's functions
-- - - - Wrap an existing SDK
-- - - Build Plugin Package
-- - - Test With Web3ApiClient
-
 In this guide, we'll walk you through a JavaScript plugin that you can build into your Web3API.
 
 :::caution
