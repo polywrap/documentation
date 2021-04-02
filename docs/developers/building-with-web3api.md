@@ -3,27 +3,32 @@ id: building-with-web3api
 title: 'Start Here!'
 ---
 
-## What is Web3API?
+## **What's Web3API?**
 
-[Web3API](https://web3api.dev) aims to bring the ease of [Web2 to Web3](https://ethereum.org/nl/developers/docs/web2-vs-web3/). It makes integrating Web3 protocols into applications seamless, without sacrificing decentralization.
+[Web3API](https://web3api.dev) is a developer toolchain. It aims to bring the ease of [Web2 to Web3](https://ethereum.org/nl/developers/docs/web2-vs-web3/). It makes integrating Web3 protocols into applications seamless, without sacrificing decentralization.
 
-## Start Building
+## **Start Building**
 
-- [Build a New Web3API](/developers/create-as-web3api)
+We've put together three developer guides, depending on what your goals are:
+
+- [Create a Web3API](/developers/create-as-web3api)
 - [Integrate Web3APIs into JavaScript dApps](/developers/create-js-dapp)
-- ["Plugin" an Existing JavaScript SDK](/developers/create-js-plugin)
-  - Plugins do not retain [all of Web3API's benefits](#benefits).
-  - We recommend [re-writing your existing SDKs as WASM based Web3APIs](/developers/create-as-web3api).
+- ["Plugin" an existing JavaScript SDK](/developers/create-js-plugin)
 
-## Why?
+> **Note:**
+>
+> - Plugins do not retain [all of Web3API's benefits](#benefits).
+> - We recommend [re-writing your existing SDKs as WASM based Web3APIs](/developers/create-as-web3api).
 
-Currently, Web3 dApps are "heavy", executing a lot of business logic on behalf of protocols. In Web2 this same problem doesn't exist, since business logic can be executed on behalf of users on central servers.
+## **Why?**
 
-A byproduct of this that's easy to see are language specific SDKs for Web3 protocols. For example, IPFS has SDKs in many different languages (JavaScript, Python, Rust, Go, etc). A major downside to SDKs is that they all have to be maintained into the future.
+Currently, Web3 dApps are "heavy", executing a lot of business logic on behalf of protocols. In Web2, this same problem doesn't exist, since business logic can be executed on behalf of users on central servers.
+
+A byproduct of this are language specific SDKs for Web3 protocols. For example, IPFS has SDKs in many different languages (JavaScript, Python, Rust, Go, etc). A major downside to SDKs is that they all have to be maintained into the future.
 
 Our goal is to get Web3 protocols developers to move away from language specific SDKs, and develop Web3APIs in their place.
 
-## Benefits
+## **Benefits**
 
 Using Web3APIs provides the following benefits:
 
@@ -34,7 +39,7 @@ Using Web3APIs provides the following benefits:
 - **Limitless Composability** - Since Web3APIs are not bundled, there are no limits to composability.
 - **Extendable Protocols** - Web3APIs can query each other and define standard interfaces, enabling fully extendable protocols.
 
-## How It Works
+## **How it works**
 
 > For the visual learners, here is a [video](http://video.web3api.eth.link/).
 

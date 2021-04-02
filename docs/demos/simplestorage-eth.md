@@ -7,6 +7,8 @@ title: A SimpleStorage dApp
 
 We believe in learning by doing so we've put together a simple tutorial that should only take a few minutes of your time.
 
+Get an understanding of how Web3API can integrate with a decentralized application (dApp).
+
 ## **Prerequisites**
 
 > _If you're an experienced Web3 dev, chances are you've already done this and can skip to the [website demo](#website-demo)._

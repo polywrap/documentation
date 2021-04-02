@@ -30,7 +30,7 @@ If you're a developer interested in building with Web3API, we recommend starting
 
 It introduces you to Web3API through a technical lens, explaining how it works at a high level, and the many benefits it brings. From there you'll be directed to one of our development guides, where you'll build something that fits your use-case (dApp, Web3API, Plugin).
 
-If you'd like to see Web3API in action, check out our [SimpleStorage on Ethereum demo](/demos/simplestorage-eth).
+If you'd like to see Web3API in action, check out our [SimpleStorage demo](/demos/simplestorage-eth).
 
 ### **For: Technical Specification Information**
 
