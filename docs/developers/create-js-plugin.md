@@ -1,6 +1,6 @@
 ---
 id: create-js-plugin
-title: Create a JavaScript Plugin
+title: `"Plugin" an Existing JavaScript SDK` 
 ---
 
 In this guide, we'll walk you through a JavaScript plugin that you can build into your Web3API.

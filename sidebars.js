@@ -9,18 +9,15 @@ module.exports = {
       label: 'Developers',
       items: [
         'developers/building-with-web3api',
+        'developers/create-as-web3api',
         'developers/create-js-dapp',
         'developers/create-js-plugin',
-        'developers/create-as-web3api',
-        'developers/developer-dump',
       ],
     },
     {
       type: 'category',
       label: 'Demos',
-      items: [
-        'demos/simplestorage-eth',
-      ],
+      items: ['demos/simplestorage-eth'],
     },
     {
       type: 'category',
@@ -29,8 +26,8 @@ module.exports = {
         'resources/guides-and-tutorials',
         'resources/talks-and-videos',
         'resources/developer-tooling',
-        'resources/the-web3api-technical-standard'
-      ]
+        'resources/the-web3api-technical-standard',
+      ],
     },
   ],
 };
