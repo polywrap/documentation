@@ -3,9 +3,11 @@ id: simplestorage-eth
 title: SimpleStorage on Ethereum
 ---
 
+## **Introduction**
+
 We believe in learning by doing so we've put together a simple tutorial that should only take a few minutes of your time.
 
-### **Prerequisites**
+## **Prerequisites**
 
 > _If you're an experienced Web3 dev, chances are you've already done this and can skip to the [website demo](#website-demo)._
 
@@ -21,16 +23,20 @@ We believe in learning by doing so we've put together a simple tutorial that sho
 
 And that's it 🎉! You're ready to use the Web3API SimpleStorage website demo.
 
-### **dApp Overview**
+## **dApp Overview**
 
-🏁 To begin, visit our SimpleStorage dApp that's deployed [here](https://demo.simplestorage.web3api.dev). Be sure to set your MetaMask's network to Rinkeby.<br/>
+🏁 To begin, visit our SimpleStorage dApp that's deployed n the link below. Be sure to set your MetaMask's network to Rinkeby.<br/>
 
-**Here's an overview of our demo:**<br/>
+## [**SimpleStorage Demo Website**](https://demo.simplestorage.web3api.dev).
+
+<br/>
+
+## **Here's an overview of our demo:**<br/>
 
 <img
-  src={require('../assets/demo_01.png').default}
-  alt="Demo Screenshot"
-  width="650"
+src={require('../assets/demo_01.png').default}
+alt="Demo Screenshot"
+width="650"
 />
 
 1. ENS Domain: `api.simplestorage.eth`
@@ -46,15 +52,17 @@ And that's it 🎉! You're ready to use the Web3API SimpleStorage website demo.
    - [GraphQL](https://graphql.org/) is a query language for APIs. Using GraphQL is one of the reasons that Web3API is so easy to use, as GraphQL is very popular amongst existing Web2 developers.
 
 ### **Deploy The SimpleStorage Contract**
+
 By clicking the deploy button, you'll be prompted by MetaMask to send a transaction using your test ether.
 
 After a few moments, an Ethereum address will appear to let you know that the `SimpleStorage.sol` smart contract has been deployed.
 
 ### **Set Storage Values**
+
 Now that your smart contract has been deployed and your application has downloaded the Web3API, your app has access to a new query to set the storage value on the smart contract.
 
 Press the up or down arrow on the value input and then click the "Set Value" button to send a GraphQL "mutation" which modifies the storage value.
 
-### **Demo conclusion**
+### **Conclusion**
 
 We hope this demo gave you an idea of the simplicity that Web3API introduces to your dev team. By hosting the Web3API package on IPFS, we're able to reduce the size of your dApp, improve security, and enable Web3 queries using GraphQL. If you have any comments or feedback on what you saw, feel free to message our team on Discord.
