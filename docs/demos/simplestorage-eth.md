@@ -1,6 +1,6 @@
 ---
 id: simplestorage-eth
-title: SimpleStorage on Ethereum
+title: A SimpleStorage dApp
 ---
 
 ## **Introduction**
@@ -27,11 +27,9 @@ And that's it 🎉! You're ready to use the Web3API SimpleStorage website demo.
 
 🏁 To begin, visit our SimpleStorage dApp that's deployed n the link below. Be sure to set your MetaMask's network to Rinkeby.<br/>
 
-## [**SimpleStorage Demo Website**](https://demo.simplestorage.web3api.dev).
+👉 [**SimpleStorage Demo Website**](https://demo.simplestorage.web3api.dev)
 
-<br/>
-
-## **Here's an overview of our demo:**<br/>
+## **Here's an overview of our demo:**
 
 <img
 src={require('../assets/demo_01.png').default}
