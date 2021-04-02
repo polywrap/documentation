@@ -1,6 +1,6 @@
 ---
 id: create-js-dapp
-title: Integrating Web3API into dApp
+title: Integrate Web3API into dApps
 ---
 
 In this guide, we'll show you how you can integrate Web3API into your JavaScript dApp.
