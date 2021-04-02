@@ -1,6 +1,6 @@
 ---
 id: create-js-dapp
-title: Create a JavaScript dApp
+title: Integrating Web3API into dApp
 ---
 
 In this guide, we'll show you how you can integrate Web3API into your JavaScript dApp.
@@ -20,15 +20,15 @@ npm install --save-dev @web3api/client-js
 You can create a Web3ApiClient simply by instantiating it.
 
 ```js
-import { Web3ApiClient } from "@web3api/client-js";
+import { Web3ApiClient } from '@web3api/client-js';
 
-const client = new Web3ApiClient()
+const client = new Web3ApiClient();
 ```
 
 At this point, you can already send queries to Web3APIs. In the simple example below, we send one to a "hello world" Web3API.
 
 ```js
-client.query({ uri: 'api.helloworld.web3api.eth', query: '{ sayHello }' })
+client.query({ uri: 'api.helloworld.web3api.eth', query: '{ sayHello }' });
 ```
 
 Most Web3APIs require plugins before they can be used.
@@ -89,11 +89,11 @@ The redirects can not only be used for forwarding Web3API requests to plugins, b
 const client = new Web3ApiClient({
   redirects: [
     {
-      from: "ens/ipfs.web3api.eth",
-      to: "ens/custom-ipfs.eth"
-    }
-  ]
-})
+      from: 'ens/ipfs.web3api.eth',
+      to: 'ens/custom-ipfs.eth',
+    },
+  ],
+});
 ```
 
 > Note: the customer-ipfs.eth Web3API must fully implement the ipfs.web3api.eth schema.
@@ -113,15 +113,15 @@ The `Web3ApiProvider` component makes redirects available to any nested componen
 To use the provider, simply wrap it around the rendered `<App />` component.
 
 ```jsx
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { Web3ApiProvider } from '@web3api/react';
 
 ReactDOM.render(
   <Web3ApiProvider>
     <Test />
   </Web3ApiProvider>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 ```
 
@@ -140,9 +140,8 @@ ReactDOM.render(
 > const OtherWeb3ApiProvider = createWeb3ApiProvider('other');
 >
 > <OtherWeb3ApiProvider>
->   <App/>
-> </OtherWeb3ApiProvider>
->
+>   <App />
+> </OtherWeb3ApiProvider>;
 > ```
 
 ### **`useWeb3ApiQuery()`**
@@ -154,8 +153,8 @@ Here's what our "hello world" query from above would look like if we used this m
 ```js
 const { data, error, loading } = useWeb3ApiQuery({
   uri: 'ens/helloworld.web3api.eth',
-  query: '{ sayHello }'
-})
+  query: '{ sayHello }',
+});
 ```
 
 > **Note**:
@@ -164,8 +163,8 @@ const { data, error, loading } = useWeb3ApiQuery({
 >
 > ```js
 > const { data, error, loading } = useWeb3ApiQuery({
->  provider: 'other',
->  uri: 'ens/helloworld.web3api.eth',
->  query: '{ sayHello }'
+>   provider: 'other',
+>   uri: 'ens/helloworld.web3api.eth',
+>   query: '{ sayHello }',
 > });
 > ```
