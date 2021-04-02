@@ -1,15 +1,15 @@
 ---
 id: developer-tooling
-title: Web3API Developer Tooling
+title: Developer Tools
 ---
 
 ## **Introduction**
 
-We offer an extensive set of development tools to build Web3APIs. If the platform or language you need to use isn't listed here, send us a note on [Discord](https://discord.com/invite/Z5m88a5qWu)!
+We offer an extensive set of developer tools to build Web3APIs. If the platform or language you need to use isn't listed here, send us a note on [Discord](https://discord.com/invite/Z5m88a5qWu)!
 
-## **Development Tools**
+## **Developer Tools**
 
-| Development Tool                                                                 | Description                        |
+| Developer Tool                                                                   | Description                        |
 | -------------------------------------------------------------------------------- | ---------------------------------- |
 | [@web3api/cli](https://www.npmjs.com/package/@web3api/cli)                       | Command line interface             |
 | [@web3api/client-js](https://www.npmjs.com/package/@web3api/client-js)           | JavaScript client                  |
