@@ -9,24 +9,29 @@ title: 'Start Here!'
 
 ## **Start Building**
 
-We've put together three developer guides, depending on what your goals are:
+To get started, take a look at our _Create a Web3API_ guide. It'll walk you through our template project and show you Web3API's core features at the same time:
 
 - [Create a Web3API](/developers/create-as-web3api)
+
+After you finish that guide, here are two other detailed guides depending on what you want to build:
+
 - [Integrate Web3APIs into JavaScript dApps](/developers/create-js-dapp)
 - ["Plugin" an existing JavaScript SDK](/developers/create-js-plugin)
 
-> **Note:**
->
-> - Plugins do not retain [all of Web3API's benefits](#benefits).
-> - We recommend [re-writing your existing SDKs as WASM based Web3APIs](/developers/create-as-web3api).
+:::note
 
-## **Why?**
+- Plugins don't retain [all of Web3API's benefits](#benefits).
+- We recommend [re-writing your existing SDKs as WASM based Web3APIs](/developers/create-as-web3api).
 
-Currently, Web3 dApps are "heavy", executing a lot of business logic on behalf of protocols. In Web2, this same problem doesn't exist, since business logic can be executed on behalf of users on central servers.
+:::
 
-A byproduct of this are language specific SDKs for Web3 protocols. For example, IPFS has SDKs in many different languages (JavaScript, Python, Rust, Go, etc). A major downside to SDKs is that they all have to be maintained into the future.
+## **Why Web3API?**
 
-Our goal is to get Web3 protocols developers to move away from language specific SDKs, and develop Web3APIs in their place.
+Web3 dApps are "heavy", executing a lot of business logic on behalf of protocols. In Web2, this same problem doesn't exist, since business logic can be executed on behalf of users on central servers.
+
+One solution to this Web3 problem are language specific SDKs for Web3 protocols. For example, IPFS has SDKs in many different languages (JavaScript, Python, Rust, Go, etc). However, a major downside to SDKs is that they all have to be maintained into the future.
+
+Our goal is to get Web3 protocols developers to move away from language specific SDKs and develop Web3APIs in their place.
 
 ## **Benefits**
 
