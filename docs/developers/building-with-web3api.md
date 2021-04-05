@@ -11,7 +11,7 @@ title: 'Start Here!'
 
 To get started, take a look at our _Create a Web3API_ guide. It'll walk you through our template project and show you Web3API's core features at the same time:
 
-- [Create a Web3API](/developers/create-as-web3api)
+👉 [Create a Web3API](/developers/create-as-web3api)
 
 After you finish that guide, here are two other detailed guides depending on what you want to build:
 
@@ -20,8 +20,8 @@ After you finish that guide, here are two other detailed guides depending on wha
 
 :::note
 
-- Plugins don't retain [all of Web3API's benefits](#benefits).
-- We recommend [re-writing your existing SDKs as WASM based Web3APIs](/developers/create-as-web3api).
+- Plugins don't retain **[all of Web3API's benefits](#benefits)**.
+- We recommend **[re-writing your existing SDKs as WASM based Web3APIs](/developers/create-as-web3api)**.
 
 :::
 
