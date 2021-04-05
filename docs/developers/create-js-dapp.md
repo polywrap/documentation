@@ -3,7 +3,18 @@ id: create-js-dapp
 title: Integrate Web3API into dApps
 ---
 
-In this guide, we'll show you how you can integrate Web3API into your JavaScript dApp.
+## **Introduction**
+
+If you're a React developer who integrate Web3APIs into your dApp, this guide is perfect for you.
+
+By the end of this document, you'll gain the following skills:
+
+- How to instantiate the Web3API client in your dApp
+- Sending queries with the Web3PAI client
+- Implementing plugins
+- Our React-specific module including providers and a simpler query method
+
+If you get stuck during this guide, send us a message on our [Discord](https://discord.com/invite/Z5m88a5qWu)!
 
 ## **Prerequisites**
 

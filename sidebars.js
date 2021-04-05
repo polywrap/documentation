@@ -23,8 +23,8 @@ module.exports = {
       type: 'category',
       label: 'Resources',
       items: [
-        'resources/guides-and-tutorials',
-        'resources/talks-and-videos',
+        // 'resources/guides-and-tutorials',
+        'resources/media',
         'resources/developer-tooling',
         'resources/the-web3api-technical-standard',
       ],

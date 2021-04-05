@@ -5,4 +5,6 @@ title: The Web3API Technical Standard
 
 ---
 
-The Web3API Technical Specification is currently under development [here](https://github.com/Web3-API/specification).
+## **Introduction**
+
+Our Web3API technical specs are currently under development. You can take a look in our Github repo [here](https://github.com/Web3-API/specification)!

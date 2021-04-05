@@ -20,6 +20,7 @@
   --ifm-code-font-size: 95%;
   --ifm-navbar-sidebar-width: 250px;
   --ifm-font-family-base: 'Montserrat', sans-serif;
+  --ifm-alert-color: black;
 }
 
 html[data-theme='dark'] {
