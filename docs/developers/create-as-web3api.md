@@ -30,25 +30,21 @@ You'll need the following installed before building your Web3API:
 - `docker`
 - `docker-compose`
 
-## **Getting started**
+## **Installation**
 
 Let's begin creating the project folder by using the following commands.
 
-Install the Web3API CLI globally using:
+Web3API is used through a local installation in your project. This way, your environment will be reproducible, and you will avoid future version conflicts.
+
+To install it, you need to create an npm project by going to an empty folder, running `npm init`, and following its instructions. once your project is ready, you should run:
 
 ```
-npm install -g @web3api/cli
+npm install --save-dev @web3api/cli
 ```
 
-Then, you'll be able to use the `w3` command.
+To use your local installation of Web3API, you need to use `npx` to run it (i.e. `npx w3`).
 
-:::caution
-
-If `@web3api/cli` is installed using `package.json`, then you can run `npx w3` from within the `package.json`'s directory. Otherwise, you must use `npx @web3api/cli`.
-
-For the rest of the documentation, we'll use `w3` and assume the CLI is installed globally.
-
-:::
+## **Create your project**
 
 Create the project folder with the following command:
 
@@ -93,7 +89,7 @@ In addition, it contains the `e2e.json` file, which we'll pass into our `w3 quer
 
 This deploy contract script will run as part of the query recipe to deploy the `SimpleStorage.sol` smart contract.
 
-## **Trying out the Sample Web3API**
+## **Trying out the template Web3API**
 
 This command gives you a sample project upon which you could build your Web3API. To check out a Web3API that interacts with our sample "SimpleStorage" smart contract, run the following commands in the project folder:
 
@@ -119,7 +115,8 @@ npx w3 test-env up
 Build and deploy the "SimpleStorage Contract":
 
 ```
-node ./deploy-contracts.js
+node ./scripts/deploy-contracts.js
+node ./scripts/build-contract.js
 ```
 
 Build and deploy the **Web3API**:
@@ -131,13 +128,13 @@ npx w3 build \
 --test-ens simplestorage.eth
 ```
 
-We've provided a `w3 query` command that you can use to test out query recipes.
+Use the `w3 query` command to test query recipes:
 
 ```
 npx w3 query ./recipes/e2e.json --test-ens
 ```
 
-This query initiates the recipe `e2e.json`, which deploys the smart contract and then sets and gets values.
+This query executes the recipe `e2e.json`, which then executes the set and get GraphQL services.
 
 ### **The `build/` directory**
 
@@ -172,21 +169,14 @@ It's time to build your own Web3API! We'll start with the mutation schema and im
    #import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
     type Mutation {
-    setData(
-      options: SetDataOptions!
-    ): SetDataResult!
-
-    setIpfsData(
-        options: SetIpfsDataOptions!
-    ): SetIpfsDataResult!
-
-    deployContract: String!
+      setData(options: SetDataOptions!): SetDataResult!
+      setIpfsData(options: SetIpfsDataOptions!): SetIpfsDataResult!
+      deployContract: String!
     }
 
-    // Corresponding GraphQL types.
     type SetIpfsDataOptions {
       address: String!
-      data: String!
+      data: Bytes!
     }
 
     type SetIpfsDataResult {
@@ -205,18 +195,11 @@ It's time to build your own Web3API! We'll start with the mutation schema and im
     }
    ```
 
-:::tip
+3. Update the `mutation/index.ts` file (the AssemblyScript implementation)
 
-If you're not too familiar with GraphQL's type system, check out their docs [here](https://graphql.org/learn/schema/#type-system).
-
-:::
-
-3.  Update the `mutation/index.ts` file (the AssemblyScript implementation)
-
-    - This file contains the function for our GraphQL mutation type service. For now, we only have two mutation functions, `setData` and `deployContract`. Let's implement a `setIpfsData` function as well.
+   - This file contains the function for our GraphQL mutation type service. For now, we only have two mutation functions, `setData` and `deployContract`. Let's implement a `setIpfsData` function as well.
 
 ```js
-// Import statements
 import { Ethereum_Mutation, Ipfs_Mutation } from './w3/imported';
 
 import {
@@ -227,7 +210,7 @@ import {
 } from './w3';
 ```
 
-Here, we're importing the `Ethereum_Mutation` and `Ipfs_Mutation` modules, which lets your Web3API interact with the Ethereum network and IPFS, respectively. These are both available to you already, so you don't have to write the implementation for them.
+Here, we're importing the `Ethereum_Mutation` and `Ipfs_Mutation` modules, which lets your Web3API interact with the Ethereum network and IPFS, respectively.
 
 Then, we import the `SetDataResult` and `SetIpfsDataResult` functions along with their respective type classes.
 
@@ -277,48 +260,25 @@ Finally, we can declare a function to deploy the contract!
 
 ```js
 export function deployContract(): string {
-return Ethereum_Mutation.deployContract(...);
-// needs to updated with the new ABI
+  return Ethereum_Mutation.deployContract({
+    abi,
+    bytecode,
+  });
 }
 ```
 
 ### **Query schema and implementation**
 
-1. Back to the `SimpleStorage.sol` file. In the previous section, we completed the schema and implementation for the `mutation` functions, `set()` and `setHash()`. In this next section, we'll be doing the same for `get()` and `getHash()`.
-
-2. Update the `query/schema.graphql` file.
+1. Update the `query/schema.graphql` file.
 
 ```js
    #import { Query } into Ethereum from "w3://ens/ethereum.web3api.eth"
    #import { Query } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
-    type Query {
-    getData(
-        options: GetDataOptions!
-    ): GetDataResult!
-
-    getIpfsData(
-        options: GetIpfsDataOptions!
-    ): GetIpfsDataResult!
-    }
-
-    // Corresponding service types.
-    type GetIpfsDataOptions {
-      address: String!
-    }
-
-    type GetIpfsDataResult {
-      ipfsHash: String!
-      txReceipt: String!
-    }
-
-    type GetDataOptions {
-      address: String!
-    }
-
-    type GetDataResult {
-      txReceipt: String!
-    }
+type Query {
+  getData(address: String!): UInt32!
+  getIpfsData(address: String!): Bytes!
+}
 ```
 
 3. Update the `query/index.ts` file (the AssemblyScript implementation)
@@ -333,27 +293,49 @@ import {
   GetIpfsDataResult,
 } from './w3';
 
-export function getData(input: Input_getData): GetDataResult {
+export function getData(input: Input_getData): u32 {
   const res = Ethereum_Query.callView({
     address: input.address,
     method: 'function get() view returns (uint256)',
     args: [],
   });
-
   return U32.parseInt(res);
 }
 
-export function getIpfsData(input: Input_getIpfsData): GetIpfsDataResult {
-  return {
-    ipfsHash,
-    txReceipt,
-  };
+export function getIpfsData(input: Input_getIpfsData): ArrayBuffer {
+  const hash = Ethereum_Query.callView({
+    address: input.address,
+    method: 'function getHash() view returns (bytes)',
+    args: [],
+  });
+
+  return Ipfs_Query.catFile({ cid: hash });
 }
 ```
 
-## 🎉 **Congrats! You've implemented a Web3API!**
+## **Updating the GraphQL service recipes**
 
-<br/>
+In the folder, `recipes/`, you'll see two files for GraphQL services: `get.graphql` and `set.graphql`. These files relate to the `getData` and `setData` functions, respectively. We now need to add in two more files for `getIpfsData` and `setIpfsData` functions.
+
+1. Create a file called `getIpfs.graphql` and add the following code:
+
+```js
+query GetIpfsData($address: String!) {
+  getIpfsData(address: $address)
+}
+```
+
+2. Then, create a file called `setIpfs.graphql` and add the following:
+
+```js
+query SetIpfsData($address: String!, $value: Int!) {
+  setIpfsData(address: $address, value: $value)
+}
+```
+
+🎉 **Congratulations! You've created a Web3API!**
+
+From here, you can follow the next sections to build and deploy your Web3API as well as some testing basics.
 
 ### **Build and Deploy your Web3API**
 
@@ -367,10 +349,10 @@ To deploy your build, you can add arguments to your command. Here's how you woul
 
 ```
 npx w3 build \
---ipfs <ipfs address>
+--ipfs <ipfs-address>
 
 ```
 
 ### **Conclusion**
 
-And that's it! Congrats on building a Web3API and deploying it. For now, you can test your Web3API by customizing the `e2e.json` file and then running the `npx w3 query ./receipes/e2e.json --test-ens` command. In the future, we'll have a more robust testing suite for your Web3API development needs.
+Congrats on building a Web3API and deploying it! For now, you can test your Web3API by customizing the `e2e.json` file and then running the `npx w3 query ./receipes/e2e.json --test-ens` command. In the future, we'll have a more robust testing suite for your Web3API development needs.
