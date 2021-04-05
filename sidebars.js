@@ -24,7 +24,7 @@ module.exports = {
       label: 'Resources',
       items: [
         // 'resources/guides-and-tutorials',
-        'resources/media',
+        'resources/talks-and-videos',
         'resources/developer-tooling',
         'resources/the-web3api-technical-standard',
       ],
