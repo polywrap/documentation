@@ -1,6 +1,6 @@
 ---
 id: create-as-web3api
-title: Create a Web3API
+title: Creating a Web3API
 ---
 
 ## **Introduction**
