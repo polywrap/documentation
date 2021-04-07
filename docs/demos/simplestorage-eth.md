@@ -7,11 +7,11 @@ title: A SimpleStorage dApp
 
 We believe in learning by doing so we've put together a simple tutorial that should only take a few minutes of your time.
 
-Get an understanding of how Web3API can integrate with a decentralized application (dApp).
+Get an firsthand look at how Web3API integrates with a decentralized application (dApp).
 
 ## **Prerequisites**
 
-> _If you're an experienced Web3 dev, chances are you've already done this and can skip to the [website demo](#website-demo)._
+> _If you're an experienced Web3 dev, chances are you've already done this and can skip to the [dApp Overview](#dapp-overview)._
 
 1. Install the MetaMask Chrome extension [here](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn) and set up your wallet.<br/>
 
@@ -27,7 +27,7 @@ And that's it 🎉! You're ready to use the Web3API SimpleStorage website demo.
 
 ## **dApp Overview**
 
-🏁 To begin, visit our SimpleStorage dApp that's deployed n the link below. Be sure to set your MetaMask's network to Rinkeby.<br/>
+🏁 To begin, visit our SimpleStorage dApp that's deployed at the link below. Be sure to set your MetaMask's network to Rinkeby.<br/>
 
 👉 [**SimpleStorage Demo Website**](https://demo.simplestorage.web3api.dev)
 
@@ -46,7 +46,7 @@ width="650"
    - This is where the SimpleStorage Web3API is stored. Feel free to click the "IPFS" link to see the package's contents. It should show the following files: `web3api.yaml`, `schema.graphql`, `query.wasm`, and `mutation.wasm`.
    - We'll cover these files in detail in the [_For: Developers_](/#for-developers) section. These files are the core of Web3API -- enabling dApps that can use any blockchain, from _any_ programming language.
 3. Deploy `SimpleStorage.sol`
-   - Clicking this button will cause the Web3API client to fetch the Web3API package. It will first sending a request to the ENS domain which resolves to the IPFS content identifier. At that point, our dApp will download the Web3API from IPFS. At this point we're ready to execute some API logic.
+   - Clicking this button will cause the Web3API client to fetch the Web3API package. It will first send a request to the ENS domain which resolves to the IPFS content identifier. At that point, our dApp will download the Web3API from IPFS. Now we're ready to execute some API logic inside of our dApp.
 4. GraphQL query
    - We've added a codeblock to help you see the GraphQL query that will be fired off when you click the deploy button.
    - [GraphQL](https://graphql.org/) is a query language for APIs. Using GraphQL is one of the reasons that Web3API is so easy to use, as GraphQL is very popular amongst existing Web2 developers.

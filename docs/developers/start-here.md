@@ -1,5 +1,5 @@
 ---
-id: building-with-web3api
+id: start-here
 title: 'Start Here!'
 ---
 
@@ -29,7 +29,9 @@ After you finish that guide, here are two other detailed guides depending on wha
 
 Web3 dApps are "heavy", executing a lot of business logic on behalf of protocols. In Web2, this same problem doesn't exist, since business logic can be executed on behalf of users on central servers.
 
-One solution to this Web3 problem are language specific SDKs for Web3 protocols. For example, IPFS has SDKs in many different languages (JavaScript, Python, Rust, Go, etc). However, a major downside to SDKs is that they all have to be maintained into the future.
+One solution to this Web3 problem are language specific SDKs for Web3 protocols. For example, IPFS has SDKs in many different languages (JavaScript, Python, Rust, Go, etc).
+
+However, **there are many problems with language specific SDKs**. In short, they bloat applications, and create a "maintainability nightmare" due to the duplicate code in multiple languages needing to be maintained and upgraded into the future. For a full list of these shortcomings, see our ["Top 5 Headaches for Web3 Developers" article](https://hackernoon.com/top-5-headaches-for-web3-developers-br1334u4).
 
 Our goal is to get Web3 protocols developers to move away from language specific SDKs and develop Web3APIs in their place.
 
@@ -54,6 +56,6 @@ All logic that was once bundled into JavaScript SDKs (among other languages) is 
 Querying these Web3APIs is done through a familiar [GraphQL](https://graphql.org/) interface resulting in a developer experience almost identical to that of a Web2 web service.
 Instead of sending GraphQL queries to a centralized endpoint, such as `api.service.com`, apps query a decentralized endpoint like `api.protocol.eth`.
 
-The Web3API Client resolves the Web3API package hosted at its decentralized endpoint, downloads it at runtime (if not present), and executes the application's queries on the WASM modules.
+The Web3API Client resolves the Web3API package hosted at its decentralized endpoint, downloads it at runtime, and executes the application's queries on the WASM modules.
 
 See [this Architecture diagram](https://github.com/Web3-API/specification/blob/main/spec/intro/2_Architecture.md) for wholistic look at how this works.

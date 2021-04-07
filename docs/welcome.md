@@ -26,7 +26,7 @@ If you'd like to see Web3API in action, check out our [SimpleStorage on Ethereum
 
 ### **For: Developers**
 
-If you're a developer interested in building with Web3API, we recommend starting with our introductory guide: [Building With Web3API](/developers/building-with-web3api).
+If you're a developer interested in building with Web3API, we recommend [starting here](/developers/start-here).
 
 It introduces you to Web3API through a technical lens, explaining how it works at a high level, and the many benefits it brings. From there you'll be directed to one of our development guides, where you'll build something that fits your use-case (dApp, Web3API, Plugin).
 

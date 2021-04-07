@@ -8,7 +8,7 @@ module.exports = {
       type: 'category',
       label: 'Developers',
       items: [
-        'developers/building-with-web3api',
+        'developers/start-here',
         'developers/create-as-web3api',
         'developers/create-js-dapp',
         'developers/create-js-plugin',

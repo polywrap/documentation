@@ -8,20 +8,13 @@ title: Creating a Web3API
 If you're looking to find out what it takes to build a Web3API, you've come to the right place! By the end of this document, you'll have the following knowledge:
 
 - Starting a new Web3API project with the `w3 create` CLI command
-- Writing the schema for your GraphQL services
+- Writing a GraphQL schema for your Web3API
 - Implementing your Web3API using AssemblyScript
 - Building and deploying it
 
-If at any time in this process you get stuck or have questions, please reach out on [Discord](https://discord.com/invite/Z5m88a5qWu). We just ask the you do this in the `#dao-members` channel so others may learn alongside us 😀.
+If at any time in this process you get stuck or have questions, please don't hesitate to reach out on [Discord](https://discord.com/invite/Z5m88a5qWu).
 
 ## **Prerequisites**
-
-You'll be using [AssemblyScript](https://www.assemblyscript.org/) (don't worry if you haven't used it; its syntax is very similar to TypeScript's). AssemblyScript compiles to [WebAssembly](https://webassembly.org/).
-
-:::tip
-In the future, you'll have the options to use other languages that compile to WebAssembly, such as Rust or Go.
-
-:::
 
 You'll need the following installed before building your Web3API:
 
@@ -30,122 +23,122 @@ You'll need the following installed before building your Web3API:
 - `docker`
 - `docker-compose`
 
-## **Installation**
+You'll be using [AssemblyScript](https://www.assemblyscript.org/) to implement your Web3API's logic. Don't worry if you haven't used it; its syntax is very similar to TypeScript. AssemblyScript compiles to [WebAssembly](https://webassembly.org/).
 
-Let's begin creating the project folder by using the following commands.
-
-Web3API is used through a local installation in your project. This way, your environment will be reproducible, and you will avoid future version conflicts.
-
-To install it, you need to create an npm project by going to an empty folder, running `npm init`, and following its instructions. once your project is ready, you should run:
-
-```
-npm install --save-dev @web3api/cli
-```
-
-To use your local installation of Web3API, you need to use `npx` to run it (i.e. `npx w3`).
+:::tip
+In the future, AssemblyScript will be one of many supported languages that compile to WebAssembly, such as Rust or Go.
+:::
 
 ## **Create your project**
 
-Create the project folder with the following command:
+Let's begin by creating a template project by running following command:
+```
+npx @web3api/cli create api assemblyscript <project-name>
+```
+Where `<project-name>` is replaced with a custom name of your choosing. For example `my-web3api`.
+
+Once complete, you'll see a new folder appear, named after the custom name you've chosen. Please navigate into this new directory (using `cd` for example).
+
+## **Installation**
+
+Let's ensure all of your project's dependencies are installed. From inside your project's directory, simply run:
+- `nvm install && nvm use`  
+- `yarn`  
+
+The Web3API CLI is now installed locally to your project's directory. Going forward we'll use this local installation by running `npx w3`.
+
+We recommend avoiding installing the `@web3api/cli` package globally to avoid future version conflicts, and maximize reproducibility for the other developers you're working with.
+
+## **Overview of project files**
+
+Your project should look something like this:
 
 ```
-npx w3 create api assemblyscript <project-name>
-```
-
-After creation, your project should look like this:
-
-```
-web3api.yaml                  # Manifest file
-src/                          #
-│   │                         #
-│   ├── mutation/             # GraphQL mutation schemas
-│   └── query/                # GraphQL query schemas
+web3api.yaml                  # Manifest File
+src/
+│   ├── query/                # Read Queries
+│   |── mutation/             # Write Queries
+|   └── contracts/            # Smart Contracts
 |
-recipes/                      # GraphQL recipes (will be covered below)
+recipes/                      # Query Recipes (covered below)
 |
-deploy-contract.js            # Deploy sample smart contract
-
+scripts/                      # Smart Contract Build/Deploy
 ```
-
-## **Overview of template project files**
 
 ### **`web3api.yaml`**
 
-The `web3api.yaml` is a manifest file containing metadata for the group of relevant files in this project.
+The `web3api.yaml` is a manifest file describing the layout of a Web3API package.
 
-### **`src/`**
+### **`src/mutation/*` & `src/query/*`**
 
-The `src/` folder is where you would write your schemas for GraphQL queries and mutations (in GraphQL, a "mutation" is a write operation).
+The `src/mutation` & `src/query` folders are where the API's GraphQL schema and AssemblyScript implementation files live.
 
-⭐ The `index.ts` file within `mutation/` and `query/` is where you would write your AssemblyScript-based Web3APIs.
+### **`src/contracts/*`**
 
-### **`recipes/`**
+The `src/contracts` directory contains our protocol's Ethereum based smart contracts.
 
-The recipes folder holds our GraphQL services, `get.graphql` and `set.graphql`.
+### **`recipes/*`**
 
-In addition, it contains the `e2e.json` file, which we'll pass into our `w3 query` command (shown in the next section). This will allow us to deploy our smart contract as well as send sample queries and mutations in our test environment.
+Query recipes provide a simple way to test your Web3API without having to write custom testing logic (with JavaScript and Jest for example).
 
-### **`deploy-contract.js`**
+We'll be using this functionality further down in this guide with the `w3 query` command, allowing us to easily send test queries against our API.
 
-This deploy contract script will run as part of the query recipe to deploy the `SimpleStorage.sol` smart contract.
+### **`scripts/*`**
 
-## **Trying out the template Web3API**
+We've defined some simple build & deployment scripts for our Solidity smart contracts. These are basic utilities, and can be replaced entirely by a [Truffle](https://www.trufflesuite.com/) or [Hardhat](https://hardhat.org/) project.
 
-This command gives you a sample project upon which you could build your Web3API. To check out a Web3API that interacts with our sample "SimpleStorage" smart contract, run the following commands in the project folder:
+## **Build, Deploy, and Test your Web3API**
 
-First, we'll need to install `nvm` and `yarn`:
+The template Web3API project contains an implementation of the `SimpleStorage.sol` smart contract on Ethereum, and adds on-top a basic Web3API that provides easy functions for interacting with the smart contract. In future steps, we'll extend this basic functionality with IPFS, but more on that later.
 
-```
-nvm install && nvm use
-yarn
-```
-
-then build it with:
-
+### **Build**
+Let's start with building our project. Simply run:
 ```
 yarn build
 ```
 
-Set up the test environment:
-
+In the output window, you'll see that our smart contract was compiled, and our Web3API was built and output to the `./build/*` folder. It contains the following files:
 ```
-npx w3 test-env up
-```
-
-Build and deploy the "SimpleStorage Contract":
-
-```
-node ./scripts/deploy-contracts.js
-node ./scripts/build-contract.js
+build/
+    ├── web3api.yaml           # Manifest
+    ├── schema.graphql         # Schema
+    |── query.wasm             # Query Logic
+    └── mutation.wasm          # Mutation Logic
 ```
 
-Build and deploy the **Web3API**:
+This directory's contents will be uploaded to decentralized storage, and enable any Web3API Client to download, query, and execute your Web3API's functionality within the application.
 
+The `mutation.wasm` and `query.wasm` files are the WebAssembly files that are compiled from AssemblyScript.
+
+The `schema.graphql` file contain the APIs schema, consisting of custom types and callable methods (query and mutation).
+
+Lastly, the `web3api.yaml` manifest file describes the layout of the package.
+
+### **Deploy**
+
+To deploy our Web3API and associated smart contracts for testing, let's first setup a test environment. Simply run:
 ```
-npx w3 build \
---ipfs http://localhost:5001 \
---graph simplestorage,http://localhost:8020 \
---test-ens simplestorage.eth
+yarn test:env:up
 ```
 
-Use the `w3 query` command to test query recipes:
+This will stand-up an Ethereum node, as well as an IPFS node.
 
+:::tip
+In the future, test environments will be easily configurable to include any nodes your Web3API requires.
+:::
+
+Next, let's deploy the `SimpleStorage.sol` smart contract, and the `simplestorage.eth` Web3API by running:
 ```
-npx w3 query ./recipes/e2e.json --test-ens
+yarn deploy
 ```
 
-This query executes the recipe `e2e.json`, which then executes the set and get GraphQL services.
+### **Test**
 
-### **The `build/` directory**
+With our Web3API live at `simplestorage.eth` on our test network, it's now time to test it out!
 
-This build directory contains the files that make up your Web3API. The `mutation.wasm` and `query.wasm` files are the WebAssembly files that are compiled from AssemblyScript.
+This is where our query recipes come in handy. Run `yarn test` to see this in action.
 
-`mutation.wasm`  
-`query.wasm`  
-`schema.graphql`  
-`web3api.yaml`
-
-The `schema.graphql` contains all the GraphQL service schemas and the `web3api.yaml` is the Web3API manifest file.
+In the output window, you'll see a combination of input queries, and returned results from the Web3API. In this query recipe, we send a combination of `set.graphql` and `get.graphql` queries which modify the `SimpleStorage.sol` contract's stored value.
 
 ## **Building your own Web3API with AssemblyScript**
 
@@ -164,7 +157,7 @@ It's time to build your own Web3API! We'll start with the mutation schema and im
 
    - Notice that the only mutation schema here is for the `set()` function. We'll need to add ones for `setHash()` and its corresponding types.
 
-   ```js
+   ```graphql
    #import { Mutation } into Ethereum from "w3://ens/ethereum.web3api.eth"
    #import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
@@ -199,7 +192,7 @@ It's time to build your own Web3API! We'll start with the mutation schema and im
 
    - This file contains the function for our GraphQL mutation type service. For now, we only have two mutation functions, `setData` and `deployContract`. Let's implement a `setIpfsData` function as well.
 
-```js
+```typescript
 import { Ethereum_Mutation, Ipfs_Mutation } from './w3/imported';
 
 import {
@@ -216,7 +209,7 @@ Then, we import the `SetDataResult` and `SetIpfsDataResult` functions along with
 
 Below, we have our function for `setData`:
 
-```js
+```typescript
 export function setData(input: Input_setData): SetDataResult {
   const hash = Ethereum_Mutation.sendTransaction({
     address: input.options.address,
