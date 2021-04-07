@@ -20,6 +20,8 @@
   --ifm-navbar-sidebar-width: 250px;
   --ifm-font-family-base: 'system-ui', sans-serif;
   --ifm-alert-color: black;
+  --ifm-background-color: #f7f8fa;
+  --ifm-navbar-background-color: #f7f8fa;
 }
 
 html[data-theme='dark'] {
