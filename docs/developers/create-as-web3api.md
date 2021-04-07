@@ -31,10 +31,12 @@ In the future, AssemblyScript will be one of many supported languages that compi
 
 ## **Create your project**
 
-Let's begin by creating a template project by running following command:
+Let's begin by creating a template project by running the following command:
+
 ```
 npx @web3api/cli create api assemblyscript <project-name>
 ```
+
 Where `<project-name>` is replaced with a custom name of your choosing. For example `my-web3api`.
 
 Once complete, you'll see a new folder appear, named after the custom name you've chosen. Please navigate into this new directory (using `cd` for example).
@@ -42,8 +44,9 @@ Once complete, you'll see a new folder appear, named after the custom name you'v
 ## **Installation**
 
 Let's ensure all of your project's dependencies are installed. From inside your project's directory, simply run:
-- `nvm install && nvm use`  
-- `yarn`  
+
+- `nvm install && nvm use`
+- `yarn`
 
 The Web3API CLI is now installed locally to your project's directory. Going forward we'll use this local installation by running `npx w3`.
 
@@ -92,12 +95,15 @@ We've defined some simple build & deployment scripts for our Solidity smart cont
 The template Web3API project contains an implementation of the `SimpleStorage.sol` smart contract on Ethereum, and adds on-top a basic Web3API that provides easy functions for interacting with the smart contract. In future steps, we'll extend this basic functionality with IPFS, but more on that later.
 
 ### **Build**
+
 Let's start with building our project. Simply run:
+
 ```
 yarn build
 ```
 
 In the output window, you'll see that our smart contract was compiled, and our Web3API was built and output to the `./build/*` folder. It contains the following files:
+
 ```
 build/
     ├── web3api.yaml           # Manifest
@@ -117,6 +123,7 @@ Lastly, the `web3api.yaml` manifest file describes the layout of the package.
 ### **Deploy**
 
 To deploy our Web3API and associated smart contracts for testing, let's first setup a test environment. Simply run:
+
 ```
 yarn test:env:up
 ```
@@ -128,6 +135,7 @@ In the future, test environments will be easily configurable to include any node
 :::
 
 Next, let's deploy the `SimpleStorage.sol` smart contract, and the `simplestorage.eth` Web3API by running:
+
 ```
 yarn deploy
 ```
@@ -146,7 +154,7 @@ It's time to build and customizing your own Web3API! We'll be adding IPFS suppor
 
 ### **Update the mutation schema**
 
-The first step to adding new Web3API functionality is defining the method we want our users to query in GraphQL. Add the following method & custom data types to your `./src/mutation/schema.graphql` schema file:  
+The first step to adding new Web3API functionality is defining the method we want our users to query in GraphQL. Add the following method & custom data types to your `./src/mutation/schema.graphql` schema file:
 
 ```graphql
 type Mutation {
@@ -168,9 +176,9 @@ type SetIpfsDataResult {
 }
 ```
 
-### **Import IPFS' Web3API mutations**
+### **Import IPFS's Web3API mutations**
 
-Since we'll be making use of IPFS in our Web3API, let's import its `Mutation` type so we can call it from our code, allowing us to upload content:  
+Since we'll be making use of IPFS in our Web3API, let's import its `Mutation` type so we can call it from our code, allowing us to upload content:
 
 ```graphql
 ...
@@ -182,7 +190,7 @@ type Mutation {
 
 ### **Implement the `setIpfsData` mutation**
 
-In the `./src/mutation/index.ts` file, import the new types we've defined:  
+In the `./src/mutation/index.ts` file, import the new types we've defined:
 
 ```typescript
 import {
@@ -194,9 +202,9 @@ import {
 } from './w3';
 ```
 
-These new types will not exist yet, but don't worry, they'll be generated in the `./src/mutation/w3/*` folder once the `w3 build` command is run.  
+These new types will not exist yet, but don't worry, they'll be generated in the `./src/mutation/w3/*` folder once the `w3 build` command is run.
 
-Next, we'll implement the `setIpfsData` mutation method. Add this function to the bottom of your `./src/mutation/index.ts` file:  
+Next, we'll implement the `setIpfsData` mutation method. Add this function to the bottom of your `./src/mutation/index.ts` file:
 
 ```typescript
 export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
@@ -230,7 +238,7 @@ To verify everything is implemented correctly, try running `yarn build` and see 
 
 With our mutation implementation complete, it's now time to move onto the schema module. The steps are almost identical to above.
 
-Update the `./src/query/schema.graphql` file like so:  
+Update the `./src/query/schema.graphql` file like so:
 
 ```graphql
 ...
@@ -245,7 +253,7 @@ type Query {
 }
 ```
 
-Implement the `getIpfsData(...)` method like so in `./src/query/index.ts`:  
+Implement the `getIpfsData(...)` method like so in `./src/query/index.ts`:
 
 ```typescript
 import {
@@ -278,31 +286,26 @@ In order to test this new functionality, we'll update the existing `./recipes/e2
 
 Add the following `.graphql` query files to the `./recipes` folder.
 
-`setIpfs.graphql`:  
+`setIpfs.graphql`:
+
 ```graphql
-mutation { 
-  setIpfsData(
-    options: {
-      address: $address
-      data: $data
-    }
-  ) {
+mutation {
+  setIpfsData(options: { address: $address, data: $data }) {
     ipfsHash
     txReceipt
   }
 }
 ```
 
-`getIpfs.graphql`:  
+`getIpfs.graphql`:
+
 ```graphql
-query { 
-  getIpfsData(
-    address: $address
-  )
+query {
+  getIpfsData(address: $address)
 }
 ```
 
-Once the queries we want to send have been defined, we just need to add them to our query recipe file `e2e.json` like so:  
+Once the queries we want to send have been defined, we just need to add them to our query recipe file `e2e.json` like so:
 
 ```json
   ...
@@ -326,7 +329,7 @@ With our recipe complete, let's test the Web3API on our local environment!
 
 `yarn test:env:up`  
 `yarn deploy`  
-`yarn test`  
+`yarn test`
 
 ### **Conclusion**
 
