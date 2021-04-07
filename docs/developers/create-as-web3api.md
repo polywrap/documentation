@@ -87,7 +87,7 @@ We'll be using this functionality further down in this guide with the `w3 query`
 
 We've defined some simple build & deployment scripts for our Solidity smart contracts. These are basic utilities, and can be replaced entirely by a [Truffle](https://www.trufflesuite.com/) or [Hardhat](https://hardhat.org/) project.
 
-## **Build, Deploy, and Test your Web3API**
+## **Build, deploy, test**
 
 The template Web3API project contains an implementation of the `SimpleStorage.sol` smart contract on Ethereum, and adds on-top a basic Web3API that provides easy functions for interacting with the smart contract. In future steps, we'll extend this basic functionality with IPFS, but more on that later.
 
@@ -140,212 +140,196 @@ This is where our query recipes come in handy. Run `yarn test` to see this in ac
 
 In the output window, you'll see a combination of input queries, and returned results from the Web3API. In this query recipe, we send a combination of `set.graphql` and `get.graphql` queries which modify the `SimpleStorage.sol` contract's stored value.
 
-## **Building your own Web3API with AssemblyScript**
+## **Custom functionality: IPFS SimpleStorage**
 
-It's time to build your own Web3API! We'll start with the mutation schema and implementation, and then move on to the query ones.
+It's time to build and customizing your own Web3API! We'll be adding IPFS support to the SimpleStorage Web3API.
 
-### **Mutation schema and implementation**
+### **Update the mutation schema**
 
-1. Take a look at the smart contract file `SimpleStorage.sol` and take note of what functions it currently has.
+The first step to adding new Web3API functionality is defining the method we want our users to query in GraphQL. Add the following method & custom data types to your `./src/mutation/schema.graphql` schema file:  
 
-   - `set()` - sets a value in the smart contract and emits the address and data that was set.
-   - `get()` - returns the value that was set.
-   - `setHash()` - sets a hash value and emits the address and hash value that was set.
-   - `getHash()` - returns the hash value that was set.
+```graphql
+type Mutation {
+  ...
 
-2. Update the `mutation/schema.graphql` file.
+  setIpfsData(
+    options: SetIpfsDataOptions!
+  ): SetIpfsDataResult!
+}
 
-   - Notice that the only mutation schema here is for the `set()` function. We'll need to add ones for `setHash()` and its corresponding types.
+type SetIpfsDataOptions {
+  address: String!
+  data: String!
+}
 
-   ```graphql
-   #import { Mutation } into Ethereum from "w3://ens/ethereum.web3api.eth"
-   #import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
+type SetIpfsDataResult {
+  ipfsHash: String!
+  txReceipt: String!
+}
+```
 
-    type Mutation {
-      setData(options: SetDataOptions!): SetDataResult!
-      setIpfsData(options: SetIpfsDataOptions!): SetIpfsDataResult!
-      deployContract: String!
-    }
+### **Import IPFS' Web3API mutations**
 
-    type SetIpfsDataOptions {
-      address: String!
-      data: Bytes!
-    }
+Since we'll be making use of IPFS in our Web3API, let's import its `Mutation` type so we can call it from our code, allowing us to upload content:  
 
-    type SetIpfsDataResult {
-      ipfsHash: String!
-      txReceipt: String!
-    }
+```graphql
+...
+#import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
-    type SetDataOptions {
-      address: String!
-      value: UInt32!
-    }
+type Mutation {
+  ...
+```
 
-    type SetDataResult {
-      txReceipt: String!
-      value: UInt32!
-    }
-   ```
+### **Implement the `setIpfsData` mutation**
 
-3. Update the `mutation/index.ts` file (the AssemblyScript implementation)
-
-   - This file contains the function for our GraphQL mutation type service. For now, we only have two mutation functions, `setData` and `deployContract`. Let's implement a `setIpfsData` function as well.
+In the `./src/mutation/index.ts` file, import the new types we've defined:  
 
 ```typescript
-import { Ethereum_Mutation, Ipfs_Mutation } from './w3/imported';
-
 import {
+  Ethereum_Mutation,
+  Ipfs_Mutation,
   Input_setData,
-  SetDataResult,
   Input_setIpfsData,
   SetIpfsDataResult,
 } from './w3';
 ```
 
-Here, we're importing the `Ethereum_Mutation` and `Ipfs_Mutation` modules, which lets your Web3API interact with the Ethereum network and IPFS, respectively.
+These new types will not exist yet, but don't worry, they'll be generated in the `./src/mutation/w3/*` folder once the `w3 build` command is run.  
 
-Then, we import the `SetDataResult` and `SetIpfsDataResult` functions along with their respective type classes.
-
-Below, we have our function for `setData`:
+Next, we'll implement the `setIpfsData` mutation method. Add this function to the bottom of your `./src/mutation/index.ts` file:  
 
 ```typescript
-export function setData(input: Input_setData): SetDataResult {
-  const hash = Ethereum_Mutation.sendTransaction({
-    address: input.options.address,
-    method: 'function set(uint256 value)',
-    args: [input.options.value.toString()],
-  });
-
-  return {
-    txReceipt: hash,
-    value: input.options.value,
-  };
-}
-```
-
-In the `setData` function above, we declare a variable `hash` and set its value to the return value from invoking `Ethereum_Mutation.sendTransaction()` with the options object (`address`, `method`, and `args`).
-
-The return value of `setData()` is an object containing the transaction receipt and value that was set in `args`.
-
-Now, let's implement the function for `setIpfsData`:
-
-```js
 export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
-  const ipfsHash = Ipfs_Mutation.add({
-    data: input.options.data,
+  // 1. Upload the data to IPFS
+  const ipfsHash = Ipfs_Mutation.addFile({
+    data: String.UTF8.encode(input.options.data),
   });
 
+  // 2. Add the data's IPFS hash to SimpleStorage using `setHash(...)`
   const txReceipt = Ethereum_Mutation.sendTransaction({
     address: input.options.address,
     method: 'function setHash(bytes value)',
-    args: [ipfsHash],
+    args: [ipfsHash.cid],
   });
 
+  // 3. Return the result
   return {
-    ipfsHash,
+    ipfsHash: ipfsHash.cid,
     txReceipt,
   };
 }
 ```
 
-Finally, we can declare a function to deploy the contract!
+As you can see, the `SimpleStorage.sol` smart contract already exposes a `setHash()` method.
 
-```js
-export function deployContract(): string {
-  return Ethereum_Mutation.deployContract({
-    abi,
-    bytecode,
-  });
-}
-```
+In steps `1` and `2`, our SimpleStorage Web3API is sending a "sub-query" to the IPFS and Ethereum Web3APIs we imported within our schema. These Web3APIs can be implements as a WASM based Web3API, or a plugin in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/developers/create-js-plugin) documentation.
 
-### **Query schema and implementation**
+To verify everything is implemented correctly, try running `yarn build` and see if the Web3API build succeeds.
 
-1. Update the `query/schema.graphql` file.
+### **Update the query schema & module**
 
-```js
-   #import { Query } into Ethereum from "w3://ens/ethereum.web3api.eth"
-   #import { Query } into Ipfs from "w3://ens/ipfs.web3api.eth"
+With our mutation implementation complete, it's now time to move onto the schema module. The steps are almost identical to above.
+
+Update the `./src/query/schema.graphql` file like so:  
+
+```graphql
+...
+#import { Query } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
 type Query {
-  getData(address: String!): UInt32!
-  getIpfsData(address: String!): Bytes!
+  ...
+
+  getIpfsData(
+    address: String!
+  ): String!
 }
 ```
 
-3. Update the `query/index.ts` file (the AssemblyScript implementation)
+Implement the `getIpfsData(...)` method like so in `./src/query/index.ts`:  
 
-```js
-import { Ethereum_Query, Ipfs_Query } from './w3/imported';
-
+```typescript
 import {
+  Ethereum_Query,
+  Ipfs_Query,
   Input_getData,
-  GetDataResult,
-  Input_getIpfsData,
-  GetIpfsDataResult,
+  Input_getIpfsData
 } from './w3';
 
-export function getData(input: Input_getData): u32 {
-  const res = Ethereum_Query.callView({
-    address: input.address,
-    method: 'function get() view returns (uint256)',
-    args: [],
-  });
-  return U32.parseInt(res);
-}
+...
 
-export function getIpfsData(input: Input_getIpfsData): ArrayBuffer {
+export function getIpfsData(input: Input_getIpfsData): string {
   const hash = Ethereum_Query.callView({
     address: input.address,
     method: 'function getHash() view returns (bytes)',
     args: [],
   });
 
-  return Ipfs_Query.catFile({ cid: hash });
+  return String.UTF8.decode(
+    Ipfs_Query.catFile({ cid: hash })
+  );
 }
 ```
 
-## **Updating the GraphQL service recipes**
+To verify everything is implemented correctly, try running `yarn build` and see if the Web3API build succeeds.
 
-In the folder, `recipes/`, you'll see two files for GraphQL services: `get.graphql` and `set.graphql`. These files relate to the `getData` and `setData` functions, respectively. We now need to add in two more files for `getIpfsData` and `setIpfsData` functions.
+### **Testing**
 
-1. Create a file called `getIpfs.graphql` and add the following code:
+In order to test this new functionality, we'll update the existing `./recipes/e2e.json` recipe file to include the new queries we've added (`setIpfsData`, and `getIpfsData`).
 
-```js
-query GetIpfsData($address: String!) {
-  getIpfsData(address: $address)
+Add the following `.graphql` query files to the `./recipes` folder.
+
+`setIpfs.graphql`:  
+```graphql
+mutation { 
+  setIpfsData(
+    options: {
+      address: $address
+      data: $data
+    }
+  ) {
+    ipfsHash
+    txReceipt
+  }
 }
 ```
 
-2. Then, create a file called `setIpfs.graphql` and add the following:
-
-```js
-query SetIpfsData($address: String!, $value: Int!) {
-  setIpfsData(address: $address, value: $value)
+`getIpfs.graphql`:  
+```graphql
+query { 
+  getIpfsData(
+    address: $address
+  )
 }
 ```
 
-🎉 **Congratulations! You've created a Web3API!**
+Once the queries we want to send have been defined, we just need to add them to our query recipe file `e2e.json` like so:  
 
-From here, you can follow the next sections to build and deploy your Web3API as well as some testing basics.
-
-### **Build and Deploy your Web3API**
-
-If you want to build your Web3API without deploying, you can simply run the following command in your project folder:
-
+```json
+  ...
+  {
+    "query": "./setIpfs.graphql",
+    "variables": {
+      "address": "$SimpleStorageAddr",
+      "data": "Hello from IPFS!"
+    }
+  },
+  {
+    "query": "./getIpfs.graphql",
+    "variables": {
+      "address": "$SimpleStorageAddr"
+    }
+  }
+]
 ```
-npx w3 build
-```
 
-To deploy your build, you can add arguments to your command. Here's how you would deploy to an IPFS address:
+With our recipe complete, let's test the Web3API on our local environment!
 
-```
-npx w3 build \
---ipfs <ipfs-address>
-
-```
+`yarn test:env:up`  
+`yarn deploy`  
+`yarn test`  
 
 ### **Conclusion**
 
-Congrats on building a Web3API and deploying it! For now, you can test your Web3API by customizing the `e2e.json` file and then running the `npx w3 query ./receipes/e2e.json --test-ens` command. In the future, we'll have a more robust testing suite for your Web3API development needs.
+🎉 **Congratulations! You've create a custom Web3API!**
+
+Hopefully this article has given you a clear understanding of the Web3API toolchain's primary features. If at any time in this process you get stuck or have questions, please don't hesitate to reach out on [Discord](https://discord.com/invite/Z5m88a5qWu).
