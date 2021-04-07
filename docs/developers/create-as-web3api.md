@@ -208,13 +208,13 @@ export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
   // 2. Add the data's IPFS hash to SimpleStorage using `setHash(...)`
   const txReceipt = Ethereum_Mutation.sendTransaction({
     address: input.options.address,
-    method: 'function setHash(bytes value)',
-    args: [ipfsHash.cid],
+    method: 'function setHash(string value)',
+    args: [ipfsHash],
   });
 
   // 3. Return the result
   return {
-    ipfsHash: ipfsHash.cid,
+    ipfsHash,
     txReceipt,
   };
 }
@@ -260,7 +260,7 @@ import {
 export function getIpfsData(input: Input_getIpfsData): string {
   const hash = Ethereum_Query.callView({
     address: input.address,
-    method: 'function getHash() view returns (bytes)',
+    method: 'function getHash() view returns (string)',
     args: [],
   });
 
