@@ -26,6 +26,7 @@
 html[data-theme='dark'] {
   --ifm-background-color: rgb(28, 39, 45);
   --ifm-navbar-background-color: rgb(28, 39, 45);
+  --ifm-blockquote-color: #d8d8d8;
 }
 
 .docusaurus-highlight-code-line {
