@@ -39,7 +39,7 @@ This file contains the set of types which completely describe the set of possibl
 
 In the file, we have `type Query` and `type Mutation`.
 
-```
+```graphql
 type Query {
   getData(id: String!): String!
 }
@@ -53,7 +53,7 @@ type Mutation {
 
 The `resolvers.ts` file is the implementation of the GraphQL schemas declared in `schema.graphql`.
 
-```
+```typescript
 import { SamplePlugin } from '.';
 import { PluginModule } from '@web3api/core-js';
 
@@ -64,7 +64,7 @@ export const query = (plugin: SamplePlugin): PluginModule => ({
 });
 
 export const mutation = (plugin: SamplePlugin): PluginModule => ({
-  setData: async (input: { id: string, data: Uint8Array }) => {
+  setData: async (input: { id: string; data: Uint8Array }) => {
     return await plugin.setData(input.id, input.data);
   },
 });

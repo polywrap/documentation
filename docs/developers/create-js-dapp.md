@@ -38,7 +38,7 @@ Currently Chrome and Brave are the only supported browsers. This restriction wil
 
 Once installed, the next step is to create a `Web3ApiClient` instance:
 
-```
+```typescript
 import { Web3ApiClient } from '@web3api/client-js';
 
 const client = new Web3ApiClient();
@@ -46,7 +46,7 @@ const client = new Web3ApiClient();
 
 At this point, you can already send queries to Web3APIs. In the simple example below, we send one to the "hello world" Web3API.
 
-```js
+```jsx
 client.query({
   uri: 'api.helloworld.web3api.eth',
   query: `{
@@ -69,7 +69,7 @@ Our example's redirects includes URIs for Ethereum, IPFS, and ENS, which point t
 
 The `Web3ApiClient` iterates through all redirects, searching for plugins and implementing them. After the final plugin has been resolved, it then resolves the Web3API package.
 
-```
+```jsx
 import { Web3ApiClient, UriRedirect } from "@web3api/client-js";
 import { ensPlugin } from "@web3api/ens-plugin-js";
 import { ethereumPlugin } from "@web3api/ethereum-plugin-js";
@@ -104,7 +104,7 @@ export async function setupWeb3ApiClient(): Promise<Web3ApiClient> {
 
 The redirects can not only be used for forwarding Web3API requests to plugins, but also to any other URI.
 
-```
+```jsx
 // Example custom redirect
 const client = new Web3ApiClient({
   redirects: [
@@ -132,7 +132,7 @@ The `Web3ApiProvider` component makes redirects available to any nested componen
 
 To use the provider, simply wrap it around the rendered `<App />` component.
 
-```
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Web3ApiProvider } from '@web3api/react';
@@ -149,14 +149,14 @@ ReactDOM.render(
 >
 > The `Web3ApiProvider` uses the same constructor arguments as the `Web3ApiClient`. You can pass down redirects as props to the `Web3ApiProvider` component.
 >
-> ```
+> ```jsx
 > <Web3ApiProvider redirects={ [...] }/>
 > ```
 >
 > **Advanced usage**
 > If you need to use multiple providers, you can do so using the `createWeb3ApiProvider(<string>)` method, which accepts the name of your provider as an argument.
 >
-> ```
+> ```jsx
 > const OtherWeb3ApiProvider = createWeb3ApiProvider('other');
 >
 > <OtherWeb3ApiProvider>
@@ -170,7 +170,7 @@ After implementing the provider, your dApp can send queries using the `useWeb3Ap
 
 Here's what our "hello world" query from above would look like if we used this method.
 
-```
+```jsx
 const { data, error, loading } = useWeb3ApiQuery({
   uri: 'ens/helloworld.web3api.eth',
   query: '{ sayHello }',
@@ -181,7 +181,7 @@ const { data, error, loading } = useWeb3ApiQuery({
 >
 > If you'd like to specific a provider to use, simply set the optional provider property:
 >
-> ```
+> ```jsx
 > const { data, error, loading } = useWeb3ApiQuery({
 >   provider: 'other',
 >   uri: 'ens/helloworld.web3api.eth',

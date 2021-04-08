@@ -180,8 +180,8 @@ type SetIpfsDataResult {
 
 Since we'll be making use of IPFS in our Web3API, let's import its `Mutation` type so we can call it from our code, allowing us to upload content:
 
-```
-...graphql
+```graphql
+...
 #import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
 type Mutation {
