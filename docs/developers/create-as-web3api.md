@@ -33,7 +33,7 @@ In the future, AssemblyScript will be one of many supported languages that compi
 
 Let's begin by creating a template project by running the following command:
 
-```
+```bash
 npx @web3api/cli create api assemblyscript <project-name>
 ```
 
@@ -98,7 +98,7 @@ The template Web3API project contains an implementation of the `SimpleStorage.so
 
 Let's start with building our project. Simply run:
 
-```
+```bash
 yarn build
 ```
 
@@ -124,7 +124,7 @@ Lastly, the `web3api.yaml` manifest file describes the layout of the package.
 
 To deploy our Web3API and associated smart contracts for testing, let's first setup a test environment. Simply run:
 
-```
+```bash
 yarn test:env:up
 ```
 
@@ -136,7 +136,7 @@ In the future, test environments will be easily configurable to include any node
 
 Next, let's deploy the `SimpleStorage.sol` smart contract, and the `simplestorage.eth` Web3API by running:
 
-```
+```bash
 yarn deploy
 ```
 
@@ -156,7 +156,7 @@ It's time to build and customizing your own Web3API! We'll be adding IPFS suppor
 
 The first step to adding new Web3API functionality is defining the method we want our users to query in GraphQL. Add the following method & custom data types to your `./src/mutation/schema.graphql` schema file:
 
-```graphql
+```graphql title="./src/mutation/schema.graphql"
 type Mutation {
   ...
 
@@ -180,7 +180,7 @@ type SetIpfsDataResult {
 
 Since we'll be making use of IPFS in our Web3API, let's import its `Mutation` type so we can call it from our code, allowing us to upload content:
 
-```graphql
+```graphql title="./src/mutation/schema.graphql"
 ...
 #import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
@@ -192,7 +192,7 @@ type Mutation {
 
 In the `./src/mutation/index.ts` file, import the new types we've defined:
 
-```typescript
+```typescript title="./src/mutation/index.ts"
 import {
   Ethereum_Mutation,
   Ipfs_Mutation,
@@ -206,7 +206,9 @@ These new types will not exist yet, but don't worry, they'll be generated in the
 
 Next, we'll implement the `setIpfsData` mutation method. Add this function to the bottom of your `./src/mutation/index.ts` file:
 
-```typescript
+```typescript title="./src/mutation/index.ts"
+...
+
 export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
   // 1. Upload the data to IPFS
   const ipfsHash = Ipfs_Mutation.addFile({
@@ -240,7 +242,7 @@ With our mutation implementation complete, it's now time to move onto the schema
 
 Update the `./src/query/schema.graphql` file like so:
 
-```graphql
+```graphql title="./src/query/schema.graphql"
 ...
 #import { Query } into Ipfs from "w3://ens/ipfs.web3api.eth"
 
@@ -255,7 +257,7 @@ type Query {
 
 Implement the `getIpfsData(...)` method like so in `./src/query/index.ts`:
 
-```typescript
+```typescript title="./src/query/index.ts"
 import {
   Ethereum_Query,
   Ipfs_Query,
@@ -288,7 +290,7 @@ Add the following `.graphql` query files to the `./recipes` folder.
 
 `setIpfs.graphql`:
 
-```graphql
+```graphql title="./recipes/setIpfs.graphql"
 mutation {
   setIpfsData(options: { address: $address, data: $data }) {
     ipfsHash
@@ -299,7 +301,7 @@ mutation {
 
 `getIpfs.graphql`:
 
-```graphql
+```graphql title="./recipes/getIpfs.graphql"
 query {
   getIpfsData(address: $address)
 }
@@ -307,7 +309,7 @@ query {
 
 Once the queries we want to send have been defined, we just need to add them to our query recipe file `e2e.json` like so:
 
-```json
+```json title="./recipes/e2e.json"
   ...
   {
     "query": "./setIpfs.graphql",
@@ -327,9 +329,15 @@ Once the queries we want to send have been defined, we just need to add them to 
 
 With our recipe complete, let's test the Web3API on our local environment!
 
-`yarn test:env:up`  
-`yarn deploy`  
-`yarn test`
+```bash
+yarn test:env:up
+```
+```bash
+yarn deploy
+```
+```bash
+yarn test
+```
 
 ### **Conclusion**
 
