@@ -5,89 +5,88 @@ title: Plugin an Existing JS SDK
 
 ## **Introduction**
 
-In this guide, we'll walk you through a JavaScript plugin that you can build into your Web3API.
+In this guide, we'll walk you through creating your own JavaScript based plugin that can be added to the JavaScript Web3API Client.
 
 :::caution
-Note: Plugins do not retain all of Web3API's benefits. We recommend re-writing your existing SDKs as WebAssembly-based Web3APIs.
+Plugins do not retain [all of Web3API's benefits](/developers/start-here#benefits). We recommend re-writing your existing JavaScript SDKs as AssemblyScript (WebAssembly) Web3APIs if possible. See [here](/developers/create-as-web3api) for more details.
 :::
 
 As always, if you need any help, message us on [Discord](https://discord.com/invite/Z5m88a5qWu)!
+
+## **Prerequisites**
+
+You'll need the following installed before building your plugin:
+
+- `nvm`
+- `yarn`
+
+You'll be using [TypeScript](https://www.typescriptlang.org/) to implement your Web3API plugin.
+
+:::tip
+In the future, TypeScript will be one of many supported languages for implementing plugins. As more Web3API Clients are released in various languages, implementing plugins in those languages will be supported as well.
+:::
 
 ## **Getting started**
 
 To get started, use the following command to spin up a project folder for your plugin.
 
 ```
-npx w3 create plugin typescript my-plugin
+npx @web3api/cli create plugin typescript <project-name>
 ```
 
-Here are the files in the project folder that we'll focus on:
+Where `<project-name>` is replaced with a custom name of your choosing. For example `my-plugin`.
+
+Once complete, you'll see a new folder appear, named after the custom name you've chosen. Please navigate into this new directory (using `cd` for example).
+
+## **Installation**
+
+Let's ensure all of your project's dependencies are installed. From inside your project's directory, simply run:
+
+- `nvm install && nvm use`
+- `yarn`
+
+## **Overview of project files**
+
+Your project should look something like this:
 
 ```
-index.ts                      # Implementation of the plugin
-manifest.ts                   # API's schema, dependencies, abstract APIs
-resolvers.ts                  # Resolvers for GraphQL schemas
-schema.graphql                # GraphQL schema for queries / mutations
+schema.graphql                # Schema
+src/
+│   ├── index.ts              # Plugin Class
+│   |── resolvers.ts          # Schema Resolvers
+|   └── manifest.ts           # Manifest
 ```
-
-Let's take a look at each of these files!
 
 ### **`schema.graphql`**
 
-This file contains the set of types which completely describe the set of possible data you can query on a GraphQL service. Then, when queries come in, they are validated and executed against that schema.
+This file defines the schema of your Web3API plugin. This is the interface outside Web3APIs & users will use to query your plugin's functionality.
 
-In the file, we have `type Query` and `type Mutation`.
+### **`src/resolvers.ts`**
 
-```graphql
-type Query {
-  getData(id: String!): String!
-}
+The `src/resolvers.ts` file implements all query methods declared on the `Mutation` and `Query` query types in the `schema.graphql`.
 
-type Mutation {
-  setData(id: String!, data: Bytes!): SampleResult!
-}
-```
+The resolvers also receive an instance of your custom Plugin class, enabling them to access its methods and contextual information. For example, in the case of the Ethereum plugin, it gives access to the Web3 provider object.
 
-### **`resolvers.ts`**
+### **`src/index.ts`**
 
-The `resolvers.ts` file is the implementation of the GraphQL schemas declared in `schema.graphql`.
+The `src/index.ts` file contains the Plugin class, which will be created each time the plugin is instantiated. Use this class to store all contextual configuration data needed for your plugin (providers, settings, etc). Additionally you can add helper methods for the resolvers to use.
 
-```typescript
-import { SamplePlugin } from '.';
-import { PluginModule } from '@web3api/core-js';
+### **`src/manifest.ts`**
 
-export const query = (plugin: SamplePlugin): PluginModule => ({
-  getData: async (input: { query: string }) => {
-    return await plugin.getData(input.query);
-  },
-});
-
-export const mutation = (plugin: SamplePlugin): PluginModule => ({
-  setData: async (input: { id: string; data: Uint8Array }) => {
-    return await plugin.setData(input.id, input.data);
-  },
-});
-```
-
-In this file, we've created two functions that take in plugins as parameters (explained in the next section).
-
-### **`index.ts`**
-
-In this file, we have a `SamplePlugin` class that contains the business logic for your JavaScript Plugin.
-
-### **`manifest.ts`**
-
-This file contains the `PluginManifest`. Here, you would define the API's schema, the API dependencies imported by this plugin(`imported`), and all abstract APIs implemented plugin (`implemented`).
+This file takes the place of the `web3api.yaml` manifest file discussed in the ["Create a Web3API" guide](/developers/create-as-web3api). It contains the plugin's schema, all Web3APIs interfaces the plugin implements, and external Web3APIs the plugin is dependent on.
 
 :::caution
-The abstract APIs plugins haven't been fully developed yet. We plan this feature to work as Web3API interfaces (schemas with no implementation). Please stay tuned!
-
+Web3API interfaces (schemas with no implementation) haven't been fully developed yet. Please stay tuned!
 :::
 
-### **Building the plugin**
+## **Building the plugin**
 
 To build your plugin, all you need is the following command:
 
-```
+```bash
 yarn build
 ```
+
+## **Example Plugins**
+
+For inspiration, please refer to [these existing JavaScript plugins](https://github.com/Web3-API/monorepo/tree/prealpha/packages/js/plugins).
