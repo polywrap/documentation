@@ -5,30 +5,38 @@ title: Integrate Web3API into dApps
 
 ## **Introduction**
 
-If you're a React developer who integrate Web3APIs into your dApp, this guide is perfect for you.
+If you're a JavaScript developer building Browser, Node.js, or React based dApps, this guide is for you.
 
 By the end of this document, you'll gain the following skills:
 
-- How to instantiate the Web3API client in your dApp
-- Sending queries with the Web3PAI client
-- Implementing plugins
-- Our React-specific module including providers and a simpler query method
+- How to instantiate the Web3API client in your JavaScript dApp
+- Query any Web3API using the Web3PAI client
+- Configure custom Web3API URI redirects
+- Build React dApps with ease
 
 If you get stuck during this guide, send us a message on our [Discord](https://discord.com/invite/Z5m88a5qWu)!
 
 ## **Prerequisites**
 
-As prerequisites for this guide, we'll be using the React frontend library and we recommend TypeScript.
+As prerequisites for this guide, we recommend having familiarity with TypeScript, and React for the latter sections.
 
 ## **Installation**
 
+To use Web3APIs in your dApp, all you need is the Web3API Client!
+
 ```
-npm install --save-dev @web3api/client-js
+npm install --save @web3api/client-js
 ```
+
+The Web3API JavaScript Client works in both Node.js, and browser applications.
+
+:::warning
+Currently Chrome and Brave are the only supported browsers. This restriction will be removed very shortly.
+:::
 
 ## **Getting started**
 
-You can create a Web3ApiClient simply by instantiating it.
+Once installed, the next step is to create a `Web3ApiClient` instance:
 
 ```js
 import { Web3ApiClient } from '@web3api/client-js';
@@ -36,20 +44,21 @@ import { Web3ApiClient } from '@web3api/client-js';
 const client = new Web3ApiClient();
 ```
 
-At this point, you can already send queries to Web3APIs. In the simple example below, we send one to a "hello world" Web3API.
+At this point, you can already send queries to Web3APIs. In the simple example below, we send one to the "hello world" Web3API.
 
 ```js
-client.query({ uri: 'api.helloworld.web3api.eth', query: '{ sayHello }' });
+client.query({
+  uri: 'api.helloworld.web3api.eth',
+  query: `{
+    logMessage(message: "Hello World!")
+  }`
+});
 ```
-
-Most Web3APIs require plugins before they can be used.
 
 ## **Implementing plugins**
 
 :::tip
-
 The example code below uses the MetaMask global API injected at `window.ethereum`. This isn't needed if your dApp doesn't use Ethereum.
-
 :::
 
 In the code snippet below, we declare a variable `redirects` which stores an array of URI redirects.
