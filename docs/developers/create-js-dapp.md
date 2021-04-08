@@ -42,12 +42,13 @@ Currently Chrome and Brave are the only supported browsers. This restriction wil
 The next section assumes that you're integrating Web3API into an existing dApp project. If you want a quick start with our template project, simply run:
 
 ```bash
-npx w3 create app react <project-name>
+npx @web3api/cli create app react <project-name>
 ```
 
 Where `<project-name>` is replaced with a custom name of your choosing. For example `my-web3api`.
 
-This command will create a new project folder with a "Hello World" dApp that lets you interact with a simple smart contract by a message via a GraphQL query.
+This command will create a new project folder with a "Hello World" dApp that
+lets you interact with a simple Web3API at `ens/helloworld.web3api.eth`.
 
 :::
 
