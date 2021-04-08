@@ -17,6 +17,8 @@
   --ifm-color-primary-lighter: rgb(102, 191, 211);
   --ifm-color-primary-lightest: rgb(122, 228, 252);
   --ifm-code-font-size: 95%;
+  --ifm-code-background: #1E1E1E;
+  --ifm-code-color: #9CDCFE;
   --ifm-navbar-sidebar-width: 250px;
   --ifm-font-family-base: 'system-ui', sans-serif;
   --ifm-alert-color: black;

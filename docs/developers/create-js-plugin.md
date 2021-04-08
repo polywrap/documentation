@@ -9,7 +9,6 @@ In this guide, we'll walk you through a JavaScript plugin that you can build int
 
 :::caution
 Note: Plugins do not retain all of Web3API's benefits. We recommend re-writing your existing SDKs as WebAssembly-based Web3APIs.
-
 :::
 
 As always, if you need any help, message us on [Discord](https://discord.com/invite/Z5m88a5qWu)!

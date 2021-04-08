@@ -67,12 +67,13 @@ module.exports = {
               className: 'github-logo',
               'aria-label': 'GitHub repository',
             },
-            {
+            // Add back in once the forum is used
+            /*{
               label: 'Discuss',
               href: customFields.forumUrl,
               className: 'forum-logo',
               'aria-label': 'Forum'
-            },
+            },*/
             {
               label: 'Chat',
               href: customFields.discordUrl,
