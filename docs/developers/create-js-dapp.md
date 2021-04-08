@@ -38,6 +38,19 @@ The Web3API JavaScript Client works in both Node.js, and browser applications.
 Currently Chrome and Brave are the only supported browsers. This restriction will be removed very shortly.
 :::
 
+:::note
+The next section assumes that you're integrating Web3API into an existing dApp project. If you want a quick start with our template project, simply run:
+
+```bash
+npx w3 create app react <project-name>
+```
+
+Where `<project-name>` is replaced with a custom name of your choosing. For example `my-web3api`.
+
+This command will create a new project folder with a "Hello World" dApp that lets you interact with a simple smart contract by a message via a GraphQL query.
+
+:::
+
 ## **Getting started**
 
 Once installed, the next step is to create a `Web3ApiClient` instance:
@@ -62,6 +75,7 @@ client.query({
 ## **Understanding URIs**
 
 Web3APIs are identified using custom URIs ([Uniform Resource Identifier](http://www.ltg.ed.ac.uk/~ht/WhatAreURIs/)). For example:
+
 ```
 w3://ens/api.helloworld.web3api.eth
 ```
@@ -72,7 +86,7 @@ Web3API URIs have 3 parts:
 `w3://` is the name of the Web3API URI resolution protocol. All Web3API clients implement this protocol.
 
 **Authority:**  
-For example `ens/` for resolving ENS domains, or `ipfs/` for resolving IPFS content.  
+For example `ens/` for resolving ENS domains, or `ipfs/` for resolving IPFS content.
 
 **Path:**  
 For example `api.domain.eth` for an ENS domain, or `QmaLbZnnnHbcRRo3wNBQ2MhugmBGL9R2YYeBvj6Nk2QumP` for an IPFS file/directory.
@@ -90,14 +104,15 @@ Adding `w3://` to the start of your URIs is options when using a Web3API client.
 Similar to how browsers can redirect from one URI to another, the Web3API client can have custom URI redirects configured as well.
 
 For example, if we'd like to redirect all queries to the `ens/api.helloworld.web3api.eth` URI to our own custom URI (`ens/api.myhelloworld.eth` for example), we'd simply configure the client like so:
+
 ```typescript
 const client = new Web3ApiClient({
   redirects: [
     {
       from: `ens/api.helloworld.web3api.eth`,
-      to: `ens/api.myhelloworld.eth`
-    }
-  ]
+      to: `ens/api.myhelloworld.eth`,
+    },
+  ],
 });
 ```
 
@@ -115,11 +130,12 @@ Plugins can be used to enable any native client functionality that cannot be imp
 
 ### **Default Plugins**
 
-All Web3API clients come equipped with the following default plugins:  
-* `w3://ens/ens.web3api.eth`
-* `w3://ens/ipfs.web3api.eth`
-* `w3://ens/ethereum.web3api.eth`
-* `w3://w3/logger`
+All Web3API clients come equipped with the following default plugins:
+
+- `w3://ens/ens.web3api.eth`
+- `w3://ens/ipfs.web3api.eth`
+- `w3://ens/ethereum.web3api.eth`
+- `w3://w3/logger`
 
 :::warning
 This list will be changing as we approach our production release.
@@ -127,30 +143,30 @@ This list will be changing as we approach our production release.
 
 ### **Plugin URI Redirects**
 
-Plugins are configured using URI Redirects as discussed above. Instead of having the `to:` property be a URI string, we simply pass in the plugin object.  
+Plugins are configured using URI Redirects as discussed above. Instead of having the `to:` property be a URI string, we simply pass in the plugin object.
 
 For example, we can add an Ethereum plugin that uses MetaMask (or any other Ethereum JS provider) for its provider & signer!
 
 ```typescript
-import { ethereumPlugin } from "@web3api/ethereum-plugin-js"
+import { ethereumPlugin } from '@web3api/ethereum-plugin-js';
 
 // Enable Metamask
 const ethereum = window.ethereum;
 await ethereum.request({
-  method: "eth_requestAccounts"
+  method: 'eth_requestAccounts',
 });
 
 // Configure the Ethereum plugin w/ MetaMask
 const client = new Web3ApiClient({
   redirects: [
     {
-      from: "w3://ens/ethereum.web3api.eth",
+      from: 'w3://ens/ethereum.web3api.eth',
       to: ethereumPlugin({
-        provider: ethereum
-      })
-    }
-  ]
-})
+        provider: ethereum,
+      }),
+    },
+  ],
+});
 ```
 
 ## **React Integration**
@@ -174,26 +190,26 @@ import { Web3ApiProvider } from '@web3api/react';
 export default function App() {
   return (
     <Web3ApiProvider>
-      <div>
-        {"Web3API enabled dApp goes here!"}
-      </div>
+      <div>{'Web3API enabled dApp goes here!'}</div>
     </Web3ApiProvider>
   );
 }
 ```
 
-#### **Web3ApiProvider Props**  
+#### **Web3ApiProvider Props**
 
 The `Web3ApiProvider` component's props are the same as the `Web3ApiClient` constructor's arguments. For example, you can configure redirects like so:
+
 ```jsx
 <Web3ApiProvider redirects={ [...] }/>
 ```
 
-#### **Multiple Web3ApiProviders**  
+#### **Multiple Web3ApiProviders**
 
 If you need to use multiple providers, you can do so using the `createWeb3ApiProvider("...")` method, which accepts the name of your provider as an argument. For example:
+
 ```jsx
-import { createWeb3ApiProvider } from "@web3api/react";
+import { createWeb3ApiProvider } from '@web3api/react';
 
 const CustomWeb3ApiProvider = createWeb3ApiProvider('custom');
 
@@ -221,10 +237,12 @@ const { data, error, loading } = useWeb3ApiQuery({
 
 :::note
 By default, the `useWeb3ApiQuery` hook uses the first Web3ApiProvider found in the DOM's hierarchy. If you'd like to specify a specific provider to be used, simply set the `provider:` property:
+
 ```jsx
 useWeb3ApiQuery({
   provider: 'custom',
   ...
 });
 ```
+
 :::
