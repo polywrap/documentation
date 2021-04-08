@@ -46,18 +46,13 @@ const client = new Web3ApiClient();
 
 At this point, you can already send queries to Web3APIs. In the simple example below, we send one to the "hello world" Web3API.
 
-<<<<<<< HEAD
-```
-client.query({ uri: 'api.helloworld.web3api.eth', query: '{ sayHello }' });
-=======
 ```js
 client.query({
   uri: 'api.helloworld.web3api.eth',
   query: `{
     logMessage(message: "Hello World!")
-  }`
+  }`,
 });
->>>>>>> 7276e864ac6821591029dd236a33dbad574395fe
 ```
 
 ## **Implementing plugins**
