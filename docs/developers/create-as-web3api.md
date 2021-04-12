@@ -209,7 +209,7 @@ Next, we'll implement the `setIpfsData` mutation method. Add this function to th
 ```typescript title="./src/mutation/index.ts"
 ...
 
-export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
+export function setIpfsData(input: Input_setIpfsData, connectionOverride?: string): SetIpfsDataResult {
   // 1. Upload the data to IPFS
   const ipfsHash = Ipfs_Mutation.addFile({
     data: String.UTF8.encode(input.options.data),
@@ -220,6 +220,7 @@ export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
     address: input.options.address,
     method: 'function setHash(string value)',
     args: [ipfsHash],
+    connectionOverride: connectionOverride,
   });
 
   // 3. Return the result
@@ -233,6 +234,8 @@ export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
 As you can see, the `SimpleStorage.sol` smart contract already exposes a `setHash()` method.
 
 In steps `1` and `2`, our SimpleStorage Web3API is sending a "sub-query" to the IPFS and Ethereum Web3APIs we imported within our schema. These Web3APIs can be implements as a WASM based Web3API, or a plugin in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/developers/create-js-plugin) documentation.
+
+The `Ethereum_Mutation.sendTransaction` function also accepts an optional argument, `connectionOverride`. This option allows you to select the network in which you're transacting with, which can be a node, network name (e.g. `"rinkeby"`), or chain ID. The `connectionOverride` argument is a string type and defaults to `"mainnet"` if a value is not passed in.
 
 To verify everything is implemented correctly, try running `yarn build` and see if the Web3API build succeeds.
 
@@ -267,11 +270,12 @@ import {
 
 ...
 
-export function getIpfsData(input: Input_getIpfsData): string {
+export function getIpfsData(input: Input_getIpfsData, connectionOverride?: string): string {
   const hash = Ethereum_Query.callView({
     address: input.address,
     method: 'function getHash() view returns (string)',
     args: [],
+    connectionOverride: connectionOverride,
   });
 
   return String.UTF8.decode(
@@ -292,7 +296,10 @@ Add the following `.graphql` query files to the `./recipes` folder.
 
 ```graphql title="./recipes/setIpfs.graphql"
 mutation {
-  setIpfsData(options: { address: $address, data: $data }) {
+  setIpfsData(
+    options: { address: $address, data: $data }
+    connectionOverride: string
+  ) {
     ipfsHash
     txReceipt
   }
@@ -303,7 +310,7 @@ mutation {
 
 ```graphql title="./recipes/getIpfs.graphql"
 query {
-  getIpfsData(address: $address)
+  getIpfsData(address: $address, connectionOverride: string)
 }
 ```
 
@@ -332,9 +339,11 @@ With our recipe complete, let's test the Web3API on our local environment!
 ```bash
 yarn test:env:up
 ```
+
 ```bash
 yarn deploy
 ```
+
 ```bash
 yarn test
 ```
