@@ -21,6 +21,9 @@ module.exports = {
   organizationName: 'web3-api',
   projectName: 'monorepo',
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+    },
     navbar: {
       title: 'Web3API (Pre-Alpha)',
       logo: {
