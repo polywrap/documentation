@@ -162,6 +162,7 @@ type Mutation {
 
   setIpfsData(
     options: SetIpfsDataOptions!
+    connection: Ethereum_Connection
   ): SetIpfsDataResult!
 }
 
@@ -209,7 +210,7 @@ Next, we'll implement the `setIpfsData` mutation method. Add this function to th
 ```typescript title="./src/mutation/index.ts"
 ...
 
-export function setIpfsData(input: Input_setIpfsData, connectionOverride?: string): SetIpfsDataResult {
+export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
   // 1. Upload the data to IPFS
   const ipfsHash = Ipfs_Mutation.addFile({
     data: String.UTF8.encode(input.options.data),
@@ -220,7 +221,7 @@ export function setIpfsData(input: Input_setIpfsData, connectionOverride?: strin
     address: input.options.address,
     method: 'function setHash(string value)',
     args: [ipfsHash],
-    connectionOverride: connectionOverride,
+    connection: input.connection,
   });
 
   // 3. Return the result
@@ -254,6 +255,7 @@ type Query {
 
   getIpfsData(
     address: String!
+    connection: Ethereum_Connection
   ): String!
 }
 ```
@@ -270,12 +272,12 @@ import {
 
 ...
 
-export function getIpfsData(input: Input_getIpfsData, connectionOverride?: string): string {
+export function getIpfsData(input: Input_getIpfsData): string {
   const hash = Ethereum_Query.callView({
     address: input.address,
     method: 'function getHash() view returns (string)',
     args: [],
-    connectionOverride: connectionOverride,
+    connection: input.connection,
   });
 
   return String.UTF8.decode(
@@ -298,7 +300,7 @@ Add the following `.graphql` query files to the `./recipes` folder.
 mutation {
   setIpfsData(
     options: { address: $address, data: $data }
-    connectionOverride: string
+    connection: { networkNameOrChainId: $network }
   ) {
     ipfsHash
     txReceipt
@@ -310,7 +312,7 @@ mutation {
 
 ```graphql title="./recipes/getIpfs.graphql"
 query {
-  getIpfsData(address: $address, connectionOverride: string)
+  getIpfsData(address: $address, connection: { networkNameOrChainId: $network })
 }
 ```
 
@@ -322,13 +324,15 @@ Once the queries we want to send have been defined, we just need to add them to 
     "query": "./setIpfs.graphql",
     "variables": {
       "address": "$SimpleStorageAddr",
-      "data": "Hello from IPFS!"
+      "data": "Hello from IPFS!",
+      "network": "testnet"
     }
   },
   {
     "query": "./getIpfs.graphql",
     "variables": {
-      "address": "$SimpleStorageAddr"
+      "address": "$SimpleStorageAddr",
+      "network": "testnet"
     }
   }
 ]
