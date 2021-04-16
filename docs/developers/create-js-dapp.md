@@ -160,13 +160,17 @@ await ethereum.request({
 // Configure the Ethereum plugin w/ MetaMask
 const client = new Web3ApiClient({
   redirects: [
-    {
-      from: 'w3://ens/ethereum.web3api.eth',
-      to: ethereumPlugin({
-        provider: ethereum,
-      }),
-    },
-  ],
+    from: "ens/ethereum.web3api.eth",
+    to: ethereumPlugin({
+      networks: {
+        mainnet: {
+          provider: ethereum
+        }
+      },
+      // If defaultNetwork is not specified, mainnet will be used.
+      defaultNetwork: "mainnet"
+    })
+  ]
 });
 ```
 

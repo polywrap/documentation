@@ -152,6 +152,8 @@ In the output window, you'll see a combination of input queries, and returned re
 
 It's time to build and customizing your own Web3API! We'll be adding IPFS support to the SimpleStorage Web3API.
 
+A complete project with the modifications described below can be found [here](https://github.com/Web3-API/demos/tree/main/simple-storage/web3api-completed).
+
 ### **Update the mutation schema**
 
 The first step to adding new Web3API functionality is defining the method we want our users to query in GraphQL. Add the following method & custom data types to your `./src/mutation/schema.graphql` schema file:
@@ -162,6 +164,7 @@ type Mutation {
 
   setIpfsData(
     options: SetIpfsDataOptions!
+    connection: Ethereum_Connection
   ): SetIpfsDataResult!
 }
 
@@ -220,6 +223,7 @@ export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
     address: input.options.address,
     method: 'function setHash(string value)',
     args: [ipfsHash],
+    connection: input.connection,
   });
 
   // 3. Return the result
@@ -233,6 +237,8 @@ export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
 As you can see, the `SimpleStorage.sol` smart contract already exposes a `setHash()` method.
 
 In steps `1` and `2`, our SimpleStorage Web3API is sending a "sub-query" to the IPFS and Ethereum Web3APIs we imported within our schema. These Web3APIs can be implements as a WASM based Web3API, or a plugin in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/developers/create-js-plugin) documentation.
+
+The `Ethereum_Mutation.sendTransaction` function also accepts an optional argument, `connection`. This option allows you to select the network in which you're transacting with, by specifying a node's endpoint, or a network (name or chain ID) (e.g. `"rinkeby"`).
 
 To verify everything is implemented correctly, try running `yarn build` and see if the Web3API build succeeds.
 
@@ -251,6 +257,7 @@ type Query {
 
   getIpfsData(
     address: String!
+    connection: Ethereum_Connection
   ): String!
 }
 ```
@@ -272,6 +279,7 @@ export function getIpfsData(input: Input_getIpfsData): string {
     address: input.address,
     method: 'function getHash() view returns (string)',
     args: [],
+    connection: input.connection,
   });
 
   return String.UTF8.decode(
@@ -292,7 +300,10 @@ Add the following `.graphql` query files to the `./recipes` folder.
 
 ```graphql title="./recipes/setIpfs.graphql"
 mutation {
-  setIpfsData(options: { address: $address, data: $data }) {
+  setIpfsData(
+    options: { address: $address, data: $data }
+    connection: { networkNameOrChainId: $network }
+  ) {
     ipfsHash
     txReceipt
   }
@@ -303,7 +314,10 @@ mutation {
 
 ```graphql title="./recipes/getIpfs.graphql"
 query {
-  getIpfsData(address: $address)
+  getIpfsData(
+    address: $address,
+    connection: { networkNameOrChainId: $network }
+  )
 }
 ```
 
@@ -315,13 +329,15 @@ Once the queries we want to send have been defined, we just need to add them to 
     "query": "./setIpfs.graphql",
     "variables": {
       "address": "$SimpleStorageAddr",
-      "data": "Hello from IPFS!"
+      "data": "Hello from IPFS!",
+      "network": "testnet"
     }
   },
   {
     "query": "./getIpfs.graphql",
     "variables": {
-      "address": "$SimpleStorageAddr"
+      "address": "$SimpleStorageAddr",
+      "network": "testnet"
     }
   }
 ]
@@ -332,9 +348,11 @@ With our recipe complete, let's test the Web3API on our local environment!
 ```bash
 yarn test:env:up
 ```
+
 ```bash
 yarn deploy
 ```
+
 ```bash
 yarn test
 ```
