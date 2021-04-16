@@ -162,8 +162,10 @@ const client = new Web3ApiClient({
   redirects: [
     from: "ens/ethereum.web3api.eth",
     to: ethereumPlugin({
-      mainnet: {
-        provider: ethereum
+      networks: {
+        mainnet: {
+          provider: ethereum
+        }
       },
       // If defaultNetwork is not specified, mainnet will be used.
       defaultNetwork: "mainnet"

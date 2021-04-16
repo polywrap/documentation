@@ -152,6 +152,8 @@ In the output window, you'll see a combination of input queries, and returned re
 
 It's time to build and customizing your own Web3API! We'll be adding IPFS support to the SimpleStorage Web3API.
 
+A complete project with the modifications described below can be found [here](https://github.com/Web3-API/demos/tree/main/simple-storage/web3api-completed).
+
 ### **Update the mutation schema**
 
 The first step to adding new Web3API functionality is defining the method we want our users to query in GraphQL. Add the following method & custom data types to your `./src/mutation/schema.graphql` schema file:
@@ -236,7 +238,7 @@ As you can see, the `SimpleStorage.sol` smart contract already exposes a `setHas
 
 In steps `1` and `2`, our SimpleStorage Web3API is sending a "sub-query" to the IPFS and Ethereum Web3APIs we imported within our schema. These Web3APIs can be implements as a WASM based Web3API, or a plugin in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/developers/create-js-plugin) documentation.
 
-The `Ethereum_Mutation.sendTransaction` function also accepts an optional argument, `connectionOverride`. This option allows you to select the network in which you're transacting with, which can be a node, network name (e.g. `"rinkeby"`), or chain ID. The `connectionOverride` argument is a string type and defaults to `"mainnet"` if a value is not passed in.
+The `Ethereum_Mutation.sendTransaction` function also accepts an optional argument, `connection`. This option allows you to select the network in which you're transacting with, by specifying a node's endpoint, or a network (name or chain ID) (e.g. `"rinkeby"`).
 
 To verify everything is implemented correctly, try running `yarn build` and see if the Web3API build succeeds.
 
@@ -312,7 +314,10 @@ mutation {
 
 ```graphql title="./recipes/getIpfs.graphql"
 query {
-  getIpfsData(address: $address, connection: { networkNameOrChainId: $network })
+  getIpfsData(
+    address: $address,
+    connection: { networkNameOrChainId: $network }
+  )
 }
 ```
 
