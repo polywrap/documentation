@@ -7,7 +7,6 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* --ifm-color-primary: rgb(96, 192, 147); */
   --ifm-color-primary: #529dad;
   --ifm-link-color: #529dad;
   --ifm-color-primary-dark: rgb(59, 81, 94);
@@ -17,17 +16,25 @@
   --ifm-color-primary-lighter: rgb(102, 191, 211);
   --ifm-color-primary-lightest: rgb(122, 228, 252);
   --ifm-code-font-size: 95%;
-  --ifm-code-background: #1E1E1E;
-  --ifm-code-color: #9CDCFE;
+  --ifm-code-background: #1e1e1e;
+  --ifm-code-color: #9cdcfe;
   --ifm-navbar-sidebar-width: 250px;
-  --ifm-font-family-base: 'system-ui', sans-serif;
+  --ifm-font-family-base: 'arial', sans-serif;
   --ifm-alert-color: black;
   --ifm-background-color: #f7f8fa;
   --ifm-navbar-background-color: #f7f8fa;
 }
 
+body {
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(33, 114, 229, 0.1) 0%,
+    rgba(33, 36, 41, 0) 100%
+  );
+}
+
 html[data-theme='dark'] {
-  --ifm-background-color: rgb(28, 39, 45);
+  --ifm-background-color: #243037;
   --ifm-navbar-background-color: rgb(28, 39, 45);
   --ifm-blockquote-color: #d8d8d8;
 }
