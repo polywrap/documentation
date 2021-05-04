@@ -34,7 +34,7 @@ module.exports = {
       items: [
         {
           label: 'Website',
-          href: 'https://web3api.dev'
+          href: 'https://web3api.dev',
         },
         {
           label: 'Social',
@@ -87,7 +87,7 @@ module.exports = {
               label: 'Govern',
               href: customFields.daoUrl,
               className: 'dao-logo',
-              'aria-label': 'dao repo'
+              'aria-label': 'dao repo',
             },
           ],
         },

@@ -21,6 +21,11 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Developer Tools',
+      items: ['devtools/web3api-cli'],
+    },
+    {
+      type: 'category',
       label: 'Resources',
       items: [
         'resources/talks-and-videos',
