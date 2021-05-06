@@ -33,7 +33,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Queries',
-          items: ['uniswapv2/queries/token', 'uniswapv2/queries/pair'],
+          // items: ['uniswapv2/queries/token', 'uniswapv2/queries/pair'],
           items: ['uniswapv2/queries/token'],
         },
         // {
