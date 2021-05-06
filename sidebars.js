@@ -26,6 +26,11 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Uniswap v2 Web3API',
+      items: ['uniswapv2/uniswapv2-web3api-intro'],
+    },
+    {
+      type: 'category',
       label: 'Resources',
       items: [
         'resources/talks-and-videos',
