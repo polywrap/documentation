@@ -25,6 +25,32 @@
   --ifm-navbar-background-color: #f7f8fa;
 }
 
+html[data-theme='dark'] {
+  --ifm-alert-color: #f7f8fa;
+  --ifm-color-gray-900: #529dad;
+}
+
+.admonition {
+  border-radius: 0;
+}
+
+.alert {
+  background-color: transparent;
+  border-width: 0;
+}
+
+.alert--warning {
+  border-left: 0.5rem solid #ffef62;
+}
+
+.alert--success {
+  border-left: 0.5rem solid #00a400;
+}
+
+.alert--danger {
+  border-left: 0.5rem solid #fa383e;
+}
+
 .docTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocItem- {
   font-size: 2.3rem !important;
 }
