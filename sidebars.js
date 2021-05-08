@@ -22,7 +22,11 @@ module.exports = {
     {
       type: 'category',
       label: 'Developer Tools',
-      items: ['devtools/web3api-cli', 'devtools/web3api-clientjs'],
+      items: [
+        'devtools/web3api-cli',
+        'devtools/web3api-clientjs',
+        'devtools/web3api-react',
+      ],
     },
     {
       type: 'category',

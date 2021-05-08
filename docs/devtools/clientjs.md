@@ -15,7 +15,7 @@ The Web3API JavaScript client exists to help developers integrate Web3API into t
 ## Installation
 
 ```bash
-npm i @web3api/client-js
+npm install @web3api/client-js
 ```
 
 ## Usage

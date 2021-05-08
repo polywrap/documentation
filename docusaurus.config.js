@@ -19,7 +19,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
   organizationName: 'web3-api',
-  projectName: 'monorepo',
+  projectName: 'documentation',
   themeConfig: {
     sidebarCollapsible: false,
     colorMode: {
@@ -105,7 +105,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/web3-api/monorepo',
+          editUrl: 'https://github.com/web3-api/documentation/tree/main',
           routeBasePath: '/',
         },
         theme: {
