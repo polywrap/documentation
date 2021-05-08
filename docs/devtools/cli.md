@@ -68,22 +68,35 @@ w3 query ./recipes/e2e.json
 A simple `e2e.json` recipe file looks like the following:
 
 ```json title="./recipes/e2e.json"
+[
   {
-    "query": "./setIpfs.graphql",
+    "api": "ens/testnet/simplestorage.eth",
+    "constants": "./constants.json"
+  },
+  {
+    "query": "./get.graphql",
     "variables": {
       "address": "$SimpleStorageAddr",
-      "data": "Hello from IPFS!",
       "network": "testnet"
     }
   },
   {
-    "query": "./getIpfs.graphql",
+    "query": "./set.graphql",
     "variables": {
       "address": "$SimpleStorageAddr",
+      "value": 5,
       "network": "testnet"
     }
   }
 ]
+```
+
+In the above example, the `constants.json` file could include the following:
+
+```json
+{
+  "SimpleStorageAddr": "0x0E696947A06550DEf604e82C26fd9E493e576337"
+}
 ```
 
 ### `create (c)`
