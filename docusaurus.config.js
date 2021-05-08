@@ -21,6 +21,7 @@ module.exports = {
   organizationName: 'web3-api',
   projectName: 'monorepo',
   themeConfig: {
+    sidebarCollapsible: false,
     colorMode: {
       defaultMode: 'dark',
     },

@@ -22,14 +22,13 @@ module.exports = {
     {
       type: 'category',
       label: 'Developer Tools',
-      items: ['devtools/web3api-cli'],
+      items: ['devtools/web3api-cli', 'devtools/web3api-clientjs'],
     },
     {
       type: 'category',
       label: 'Resources',
       items: [
         'resources/talks-and-videos',
-        'resources/developer-tooling',
         'resources/the-web3api-technical-standard',
       ],
     },
