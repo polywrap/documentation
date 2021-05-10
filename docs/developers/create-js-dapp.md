@@ -240,7 +240,7 @@ const { data, error, loading } = useWeb3ApiQuery({
 });
 ```
 
-:::note
+:::tip
 By default, the `useWeb3ApiQuery` hook uses the first Web3ApiProvider found in the DOM's hierarchy. If you'd like to specify a specific provider to be used, simply set the `provider:` property:
 
 ```jsx

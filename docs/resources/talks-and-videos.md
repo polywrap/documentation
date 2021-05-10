@@ -5,12 +5,10 @@ title: Talks and Videos
 
 ---
 
-## **[Intro Video](https://youtu.be/ojbMBN9pga4)**
+## Introduction to Web3API
 
-- **Date: Oct. 2020**
-- **By: Jordan Ellis**
+<iframe width="675" height="380" src="https://www.youtube.com/embed/ojbMBN9pga4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## **[ETH Denver Presentation](https://youtu.be/9HhB4XL4AR4)**
+## ETHDenver Presentation
 
-- **Date: Feb. 2021**
-- **By: Jordan Ellis**
+<iframe width="675" height="380" src="https://www.youtube.com/embed/9HhB4XL4AR4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

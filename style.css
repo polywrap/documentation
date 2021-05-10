@@ -1,7 +1,7 @@
 /* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
+ * bundles Infima by defaula. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
 
@@ -24,15 +24,7 @@
   --ifm-background-color: #f7f8fa;
   --ifm-navbar-background-color: #f7f8fa;
 }
-
-.docTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocItem- {
-  font-size: 2.3rem !important;
-}
-
-.table-of-contents {
-  font-size: 0.75rem;
-}
-
+/* General styling */
 h2 {
   font-size: 1.65rem;
 }
@@ -49,6 +41,48 @@ html[data-theme='dark'] {
   --ifm-background-color: #243037;
   --ifm-navbar-background-color: rgb(28, 39, 45);
   --ifm-blockquote-color: #d8d8d8;
+}
+
+/* Sidebar */
+.menuLinkText_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocSidebar- {
+  font-weight: 600;
+}
+
+table tr {
+  background: transparent;
+}
+
+/* Admonition */
+html[data-theme='dark'] {
+  --ifm-alert-color: #f7f8fa;
+  --ifm-color-gray-900: #529dad;
+}
+
+.alert {
+  background-color: transparent;
+  border-radius: 0;
+  border-width: 0;
+}
+
+.alert--warning {
+  border-left: 0.5rem solid #ffef62;
+}
+
+.alert--success {
+  border-left: 0.5rem solid #00a400;
+}
+
+.alert--danger {
+  border-left: 0.5rem solid #fa383e;
+}
+
+.docTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocItem- {
+  font-size: 2.3rem !important;
+}
+
+/* Table of contents */
+.table-of-contents {
+  font-size: 0.75rem;
 }
 
 .docusaurus-highlight-code-line {
