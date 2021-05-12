@@ -1,6 +1,6 @@
 ---
 id: simplestorage-eth
-title: A SimpleStorage dApp
+title: SimpleStorage dApp
 ---
 
 ## **Introduction**
