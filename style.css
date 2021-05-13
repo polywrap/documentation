@@ -7,8 +7,8 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #529dad;
-  --ifm-link-color: #529dad;
+  --ifm-color-primary: #60c093;
+  --ifm-link-color: #60c093;
   --ifm-color-primary-dark: rgb(59, 81, 94);
   --ifm-color-primary-darker: rgb(40, 56, 65);
   --ifm-color-primary-darkest: rgb(28, 39, 45);
@@ -25,10 +25,6 @@
   --ifm-navbar-background-color: #f7f8fa;
 }
 /* General styling */
-h2 {
-  font-size: 1.65rem;
-}
-
 body {
   background-image: radial-gradient(
     50% 50% at 50% 50%,

@@ -5,38 +5,63 @@ description: The Universal Web3 Integration Standard
 slug: /
 ---
 
-**Web3API** is a developer toolchain that makes it easy to interact with any blockchain (or P2P network) from any programming language!
+## Introduction
 
-:::caution
+**Web3API** is a developer tool that allows easy integration of Web3 protocols into any application. It makes it possible for applications on any platform, written in any language, to read and write data to Web3 protocols.
 
+:::tip
 Web3API is in **pre-alpha**, meaning our code and documentation are rapidly changing. Have questions or want to get involved? Join our [Discord](https://discord.com/invite/Z5m88a5qWu) or [open an issue](https://github.com/Web3-API/monorepo/issues) on our GitHub repo.
 
 :::
 
-### **Getting started**
+## What is a Web3API?
 
-We know software docs can be overwhelming, especially for something as technical as a developer toolchain. That's why we've made this guide user-friendly for anyone interested in Web3API, whether you're a non-techie or an experienced programmer.
+A Web3API package includes a protocol's business logic. They're made available by **Maintainers** and consumed by **Users**.
 
-### **For: The Casually Interested Reader**
+### Maintainers
 
-If you're interested in understanding Web3API at a high-level, we recommend watching [this introductory video on our website](https://web3api.dev). No deep technical knowledge required.
+Maintainers are project teams that build and maintain their own Web3APIs. For example, the Gnosis team could develop a Gnosis Web3API which includes their protocol's business logic. They would then deploy their Web3API to a decentralized endpoint, like IPFS, for Users to easily integrate into their applications.
 
-If after that you're still wanting more, check out this deeper dive from our [ETH Denver presentation](https://youtu.be/9HhB4XL4AR4). This presentation not only covers the tech, but also the ecosystem that's helping make Web3API a reality!
+The Web3API package is meant to replace a protocol's existing SDKs. Instead of building a separate SDK for JavaScript, Go, and so on, a protocol would just need one SDK written in one language that can compile to WebAssembly, like Rust.
 
-If you'd like to see Web3API in action, check out our [SimpleStorage on Ethereum demo](/demos/simplestorage-eth).
+:::tip
+**Want to build your own Web3API?**
+Follow our [Create a Web3API Guide](guides/create-as-web3api).
+:::
 
-### **For: Developers**
+### Users
 
-If you're a developer interested in building with Web3API, we recommend [starting here](/developers/start-here).
+Users integrate Web3API into their applications. By installing the Web3API client into their application, users can read or write to Web3APIs that are deployed by Maintainers.
 
-It introduces you to Web3API through a technical lens, explaining how it works at a high level, and the many benefits it brings. From there you'll be directed to one of our development guides, where you'll build something that fits your use-case (dApp, Web3API, Plugin).
+These read and write operations are done using GraphQL.
 
-If you'd like to see Web3API in action, check out our [SimpleStorage demo](/demos/simplestorage-eth).
+:::tip
+**Want to integrate existing Web3APIs into your dapp?**
+Follow our [Create JS Dapp Guide](guides/create-js-dapp).
+:::
 
-### **For: Technical Specification Information**
+## What's inside a Web3API package?
 
-If you're looking for the most low-level details of how Web3API works, you've come to the right place!
+A Web3API package consists of the following files:
 
-Head over the our [specification repository](https://github.com/Web3-API/specification) (still very WIP) to get a look at how the standard functions, regardless of what language you're using Web3API in.
+- A **Wasm** module that has the protocol's business logic
+- A **GraphQL** schema to execute queries using a type system that is defined by the Wasm module
+- A **manifest** file that orchestrates the Web3API package
 
-You definitely don't need to go through this material in order to build Web3APIs or dApps using Web3API. However it is quite useful to shine some light on the black boxes that exist when using new frameworks.
+## Benefits
+
+### Compatibility & maintainability
+
+Web3APIs can run in any type of application, meaning Maintainers only have to program their SDK once. This will save developers an immense amount of time.
+
+### Easy of use
+
+Developers interact with Web3APIs through simple GraphQL, making them as easy to use as Web2 APIs.
+
+### Bundle size
+
+Adding new Web3APIs to your application does not increase its size. This is because the Web3API will be downloaded from a decentralized endpoint (like IPFS) at runtime.
+
+### Upgrades & patches
+
+Since Web3APIs are resolved at runtime, this allows for automatic updates if the app is querying an updatable URI (such as an ENS domain). If you’d like to “turn off” this functionality, app developers are free to use the underlying IPFS hash which will remain constant.

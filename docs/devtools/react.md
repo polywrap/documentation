@@ -15,7 +15,7 @@ The purpose of the Web3API React library is to simplify integration of Web3API i
 ## Installation
 
 ```bash
-npm install @web3api/client-js
+npm install @web3api/react
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ export default function App() {
 
 The `Web3ApiProvider` instantiates the `Web3ApiClient` for all queries below it in the component tree.
 
-The `Web3ApiProvider` also accepts URI redirects as props. For more information on URI redirects, please take a look at this section in our [Create a JS dApp guide](http://localhost:3000/developers/create-js-dapp#understanding-uris).
+The `Web3ApiProvider` also accepts URI redirects as props. For more information on URI redirects, please take a look at this section in our [Create a JS dApp guide](docs/devtools/react.md).
 
 You can pass the redirects array into the provider component like so:
 

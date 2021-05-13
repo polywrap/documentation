@@ -6,12 +6,12 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Developers',
+      label: 'Guides',
       items: [
-        'developers/start-here',
-        'developers/create-as-web3api',
-        'developers/create-js-dapp',
-        'developers/create-js-plugin',
+        // 'guides/start-here',
+        'guides/create-as-web3api',
+        'guides/create-js-dapp',
+        'guides/create-js-plugin',
       ],
     },
     {
