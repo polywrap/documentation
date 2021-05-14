@@ -125,7 +125,7 @@ The `ens/api.myhelloworld.eth` Web3API must fully implement the `ens/api.hellowo
 
 Web3API Plugins enable existing SDKs implemented in the client's language (i.e. JavaScript) to be queried as if they were normal Web3APIs.
 
-For information on how to create your own Web3API Plugin, read the [guide here](/developers/create-js-plugin).
+For information on how to create your own Web3API Plugin, read the [guide here](/guides/create-js-plugin).
 
 Plugins can be used to enable any native client functionality that cannot be implemented in WebAssembly. Such as sending HTTP requests, or signing with a private key.
 

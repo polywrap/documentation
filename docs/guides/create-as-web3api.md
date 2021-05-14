@@ -236,7 +236,7 @@ export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
 
 As you can see, the `SimpleStorage.sol` smart contract already exposes a `setHash()` method.
 
-In steps `1` and `2`, our SimpleStorage Web3API is sending a "sub-query" to the IPFS and Ethereum Web3APIs we imported within our schema. These Web3APIs can be implements as a WASM based Web3API, or a plugin in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/developers/create-js-plugin) documentation.
+In steps `1` and `2`, our SimpleStorage Web3API is sending a "sub-query" to the IPFS and Ethereum Web3APIs we imported within our schema. These Web3APIs can be implements as a WASM based Web3API, or a plugin in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/guides/create-js-plugin) documentation.
 
 The `Ethereum_Mutation.sendTransaction` function also accepts an optional argument, `connection`. This option allows you to select the network in which you're transacting with, by specifying a node's endpoint, or a network (name or chain ID) (e.g. `"rinkeby"`).
 

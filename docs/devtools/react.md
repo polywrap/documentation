@@ -39,7 +39,7 @@ export default function App() {
 
 The `Web3ApiProvider` instantiates the `Web3ApiClient` for all queries below it in the component tree.
 
-The `Web3ApiProvider` also accepts URI redirects as props. For more information on URI redirects, please take a look at this section in our [Create a JS dApp guide](docs/devtools/react.md).
+The `Web3ApiProvider` also accepts URI redirects as props. 
 
 You can pass the redirects array into the provider component like so:
 

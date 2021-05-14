@@ -8,7 +8,7 @@ title: Plugin an Existing JS SDK
 In this guide, we'll walk you through creating your own JavaScript based plugin that can be added to the JavaScript Web3API Client.
 
 :::caution
-Plugins do not retain [all of Web3API's benefits](/developers/start-here#benefits). We recommend re-writing your existing JavaScript SDKs as AssemblyScript (WebAssembly) Web3APIs if possible. See [here](/developers/create-as-web3api) for more details.
+Plugins do not retain all of Web3API's benefits. We recommend re-writing your existing JavaScript SDKs as AssemblyScript (WebAssembly) Web3APIs if possible. See [here](/guides/create-as-web3api) for more details.
 :::
 
 As always, if you need any help, message us on [Discord](https://discord.com/invite/Z5m88a5qWu)!
@@ -73,7 +73,7 @@ The `src/index.ts` file contains the Plugin class, which will be created each ti
 
 ### **`src/manifest.ts`**
 
-This file takes the place of the `web3api.yaml` manifest file discussed in the ["Create a Web3API" guide](/developers/create-as-web3api). It contains the plugin's schema, all Web3APIs interfaces the plugin implements, and external Web3APIs the plugin is dependent on.
+This file takes the place of the `web3api.yaml` manifest file discussed in the ["Create a Web3API" guide](/guides/create-as-web3api). It contains the plugin's schema, all Web3APIs interfaces the plugin implements, and external Web3APIs the plugin is dependent on.
 
 :::caution
 Web3API interfaces (schemas with no implementation) haven't been fully developed yet. Please stay tuned!
