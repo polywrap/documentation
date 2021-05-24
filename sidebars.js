@@ -30,6 +30,25 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Uniswap v2 Web3API',
+      items: [
+        'uniswapv2/uniswapv2-web3api-intro',
+        'uniswapv2/common-types',
+        {
+          type: 'category',
+          label: 'Queries',
+          // items: ['uniswapv2/queries/token', 'uniswapv2/queries/pair'],
+          items: ['uniswapv2/queries/token'],
+        },
+        // {
+        //   type: 'category',
+        //   label: 'Mutations',
+        //   items: ['uniswapv2/mutations/mutation-trade'],
+        // },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Resources',
       items: [
         'resources/talks-and-videos',
