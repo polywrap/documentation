@@ -14,54 +14,12 @@ Web3API is in **pre-alpha**, meaning our code and documentation are rapidly chan
 
 :::
 
-## What is a Web3API?
+## Ready to build with Web3API?
 
-A Web3API package includes a protocol's business logic. They're made available by **Maintainers** and consumed by **Users**.
+**If you want to learn more about the benefits of using Web3API:** [What is Web3API?](/whatis).
 
-### Maintainers
+**If you're a looking to integrate Web3APIs into your dapp:** [Create JS dapp guide](guides/create-js-dapp/01).
 
-Maintainers are project teams that build and maintain their own Web3APIs. For example, the Gnosis team could develop a Gnosis Web3API which includes their protocol's business logic. They would then deploy their Web3API to a decentralized endpoint, like IPFS, for Users to easily integrate into their applications.
+**If you're a protocol team or individual who wants to build your own Web3API:** [Create a Web3API guide](guides/create-as-web3api/pt1).
 
-The Web3API package is meant to replace a protocol's existing SDKs. Instead of building a separate SDK for JavaScript, Go, and so on, a protocol would just need one SDK written in one language that can compile to WebAssembly, like Rust.
-
-:::tip
-**Want to build your own Web3API?**
-Follow our [Create a Web3API Guide](guides/create-as-web3api).
-:::
-
-### Users
-
-Users integrate Web3API into their applications. By installing the Web3API client into their application, users can read or write to Web3APIs that are deployed by Maintainers.
-
-These read and write operations are done using GraphQL.
-
-:::tip
-**Want to integrate existing Web3APIs into your dapp?**
-Follow our [Create JS Dapp Guide](guides/create-js-dapp).
-:::
-
-## What's inside a Web3API package?
-
-A Web3API package consists of the following files:
-
-- A **Wasm** module that has the protocol's business logic
-- A **GraphQL** schema to execute queries using a type system that is defined by the Wasm module
-- A **manifest** file that orchestrates the Web3API package
-
-## Benefits
-
-### Compatibility & maintainability
-
-Web3APIs can run in any type of application, meaning Maintainers only have to program their SDK once. This will save developers an immense amount of time.
-
-### Easy of use
-
-Developers interact with Web3APIs through simple GraphQL, making them as easy to use as Web2 APIs.
-
-### Bundle size
-
-Adding new Web3APIs to your application does not increase its size. This is because the Web3API will be downloaded from a decentralized endpoint (like IPFS) at runtime.
-
-### Upgrades & patches
-
-Since Web3APIs are resolved at runtime, this allows for automatic updates if the app is querying an updatable URI (such as an ENS domain). If you’d like to “turn off” this functionality, app developers are free to use the underlying IPFS hash which will remain constant.
+**Or try out our SimpleStorage demo!** [SimpleStorage dApp](demos/simplestorage-eth).
