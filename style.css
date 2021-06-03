@@ -24,38 +24,22 @@
   --ifm-background-color: #f7f8fa;
   --ifm-navbar-background-color: #f7f8fa;
 }
-<<<<<<< HEAD
 /* General styling */
-=======
-
-.docTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocItem- {
-  font-size: 2.7rem !important;
-}
-
-.table-of-contents {
-  font-size: 0.75rem;
-}
-
-h2 {
-  font-size: 1.85rem;
-}
-
->>>>>>> 4f70fbc104f23087f6c49a1e0ec5cf36bf0c37df
-body {
-  background-image: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(33, 114, 229, 0.1) 0%,
-    rgba(33, 36, 41, 0) 100%
-  );
-}
-
 html[data-theme='dark'] {
-  --ifm-background-color: #243037;
+  --ifm-background-color: #141a1f;
   --ifm-navbar-background-color: rgb(28, 39, 45);
   --ifm-blockquote-color: #d8d8d8;
 }
 
 /* Sidebar */
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
+.menu__link {
+  font-size: 90%;
+}
+
 .menuLinkText_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocSidebar- {
   font-weight: 600;
 }

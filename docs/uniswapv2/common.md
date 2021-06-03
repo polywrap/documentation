@@ -112,3 +112,20 @@ type Trade {
   tradeType: TradeType!
 }
 ```
+
+### Swap Parameters
+
+```graphql
+type SwapParameters {
+  methodName: String!
+  args: [String!]!
+  value: String!
+}
+```
+
+```graphql
+type TxOverrides {
+  gasPrice: BigInt
+  gasLimit: BigInt
+}
+```

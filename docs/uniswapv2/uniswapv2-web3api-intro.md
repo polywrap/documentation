@@ -17,19 +17,9 @@ Developers integrating the Uniswap Web3API into their app would use [GraphQL](ht
 
 The Uniswap Web3API aims to be a substantial improvement over Uniswap v2’s [existing SDK](https://uniswap.org/docs/v2/SDK/getting-started/).
 
-While the official SDK bundles all classes (e.g. `Token`), necessary data fields, and helper functions into the application, the Uniswap Web3API does not. Instead, all business logic is deployed on a decentralized endpoint, like IPFS, and is downloaded at runtime when the client application launches. The business logic that's downloaded lives in a Web3API repository which includes the following files:
+While the official SDK bundles all classes (e.g. `Token`), necessary data fields, and helper functions into the application, the Uniswap Web3API does not. Instead, all business logic is deployed on a decentralized endpoint, like IPFS, and is downloaded at runtime when the client application launches.
 
-- A **WebAssembly** module (compiled from AssemblyScript) that provides apps with the same business logic as the Uniswap v2 JavaScript SDK
-- A **GraphQL** schema to execute queries using a type system that is defined by the Uniswap Web3API
-- A **manifest** file that orchestrates this business logic
-
-Here is a summary of other significant differences:
-
-| Differences                   | Uniswap v2 Web3API                                                                                                  | Uniswap SDK                                                                                                                                     |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Maintainability**           | Built and maintained in a _single_ language like Rust or AssemblyScript.                                            | Currently written in JavaScript, and potentially other languages in the future like Python or Go. Each SDK needs to be individually maintained. |
-| **Compatibility**             | Works on _all_ platforms (browsers, desktops, IoT, etc.) and all types of apps (JavaScript, Python etc.).           | Each SDK only works with that specific type of app (e.g. the Uniswap JavaScript client only works in JavaScript apps).                          |
-| **Impact to app bundle size** | Little to none. The Uniswap v2 business logic is downloaded from a decentralized endpoint (like IPFS) at _runtime_. | The Uniswap JavaScript SDK is installed using `npm`, which increases your app's bundle size.                                                    |
+You can learn more about the benefits of using Web3API [here](/whatis).
 
 ## Code
 
@@ -66,4 +56,4 @@ client.query({
 });
 ```
 
-Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS dApp](/developers/create-js-dapp) guide.
+Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS dApp](/guides/create-js-dapp/01) guide.
