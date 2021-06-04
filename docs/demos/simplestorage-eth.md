@@ -5,9 +5,7 @@ title: SimpleStorage dApp
 
 ## **Introduction**
 
-We believe in learning by doing so we've put together a simple tutorial that should only take a few minutes of your time.
-
-Get an firsthand look at how Web3API integrates with a decentralized application (dApp).
+We believe in learning by doing so we've put together a simple tutorial that should only take a few minutes of your time. This demo gives you a firsthand look at how Web3API integrates with a decentralized application (dApp).
 
 ## **Prerequisites**
 
@@ -25,7 +23,7 @@ Get an firsthand look at how Web3API integrates with a decentralized application
 
 And that's it 🎉! You're ready to use the Web3API SimpleStorage website demo.
 
-## **dApp Overview**
+## **Demo Overview**
 
 🏁 To begin, visit our SimpleStorage dApp that's deployed at the link below. Be sure to set your MetaMask's network to Rinkeby.<br/>
 
