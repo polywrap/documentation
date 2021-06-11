@@ -1,0 +1,14 @@
+mutation { 
+  setIpfsData(
+    options: {
+      address: $address
+      data: $data
+    }
+    connection: {
+      networkNameOrChainId: $network
+    }
+  ) {
+    ipfsHash
+    txReceipt
+  }
+}

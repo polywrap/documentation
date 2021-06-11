@@ -68,4 +68,70 @@ describe('create-as-web3api', () => {
       expect(stdout).toContain('getData": 569');
     }
   });
+
+  it('step 3 & 4: adding new mutation and query functions', async () => {
+    {
+      const { stdout } = await runCommand('ls', projectFolder);
+      expect(stdout).toContain('build');
+    }
+
+    {
+      // Update the mutation schema.
+      await runCommand(
+        'cp ../../../src/create-as-web3api/mutation/schema.graphql src/mutation/',
+        projectFolder
+      );
+
+      // Implement the setIpfsData mutation.
+      await runCommand(
+        'cp ../../../src/create-as-web3api/mutation/index.ts src/mutation/',
+        projectFolder
+      );
+
+      // Update the query schema.
+      await runCommand(
+        'cp ../../../src/create-as-web3api/query/schema.graphql src/query/',
+        projectFolder
+      );
+
+      // Implement the getIpfsData query.
+      await runCommand(
+        'cp ../../../src/create-as-web3api/query/index.ts src/query/',
+        projectFolder
+      );
+    }
+  });
+
+  it('step 5: build and deploy updated project', async () => {
+    {
+      await runCommand(
+        'cp ../../../src/create-as-web3api/recipes/setIpfs.graphql recipes',
+        projectFolder
+      );
+    }
+
+    {
+      await runCommand(
+        'cp ../../../src/create-as-web3api/recipes/getIpfs.graphql recipes',
+        projectFolder
+      );
+    }
+
+    {
+      await runCommand(
+        'cp ../../../src/create-as-web3api/recipes/e2e.json recipes',
+        projectFolder
+      );
+    }
+
+    {
+      await runCommand('yarn build', projectFolder);
+    }
+
+    {
+      await runCommand('yarn deploy', projectFolder);
+      const { stdout } = await runCommand('yarn test', projectFolder);
+      expect(stdout).toContain('Hello from IPFS!');
+    }
+  });
 });
