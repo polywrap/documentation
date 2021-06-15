@@ -40,6 +40,11 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Advanced',
+      items: ['advanced/build-pipeline'],
+    },
+    {
+      type: 'category',
       label: 'Demos',
       items: ['demos/simplestorage-eth'],
     },
