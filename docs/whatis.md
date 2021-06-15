@@ -32,3 +32,11 @@ Adding new Web3APIs to your application does not increase its size. This is beca
 ### Upgrades & patches
 
 Web3APIs are resolved at runtime, allowing for automatic updates if the app is querying an updatable URI (such as an ENS domain). If you’d like to “turn off” this functionality, app developers are free to use the underlying IPFS hash which will remain constant.
+
+### Easy composability
+
+Web3APIs can query eachother, making composability much easier, for both protocol and app devs.
+
+### Third-party extensions
+
+Web3APIs can have standard interfaces defined, similar to smart contract standard interfaces (ex. ERC-20). This allows for 3rd parties to build new client-side modules that can extend application functionalities, without requiring the rebuilds of their app.
