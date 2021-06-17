@@ -1,5 +1,5 @@
 ---
-id: '04'
+id: 'understanding-plugins'
 title: Understanding plugins
 ---
 

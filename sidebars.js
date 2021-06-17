@@ -10,6 +10,16 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Academy',
+      items: [
+        'academy/academy',
+        'academy/benefits',
+        'academy/understanding-uris',
+        'academy/understanding-plugins',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Guides',
       items: [
         {
@@ -19,8 +29,6 @@ module.exports = {
             'guides/create-js-dapp/01',
             'guides/create-js-dapp/02',
             'guides/create-js-dapp/03',
-            'guides/create-js-dapp/04',
-            'guides/create-js-dapp/05',
           ],
         },
         {
