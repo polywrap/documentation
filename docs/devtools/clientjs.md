@@ -1,10 +1,10 @@
 ---
-id: web3api-clientjs
-title: '@web3api/client-js'
+id: polywrap-clientjs
+title: '@polywrap/client-js'
 ---
 
-<a href="https://www.npmjs.com/package/@web3api/client-js" target="_blank" rel="noopener noreferrer">
-<img src="https://img.shields.io/npm/v/@web3api/client-js.svg" alt="npm"/>
+<a href="https://www.npmjs.com/package/@polywrap/client-js" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/npm/v/@polywrap/client-js.svg" alt="npm"/>
 </a>
 
 <br/>
@@ -15,7 +15,7 @@ The Web3API JavaScript client exists to help developers integrate Web3API into t
 ## Installation
 
 ```bash
-npm install @web3api/client-js
+npm install @polywrap/client-js
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ npm install @web3api/client-js
 Use an `import` or `require` statement, depending on which your environment supports.
 
 ```js
-import { Web3APIClient } from '@web3api/client-js';
+import { Web3APIClient } from '@polywrap/client-js';
 ```
 
 Then, you will be able to use the `Web3APIClient` like so:

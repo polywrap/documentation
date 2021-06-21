@@ -24,7 +24,7 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'Integrate into a JS dApp',
+          label: 'Integrate into a JS dapp',
           items: [
             'guides/create-js-dapp/01',
             'guides/create-js-dapp/02',
@@ -33,14 +33,14 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Creating a Web3API',
+          label: 'Creating a wrapper',
           items: [
-            'guides/create-as-web3api/pt1',
-            'guides/create-as-web3api/pt2',
-            'guides/create-as-web3api/pt3',
-            'guides/create-as-web3api/pt4',
-            'guides/create-as-web3api/pt5',
-            'guides/create-as-web3api/pt6',
+            'guides/create-as-wrapper/pt1',
+            'guides/create-as-wrapper/pt2',
+            'guides/create-as-wrapper/pt3',
+            'guides/create-as-wrapper/pt4',
+            'guides/create-as-wrapper/pt5',
+            'guides/create-as-wrapper/pt6',
           ],
         },
         'guides/create-js-plugin',
@@ -55,9 +55,9 @@ module.exports = {
       type: 'category',
       label: 'Developer Tools',
       items: [
-        'devtools/web3api-cli',
-        'devtools/web3api-clientjs',
-        'devtools/web3api-react',
+        'devtools/polywrap-cli',
+        'devtools/polywrap-clientjs',
+        'devtools/polywrap-react',
       ],
     },
     {
@@ -65,7 +65,7 @@ module.exports = {
       label: 'Resources',
       items: [
         'resources/talks-and-videos',
-        'resources/the-web3api-technical-standard',
+        'resources/the-polywrap-technical-standard',
       ],
     },
   ],

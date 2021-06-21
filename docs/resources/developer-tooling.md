@@ -5,7 +5,7 @@ title: Developer Tools
 
 ## **Introduction**
 
-We offer an extensive set of developer tools to build Web3APIs. If the platform or language you need to use isn't listed here, send us a note on [Discord](https://discord.com/invite/Z5m88a5qWu)!
+We offer an extensive set of developer tools to build wrappers. If the platform or language you need to use isn't listed here, send us a note on [Discord](https://discord.com/invite/Z5m88a5qWu)!
 
 ## **Developer Tools**
 

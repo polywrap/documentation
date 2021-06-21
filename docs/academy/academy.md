@@ -1,13 +1,13 @@
 ---
 id: 'academy'
-title: Web3API Academy
+title: Polywrap Academy
 ---
 
-Welcome to the Web3API Academy. This section is aimed at getting you familiar with concepts and technologies used by Web3API. We will also go more in-depth on the benefits of using Web3API.
+Welcome to the Polywrap Academy. This section is aimed at getting you familiar with concepts and technologies used by Polywrap. We will also go more in-depth on the benefits of using Polywrap.
 
 <!-- - [Understanding plugins]()
-- [Benefits of using Web3API (in-depth)]()
-- [Web3API pre-reqs]()
+- [Benefits of using Polywrap (in-depth)]()
+- [Polywrap pre-reqs]()
 - [Understanding URIs]()
 - [WebAssembly]()
 - [GraphQL]()
