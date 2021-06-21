@@ -10,7 +10,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Academy',
+      label: 'Polywrap Academy',
       items: [
         'academy/academy',
         'academy/benefits',

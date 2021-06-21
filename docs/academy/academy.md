@@ -1,9 +1,9 @@
 ---
 id: 'academy'
-title: Polywrap Academy
+title: Overview
 ---
 
-Welcome to the Polywrap Academy. This section is aimed at getting you familiar with concepts and technologies used by Polywrap. We will also go more in-depth on the benefits of using Polywrap.
+Welcome to the Polywrap Academy! This section is aimed at getting you familiar with concepts and technologies used by Polywrap. We will also go more in-depth on the benefits of using Polywrap.
 
 <!-- - [Understanding plugins]()
 - [Benefits of using Polywrap (in-depth)]()

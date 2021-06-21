@@ -39,4 +39,4 @@ Wrappers can query eachother, making composability much easier, for both protoco
 
 ### Third-party extensions
 
-Wrappers can have standard interfaces defined, similar to smart contract standard interfaces (ex. ERC-20). This allows for 3rd parties to build new client-side modules that can extend application functionalities, without requiring the rebuilds of their app.
+Wrappers can have standard interfaces defined, similar to smart contract standard interfaces (e.g. ERC-20). This allows for 3rd parties to build new client-side modules that can extend application functionalities, without requiring the rebuilds of their app.
