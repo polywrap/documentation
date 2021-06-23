@@ -1,6 +1,6 @@
 ---
 id: polywrap-react
-title: '@polywrap/react'
+title: '@web3api/react'
 ---
 
 <a href="https://www.npmjs.com/package/@polywrap/react" target="_blank" rel="noopener noreferrer">
@@ -26,7 +26,7 @@ To start using the Web3API React library, wrap your application in a `Web3ApiPro
 
 ```typescript
 import React from 'react';
-import { Web3ApiProvider } from '@polywrap/react';
+import { Web3ApiProvider } from '@web3api/react';
 
 export default function App() {
   return (

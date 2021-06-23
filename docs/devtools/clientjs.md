@@ -1,6 +1,6 @@
 ---
 id: polywrap-clientjs
-title: '@polywrap/client-js'
+title: '@web3api/client-js'
 ---
 
 <a href="https://www.npmjs.com/package/@polywrap/client-js" target="_blank" rel="noopener noreferrer">
@@ -15,7 +15,7 @@ The Web3API JavaScript client exists to help developers integrate Web3API into t
 ## Installation
 
 ```bash
-npm install @polywrap/client-js
+npm install @web3api/client-js
 ```
 
 ## Usage

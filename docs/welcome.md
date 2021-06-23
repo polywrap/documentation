@@ -26,4 +26,4 @@ Have questions or want to get involved? Join our [Discord](https://discord.com/i
 
 **If you're a protocol team or individual who wants to build your own wrapper:** [Create a wrapper guide](guides/create-as-wrapper/pt1).
 
-**Or try out our SimpleStorage demo!** [SimpleStorage dapp](demos/simplestorage-eth).
+<!-- **Or try out our SimpleStorage demo!** [SimpleStorage dapp](demos/simplestorage-eth). -->

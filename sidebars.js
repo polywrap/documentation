@@ -24,15 +24,6 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'Integrate into a JS dapp',
-          items: [
-            'guides/create-js-dapp/01',
-            'guides/create-js-dapp/02',
-            'guides/create-js-dapp/03',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Creating a wrapper',
           items: [
             'guides/create-as-wrapper/pt1',
@@ -43,14 +34,23 @@ module.exports = {
             'guides/create-as-wrapper/pt6',
           ],
         },
+        {
+          type: 'category',
+          label: 'Integrate into a JS dapp',
+          items: [
+            'guides/create-js-dapp/01',
+            'guides/create-js-dapp/02',
+            'guides/create-js-dapp/03',
+          ],
+        },
         'guides/create-js-plugin',
       ],
     },
-    {
-      type: 'category',
-      label: 'Demos',
-      items: ['demos/simplestorage-eth'],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Demos',
+    //   items: ['demos/simplestorage-eth'],
+    // },
     {
       type: 'category',
       label: 'Developer Tools',

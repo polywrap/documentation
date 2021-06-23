@@ -1,6 +1,6 @@
 ---
 id: polywrap-cli
-title: '@polywrap/cli'
+title: '@web3api/cli'
 ---
 
 <a href="https://www.npmjs.com/package/@polywrap/cli" target="_blank" rel="noopener noreferrer">
@@ -14,7 +14,7 @@ Command line interface for Web3API.
 ## Installation
 
 ```bash
-npm install @polywrap/cli
+npm install @web3api/cli
 ```
 
 ## Usage
