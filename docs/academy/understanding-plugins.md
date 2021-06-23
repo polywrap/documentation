@@ -1,17 +1,17 @@
 ---
-id: '04'
+id: 'understanding-plugins'
 title: Understanding plugins
 ---
 
-Web3API Plugins enable existing SDKs implemented in the client's language (i.e. JavaScript) to be queried as if they were normal Web3APIs.
+Polywrap plugins enable existing SDKs implemented in the client's language (i.e. JavaScript) to be queried as if they were normal Polywraps.
 
-For information on how to create your own Web3API Plugin, read the [guide here](/guides/create-js-plugin).
+For information on how to create your own Polywrap Plugin, read the [guide here](/guides/create-js-plugin).
 
 Plugins can be used to enable any native client functionality that cannot be implemented in WebAssembly. Such as sending HTTP requests, or signing with a private key.
 
 ### **Default Plugins**
 
-All Web3API clients come equipped with the following default plugins:
+All Polywrap clients come equipped with the following default plugins:
 
 - `w3://ens/ens.web3api.eth`
 - `w3://ens/ipfs.web3api.eth`

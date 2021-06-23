@@ -1,10 +1,10 @@
 ---
-id: web3api-react
+id: polywrap-react
 title: '@web3api/react'
 ---
 
-<a href="https://www.npmjs.com/package/@web3api/react" target="_blank" rel="noopener noreferrer">
-<img src="https://img.shields.io/npm/v/@web3api/react.svg" alt="npm"/>
+<a href="https://www.npmjs.com/package/@polywrap/react" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/npm/v/@polywrap/react.svg" alt="npm"/>
 </a>
 
 <br/>
@@ -15,7 +15,7 @@ The purpose of the Web3API React library is to simplify integration of Web3API i
 ## Installation
 
 ```bash
-npm install @web3api/react
+npm install @polywrap/react
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ export default function App() {
 
 The `Web3ApiProvider` instantiates the `Web3ApiClient` for all queries below it in the component tree.
 
-The `Web3ApiProvider` also accepts URI redirects as props. 
+The `Web3ApiProvider` also accepts URI redirects as props.
 
 You can pass the redirects array into the provider component like so:
 
@@ -50,7 +50,7 @@ You can pass the redirects array into the provider component like so:
 If you need to use multiple providers, you can do so using the `createWeb3ApiProvider("...")` method, which accepts the name of your provider as an argument. For example:
 
 ```typescript
-import { createWeb3ApiProvider } from '@web3api/react';
+import { createWeb3ApiProvider } from '@polywrap/react';
 
 const CustomWeb3ApiProvider = createWeb3ApiProvider('custom');
 
@@ -66,10 +66,10 @@ The `useWeb3ApiQuery` is the primary API for executing queries. To run a query w
 Here's an example query that you could send:
 
 ```typescript
-import { useWeb3ApiQuery } from '@web3api/react';
+import { useWeb3ApiQuery } from '@polywrap/react';
 
 const { data, error, loading } = useWeb3ApiQuery({
-  uri: 'ens/api.helloworld.web3api.eth',
+  uri: 'ens/api.helloworld.polywrap.eth',
   query: `{
     logMessage(message: "Hello World!")
   }`,

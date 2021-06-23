@@ -11,14 +11,14 @@ const customFields = {
 };
 
 module.exports = {
-  title: 'Web3API (Pre-Alpha)',
+  title: 'Polywrap (Pre-alpha)',
   tagline: 'The Universal Web3 Integration Standard',
   url: 'https://docs.web3api.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
-  organizationName: 'web3-api',
+  organizationName: 'polywrap',
   projectName: 'documentation',
   themeConfig: {
     sidebarCollapsible: false,
@@ -26,16 +26,16 @@ module.exports = {
       defaultMode: 'dark',
     },
     navbar: {
-      title: 'Web3API (Pre-Alpha)',
+      title: 'Polywrap (Pre-alpha)',
       logo: {
-        alt: 'Web3API Icon',
-        src: 'img/Web3API_Icon.svg',
+        alt: 'Polywrap Icon',
+        src: 'img/polywrap-icon.png',
         href: '/',
       },
       items: [
         {
           label: 'Website',
-          href: 'https://web3api.dev',
+          href: 'https://polywrap.io',
         },
         {
           label: 'Social',

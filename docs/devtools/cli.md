@@ -1,10 +1,10 @@
 ---
-id: web3api-cli
+id: polywrap-cli
 title: '@web3api/cli'
 ---
 
-<a href="https://www.npmjs.com/package/@web3api/cli" target="_blank" rel="noopener noreferrer">
-<img src="https://img.shields.io/npm/v/@web3api/cli.svg" alt="npm"/>
+<a href="https://www.npmjs.com/package/@polywrap/cli" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/npm/v/@polywrap/cli.svg" alt="npm"/>
 </a>
 
 <br/>
@@ -14,7 +14,7 @@ Command line interface for Web3API.
 ## Installation
 
 ```bash
-npm i @web3api/cli
+npm install @web3api/cli
 ```
 
 ## Usage

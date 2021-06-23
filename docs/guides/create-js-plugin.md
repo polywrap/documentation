@@ -5,10 +5,10 @@ title: Plugin an Existing JS SDK
 
 ## **Introduction**
 
-In this guide, we'll walk you through creating your own JavaScript based plugin that can be added to the JavaScript Web3API Client.
+In this guide, we'll walk you through creating your own JavaScript based plugin that can be added to the JavaScript Polywrap Client.
 
 :::caution
-Plugins do not retain all of Web3API's benefits. We recommend re-writing your existing JavaScript SDKs as AssemblyScript (WebAssembly) Web3APIs if possible.
+Plugins do not retain all of Polywrap's benefits. We recommend re-writing your existing JavaScript SDKs as AssemblyScript (WebAssembly) Polywraps if possible.
 :::
 
 As always, if you need any help, message us on [Discord](https://discord.com/invite/Z5m88a5qWu)!
@@ -20,10 +20,10 @@ You'll need the following installed before building your plugin:
 - `nvm`
 - `yarn`
 
-You'll be using [TypeScript](https://www.typescriptlang.org/) to implement your Web3API plugin.
+You'll be using [TypeScript](https://www.typescriptlang.org/) to implement your Polywrap plugin.
 
 :::tip
-In the future, TypeScript will be one of many supported languages for implementing plugins. As more Web3API Clients are released in various languages, implementing plugins in those languages will be supported as well.
+In the future, TypeScript will be one of many supported languages for implementing plugins. As more Polywrap Clients are released in various languages, implementing plugins in those languages will be supported as well.
 :::
 
 ## **Getting started**
@@ -59,7 +59,7 @@ src/
 
 ### **`schema.graphql`**
 
-This file defines the schema of your Web3API plugin. This is the interface outside Web3APIs & users will use to query your plugin's functionality.
+This file defines the schema of your Polywrap plugin. This is the interface outside Polywraps & users will use to query your plugin's functionality.
 
 ### **`src/resolvers.ts`**
 
@@ -73,10 +73,10 @@ The `src/index.ts` file contains the Plugin class, which will be created each ti
 
 ### **`src/manifest.ts`**
 
-This file takes the place of the `web3api.yaml` manifest file. It contains the plugin's schema, all Web3APIs interfaces the plugin implements, and external Web3APIs the plugin is dependent on.
+This file takes the place of the `web3api.yaml` manifest file. It contains the plugin's schema, all Polywraps interfaces the plugin implements, and external Polywraps the plugin is dependent on.
 
 :::caution
-Web3API interfaces (schemas with no implementation) haven't been fully developed yet. Please stay tuned!
+Polywrap interfaces (schemas with no implementation) haven't been fully developed yet. Please stay tuned!
 :::
 
 ## **Building the plugin**
