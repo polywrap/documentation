@@ -1,8 +1,8 @@
 {
-  "name": "@web3api/docs",
+  "name": "@polywrap/docs",
   "version": "0.0.1-prealpha.1",
-  "description": "Web3API Documentation",
-  "author": "Web3API",
+  "description": "Polywrap Documentation",
+  "author": "Polywrap",
   "license": "MIT",
   "repository": {
     "type": "git",

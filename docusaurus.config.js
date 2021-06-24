@@ -1,19 +1,19 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 
 const customFields = {
-  githubUrl: `https://github.com/web3-api/monorepo`,
+  githubUrl: `https://github.com/polywrap/monorepo`,
   discordUrl: `https://discord.gg/Z5m88a5qWu`,
-  twitterUrl: 'https://twitter.com/Web3Api',
-  forumUrl: 'https://forum.web3api.dev',
-  daoUrl: 'https://github.com/web3-api/dao',
-  blogUrl: 'https://web3api.substack.com/',
+  twitterUrl: 'https://twitter.com/polywrap_io',
+  forumUrl: 'https://forum.polywrap.io',
+  daoUrl: 'https://github.com/polywrap/dao',
+  blogUrl: 'https://blog.polywrap.io/',
   gitcoinUrl: 'https://gitcoin.co/grants/1252/web3api',
 };
 
 module.exports = {
   title: 'Polywrap (Pre-alpha)',
   tagline: 'The Universal Web3 Integration Standard',
-  url: 'https://docs.web3api.dev',
+  url: 'https://docs.polywrap.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -45,7 +45,7 @@ module.exports = {
               label: 'Blog',
               href: customFields.blogUrl,
               className: 'blog-logo',
-              'aria-label': 'Web3API Blog',
+              'aria-label': 'Polywrap Blog',
             },
             {
               label: 'Twitter',
