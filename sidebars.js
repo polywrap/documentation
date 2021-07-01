@@ -62,9 +62,9 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Uniswap v2 Web3API',
+      label: 'Uniswap v2 Polywrap',
       items: [
-        'uniswapv2/uniswapv2-web3api-intro',
+        'uniswapv2/uniswapv2-polywrap-intro',
         'uniswapv2/common-types',
         {
           type: 'category',
