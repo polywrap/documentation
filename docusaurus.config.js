@@ -29,7 +29,7 @@ module.exports = {
       title: 'Polywrap (Pre-alpha)',
       logo: {
         alt: 'Polywrap Icon',
-        src: 'img/polywrap-icon.png',
+        src: 'img/polywrap.png',
         href: '/',
       },
       items: [
