@@ -16,6 +16,7 @@ module.exports = {
         'academy/benefits',
         'academy/understanding-uris',
         'academy/understanding-plugins',
+        'academy/build-pipeline',
       ],
     },
     {
@@ -69,7 +70,6 @@ module.exports = {
         {
           type: 'category',
           label: 'Queries',
-          // items: ['uniswapv2/queries/token', 'uniswapv2/queries/pair'],
           items: [
             'uniswapv2/queries/token',
             'uniswapv2/queries/trade',
