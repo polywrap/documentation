@@ -21,7 +21,7 @@ module.exports = {
   organizationName: 'polywrap',
   projectName: 'documentation',
   themeConfig: {
-    sidebarCollapsible: false,
+    sidebarCollapsible: true,
     colorMode: {
       defaultMode: 'dark',
     },
