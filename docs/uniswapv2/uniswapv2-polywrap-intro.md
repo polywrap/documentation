@@ -7,6 +7,10 @@ title: Uniswap v2 Polywrap Documentation
 
 Welcome to the Uniswap v2 Polywrap documentation!
 
+If you haven't seen our demo yet, please take a look at it first!
+
+[Uniswap v2 Polywrapper Demo](https://demo.uniswapv2.polywrap.io/#/swap)
+
 The Uniswap Polywrap is written in [AssemblyScript](https://www.assemblyscript.org/), and like the official Uniswap SDK, it has a robust test suite, performs arbitrary precision arithmetic, and supports rounding to significant digits or fixed decimal places. The Uniswap Polywrap business logic will be deployed on a decentralized endpoint, like IPFS.
 
 Our first Polywrap client is for JavaScript(`@web3api/client-js`) and it can run in any environment that can execute JavaScript. In the future, we'll have Polywrap clients for other environments (Python, Go, and more).
@@ -19,7 +23,7 @@ The Uniswap Polywrap aims to be a substantial improvement over Uniswap v2’s [e
 
 While the official SDK bundles all classes (e.g. `Token`), necessary data fields, and helper functions into the application, the Uniswap Polywrap does not. Instead, all business logic is deployed on a decentralized endpoint, like IPFS, and is downloaded at runtime when the client application launches.
 
-You can learn more about the benefits of using Polywrap [here](/whatis).
+You can learn more about the benefits of using Polywrap [here](/).
 
 ## Code
 

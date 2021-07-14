@@ -5,18 +5,12 @@ module.exports = {
       id: 'welcome',
     },
     {
-      type: 'doc',
-      id: 'whatis',
-    },
-    {
       type: 'category',
-      label: 'Polywrap Academy',
+      label: 'Getting started',
       items: [
-        'academy/academy',
-        'academy/benefits',
-        'academy/understanding-uris',
-        'academy/understanding-plugins',
-        'academy/build-pipeline',
+        'getting-started/understanding-integration',
+        'getting-started/understanding-uris',
+        'getting-started/understanding-plugins',
       ],
     },
     {
@@ -47,14 +41,14 @@ module.exports = {
         'guides/create-js-plugin',
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: 'Demos',
-    //   items: ['demos/simplestorage-eth'],
-    // },
     {
       type: 'category',
-      label: 'Developer Tools',
+      label: 'Advanced',
+      items: ['advanced/build-pipeline', 'advanced/uri-redirects'],
+    },
+    {
+      type: 'category',
+      label: 'Developer tools',
       items: [
         'devtools/polywrap-cli',
         'devtools/polywrap-clientjs',

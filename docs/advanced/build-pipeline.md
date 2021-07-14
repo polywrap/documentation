@@ -1,6 +1,6 @@
 ---
 id: build-pipeline
-title: 'Configure Polywrap Build Pipeline'
+title: 'Configure Polywrap build pipeline'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 In this section, we'll explore the Polywrap's build pipeline and how to configure it. This guide will help you understand the follow concepts:
 
-- Polywrap build pipeline
+- Polywrap's build pipeline
 - The YAML format
 - Minimal required schema for the Polywrap YAML file
 - Customizing the build YAML file

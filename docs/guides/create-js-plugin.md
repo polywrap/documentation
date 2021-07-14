@@ -1,11 +1,11 @@
 ---
 id: create-js-plugin
-title: Plugin an Existing JS SDK
+title: Plugin an existing JS SDK
 ---
 
 ## **Introduction**
 
-In this guide, we'll walk you through creating your own JavaScript based plugin that can be added to the JavaScript Polywrap Client.
+In this guide, we'll walk you through creating your own JavaScript-based plugin that can be added to the JavaScript Polywrap Client.
 
 :::caution
 Plugins do not retain all of Polywrap's benefits. We recommend re-writing your existing JavaScript SDKs as AssemblyScript (WebAssembly) Polywraps if possible.
@@ -59,7 +59,7 @@ src/
 
 ### **`schema.graphql`**
 
-This file defines the schema of your Polywrap plugin. This is the interface outside Polywraps & users will use to query your plugin's functionality.
+This file defines the schema of your Polywrap plugin. This is the interface outside wrappers & users will use to query your plugin's functionality.
 
 ### **`src/resolvers.ts`**
 

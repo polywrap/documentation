@@ -27,8 +27,9 @@
 }
 /* General styling */
 html[data-theme='dark'] {
-  --ifm-background-color: #242f46;
-  --ifm-navbar-background-color: #242f46;
+  --ifm-color-emphasis-100: transparent;
+  --ifm-background-color: #141a27;
+  --ifm-navbar-background-color: #141a27;
   --ifm-blockquote-color: #d8d8d8;
   --ifm-heading-color: rgba(116, 221, 159, 1);
   --ifm-color-primary: rgba(116, 221, 159, 1);

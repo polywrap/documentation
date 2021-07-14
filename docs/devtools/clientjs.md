@@ -3,8 +3,8 @@ id: polywrap-clientjs
 title: '@web3api/client-js'
 ---
 
-<a href="https://www.npmjs.com/package/@polywrap/client-js" target="_blank" rel="noopener noreferrer">
-<img src="https://img.shields.io/npm/v/@polywrap/client-js.svg" alt="npm"/>
+<a href="https://www.npmjs.com/package/@web3api/client-js" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/npm/v/@web3api/client-js.svg" alt="npm"/>
 </a>
 
 <br/>
