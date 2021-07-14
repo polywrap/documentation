@@ -3,8 +3,8 @@ id: polywrap-react
 title: '@web3api/react'
 ---
 
-<a href="https://www.npmjs.com/package/@polywrap/react" target="_blank" rel="noopener noreferrer">
-<img src="https://img.shields.io/npm/v/@polywrap/react.svg" alt="npm"/>
+<a href="https://www.npmjs.com/package/@web3api/react" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/npm/v/@web3api/react.svg" alt="npm"/>
 </a>
 
 <br/>
