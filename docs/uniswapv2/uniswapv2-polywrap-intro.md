@@ -11,6 +11,10 @@ If you haven't seen our demo yet, please take a look at it first!
 
 [Uniswap v2 Polywrapper Demo](https://demo.uniswapv2.polywrap.io/#/swap)
 
+:::warning
+Make sure to set your MetaMask network to Ropsten test network!
+:::
+
 The Uniswap Polywrap is written in [AssemblyScript](https://www.assemblyscript.org/), and like the official Uniswap SDK, it has a robust test suite, performs arbitrary precision arithmetic, and supports rounding to significant digits or fixed decimal places. The Uniswap Polywrap business logic will be deployed on a decentralized endpoint, like IPFS.
 
 Our first Polywrap client is for JavaScript(`@web3api/client-js`) and it can run in any environment that can execute JavaScript. In the future, we'll have Polywrap clients for other environments (Python, Go, and more).
