@@ -6,9 +6,9 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Getting started',
+      label: '👋 Getting started',
       items: [
-        'getting-started/understanding-integration',
+        'getting-started/polywrap-wrappers',
         'getting-started/understanding-uris',
         'getting-started/understanding-plugins',
       ],
@@ -21,12 +21,13 @@ module.exports = {
           type: 'category',
           label: 'Creating a wrapper',
           items: [
-            'guides/create-as-wrapper/pt1',
-            'guides/create-as-wrapper/pt2',
-            'guides/create-as-wrapper/pt3',
-            'guides/create-as-wrapper/pt4',
-            'guides/create-as-wrapper/pt5',
-            'guides/create-as-wrapper/pt6',
+            'guides/create-as-wrapper/01',
+            'guides/create-as-wrapper/02',
+            'guides/create-as-wrapper/03',
+            'guides/create-as-wrapper/04',
+            'guides/create-as-wrapper/05',
+            'guides/create-as-wrapper/06',
+            'guides/create-as-wrapper/07',
           ],
         },
         {

@@ -52,7 +52,7 @@ import_redirects:	# Redirects enabling the import of plugins
 
 ```yml
 format: 0.0.1-prealpha.2
-repository: https://github.com/web3-api/monorepo
+repository: https://github.com/polywrap/monorepo
 language: wasm/assemblyscript
 modules:
   query:

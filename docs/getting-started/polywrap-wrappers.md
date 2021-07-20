@@ -1,6 +1,6 @@
 ---
-id: 'understanding-integration'
-title: Understanding integration with Polywrap
+id: 'polywrap-wrappers'
+title: Polywrap wrappers
 ---
 
 ## What's inside a Polywrap wrapper?
@@ -13,7 +13,7 @@ A Polywrap "wrapper" consists of the following files:
 
 ## Where is it deployed?
 
-We currently support deploying wrappers to decentralized endpoints, Ethereum Name Service (ENS), a decentralized Ethereum-based naming system and InterPlanetary File System (IPFS), a distributed P2P file system. For an example of a deployed wrapper, take a look at the ENS domain below:
+We currently support deploying wrappers to decentralized endpoints, [Ethereum Name Service (ENS)](https://ens.domains/), a decentralized Ethereum-based naming system and [InterPlanetary File System (IPFS)](https://ipfs.io/), a distributed P2P file system. For an example of a deployed wrapper, take a look at the ENS domain below:
 
 [ENS: Uniswap Polywrapper](https://app.ens.domains/name/v2.uniswap.web3api.eth)
 
@@ -31,6 +31,8 @@ The Polywrap JavaScript client allows the dapp to use **any** deployed wrapper. 
 1. The URI specifying the ENS or IPFS resolving to content containing the wrapper
 2. Specifying the function and arguments provided by that wrapper
 
-For more information on how to integrate in dapps, take a look at our [Create a JS Dapp](../../guides/create-js-dapp/01) guide.
+For detailed information on how to integrate in dapps, take a look at our [Create a JS Dapp](../../guides/create-js-dapp/01) guide.
+
+For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own dapp, see our [Creating a wrapper guide](../../guides/create-as-wrapper/pt1).
 
 :::

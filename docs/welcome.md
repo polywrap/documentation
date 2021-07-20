@@ -38,7 +38,7 @@ The table below compares the differences between JavaScript SDKs and Polywrap wr
 
 ## Ready to dive in with Polywrap?
 
-**If you're looking to learn in detail what makes integrating with Polywrap special:** [Getting started](getting-started/understanding-integration.md).
+**If you're looking to learn in detail what makes integrating with Polywrap special:** [Getting started](getting-started/polywrap-wrappers).
 
 **If you're a looking to integrate wrappers into your dapp:** [Create JS dapp guide](guides/create-js-dapp/01).
 
