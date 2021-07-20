@@ -42,4 +42,4 @@ The table below compares the differences between JavaScript SDKs and Polywrap wr
 
 **If you're a looking to integrate wrappers into your dapp:** [Create JS dapp guide](guides/create-js-dapp/01).
 
-**If you're a protocol team or individual who wants to build your own wrapper:** [Create a wrapper guide](guides/create-as-wrapper/pt1).
+**If you're a protocol team or individual who wants to build your own wrapper:** [Create a wrapper guide](guides/create-as-wrapper/01).
