@@ -1,5 +1,5 @@
 ---
-id: '04'
+id: 'mutation-functions'
 title: 'Adding new mutation functions'
 ---
 

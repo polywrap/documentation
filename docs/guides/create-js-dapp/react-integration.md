@@ -1,5 +1,5 @@
 ---
-id: '03'
+id: 'react-integration'
 title: React integration
 ---
 

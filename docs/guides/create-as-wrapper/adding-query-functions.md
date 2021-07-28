@@ -1,5 +1,5 @@
 ---
-id: '05'
+id: 'adding-query-functions'
 title: 'Adding new query functions'
 ---
 

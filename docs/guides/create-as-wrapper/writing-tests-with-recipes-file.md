@@ -1,5 +1,5 @@
 ---
-id: '06'
+id: 'writing-tests-with-recipes-file'
 title: 'Writing tests using the recipes file'
 ---
 

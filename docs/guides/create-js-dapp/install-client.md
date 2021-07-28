@@ -1,5 +1,5 @@
 ---
-id: '01'
+id: 'install-client'
 title: 'Installing the Polywrap JS client'
 ---
 
