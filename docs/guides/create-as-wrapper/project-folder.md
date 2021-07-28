@@ -1,5 +1,5 @@
 ---
-id: '02'
+id: 'project-folder'
 title: 'The Polywrap project folder'
 ---
 

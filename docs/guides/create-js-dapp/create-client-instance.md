@@ -1,5 +1,5 @@
 ---
-id: '02'
+id: 'create-client-instance'
 title: 'Creating the Polywrap client instance'
 ---
 
