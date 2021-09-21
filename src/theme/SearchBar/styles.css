@@ -5,16 +5,39 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+.navbar__search {
+  color: var(--ifm-navbar-search-input-color);
+}
+
+.navbar__search:hover {
+  color: var(--ifm-color-primary-o-25);
+}
+
 .search-icon {
-  background-image: var(--ifm-navbar-search-input-icon);
-  height: auto;
-  width: 24px;
+  color: white;
   cursor: pointer;
-  padding: 8px;
-  line-height: 32px;
-  background-repeat: no-repeat;
-  background-position: center;
   display: none;
+  height: auto;
+  line-height: 32px;
+  padding: 8px;
+  width: 24px;
+}
+
+.search-bar {
+  border: 2px solid transparent;
+  transition: all 0.25s ease-in-out;
+}
+
+.search-bar:hover {
+  background-color: var(--ifm-navbar-search-input-hover-background-color);
+  border-color: var(--ifm-color-primary-o-25);
+  outline: none;
+}
+
+.search-bar:focus {
+  background-color: var(--ifm-navbar-search-input-hover-background-color);
+  border-color: var(--ifm-color-primary-o-50);
+  outline: none;
 }
 
 .search-icon-hidden {
