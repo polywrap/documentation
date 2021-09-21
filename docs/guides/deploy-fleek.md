@@ -5,7 +5,7 @@ title: Deploying to Fleek
 
 ## **Introduction**
 
-In this guide, we'll walk you how to deploy your Polywrapper to [Fleek](https://fleek.co/) so that other dapps could integrate it into their dapps!
+In this guide, we'll walk you how to deploy your Polywrapper to [Fleek](https://fleek.co/) so that other dapps could integrate it!
 
 ## **Setting up**
 

@@ -1,11 +1,11 @@
 ---
 id: 'polywrap-wrappers'
-title: Polywrap wrappers
+title: Polywrappers
 ---
 
-## What's inside a Polywrap wrapper?
+## What's inside a polywrapper?
 
-A Polywrap "wrapper" consists of the following files:
+A Polywrap "polywrapper" consists of the following files:
 
 - **Query and mutation wasm modules** containing the protocol's business logic functions (e.g. Uniswap's swap functions)
 - **GraphQL** schema to provide types and parameters for the query and mutation functions
@@ -13,7 +13,7 @@ A Polywrap "wrapper" consists of the following files:
 
 ## Where is it deployed?
 
-We currently support deploying wrappers to decentralized endpoints, [Ethereum Name Service (ENS)](https://ens.domains/), a decentralized Ethereum-based naming system and [InterPlanetary File System (IPFS)](https://ipfs.io/), a distributed P2P file system. For an example of a deployed wrapper, take a look at the ENS domain below:
+We currently support deploying polywrappers to decentralized endpoints, [Ethereum Name Service (ENS)](https://ens.domains/), a decentralized Ethereum-based naming system and [InterPlanetary File System (IPFS)](https://ipfs.io/), a distributed P2P file system. For an example of a deployed wrapper, take a look at the ENS domain below:
 
 [ENS: Uniswap Polywrapper](https://app.ens.domains/name/v2.uniswap.web3api.eth)
 

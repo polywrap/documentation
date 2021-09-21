@@ -3,7 +3,7 @@ id: 'understanding-plugins'
 title: Understanding plugins
 ---
 
-Polywrap plugins enable existing SDKs implemented in the client's language (e.g. JavaScript) to be queried as if they were normal wrappers.
+Polywrap plugins enable existing SDKs implemented in the client's language (e.g. JavaScript) to be queried as if they were normal polywrappers.
 
 For information on how to create your own Polywrap plugin, read the [guide here](/guides/create-js-plugin).
 

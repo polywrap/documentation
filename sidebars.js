@@ -11,6 +11,7 @@ module.exports = {
         'getting-started/polywrap-wrappers',
         'getting-started/understanding-uris',
         'getting-started/understanding-plugins',
+        'getting-started/default-plugins',
       ],
     },
     {
