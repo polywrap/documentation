@@ -5,6 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+.navbar a:hover {
+  opacity: 0.8;
+}
+
+.navbar__title {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
 .navbar__search {
   color: var(--ifm-navbar-search-input-color);
 }

@@ -26,7 +26,7 @@ module.exports = {
       defaultMode: 'dark',
     },
     navbar: {
-      title: 'Polywrap (Pre-alpha)',
+      title: 'Pre-alpha',
       logo: {
         alt: 'Polywrap Icon',
         src: 'img/polywrap.png',
