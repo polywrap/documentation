@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* stylelint-disable docusaurus/copyright-header */
 /**
@@ -22,7 +23,8 @@
   --ifm-code-background: #293653;
   --ifm-code-color: #9cdcfe;
   --ifm-navbar-sidebar-width: 250px;
-  --ifm-font-family-base: 'Raleway', 'arial', sans-serif;
+  --ifm-font-family-base: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  --ifm-font-family-display: 'Raleway', 'arial', sans-serif;
   --ifm-alert-color: #293653;
   --ifm-background-color: #f7f8fa;
   --ifm-navbar-background-color: #f7f8fa;
@@ -53,6 +55,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--ifm-font-family-display);
   font-weight: 1000;
 }
 
@@ -65,12 +68,17 @@ h3 code {
 }
 
 a {
+  font-family: var(--ifm-font-family-display);
   font-weight: 700;
 }
 
 input {
-  font-family: var(--ifm-font-family-base);
+  font-family: var(--ifm-font-family-display);
   font-weight: 600;
+}
+
+strong, th {
+  font-family: var(--ifm-font-family-display);
 }
 
 #__docusaurus {
