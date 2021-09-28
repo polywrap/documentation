@@ -59,8 +59,8 @@ After enabling your React application with the Web3ApiProvider, you may now use 
 Here's what our "hello world" query from above would look like if we used this method.
 
 ```jsx
-const { data, errors, loading } = useWeb3ApiQuery({
-  uri: 'ens/api.helloworld.web3api.eth',
+const { execute, data, errors, loading } = useWeb3ApiQuery({
+  uri: 'ens/api.helloworld.polywrap.eth',
   query: `{
     logMessage(message: "Hello World!")
   }`,
