@@ -61,14 +61,14 @@ const CustomWeb3ApiProvider = createWeb3ApiProvider('custom');
 
 ### useWeb3ApiQuery
 
-The `useWeb3ApiQuery` is the primary API for executing queries. To run a query within a React component, call `useWeb3ApiQuery` and pass it a GraphQL query string. When your component renders, `useWeb3ApiQuery` returns an object from the Web3API client that contains `data`, `loading`, and `error` properties you can use to render your UI.
+The `useWeb3ApiQuery` is the primary API for executing queries. To run a query within a React component, call `useWeb3ApiQuery` and pass it a GraphQL query string. When your component renders, `useWeb3ApiQuery` returns an object from the Web3API client that contains `execute`, `data`, `loading`, and `error` properties you can use to render your UI.
 
 Here's an example query that you could send:
 
 ```typescript
 import { useWeb3ApiQuery } from '@polywrap/react';
 
-const { data, error, loading } = useWeb3ApiQuery({
+const { execute, data, errors, loading } = useWeb3ApiQuery({
   uri: 'ens/api.helloworld.polywrap.eth',
   query: `{
     logMessage(message: "Hello World!")
