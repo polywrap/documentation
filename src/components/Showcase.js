@@ -25,13 +25,13 @@ const showcaseCards = [
     title: "Advanced",
     description: "Learn about the advanced concepts of Polywrap, including build pipeline and URI redirects.",
     cta: "Learn more",
-    link: "/advanced/configure-polywrap-build-pipeline"
+    link: "/advanced/build-pipeline"
   },
   {
     title: "Guides",
     description: "Start building! If you want to build your own wrapper, our guides will walk you through.",
     cta: "Start building",
-    link: "/guides/create-a-wrapper"
+    link: "/guides/create-as-wrapper/project-setup"
   },
 ];
 
