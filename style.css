@@ -89,6 +89,12 @@ strong, th {
   backdrop-filter: blur(16px);
 }
 
+@media (max-width: 600px) {
+  .navbar__title {
+    display: none;
+  }
+}
+
 /* Sidebar */
 .menu::-webkit-scrollbar {
   display: none;
