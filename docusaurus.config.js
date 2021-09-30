@@ -112,6 +112,9 @@ module.exports = {
         theme: {
           customCss: require.resolve('./style.css'),
         },
+        pages: {
+          path: 'src/pages'
+        }
       },
     ],
   ],
