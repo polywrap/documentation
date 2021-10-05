@@ -3,7 +3,7 @@ id: 'project-setup'
 title: 'Project setup'
 ---
 
-If you're looking to find out what it takes to build a Polywrap wrapper, you've come to the right place! This guide will help you understand Polywrap's core concepts. If you haven't checked out our [Start Here](../../getting-started/polywrap-wrappers) section yet, we recommend visiting that section first.
+If you're looking to find out what it takes to build a Polywrap wrapper, you've come to the right place! This guide will help you understand Polywrap's core concepts. If you haven't checked out our [Start Here](../../getting-started/what-is-polywrap) section yet, we recommend visiting that section first.
 
 In this guide, we'll walk you through the process of creating our template project using our CLI. We'll then look at the different folders and files that make up a Polywrap wrapper such as the GraphQL schema and WebAssembly implementations. Then, we'll dive in and add more code to these existing files to expand the functionality of our wrapper. Finally, we'll learn about the different ways you can build and deploy your wrapper so that other devs can integrate your wrapper into their own dapps!
 
