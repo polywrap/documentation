@@ -5,7 +5,7 @@ const customFields = {
   discordUrl: `https://discord.gg/Z5m88a5qWu`,
   twitterUrl: 'https://twitter.com/polywrap_io',
   forumUrl: 'https://forum.polywrap.io',
-  daoUrl: 'https://github.com/polywrap/dao',
+  daoUrl: 'https://snapshot.org/#/polywrap.eth',
   blogUrl: 'https://blog.polywrap.io/',
   gitcoinUrl: 'https://gitcoin.co/grants/1252/web3api',
 };

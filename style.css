@@ -93,12 +93,12 @@ strong, th {
   margin-right: 0.125rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .navbar {
     backdrop-filter: blur(16px);
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
   html[data-theme='dark'] {
     --ifm-navbar-background-color: #1d2538;
   }

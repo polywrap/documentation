@@ -1,8 +1,8 @@
 import React from "react";
-import Link from "@docusaurus/Link";
 import SearchBar from "../theme/SearchBar";
 import { makeStyles } from "@mui/styles";
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
+import CardLink from "./CardLink";
 import BackgroundPolywrap from "../../static/img/polywrapper-hero-blurred.png"
 import useThemeContext from '@theme/hooks/useThemeContext';
 
@@ -63,7 +63,7 @@ export default function Showcase() {
         <Typography variant="h2" component="h1" align="center">
           Welcome to Polywrap!
         </Typography>
-        <Box 
+        {/* <Box 
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -75,70 +75,26 @@ export default function Showcase() {
           }}
         >
           <SearchBar />
-        </Box>
+        </Box> */}
         <Grid container spacing={4} mt={4}>
           {showcaseCards.map((card) => {
             return (
-              <Grid item xs={12} sm={4} key={card.title}>
-                <Link href={card.link} className={classes.root}>
-                  <Box
-                    sx={{
-                      background: "rgba(255,255,255,0.05)",
-                      border: `1px solid rgba(${isDarkTheme ? "255,255,255" : "0,0,0"},0.1)`,
-                      borderRadius: theme.spacing(4),
-                      boxShadow: "0 8px 16px rgba(0,0,0,0.02), 0 16px 32px rgba(0,0,0,0.1)",
-                      display: "block",
-                      overflow: "hidden",
-                      padding: theme.spacing(4),
-                      transform: "translateY(0)",
-                      transition: "all 0.25s ease-in-out",
-                      backdropFilter: "blur(16px)",
-                      "[data-theme=light] &": {
-                        border: "1px solid rgba(0,0,0,0.1)",
-                      },
-                      "&:hover": {
-                        background: "rgba(255,255,255,0.08)",
-                        border: "1px solid rgba(255,255,255,0.25)",
-                        boxShadow: "0 8px 16px rgba(0,0,0,0.05), 0 16px 64px rgba(0,0,0,0.2)",
-                        transform: "translateY(-1%)",
-                        "& .card-shine": {
-                          transition: "transform 0.5s ease-in-out",
-                          transform: "rotate(-49deg) translate(0,-40%)",
-                        },
-                        "& .card-link": {
-                          textDecoration: "underline",
-                        },
-                      },
-                    }}
-                  >
-                    <Box
-                      className="card-shine"
-                      sx={{
-                        position: "absolute",
-                        background: "white",
-                        opacity: 0.03,
-                        width: "200%",
-                        height: "200%",
-                        transform: "rotate(-49deg) translate(0,75%)",
-                        transformOrigin: "30% center",
-                        transition: "transform 0"
-                      }}
-                    />
-                    <Typography variant="h5" component="h3" fontWeight="800">
-                      {card.title}
+              <Grid item xs={12} md={4} key={card.title}>
+                <CardLink link={card.link} shine>
+                  <Typography variant="h5" component="h3" fontWeight="800">
+                    {card.title}
+                  </Typography>
+                  <Box mt={1} color={"var(--ifm-heading-color)"}>
+                    <Typography variant="body1">
+                      {card.description}
                     </Typography>
-                    <Box mt={1} color={"var(--ifm-heading-color)"}>
-                      <Typography variant="body1">
-                        {card.description}
-                      </Typography>
-                    </Box>
-                    <Box mt={1}>
-                      <Typography variant="body1" fontWeight="800" className="card-link">
-                        {card.cta} &#8250;
-                      </Typography>
-                    </Box>
                   </Box>
-                </Link>
+                  <Box mt={1}>
+                    <Typography variant="body1" fontWeight="800" className="card-link">
+                      {card.cta} &#8250;
+                    </Typography>
+                  </Box>
+                </CardLink>
               </Grid>
             )
           })}

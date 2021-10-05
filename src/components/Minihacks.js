@@ -4,15 +4,16 @@ import { Box, Container, Grid, Link, Typography, useTheme } from "@mui/material"
 import MinihackIcon from "../../static/img/minihacks.png"
 import useThemeContext from '@theme/hooks/useThemeContext';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   link: {
+    color: `${theme.palette.primary.dark} !important`,
     fontWeight: 800,
   },
 }));
 
 export default function Minihacks() {
   const theme = useTheme();
-  const classes = useStyles();
+  const classes = useStyles(theme);
   const {isDarkTheme} = useThemeContext();
 
   return (
