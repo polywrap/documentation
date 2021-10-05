@@ -85,11 +85,23 @@ strong, th {
   background: radial-gradient(circle at 20% 0%, #4fd29f14, transparent 50%);
 }
 
-.navbar {
-  backdrop-filter: blur(16px);
+.navbar__brand {
+  margin-right: 0.125rem;
 }
 
+.navbar__logo {
+  margin-right: 0.125rem;
+}
+
+@media (min-width: 600px) {
+  .navbar {
+    backdrop-filter: blur(16px);
+  }
+}
 @media (max-width: 600px) {
+  html[data-theme='dark'] {
+    --ifm-navbar-background-color: #1d2538;
+  }
   .navbar__title {
     display: none;
   }
