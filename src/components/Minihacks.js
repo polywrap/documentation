@@ -1,17 +1,26 @@
 import React from "react";
+import { makeStyles } from "@mui/styles";
 import { Box, Container, Grid, Link, Typography, useTheme } from "@mui/material";
 import MinihackIcon from "../../static/img/minihacks.png"
+import useThemeContext from '@theme/hooks/useThemeContext';
+
+const useStyles = makeStyles(() => ({
+  link: {
+    fontWeight: 800,
+  },
+}));
 
 export default function Minihacks() {
   const theme = useTheme();
+  const classes = useStyles();
+  const {isDarkTheme} = useThemeContext();
 
   return (
     <Container maxWidth="lg">
       <Box
         sx={{
-          background: "rgba(0,0,0,0.08)",
-          border: `1px solid ${theme.palette.primary.main}30`,
-          // border: "1px solid rgba(255,255,255,0.1)",
+          background: `rgba(0,0,0,${isDarkTheme ? 0.08 : 0.02})`,
+          border: `1px solid ${isDarkTheme ? theme.palette.primary.main : "#228eb9"}30`,
           borderRadius: theme.spacing(4),
           display: "block",
           mixBlendMode: "color-burn",
@@ -40,12 +49,12 @@ export default function Minihacks() {
               Polywrap Minihack Submissions are Open!
             </Typography>
             <Box mt={2}>
-              <Typography variant="body1" color="textPrimary">
+              <Typography variant="body1" color={"var(--ifm-heading-color)"}>
                 Minihacks are quarterly events through which the Polywrap DAO distributes tokens for retroactive contributions. Any person who publishes a contribution through a github issue will be eligible to earn a fraction of the WRAP tokens that have been allocated for each period.
               </Typography>
             </Box>
             <Box mt={1}>
-              <Link href="https://github.com/polywrap/mini-hacks" target="_blank" rel="noredirect" underline="hover">
+              <Link href="https://github.com/polywrap/mini-hacks" target="_blank" rel="noredirect" underline="hover" className={classes.link}>
                 Join now &#8250;
               </Link>
             </Box>

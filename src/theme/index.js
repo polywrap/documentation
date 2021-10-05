@@ -183,6 +183,10 @@ export const lightTheme = createTheme({
   ...baseTheme,
   palette: {
     type: 'light',
+    primary: {
+      main: polywrapPalette.primary.end,
+      dark: polywrapPalette.primary.start,
+    },
     text: {
       primary: polywrapPalette.secondary['900'],
       secondary: polywrapPalette.secondary['800'],

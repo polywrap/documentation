@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "@docusaurus/Link";
+import useThemeContext from '@theme/hooks/useThemeContext';
 import { makeStyles } from "@mui/styles";
 import { Box, Typography, useTheme } from "@mui/material";
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
@@ -40,6 +41,7 @@ const resourceLinks = [
 export default function ResourceLinks() {
   const theme = useTheme();
   const classes = useStyles(theme);
+  const {isDarkTheme} = useThemeContext();
 
   return (<>
     {resourceLinks.map((card, index) => {
@@ -50,7 +52,7 @@ export default function ResourceLinks() {
               sx={{
                 alignItems: "center",
                 background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                border: `1px solid rgba(${isDarkTheme ? "255,255,255" : "0,0,0"},0.1)`,
                 borderRadius: theme.spacing(4),
                 boxShadow: "0 8px 16px rgba(0,0,0,0.02), 0 16px 32px rgba(0,0,0,0.1)",
                 display: "flex",
@@ -71,7 +73,7 @@ export default function ResourceLinks() {
               }}
             >
               <Box mr={2} width={24} height={24}>
-                <Typography color="textPrimary">
+                <Typography color={"var(--ifm-heading-color)"}>
                   {card.icon}
                 </Typography>
               </Box>

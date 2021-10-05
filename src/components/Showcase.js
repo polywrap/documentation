@@ -4,6 +4,7 @@ import SearchBar from "../theme/SearchBar";
 import { makeStyles } from "@mui/styles";
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import BackgroundPolywrap from "../../static/img/polywrapper-hero-blurred.png"
+import useThemeContext from '@theme/hooks/useThemeContext';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -37,6 +38,7 @@ const showcaseCards = [
 export default function Showcase() {
   const theme = useTheme();
   const classes = useStyles(theme);
+  const {isDarkTheme} = useThemeContext();
 
   return (
     <Box mt={12} marginBottom={6} position="relative" zIndex={0}>
@@ -82,7 +84,7 @@ export default function Showcase() {
                   <Box
                     sx={{
                       background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      border: `1px solid rgba(${isDarkTheme ? "255,255,255" : "0,0,0"},0.1)`,
                       borderRadius: theme.spacing(4),
                       boxShadow: "0 8px 16px rgba(0,0,0,0.02), 0 16px 32px rgba(0,0,0,0.1)",
                       display: "block",
@@ -91,6 +93,9 @@ export default function Showcase() {
                       transform: "translateY(0)",
                       transition: "all 0.25s ease-in-out",
                       backdropFilter: "blur(16px)",
+                      "[data-theme=light] &": {
+                        border: "1px solid rgba(0,0,0,0.1)",
+                      },
                       "&:hover": {
                         background: "rgba(255,255,255,0.08)",
                         border: "1px solid rgba(255,255,255,0.25)",
@@ -122,8 +127,8 @@ export default function Showcase() {
                     <Typography variant="h5" component="h3" fontWeight="800">
                       {card.title}
                     </Typography>
-                    <Box mt={1}>
-                      <Typography variant="body1" color="textPrimary">
+                    <Box mt={1} color={"var(--ifm-heading-color)"}>
+                      <Typography variant="body1">
                         {card.description}
                       </Typography>
                     </Box>

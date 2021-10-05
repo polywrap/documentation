@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "@docusaurus/Link";
+import useThemeContext from '@theme/hooks/useThemeContext';
 import { makeStyles } from "@mui/styles";
 import { Box, Typography, useTheme } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -34,6 +35,7 @@ const developerLinks = [
 export default function DeveloperLinks() {
   const theme = useTheme();
   const classes = useStyles(theme);
+  const {isDarkTheme} = useThemeContext();
 
   return (<>
     {developerLinks.map((card, index) => {
@@ -43,7 +45,7 @@ export default function DeveloperLinks() {
             <Box
               sx={{
                 background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                border: `1px solid rgba(${isDarkTheme ? "255,255,255" : "0,0,0"},0.1)`,
                 borderRadius: theme.spacing(4),
                 boxShadow: "0 8px 16px rgba(0,0,0,0.02), 0 16px 32px rgba(0,0,0,0.1)",
                 display: "block",
@@ -64,7 +66,7 @@ export default function DeveloperLinks() {
             >
               <Box display="flex" alignItems="center">
                 <Box mr={2} width={24} height={24}>
-                  <Typography color="textPrimary">
+                  <Typography color={"var(--ifm-heading-color)"}>
                     <GitHubIcon />
                   </Typography>
                 </Box>
@@ -73,7 +75,7 @@ export default function DeveloperLinks() {
                 </Typography>
               </Box>
               <Box mt={1}>
-                <Typography variant="body1" color="textPrimary">
+                <Typography variant="body1" color={"var(--ifm-heading-color)"}>
                   {card.description}
                 </Typography>
               </Box>
