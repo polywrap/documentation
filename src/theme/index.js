@@ -1,17 +1,5 @@
 import { createTheme } from "@mui/material";
 
-
-// **
-// * Polywrap Color Palletes can be handled here, and declared as a palette object with needed configurations.
-// *
-// * Primary Green Gradient:    74DD9F - 27C69F - 120 Degrees
-// * Secondary Blue Gradient :  1B5FED - 1B87ED - 179 Degrees
-// * Terciary Yellow Gradient : FFC272 - FFE272 - 0 Degrees
-// * Wrap Gradient :            878787 - FFFFFF - 127 Degrees - 0.35 Transparency 
-// * Black Background :         231F20
-// * White Background :         FFFFFF
-// ** 
-
 export const polywrapPalette = {
   primary: {
     gradient: 'linear-gradient(to right, #74DD9F 20%, #000000, 20%)',
@@ -52,26 +40,7 @@ export const polywrapPalette = {
   white: '#FFFFFF',
 }
 
-
-export const theme = createTheme({
-  palette: {
-    primary: {
-      main: polywrapPalette.primary.start,
-      dark: polywrapPalette.primary.end,
-    },
-    secondary: {
-      main: polywrapPalette.secondary.end,
-      dark: polywrapPalette.secondary.start,
-    },
-    text: {
-      primary: polywrapPalette.white,
-      secondary: 'rgba(255,255,255,0.7)',
-      disabled: 'rgba(255,255,255,0.3)',
-    },
-    background: {
-      default: polywrapPalette.secondary['900'],
-    }
-  },
+const baseTheme = createTheme({
   typography: {
     fontFamily: `'Raleway', sans-serif`,
     h1: {
@@ -185,4 +154,42 @@ export const theme = createTheme({
       }
     },
   }
+})
+
+export const darkTheme = createTheme({
+  ...baseTheme,
+  palette: {
+    type: 'dark',
+    primary: {
+      main: polywrapPalette.primary.start,
+      dark: polywrapPalette.primary.end,
+    },
+    secondary: {
+      main: polywrapPalette.secondary.end,
+      dark: polywrapPalette.secondary.start,
+    },
+    text: {
+      primary: polywrapPalette.white,
+      secondary: 'rgba(255,255,255,0.7)',
+      disabled: 'rgba(255,255,255,0.3)',
+    },
+    background: {
+      default: polywrapPalette.secondary['900'],
+    }
+  },
+});
+
+export const lightTheme = createTheme({
+  ...baseTheme,
+  palette: {
+    type: 'light',
+    text: {
+      primary: polywrapPalette.secondary['900'],
+      secondary: polywrapPalette.secondary['800'],
+      disabled: polywrapPalette.secondary['300'],
+    },
+    background: {
+      default: polywrapPalette.white,
+    }
+  },
 });

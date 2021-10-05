@@ -1,9 +1,8 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 import SearchBar from "../theme/SearchBar";
-import { theme } from "../theme";
 import { makeStyles } from "@mui/styles";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import BackgroundPolywrap from "../../static/img/polywrapper-hero-blurred.png"
 
 const useStyles = makeStyles(() => ({
@@ -19,7 +18,7 @@ const showcaseCards = [
     title: "Get Started",
     description: "Create a wrapper and learn in detail what makes integrating with Polywrap so special!",
     cta: "Get started",
-    link: "/getting-started/polywrap-wrappers"
+    link: "/getting-started/what-is-polywrap"
   },
   {
     title: "Advanced",
@@ -36,6 +35,7 @@ const showcaseCards = [
 ];
 
 export default function Showcase() {
+  const theme = useTheme();
   const classes = useStyles(theme);
 
   return (
@@ -47,11 +47,11 @@ export default function Showcase() {
           maxWidth: theme.breakpoints.values.xl,
           mixBlendMode: "overlay",
           opacity: 0.15,
+          overflow: "hidden",
           top: "-30vh",
-          width: "120vw",
           zIndex: -1,
           "& img": {
-            width: "100%"
+            width: "120vw",
           },
         }}
       >

@@ -1,7 +1,21 @@
 ---
-id: 'polywrap-wrappers'
-title: Polywrap wrappers
+id: what-is-polywrap
+title: What is Polywrap?
 ---
+
+**Polywrap** is a developer tool that enables easy integration of Web3 protocols into any application. It makes it possible for applications on any platform, written in any language, to read and write data to Web3 protocols.
+
+:::tip
+Polywrap is in **pre-alpha**, meaning our code and documentation are rapidly changing.
+
+Polywrap is a recent rebrand of Web3API. While using the toolchain, you'll notice that `web3api` or `w3` is still used - we will be updating these soon!
+
+Have questions or want to get involved? Join our [Discord](https://discord.com/invite/Z5m88a5qWu) or [open an issue](https://github.com/polywrap/monorepo/issues) on our GitHub repo.
+:::
+
+## Web3 protocol integration
+
+Web3 developers may want to integrate functions into their own dapp that allows users to perform a token swap, for example. The main way that developers do this today is by installing a JavaScript SDK like the Uniswap SDK as a dependency into their dapp. While JavaScript SDKs is one way for dapps to interact with protocols, they come with major disadvantages.
 
 ## What's inside a Polywrap wrapper?
 

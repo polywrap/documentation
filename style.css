@@ -89,7 +89,18 @@ strong, th {
   backdrop-filter: blur(16px);
 }
 
+.navbar__logo {
+  margin-right: 0;
+}
+
+.navbar__brand {
+  margin-right: 0.5rem;
+}
+
 @media (max-width: 600px) {
+  .navbar .navbar__search input {
+    width: 8rem;
+  }
   .navbar__title {
     display: none;
   }

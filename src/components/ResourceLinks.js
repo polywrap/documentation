@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "@docusaurus/Link";
-import { theme } from "../theme";
 import { makeStyles } from "@mui/styles";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import OndemandVideoOutlinedIcon from '@mui/icons-material/OndemandVideoOutlined';
 
@@ -39,6 +38,7 @@ const resourceLinks = [
 
 
 export default function ResourceLinks() {
+  const theme = useTheme();
   const classes = useStyles(theme);
 
   return (<>
@@ -70,8 +70,10 @@ export default function ResourceLinks() {
                 },
               }}
             >
-              <Box mr={2} width={24} height={24} color="white">
-                {card.icon}
+              <Box mr={2} width={24} height={24}>
+                <Typography color="textPrimary">
+                  {card.icon}
+                </Typography>
               </Box>
               <Typography variant="h6" component="h3" fontWeight="800">
                 {card.title}

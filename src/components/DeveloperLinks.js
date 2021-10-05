@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "@docusaurus/Link";
-import { theme } from "../theme";
 import { makeStyles } from "@mui/styles";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 const useStyles = makeStyles(() => ({
@@ -33,6 +32,7 @@ const developerLinks = [
 
 
 export default function DeveloperLinks() {
+  const theme = useTheme();
   const classes = useStyles(theme);
 
   return (<>
@@ -63,8 +63,10 @@ export default function DeveloperLinks() {
               }}
             >
               <Box display="flex" alignItems="center">
-                <Box mr={2} width={24} height={24} color="white">
-                  <GitHubIcon />
+                <Box mr={2} width={24} height={24}>
+                  <Typography color="textPrimary">
+                    <GitHubIcon />
+                  </Typography>
                 </Box>
                 <Typography variant="h5" component="h3" fontWeight="800">
                   {card.title}
