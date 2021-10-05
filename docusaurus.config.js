@@ -26,10 +26,11 @@ module.exports = {
       defaultMode: 'dark',
     },
     navbar: {
-      title: 'Polywrap (Pre-alpha)',
+      title: 'Pre-alpha',
       logo: {
         alt: 'Polywrap Icon',
-        src: 'img/polywrap.png',
+        src: 'img/polywrap-logo-light.png',
+        srcDark: 'img/polywrap-logo.png',
         href: '/',
       },
       items: [

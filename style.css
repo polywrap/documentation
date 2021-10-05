@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
@@ -7,9 +10,9 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-heading-color: #1b5fed;
-  --ifm-color-primary: #1b5fed;
-  --ifm-link-color: #1b5fed;
+  --ifm-heading-color: #293653;
+  --ifm-color-primary: #27C69F;
+  --ifm-link-color: #27C69F;
   --ifm-color-primary-dark: rgb(59, 81, 94);
   --ifm-color-primary-darker: rgb(40, 56, 65);
   --ifm-color-primary-darkest: rgb(28, 39, 45);
@@ -17,23 +20,91 @@
   --ifm-color-primary-lighter: rgb(102, 191, 211);
   --ifm-color-primary-lightest: rgb(122, 228, 252);
   --ifm-code-font-size: 95%;
-  --ifm-code-background: #1e1e1e;
+  --ifm-code-background: #293653;
   --ifm-code-color: #9cdcfe;
   --ifm-navbar-sidebar-width: 250px;
-  --ifm-font-family-base: 'arial', sans-serif;
-  --ifm-alert-color: black;
+  --ifm-font-family-base: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  --ifm-font-family-display: 'Raleway', 'arial', sans-serif;
+  --ifm-alert-color: #293653;
   --ifm-background-color: #f7f8fa;
   --ifm-navbar-background-color: #f7f8fa;
 }
 /* General styling */
 html[data-theme='dark'] {
+  --ifm-color-primary: #74DD9F;
+  --ifm-color-primary-o-25: #74DD9F40;
+  --ifm-color-primary-o-50: #74DD9F78;
   --ifm-color-emphasis-100: transparent;
-  --ifm-background-color: #141a27;
-  --ifm-navbar-background-color: #141a27;
+  --ifm-color-emphasis-300: #36415a;
+  --ifm-background-color: #1E2B45;
+  --ifm-navbar-background-color: #1d2538a6;
+  --ifm-navbar-search-input-background-color: #00000040;
+  --ifm-navbar-search-input-hover-background-color: #00000078;
+  --ifm-navbar-search-input-color: #d8d8d8;
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="%23d8d8d8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
+  --ifm-dropdown-background-color: #1d2538;
   --ifm-blockquote-color: #d8d8d8;
-  --ifm-heading-color: rgba(116, 221, 159, 1);
-  --ifm-color-primary: rgba(116, 221, 159, 1);
-  --ifm-link-color: rgba(116, 221, 159, 1);
+  --ifm-heading-code-color: #74DD9F;
+  --ifm-heading-color: #ffffff;
+  --ifm-link-color: #74DD9F;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ifm-font-family-display);
+  font-weight: 1000;
+}
+
+h1 {
+  font-size: 2.75rem;
+}
+
+h3 code {
+  color: var(--ifm-heading-code-color);
+}
+
+a {
+  font-family: var(--ifm-font-family-display);
+  font-weight: 700;
+}
+
+input {
+  font-family: var(--ifm-font-family-display);
+  font-weight: 600;
+}
+
+strong, th {
+  font-family: var(--ifm-font-family-display);
+}
+
+#__docusaurus {
+  background: radial-gradient(circle at 20% 0%, #4fd29f14, transparent 50%);
+}
+
+.navbar__brand {
+  margin-right: 0.125rem;
+}
+
+.navbar__logo {
+  margin-right: 0.125rem;
+}
+
+@media (min-width: 600px) {
+  .navbar {
+    backdrop-filter: blur(16px);
+  }
+}
+@media (max-width: 600px) {
+  html[data-theme='dark'] {
+    --ifm-navbar-background-color: #1d2538;
+  }
+  .navbar__title {
+    display: none;
+  }
 }
 
 /* Sidebar */
@@ -62,11 +133,11 @@ html[data-theme='dark'] {
 }
 
 .alert--warning {
-  border-left: 0.5rem solid #ffef62;
+  border-left: 0.5rem solid #FFC272;
 }
 
 .alert--success {
-  border-left: 0.5rem solid #1b5fed;
+  border-left: 0.5rem solid #1B6DED;
 }
 
 .alert--danger {
@@ -74,7 +145,7 @@ html[data-theme='dark'] {
 }
 
 .docTitle_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocItem- {
-  font-size: 2.3rem !important;
+  font-size: 2.75rem !important;
 }
 
 /* Table of contents */
