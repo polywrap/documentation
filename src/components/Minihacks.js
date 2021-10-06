@@ -24,15 +24,11 @@ export default function Minihacks() {
           border: `1px solid ${isDarkTheme ? theme.palette.primary.main : "#228eb9"}30`,
           borderRadius: theme.spacing(4),
           display: "block",
-          mixBlendMode: "color-burn",
           overflow: "hidden",
           padding: theme.spacing(4),
           transform: "translateY(0)",
           transition: "all 0.25s ease-in-out",
           backdropFilter: "blur(16px)",
-          '@media not all and (min-resolution:.001dpcm)': {
-            mixBlendMode: 'normal',
-          },
         }}
       >
         <Grid container spacing={6}>
