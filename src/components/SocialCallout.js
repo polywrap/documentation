@@ -2,19 +2,12 @@ import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 import CardLink from "./CardLink";
 
-const discordCard = {
-  title: "Join us on Discord!",
-  description: "Join our growing community and get support in real-time.",
-  link: "https://discord.gg/Z5m88a5qWu",
-  cta: "Join now",
-}
-
 export default function AdditionalLinks() {
 
   return (
     <Box my={8}>
       <Container maxWidth="lg">
-        <CardLink link={discordCard.link}>
+        <CardLink link="https://discord.gg/Z5m88a5qWu">
           <Box display="flex">
             <Box 
               sx={{
@@ -32,16 +25,16 @@ export default function AdditionalLinks() {
             </Box>
             <Box>
               <Typography variant="h5" component="h3" fontWeight="800">
-                {discordCard.title}
+                Join us on Discord!
               </Typography>
               <Box mt={1} color={"var(--ifm-heading-color)"}>
                 <Typography variant="body1">
-                  {discordCard.description}
+                  Join our growing community and get support in real-time.
                 </Typography>
               </Box>
               <Box mt={1}>
                 <Typography variant="body1" fontWeight="800" className="card-link">
-                  {discordCard.cta} &#8250;
+                  Join now &#8250;
                 </Typography>
               </Box>
             </Box>
