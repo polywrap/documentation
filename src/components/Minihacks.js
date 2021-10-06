@@ -24,7 +24,6 @@ export default function Minihacks() {
           border: `1px solid ${isDarkTheme ? theme.palette.primary.main : "#228eb9"}30`,
           borderRadius: theme.spacing(4),
           display: "block",
-          mixBlendMode: "color-burn",
           overflow: "hidden",
           padding: theme.spacing(4),
           transform: "translateY(0)",

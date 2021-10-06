@@ -64,7 +64,10 @@ export default function CardLink(props) {
               height: "200%",
               transform: "rotate(-49deg) translate(0,75%)",
               transformOrigin: "30% center",
-              transition: "transform 0"
+              transition: "transform 0",
+              '@media not all and (min-resolution:.001dpcm)': {
+                display: 'none',
+              },
             }}
           />
         }

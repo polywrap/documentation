@@ -47,7 +47,6 @@ export default function Showcase() {
           position: "absolute",
           left: "-15vw",
           maxWidth: theme.breakpoints.values.xl,
-          mixBlendMode: "overlay",
           opacity: 0.15,
           overflow: "hidden",
           top: "-30vh",
