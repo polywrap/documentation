@@ -23,7 +23,7 @@
   --ifm-code-background: #293653;
   --ifm-code-color: #9cdcfe;
   --ifm-navbar-sidebar-width: 250px;
-  --ifm-font-family-base: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  --ifm-font-family-base: -apple-system,BlinkMacSystemFont,"Roboto",Helvetica,Arial,sans-serif,"Apple Color Emoji";
   --ifm-font-family-display: 'Raleway', 'arial', sans-serif;
   --ifm-alert-color: #293653;
   --ifm-background-color: #f7f8fa;
@@ -93,12 +93,12 @@ strong, th {
   margin-right: 0.125rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .navbar {
     backdrop-filter: blur(16px);
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
   html[data-theme='dark'] {
     --ifm-navbar-background-color: #1d2538;
   }
