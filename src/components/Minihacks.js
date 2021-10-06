@@ -30,6 +30,9 @@ export default function Minihacks() {
           transform: "translateY(0)",
           transition: "all 0.25s ease-in-out",
           backdropFilter: "blur(16px)",
+          '@media not all and (min-resolution:.001dpcm)': {
+            mixBlendMode: 'normal',
+          },
         }}
       >
         <Grid container spacing={6}>

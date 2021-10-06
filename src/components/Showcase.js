@@ -52,6 +52,9 @@ export default function Showcase() {
           overflow: "hidden",
           top: "-30vh",
           zIndex: -1,
+          '@media not all and (min-resolution:.001dpcm)': {
+            mixBlendMode: 'normal',
+          },
           "& img": {
             width: "120vw",
           },
