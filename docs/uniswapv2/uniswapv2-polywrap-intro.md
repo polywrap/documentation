@@ -25,13 +25,11 @@ While the official SDK bundles all classes (e.g. `Token`), necessary data fields
 
 You can learn more about the benefits of using Polywrap [here](/).
 
-## Code
-
-The **Pre-alpha** [source code is available on GitHub](https://github.com/web3-api/monorepo/tree/uniswap-web3api).
-
 ## Usage
 
-To use _any_ Polywrap in your dapp, all you need is the Polywrap Client.
+We've created an interactive tutorial that can help you get started using the Uniswap wrapper [here](https://github.com/polywrap/uni-workshop).
+
+In general, to use _any_ Polywrap in your dapp, all you need is the Polywrap Client.
 
 ```
 npm install --save @web3api/client-js
@@ -61,3 +59,7 @@ client.query({
 ```
 
 Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS dApp](/guides/create-js-dapp/install-client) guide.
+
+## Code
+
+The **Pre-alpha** [source code is available on GitHub](https://github.com/polywrap/monorepo/tree/prealpha/packages/apis/uniswapv2).

@@ -1,14 +1,11 @@
 module.exports = {
   docs: [
     {
-      type: 'doc',
-      id: 'welcome',
-    },
-    {
       type: 'category',
       label: '👋 Getting started',
       items: [
-        'getting-started/polywrap-wrappers',
+        'getting-started/what-is-polywrap',
+        'getting-started/polywrap-vs-javascript-sdks',
         'getting-started/understanding-uris',
         'getting-started/understanding-plugins',
       ],
