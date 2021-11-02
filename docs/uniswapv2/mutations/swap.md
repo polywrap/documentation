@@ -77,7 +77,7 @@ _Select token in and token out and amount for the swap._
 
 ### exec
 
-_Executes the rade._
+_Executes the trade._
 
 ```graphql
   exec(

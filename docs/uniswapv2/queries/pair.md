@@ -106,7 +106,7 @@ _Pricing function for exact output amounts. Returns next pair state, based on cu
 ```graphql
   pairInputNextPair(
     pair: Pair!
-    inputAmount: TokenAmount!
+    outputAmount: TokenAmount!
   ): Pair!
 ```
 
@@ -137,7 +137,7 @@ _The value returned from this function cannot be used as an input to getLiquidit
   ): TokenAmount
 ```
 
-### pairLiquidityMinted
+### pairLiquidityValue
 
 _Calculates the exact amount of token0 or token1 that the given amount of liquidity tokens represent._
 _totalSupply is total supply of pair liquidity token._

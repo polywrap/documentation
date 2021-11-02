@@ -103,7 +103,7 @@ _Trades the minimum amount out._
 
 ### tradeMaximumAmountIn
 
-_Trades the maximum amount out._
+_Trades the maximum amount in._
 
 ```graphql
   tradeMaximumAmountIn(
@@ -114,7 +114,7 @@ _Trades the maximum amount out._
 
 ### bestTradeExactIn
 
-_Given a list of pairs, a fixed amount in, and token amount out, this method_
+_Given a list of pairs, a fixed amount in, and token out, this method_
 _returns the best maxNumResults trades that swap an input token amount to an_
 _output token, making at most maxHops hops. The returned trades are sorted by_
 _output amount, in decreasing order, and all share the given input amount._
