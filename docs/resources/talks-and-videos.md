@@ -15,3 +15,7 @@ title: Talks and Videos
 ## ETHDenver Presentation
 
 <iframe width="675" height="380" src="https://www.youtube.com/embed/9HhB4XL4AR4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## ETHGlobal Presentation
+
+<iframe width="675" height="380" src="https://www.youtube.com/embed/kxYaDO2ViOM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
