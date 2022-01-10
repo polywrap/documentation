@@ -3,6 +3,7 @@
 const customFields = {
   githubUrl: `https://github.com/polywrap/monorepo`,
   discordUrl: `https://discord.gg/Z5m88a5qWu`,
+  handbookUrl: `https://handbook.polywrap.io`,
   twitterUrl: 'https://twitter.com/polywrap_io',
   forumUrl: 'https://forum.polywrap.io',
   daoUrl: 'https://snapshot.org/#/polywrap.eth',
@@ -90,6 +91,12 @@ module.exports = {
               href: customFields.daoUrl,
               className: 'dao-logo',
               'aria-label': 'dao repo',
+            },
+            {
+              label: 'Handbook',
+              href: customFields.handbookUrl,
+              className: 'handbook-logo',
+              'aria-label': 'handbook',
             },
           ],
         },
