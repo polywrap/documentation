@@ -1,5 +1,5 @@
 ---
-id: enums
+id: enum-types
 title: Enum Types
 ---
 
@@ -19,17 +19,6 @@ enum ChainId {
   OPTIMISM_KOVAN
   ARBITRUM_ONE
   ARBITRUM_ONE_RINKEBY
-}
-```
-
-### TradeType
-
-_Type of trade, either exact input or exact output_
-
-```graphql
-enum TradeType {
-  EXACT_INPUT
-  EXACT_OUTPUT
 }
 ```
 
@@ -59,3 +48,13 @@ enum PermitV {
 }
 ```
 
+### TradeType
+
+_Type of trade, either exact input or exact output_
+
+```graphql
+enum TradeType {
+  EXACT_INPUT
+  EXACT_OUTPUT
+}
+```
