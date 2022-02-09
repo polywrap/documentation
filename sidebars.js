@@ -81,6 +81,17 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Uniswap v3 Polywrap',
+      items: [
+        'uniswapv3/intro',
+        'uniswapv3/types',
+        'uniswapv3/enums',
+        'uniswapv3/query',
+        'uniswapv3/mutation',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Resources',
       items: [
         'resources/talks-and-videos',
