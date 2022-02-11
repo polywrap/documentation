@@ -9,7 +9,7 @@ Welcome to the Uniswap v3 Polywrap documentation!
 
 If you haven't seen our demo yet, please take a look at it first!
 
-[Uniswap v3 Polywrapper Demo](https://docs.polywrap.io)
+[Uniswap v3 Polywrapper Demo](https://demo.uniswapv2.polywrap.io/#/swap)
 
 The Uniswap Polywrap is written in [AssemblyScript](https://www.assemblyscript.org/), and like the official Uniswap SDK, it has a robust test suite, performs arbitrary precision arithmetic, and supports rounding to significant digits or fixed decimal places. The Uniswap Polywrap business logic will be deployed on a decentralized endpoint, like IPFS.
 
@@ -47,19 +47,37 @@ const client = new Web3ApiClient();
 Now, you're able to send queries to the Uniswap v3 Polywrap!
 
 ```typescript
-client.query({
+// You can use the familiar GraphQL Query syntax
+const tokenEqualsQuery: QueryApiResult = client.query(<{ tokenEquals: boolean }>{
   uri: 'ens/v3.uniswap.web3api.eth',
   query: `{
-      tokenEquals(
-        tokenA: ${tokenA}
-        tokenB: ${tokenB}
-       )
- 	}`,
+    tokenEquals(
+      tokenA: ${tokenA}
+      tokenB: ${tokenB}
+     )
+  }`,
 });
+const tokenEquals: boolean | undefined = tokenEqualsQuery.data?.tokenEquals;
+
+// Or the alternative Invoke syntax
+const routerQuery: InvokeApiResult<MethodParameters> = await client.invoke<MethodParameters>({
+  uri: ensUri,
+  module: "query",
+  method: "swapCallParameters",
+  input: {
+    trades: bestTrades,
+    options: {
+      slippageTolerance: "0.01",
+      recipient: recipient,
+      deadline: "123",
+    }
+  }
+});
+const swapCallParameters: MethodParameters | undefined = routerQuery.data;
 ```
 
 Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS dApp](/guides/create-js-dapp/install-client) guide.
 
 ## Code
 
-The **Pre-alpha** [source code is available on GitHub](https://github.com/polywrap/integrations).
+The **Pre-alpha** [source code is available on GitHub](https://github.com/polywrap/integrations/tree/main/uniswapv3/wrapper).
