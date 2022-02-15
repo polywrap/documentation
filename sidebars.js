@@ -84,7 +84,8 @@ module.exports = {
       label: 'Resources',
       items: [
         'resources/talks-and-videos',
-        'resources/the-polywrap-technical-standard',
+        'resources/ecosystem-tooling',
+        'resources/the-polywrap-technical-standard'
       ],
     },
   ],
