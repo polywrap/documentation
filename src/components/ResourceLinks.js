@@ -22,17 +22,17 @@ const resourceLinks = [
   },
   {
     title: "Introduction to Polywrap",
-    link: "/resources/talks-and-videos#introduction-to-polywrap",
+    link: "/resources/talks-podcast-and-videos#introduction-to-polywrap",
     icon: <OndemandVideoOutlinedIcon/>,
   },
   {
     title: "EthCC Presentation",
-    link: "/resources/talks-and-videos#ethcc-presentation",
+    link: "/resources/talks-podcast-and-videos#ethcc-presentation",
     icon: <OndemandVideoOutlinedIcon/>,
   },
   {
     title: "EthDenver Presentation",
-    link: "/resources/talks-and-videos#ethdenver-presentation",
+    link: "/resources/talks-podcast-and-videos#ethdenver-presentation",
     icon: <OndemandVideoOutlinedIcon/>,
   },
 ];

@@ -83,7 +83,7 @@ module.exports = {
       type: 'category',
       label: 'Resources',
       items: [
-        'resources/talks-and-videos',
+        'resources/talks-podcasts-and-videos',
         'resources/ecosystem-tooling',
         'resources/the-polywrap-technical-standard'
       ],
