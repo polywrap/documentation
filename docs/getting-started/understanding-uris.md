@@ -3,6 +3,15 @@ id: 'understanding-uris'
 title: Understanding URIs
 ---
 
+## What are URI resolver 
+
+
+
+## How do URI resolver work 
+
+
+
+## How polywrap uses URI resolvers 
 Deployed wrappers are identified using custom URIs ([Uniform Resource Identifier](http://www.ltg.ed.ac.uk/~ht/WhatAreURIs/)). For example:
 
 ```
