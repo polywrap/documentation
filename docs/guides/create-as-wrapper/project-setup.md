@@ -33,7 +33,7 @@ For now, AssemblyScript is the only language with which you can implement your w
 
 If you have experience programming in TypeScript, you'll feel at home with AssemblyScript since the language's syntax is very similar.
 
-👋 This guide is meant for those who want to build and deploy their own wrappers. If you're interested in integrating deployed wrappers into your own dapp, see our [Integrate into a JS dapp](../../create-js-dapp/install-client) guide.
+👋 This guide is meant for those who want to build and deploy their own wrappers. If you're interested in integrating deployed wrappers into your own dapp, see our [Integrate into a JS dapp](../create-js-dapp/install-client) guide.
 :::
 
 ## **Create your project**
