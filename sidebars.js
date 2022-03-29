@@ -36,9 +36,15 @@ module.exports = {
             'guides/create-js-dapp/react-integration',
           ],
         },
+        {
+          type: "category",
+          label: "Deployment",
+          items: [
+            'guides/deployment/deployment-overview',
+            'guides/deployment/deploy-fleek'
+          ]
+        },
         'guides/create-js-plugin',
-        'guides/deployment-overview',
-        'guides/deploy-fleek'
       ],
     },
     {
