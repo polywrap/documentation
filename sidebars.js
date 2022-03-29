@@ -37,7 +37,8 @@ module.exports = {
           ],
         },
         'guides/create-js-plugin',
-        'guides/deploy-fleek',
+        'guides/deployment-overview',
+        'guides/deploy-fleek'
       ],
     },
     {
