@@ -21,6 +21,14 @@ Command line interface for Polywrap.
   * [test-env (t)](#test-env-t)
     * [test-env up](#test-env-up)
     * [test-env down](#test-env-down)
+  * [query (q)](#query-q)
+  * [plugin (p)](#plugin-p)
+  * [create (c)](#create-c)
+    * [create api](#w3-create-api)
+    * [create app](#w3-create-app)
+  * [codegen (g)](#codegen-g)
+  * [build (b)](#build-b)
+  * [app (a)](#app-a)
   
 
 </details>
@@ -95,7 +103,7 @@ Compose is a tool for defining and running multi-container Docker applications. 
 
 ![Docker Compose](../../static/img/polywrap-cli-docker-compose.png)
 
-### Sub-commands 
+###  `test-env (t)` sub-commands 
 #### `test-env up`
 
 Startup the test environment 
@@ -188,8 +196,13 @@ Options:
   -o, --output-dir <path>  Output directory for the new project
 ```
 
-### Sub-commands 
-*   `w3 create api assemblyscript <project-name>`
+### `create (c)` sub-commands 
+
+### w3 create api 
+#### `w3 create api <lang> <project-name>`
+
+### Example: 
+ `w3 create api assemblyscript <project-name>`
 
 Create a Web3API project in assemblyscript:
 
@@ -235,10 +248,18 @@ web3api.build.yaml
 web3api.yaml                
 ```
 
-
-
 * `w3 create api interface <project-name>` 
 Create a Web3API project in interface
+
+### w3 create app
+#### `w3 create app <lang> <project-name>`
+
+
+
+### w3 create plugin
+#### `w3 create plugin <lang> <project-name>`
+
+
 
 ### `codegen (g)`
 This command  auto-generate API Types 
@@ -257,7 +278,7 @@ Options:
 
 ### `build (b)`
 
-This command  builds a Web3API and (optionally) uploads it to IPFS.
+This command builds a Web3API and (optionally) uploads it to IPFS.
 
 ```sh
 w3 build [options]
