@@ -13,6 +13,18 @@ import TabItem from '@theme/TabItem';
 <br/>
 Command line interface for Polywrap.
 
+## **Table of Contents**
+<details>
+  <summary>Click to expand</summary>
+
+  * [Installation](#installation)
+  * [test-env (t)](#test-env-t)
+    * [test-env up](#test-env-up)
+    * [test-env down](#test-env-down)
+  
+
+</details>
+
 ## Installation
 
 <Tabs
@@ -48,7 +60,7 @@ w3 help
 The following menu will appear in your terminal window:
 
 ```sh
-w3 version 0.0.1-prealpha.68
+w3 version 0.0.1-prealpha.69
 
   w3             🔥 Web3API CLI 🔥                                      
   help (h)       -                                                    
@@ -60,6 +72,8 @@ w3 version 0.0.1-prealpha.68
   build (b)      Builds a Web3API and (optionally) uploads it to IPFS 
   app (a)        Build/generate types for your app
 ```
+
+
 
 Let's take a look at each of these options individually.
 
@@ -81,10 +95,10 @@ Compose is a tool for defining and running multi-container Docker applications. 
 
 ![Docker Compose](../../static/img/polywrap-cli-docker-compose.png)
 
-### Commands 
-*  `test-env up`
+### Sub-commands 
+#### `test-env up`
 
-Start up the test enviroment 
+Startup the test environment 
 
 Output: 
 ```
@@ -92,7 +106,7 @@ w3 test-env up
 ✔ Starting test environment...
 ```
 
-*  `test-env down`
+#### `test-env down`
 
 Shut down the test environment 
 
@@ -115,7 +129,7 @@ Options:
 ```
 
 ### Example: 
-You can be specific your recipe path, for example, with:
+You can be specific in your recipe path, for example, with:
 ```sh
 w3 query ./recipes/e2e.json
 ```
@@ -156,7 +170,7 @@ In the above example, the `constants.json` file could include the following:
 
 ### `create (c)`
 
-Creates a new project using the Web3API CLI.
+This command creates a new project using the Web3API CLI.
 
 ```sh
 w3 create command <project-name> [options]
@@ -174,12 +188,12 @@ Options:
   -o, --output-dir <path>  Output directory for the new project
 ```
 
-### Commands 
+### Sub-commands 
 *   `w3 create api assemblyscript <project-name>`
 
 Create a Web3API project in assemblyscript:
 
-Running the command should create a project and your terminal should 
+Running the command should create a project, and your terminal should 
 look like this: 
 
 ```sh
@@ -193,8 +207,8 @@ warning template: No license field
 [3/4] 🔗  Linking dependencies...
 [4/4] 🔨  Building fresh packages...
 success Saved lockfile.
-warning template: No license field
-success Saved 1 new dependency.
+Warning template: No license field
+success. Saved 1 new dependency.
 info Direct dependencies
 └─ @web3api/templates@0.0.1-prealpha.68
 info All dependencies
@@ -227,6 +241,7 @@ web3api.yaml
 Create a Web3API project in interface
 
 ### `codegen (g)`
+This command  auto-generate API Types 
 
 ```sh
 w3 codegen [options]
@@ -242,7 +257,7 @@ Options:
 
 ### `build (b)`
 
-Builds a Web3API and (optionally) uploads it to IPFS.
+This command  builds a Web3API and (optionally) uploads it to IPFS.
 
 ```sh
 w3 build [options]
@@ -258,3 +273,21 @@ Options:
 ```
 
 If you want to deploy to IPFS, use `-ipfs <ipfs uri>.`
+
+
+### `app (a)`
+ This command  build/generate types for your app   
+
+```sh
+w3 app command [options]
+
+Commands:
+  codegen   Generate code for the app
+
+Options:
+  -h, --help                              Show usage information
+  -m, --manifest-file <path>              Path to the Web3API App manifest file (default: web3api.app.yaml | web3api.app.yml)
+  -c, --codegen-dir <path>                 Output directory for the generated code (default: ./src/w3)
+  -i, --ipfs [<node>]                     IPFS node to load external schemas (default: ipfs.io & localhost)
+  -e, --ens [<address>]                   ENS address to lookup external schemas (default: 0x0000...2e1e)
+```
