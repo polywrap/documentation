@@ -21,9 +21,9 @@ In this 5 step guide, we'll walk you through how to deploy your Polywrapper to [
 
 </details>
 
-### What is Fleek ?
+### What is Fleek?
 Fleek is the easiest way to build, deploy, and host websites & apps on [IPFS](https://ipfs.io/)
- Fleek provides one seamless workflow with everything you need to build fast, modern sites & web apps hosted on IPFS
+ Fleek provides one seamless workflow with everything you need to build fast, modern sites & web apps hosted on IPFS.
 
 
 ### What you need to get started:
@@ -64,8 +64,8 @@ Your `build` folder should be generated now. Copy and paste the `./web3api.meta.
 
 Make sure you signup for a Fleek account. 
 
-* On the left-hand side menu of your `Fleek` 
-* Account page click on the `"Storage"` link.
+* On the left-hand side menu of your `Fleek.` 
+* Account page, click on the `"Storage"` link.
 
 ![Fleek Step 1](../../../static/img/guides/fleek-step-1.png)
 
@@ -85,16 +85,18 @@ Example: `Gm-Polywrap`
 ![Fleek Step 4](../../../static/img/guides/fleek-step-4.png)
 
 
-* Select the contents of your `build` folder onto `Fleek`
+* Select the contents of your `build` folder onto `Fleek.`
 
 ![Fleek Step 5](../../../static/img/guides/fleek-step-5.png)
 
-* Click `Confirm`
+* Click `Confirm.`
+
+![Fleek Step 6](../../../static/img/guides/fleek-step-6.png)
 
 :::tip
-Due to current Filecoin deal size limitation, files are batched together across Fleek products and uploaded as one Filecoin
+Due to the current Filecoin deal size limitation, files are batched together across Fleek products and uploaded as one Filecoin
 
-So it might take 24-48 hours depending on Fleek usage for a content to appear in ipfs
+So it might take 24-48 hours, depending on Fleek usage, for content to appear in ipfs
 :::
 
 

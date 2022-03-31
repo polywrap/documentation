@@ -41,6 +41,7 @@ module.exports = {
           label: "Deployment",
           items: [
             'guides/deployment/deployment-overview',
+            'guides/deployment/deploy-pinata',
             'guides/deployment/deploy-fleek'
           ]
         },
