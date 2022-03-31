@@ -13,12 +13,19 @@ In this 5 step guide, we'll walk you through how to deploy your Polywrapper to [
 
   * [Introduction](#introduction)
   * [What you need to get started](#what-you-need-to-get-started)
+  * [Step 1. Clone the polywrap demo project](#step-1-clone-the-polywrap-demo-project)
+  * [Step 2. Pull the polywrap metadata](#step-2-git-pull-metadata)
+  * [Step 3. Build the wrapper ](#step-3-build-the-wrapper)
+  * [Step 4. Upload the build folder to Fleek](#step-4-upload-the-build-folder-to-fleek)
+  * [Step 5. Verifying the package on IPFS ](#step-5-verifying-the-package-on-ipfs)
 
 
 </details>
 
 ### What is Pinata?
+Pinata is building the largest pinning service on IPFS!
 
+Pinata gives users the ability to upload, manage, and share their content whenever, wherever and, with whomever they want.
 
 
 ### What you need to get started:
@@ -81,4 +88,16 @@ Example: Gm-Polywrap
 ![Pinata Step 5](../../../static/img/guides/pinata-step-5.png)
 
 
-### Step 5. 
+### Step 5.  **Verifying the package on IPFS**
+You will get an IPFS hash!
+
+* Click the name of the folder 
+
+![Pinata Step 6](../../../static/img/guides/pinata-step-6.png)
+
+This will lead you to [IPFS link](https://gateway.pinata.cloud/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq): 
+https://gateway.pinata.cloud/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq
+
+Now that you have the IPFS hash located in the CID column in the pinata manager, you can use it as a value in the URI property of your Polywrap queries to access the mutation and query functions on this Polywrapper. 
+
+ 🎉 Congratulations 🎉 on deploying to Pinata!  

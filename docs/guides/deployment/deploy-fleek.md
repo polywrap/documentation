@@ -102,13 +102,15 @@ So it might take 24-48 hours, depending on Fleek usage, for content to appear in
 
 ### Step 5.  **Verifying the package on IPFS**
 
-
 Click the   `"Verify on IPFS"`   button. 
 
 You will get an IPFS hash! 
 
 For an example of what you should see, visit this [IPFS link](https://ipfs.fleek.co/ipfs/QmQLsx7sxkLrXwh8dPmF2MTWJmgB5C2FmWYth11i7oL3vN).
 
+
 Now that you have the IPFS hash, you can use it as a value in the URI property of your Polywrap queries to access the mutation and query functions on this Polywrapper. 
 
 You can also register an ENS domain and have it resolved to this IPFS content.
+
+ 🎉 Congratulations 🎉 on deploying to Fleek!  
