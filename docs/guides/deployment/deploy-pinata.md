@@ -16,7 +16,7 @@ In this 5 step guide, we'll walk you through how to deploy your Polywrapper to [
   * [Step 1. Clone the polywrap demo project](#step-1-clone-the-polywrap-demo-project)
   * [Step 2. Pull the polywrap metadata](#step-2-git-pull-metadata)
   * [Step 3. Build the wrapper ](#step-3-build-the-wrapper)
-  * [Step 4. Upload the build folder to Fleek](#step-4-upload-the-build-folder-to-fleek)
+  * [Step 4. Upload the build folder to Pinata](#step-4-upload-the-build-folder-to-pinata)
   * [Step 5. Verifying the package on IPFS ](#step-5-verifying-the-package-on-ipfs)
 
 
@@ -31,7 +31,7 @@ Pinata gives users the ability to upload, manage, and share their content whenev
 ### What you need to get started:
 * We'll be using the [Polywrap Demos](https://github.com/polywrap/demos) repo for this guide. 
 * 💚 [Node. js](https://nodejs.org/en/) 
-* ⚡ [Pinata Account](https://fleek.co/)
+* 🪅 [Pinata](https://www.pinata.cloud/)
 * 🐳 [Docker](https://www.docker.com/)
 * 🧶[Yarn](https://classic.yarnpkg.com/en/)
     * Versions:  `node >=10.0.0` or `yarn >=1.0.0`
