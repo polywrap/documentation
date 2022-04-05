@@ -55,9 +55,23 @@ module.exports = {
     },
     {
       type: 'category',
-      label: "Concepts",
+      label: "Main Concepts",
       items: [
-        
+        "main-concepts/polywrap",
+        "main-concepts/uri",
+        "main-concepts/client",
+        "main-concepts/plugin"
+      ]
+    },
+    {
+      type: 'category',
+      label: "Advanced Concepts",
+      items: [
+        "advanced/interface",
+        "advanced/json-handling",
+        "advanced/consuming-other-wrappers",
+        "advanced/data-types",
+        "advanced/graphql-generated-types"
       ]
     }
   ]
