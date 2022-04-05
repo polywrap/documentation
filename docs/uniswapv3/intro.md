@@ -7,17 +7,17 @@ title: Uniswap v3 Polywrap Documentation
 
 Welcome to the Uniswap v3 Polywrap documentation!
 
-The Uniswap Polywrap is written in [AssemblyScript](https://www.assemblyscript.org/), and like the official Uniswap SDK, it has a robust test suite, performs arbitrary precision arithmetic, and supports rounding to significant digits or fixed decimal places. The Uniswap Polywrap business logic will be deployed on a decentralized endpoint, like IPFS.
+The Uniswap Polywrapper is written in [AssemblyScript](https://www.assemblyscript.org/), and like the official Uniswap SDK, it has a robust test suite, performs arbitrary precision arithmetic, and supports rounding to significant digits or fixed decimal places. The Uniswap Polywrapper business logic will be deployed on a decentralized endpoint, like IPFS.
 
-Our first Polywrap client is for JavaScript(`@web3api/client-js`) and it can run in any environment that can execute JavaScript. In the future, we'll have Polywrap clients for other environments (Python, Go, and more).
+Our first Polywrap client is for JavaScript(`@web3api/client-js`) and it can run in any environment that can execute JavaScript. We also have a working Rust implementation. In the future, we'll have Polywrap clients for other environments (Python, Go, and more).
 
-Developers integrating the Uniswap Polywrap into their app would use [GraphQL](https://graphql.org/) queries to execute functions provided by the Uniswap Polywrap. This documentation shows you which **query** and **mutation** functions are made available by the Uniswap Polywrap and how to use them.
+Developers integrating the Uniswap wrapper into their app would use [GraphQL](https://graphql.org/) queries to execute functions provided by the Uniswap wrapper. This documentation shows you which **query** and **mutation** functions are made available by the Uniswap wrapper and how to use them.
 
-## Uniswap Polywrap vs. Existing SDK
+## Uniswap wrapper vs. Existing SDK
 
-The Uniswap Polywrap aims to be a substantial improvement over Uniswap v3’s [existing SDK](https://docs.uniswap.org/sdk/introduction).
+The Uniswap wrapper aims to be a substantial improvement over Uniswap v3’s [existing SDK](https://docs.uniswap.org/sdk/introduction).
 
-While the official SDK bundles all classes (e.g. `Trade`), necessary data fields, and helper functions into the application, the Uniswap Polywrap does not. Instead, all business logic is deployed on a decentralized endpoint, like IPFS, and is downloaded at runtime when the client application launches.
+While the official SDK bundles all classes (e.g. `Trade`), necessary data fields, and helper functions into the application, the Uniswap wrapper does not. Instead, all business logic is deployed on a decentralized endpoint, like IPFS, and is downloaded at runtime when the client application launches.
 
 You can learn more about the benefits of using Polywrap [here](https://docs.polywrap.io).
 
@@ -40,7 +40,7 @@ import { Web3ApiClient } from '@web3api/client-js';
 const client = new Web3ApiClient();
 ```
 
-Now, you're able to send queries to the Uniswap v3 Polywrap!
+Now, you're able to send queries to the Uniswap v3 wrapper!
 
 ```typescript
 // You can use the familiar GraphQL Query syntax
