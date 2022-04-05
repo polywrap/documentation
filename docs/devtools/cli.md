@@ -136,7 +136,6 @@ Options:
   -c, --client-config <config-path> Add custom configuration to the Web3ApiClient
 ```
 
-### Example: 
 You can be specific in your recipe path, for example, with:
 ```sh
 w3 query ./recipes/e2e.json
@@ -201,7 +200,6 @@ Options:
 ### w3 create api 
 #### `w3 create api <lang> <project-name>`
 
-### Example: 
  `w3 create api assemblyscript <project-name>`
 
 Create a Web3API project in assemblyscript:
