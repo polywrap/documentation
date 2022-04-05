@@ -27,8 +27,8 @@ so that other dapps could integrate it into their dapps!
 ### What you need to get started:
 * We'll be using the [Polywrap Demos](https://github.com/polywrap/demos) repo for this guide. 
 * 💚 [Node. js](https://nodejs.org/en/) 
-* [Metamask](https://metamask.io)
-*   [Crust Network](https://crustfiles.io/home/)
+* 👛 [Metamask](https://metamask.io)
+*  🥐 [Crust Network](https://crustfiles.io/home/)
 * 🐳 [Docker](https://www.docker.com/)
 * 🧶[Yarn](https://classic.yarnpkg.com/en/)
     * Versions:  `node >=10.0.0` or `yarn >=1.0.0`
@@ -60,22 +60,37 @@ yarn build
 
 ### Step 4. Upload the build folder to Crust Network
 
-Make sure you signin using a wallet `Metamask`.
+* Make sure you signin using a wallet `Metamask`.
 
 ![Crust Files Step 1](../../../static/img/guides/crust-step-1.png)
 
 
-Click `Public`
+* Click `Public`
 
 
 ![Crust Files Step 2](../../../static/img/guides/crust-step-2.png)
 
 
-Go to `Crust Files` 
+* Click `Upload` 
 
-Click Upload 
+![Crust Files Step 3](../../../static/img/guides/crust-step-3.png)
 
+* Upload the build folder then Click Upload 
 
+![Crust Files Step 4](../../../static/img/guides/crust-step-4.png)
+
+* Click `Sign and Upload` 
+
+![Crust Files Step 5](../../../static/img/guides/crust-step-5.png)
+
+* Your wallet will ask for a signature request 
+* Click `Sign`
+
+![Crust Files Step 6](../../../static/img/guides/crust-step-6.png)
+
+* The page should look like this: 
+
+![Crust Files Step 7](../../../static/img/guides/crust-step-7.png)
 
 
 
@@ -83,7 +98,10 @@ Click Upload
 You will get an IPFS hash!
 
 This will lead you to [IPFS link](https://gw.crustapps.net/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq?filename=build): 
+
 https://gw.crustapps.net/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq?filename=build
+
+![Crust Files Step 8](../../../static/img/guides/crust-step-8.png)
 
 
  🎉 Congratulations 🎉 on deploying using the Crust Files!  
