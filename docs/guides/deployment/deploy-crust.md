@@ -1,6 +1,6 @@
 ---
-id: deploy-crust-network
-title: Deploying using wrapper CRUST
+id: deploy-crust
+title: Deploying to CRUST Files
 ---
 
 ## **Introduction**
@@ -35,23 +35,47 @@ so that other dapps could integrate it into their dapps!
 * 🔸 [Git](https://git-scm.com/downloads)
 
 
-### Step 1.
+### Step 1. Clone the polywrap demo project  
 
+```bash
+git clone https://github.com/polywrap/demos.git
+```
 
+### Step 2. Git pull metadata
+Then, we will check out the demo branch with the metafiles already set up:
 
-### Step 2.
+```bash
+git pull origin polywrap-metadata
+```
 
+### Step 3. Build the wrapper
+Now, we can build the sample Polywrapper with the following commands:
 
-
-### Step 3.
-
+```bash
+nvm use
+yarn
+yarn build
+```
 
 
 ### Step 4. Upload the build folder to Crust Network
 
-Go to Crust Files 
+Make sure you signin using a wallet `Metamask`.
+
+![Crust Files Step 1](../../../static/img/guides/crust-step-1.png)
+
+
+Click `Public`
+
+
+![Crust Files Step 2](../../../static/img/guides/crust-step-2.png)
+
+
+Go to `Crust Files` 
 
 Click Upload 
+
+
 
 
 

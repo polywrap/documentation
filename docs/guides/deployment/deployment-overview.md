@@ -26,6 +26,8 @@ so that other dapps can integrate.
     * [Wrapper Deployment Guide using Pinata](./deploy-pinata)
 
  * [Crust Network](https://wiki.crust.network/docs/en/crustAccount) : provides a Web3.0 decentralized storage network for the Metaverse
+    
+    * [Wrapper Deployment Guide using Crust Files](./deploy-crust)
 
  * [Aleph](https://docs.alephdata.org/):  allow your blockchain enabled app to securely access trusted off-chain data or computation within a couple lines of code.
 

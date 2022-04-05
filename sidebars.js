@@ -43,7 +43,8 @@ module.exports = {
             'guides/deployment/deployment-overview',
             'guides/deployment/deploy-cli',
             'guides/deployment/deploy-pinata',
-            'guides/deployment/deploy-fleek'
+            'guides/deployment/deploy-fleek',
+            'guides/deployment/deploy-crust'
           ]
         },
         'guides/create-js-plugin',
