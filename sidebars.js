@@ -21,12 +21,43 @@ module.exports = {
     {
       type: "category",
       label: "Building Wrappers",
-      items: []
+      items: [
+        "building-wrappers/schema",
+        "building-wrappers/implementation",
+        "building-wrappers/build",
+        "building-wrappers/test",
+        "building-wrappers/metadata",
+        "building-wrappers/deploy",
+        "building-wrappers/publish"
+      ]
     },
     {
       type: 'category',
-      label: "Main Concepts",
+      label: "Defining Wrapper Interfaces",
       items: [
+        "wrapper-interfaces/description",
+        "wrapper-interfaces/interface-schema",
+        "wrapper-interfaces/build",
+        "wrapper-interfaces/deploy",
+        "wrapper-interfaces/publish",
+        "wrapper-interfaces/implement",
+        "wrapper-interfaces/integrate-interface-wrappers"
+      ]
+    },
+    {
+      type: 'category',
+      label: "Building Plugins",
+      items: [
+        "building-plugins/schema",
+        "building-plugins/generate-types",
+        "building-plugins/implementation"
+      ]
+    },
+    {
+      type: 'category',
+      label: "Concepts",
+      items: [
+        
       ]
     }
   ]
