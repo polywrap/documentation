@@ -1,6 +1,6 @@
 ---
-id: deploy-aleph
-title: Deploying to Aleph.im
+id: deploy-arweave
+title: Deploying to Arweave
 ---
 
 ## **Introduction**
@@ -17,7 +17,7 @@ so that other dapps could integrate it into their dapps!
   * [Step 1. Clone the polywrap demo project](#step-1-clone-the-polywrap-demo-project)
   * [Step 2. Pull the polywrap metadata](#step-2-git-pull-metadata)
   * [Step 3. Build the wrapper ](#step-3-build-the-wrapper)
-  * [Step 4. Upload the build folder to Crust Network](#step-4-upload-the-build-folder-to-aleph)
+  * [Step 4. Upload the build folder to Crust Network](#step-4-upload-the-build-folder-to-arweave)
   * [Step 5. Verifying the package on IPFS ](#step-5-verifying-the-package-on-ipfs)
 
 
@@ -28,7 +28,6 @@ so that other dapps could integrate it into their dapps!
 * We'll be using the [Polywrap Demos](https://github.com/polywrap/demos) repo for this guide. 
 * 💚 [Node. js](https://nodejs.org/en/) 
 * 👛 [Metamask](https://metamask.io)
-*  [Aleph Account](https://account.aleph.im/#/ipfs)
 * 🐳 [Docker](https://www.docker.com/)
 * 🧶[Yarn](https://classic.yarnpkg.com/en/)
     * Versions:  `node >=10.0.0` or `yarn >=1.0.0`
@@ -58,9 +57,8 @@ yarn build
 ```
 
 
-### Step 4. Upload the build folder to Aleph
+### Step 4. Upload the build folder to Arweave
 
-* Make sure you signin using a wallet `Metamask`.
 
 
 
@@ -74,4 +72,4 @@ This will lead you to IPFS link:
 
 
 
- 🎉 Congratulations 🎉 on deploying using the Aleph.im!  
+ 🎉 Congratulations 🎉 on deploying using the Arweave!  
