@@ -68,7 +68,7 @@ module.exports = {
       label: "Advanced Concepts",
       items: [
         "advanced/interface",
-        ['advanced/build-pipeline', 
+        'advanced/build-pipeline', 
         'advanced/uri-redirects',
         "advanced/json-handling",
         "advanced/consuming-other-wrappers",
