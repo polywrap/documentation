@@ -69,6 +69,7 @@ module.exports = {
       items: [
         "advanced/interface",
         'advanced/build-pipeline', 
+        'advanced/uri-resolvers',
         'advanced/uri-redirects',
         "advanced/json-handling",
         "advanced/consuming-other-wrappers",
