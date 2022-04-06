@@ -31,6 +31,8 @@ so that other dapps can integrate.
 
  * [Aleph](https://docs.alephdata.org/):  allow your blockchain enabled app to securely access trusted off-chain data or computation within a couple lines of code.
 
+ * [Wrapper Deployment Guide using Aleph](./deploy-aleph)
+
  * [Arweave](https://docs.arweave.org/info/): enables you to store documents and applications forever. 
  
  
