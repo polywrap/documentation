@@ -91,6 +91,56 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Uniswap v3 Polywrap',
+      items: [
+        'uniswapv3/intro',
+        {
+          type: 'category',
+          label: 'Types',
+          items: [
+            'uniswapv3/types/common-types',
+            'uniswapv3/types/query-types',
+            'uniswapv3/types/mutation-types',
+            'uniswapv3/types/enum-types',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Queries',
+          items: [
+            'uniswapv3/queries/token',
+            'uniswapv3/queries/tickProvider',
+            'uniswapv3/queries/pool',
+            'uniswapv3/queries/route',
+            'uniswapv3/queries/trade',
+            'uniswapv3/queries/position',
+            'uniswapv3/queries/router',
+            'uniswapv3/queries/quoter',
+            'uniswapv3/queries/nfpm',
+            'uniswapv3/queries/staker',
+            'uniswapv3/queries/tickUtils',
+            'uniswapv3/queries/poolUtils',
+            'uniswapv3/queries/positionUtils',
+            'uniswapv3/queries/encodeUtils',
+            'uniswapv3/queries/mathUtils',
+            'uniswapv3/queries/enumUtils',
+            'uniswapv3/queries/fetch',
+            'uniswapv3/queries/constants',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Mutations',
+          items: [
+            'uniswapv3/mutations/call',
+            'uniswapv3/mutations/swap',
+            'uniswapv3/mutations/deploy',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Resources',
       items: [
         'resources/talks-podcasts-and-videos',
