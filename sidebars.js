@@ -1,10 +1,12 @@
 module.exports = {
   docs: [
+    'polywrap-overview',
     {
       type: "category",
       label: "Introduction",
       items: [
         'getting-started/what-is-polywrap',
+
       ]
     },
     {
