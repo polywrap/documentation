@@ -38,11 +38,7 @@ so that other dapps can integrate.
 
    * [Wrapper Deployment Guide using Crust Files](./deploy-crust)
 
-   * [Wrapper Deployment Guide using Aleph](./deploy-aleph)
- 
-   * [Wrapper Deployment Guide using Arweave](./deploy-arweave)  
- 
- 
+  
  # Wrapper domain names
 ## ENS
  * [Polywrap Hub](https://github.com/polywrap/hub)

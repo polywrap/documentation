@@ -34,25 +34,36 @@ so that other dapps could integrate it into their dapps!
 * 🔸 [Git](https://git-scm.com/downloads)
 
 
-### Step 1.
+### Step 1. Clone the polywrap demo project  
 
+```bash
+git clone https://github.com/polywrap/demos.git
+```
 
+### Step 2. Git pull metadata
+Then, we will check out the demo branch with the metafiles already set up:
 
-### Step 2.
+```bash
+git pull origin polywrap-metadata
+```
 
+### Step 3. Build the wrapper
+Now, we can build the sample Polywrapper with the following commands:
 
+```bash
+nvm use
+yarn
+yarn build
+```
 
-### Step 3.
+### Step 4.  **Upload the build folder to CLI**
 
+Upload build results to an IPFS node (default: dev-server's node)
 
-
-### Step 4.
-
-
+```bash
+npx w3 build --ipfs http://localhost:5001
+```
 
 ### Step 5.
-
-
-
 
  🎉 Congratulations 🎉 on deploying using the Polywrap CLI!  
