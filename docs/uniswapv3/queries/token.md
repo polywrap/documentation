@@ -49,10 +49,10 @@ tokenSortsBefore(
 
 ### getEther
 
-_Returns an Ether token on the specified chain_
+_Returns a native token (e.g. Ether) on the specified chain_
 
 ```graphql
-getEther(
+getNative(
   chainId: ChainId! 
 ): Token!
 ```
@@ -67,12 +67,12 @@ getWETH(
 ): Token!
 ```
 
-### isEther
+### isNative
 
-_Returns true if the token is Ether, false otherwise. A token representing Ether must have an empty string in its address field._
+_Returns true if the token is native (e.g. Ether), false otherwise. A token representing Ether must have an empty string in its address field._
 
 ```graphql
-isEther(
+isNative(
   token: Token! 
 ): Boolean!
 ```
