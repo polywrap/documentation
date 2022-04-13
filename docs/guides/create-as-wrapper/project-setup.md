@@ -5,7 +5,7 @@ title: 'Project setup'
 
 If you're looking to find out what it takes to build a Polywrap wrapper, you've come to the right place! This guide will help you understand Polywrap's core concepts. If you haven't checked out our [Start Here](../../../getting-started/what-is-polywrap) section yet, we recommend visiting that section first.
 
-In this guide, we'll walk you through creating our template project using our CLI. Then, we'll look at the different folders and files that make up a Polywrap wrapper, such as the GraphQL schema and WebAssembly implementations. Next, we'll dive in and add more code to these existing files to expand the functionality of our wrapper. Finally, we'll learn about how you can build and deploy your wrapper so that other devs can integrate your wrapper into their dapps!
+This guide will walk you through creating our template project using our CLI. Then, we'll look at the different folders and files that make up a Polywrap wrapper, such as the GraphQL schema and WebAssembly implementations. Next, we'll dive in and add more code to these existing files to expand the functionality of our wrapper. Finally, we'll learn about how you can build and deploy your wrapper so that other devs can integrate your wrapper into their dapps!
 
 :::tip
 This guide will use a simple, smart contract written in Solidity. We'll be adding a few functions to it and then use a script to deploy the contract to a test environment where we'll interact with it using our Polywrap wrapper.
@@ -15,7 +15,7 @@ NB: No Solidity or smart contract knowledge is required to use the guide!
 If you want to skip ahead to see the resulting code of this guide, visit our [Demos repository](https://github.com/polywrap/demos/tree/main/simple-storage/wrapper-completed).
 :::
 
-If you get stuck or have questions at any time in this process, please reach out to us on [Discord](https://discord.com/invite/Z5m88a5qWu).
+If you get stuck or have questions in this process, please reach out to us on [Discord](https://discord.com/invite/Z5m88a5qWu).
 
 ## **Prerequisites**
 
@@ -55,7 +55,7 @@ Let's ensure all of your projects have all dependencies installed. From inside y
 - `nvm install && nvm use`
 - `yarn`
 
-The Polywrap CLI is now installed locally in your project's directory. We'll use this local installation as we advance by running `npx w3`.
+The Polywrap CLI is now installed locally in your project's directory. We'll use this local installation by running `npx w3` as we advance.
 
 We recommend not installing the `@web3api/cli` package globally to avoid future version conflicts and maximize reproducibility for the other developers.
 
