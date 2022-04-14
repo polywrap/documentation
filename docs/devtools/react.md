@@ -31,7 +31,7 @@ import { Web3ApiProvider } from '@web3api/react';
 export default function App() {
   return (
     <Web3ApiProvider>
-      <div>{'Web3API enabled dApp goes here!'}</div>
+      <div>{'Web3API enabled app goes here!'}</div>
     </Web3ApiProvider>
   );
 }

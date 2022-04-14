@@ -5,7 +5,7 @@ title: 'Project setup'
 
 If you're looking to find out what it takes to build a Polywrap wrapper, you've come to the right place! This guide will help you understand Polywrap's core concepts. If you haven't checked out our [Start Here](../../../getting-started/what-is-polywrap) section yet, we recommend visiting that section first.
 
-In this guide, we'll walk you through the process of creating our template project using our CLI. Then, we'll look at the different folders and files that make up a Polywrap wrapper such as the GraphQL schema and WebAssembly implementations. Next, we'll dive in and add more code to these existing files to expand the functionality of our wrapper. Finally, we'll learn about the different ways you can build and deploy your wrapper so that other devs can integrate your wrapper into their own dapps!
+In this guide, we'll walk you through the process of creating our template project using our CLI. Then, we'll look at the different folders and files that make up a Polywrap wrapper such as the GraphQL schema and WebAssembly implementations. Next, we'll dive in and add more code to these existing files to expand the functionality of our wrapper. Finally, we'll learn about the different ways you can build and deploy your wrapper so that other devs can integrate your wrapper into their own apps!
 
 :::tip
 This guide will make use of a simple smart contract written in Solidity. We'll be adding a few functions to it and then use a script to deploy the contract to a test environment where we'll interact with it using our Polywrap wrapper.
@@ -33,7 +33,7 @@ For now, AssemblyScript is the only language with which you can implement your w
 
 If you have experience programming in TypeScript, you'll feel at home with AssemblyScript since the language's syntax is very similar.
 
-👋 This guide is meant for those who want to build and deploy their own wrappers. If you're interested in integrating deployed wrappers into your own dapp, see our [Integrate into a JS dapp](../create-js-dapp/install-client) guide.
+👋 This guide is meant for those who want to build and deploy their own wrappers. If you're interested in integrating deployed wrappers into your own app, see our [Integrate into a JS App](../create-js-app/install-client) guide.
 :::
 
 ## **Create your project**

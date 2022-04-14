@@ -1,6 +1,6 @@
 ---
-id: wrappers-cli
-title: Deployment using the "wrappers" CLI
+id: deploy-cli
+title: Deploying using wrapper CLI
 ---
 
 ## **Introduction**
@@ -34,36 +34,25 @@ so that other apps could integrate it into their apps!
 * 🔸 [Git](https://git-scm.com/downloads)
 
 
-### Step 1. Clone the polywrap demo project  
+### Step 1.
 
-```bash
-git clone https://github.com/polywrap/demos.git
-```
 
-### Step 2. Git pull metadata
-Then, we will check out the demo branch with the metafiles already set up:
 
-```bash
-git pull origin polywrap-metadata
-```
+### Step 2.
 
-### Step 3. Build the wrapper
-Now, we can build the sample Polywrapper with the following commands:
 
-```bash
-nvm use
-yarn
-yarn build
-```
 
-### Step 4.  **Upload the build folder to CLI**
+### Step 3.
 
-Upload build results to an IPFS node (default: dev-server's node)
 
-```bash
-npx w3 build --ipfs http://localhost:5001
-```
+
+### Step 4.
+
+
 
 ### Step 5.
+
+
+
 
  🎉 Congratulations 🎉 on deploying using the Polywrap CLI!  

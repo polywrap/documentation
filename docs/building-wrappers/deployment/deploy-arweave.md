@@ -1,11 +1,11 @@
 ---
-id: wrappers-cli
-title: Deployment using the "wrappers" CLI
+id: deploy-arweave
+title: Deploying to Arweave
 ---
 
 ## **Introduction**
 
-In this 5 step guide,  we'll walk you how to deploy your Polywrapper using the `CLI`.
+In this 5 step guide,  we'll walk you how to deploy your Polywrapper using the `aleph.im`.
 so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
@@ -17,7 +17,7 @@ so that other apps could integrate it into their apps!
   * [Step 1. Clone the polywrap demo project](#step-1-clone-the-polywrap-demo-project)
   * [Step 2. Pull the polywrap metadata](#step-2-git-pull-metadata)
   * [Step 3. Build the wrapper ](#step-3-build-the-wrapper)
-  * [Step 4. Upload the build folder to CLI](#step-4-upload-the-build-folder-to-fleek)
+  * [Step 4. Upload the build folder to Crust Network](#step-4-upload-the-build-folder-to-arweave)
   * [Step 5. Verifying the package on IPFS ](#step-5-verifying-the-package-on-ipfs)
 
 
@@ -27,7 +27,7 @@ so that other apps could integrate it into their apps!
 ### What you need to get started:
 * We'll be using the [Polywrap Demos](https://github.com/polywrap/demos) repo for this guide. 
 * 💚 [Node. js](https://nodejs.org/en/) 
-* 🖥️📦 [CLI](https://www.npmjs.com/package/@web3api/cli)
+* 👛 [Metamask](https://metamask.io)
 * 🐳 [Docker](https://www.docker.com/)
 * 🧶[Yarn](https://classic.yarnpkg.com/en/)
     * Versions:  `node >=10.0.0` or `yarn >=1.0.0`
@@ -56,14 +56,20 @@ yarn
 yarn build
 ```
 
-### Step 4.  **Upload the build folder to CLI**
 
-Upload build results to an IPFS node (default: dev-server's node)
+### Step 4. Upload the build folder to Arweave
 
-```bash
-npx w3 build --ipfs http://localhost:5001
-```
 
-### Step 5.
 
- 🎉 Congratulations 🎉 on deploying using the Polywrap CLI!  
+
+
+
+### Step 5. Verifying the package on IPFS 
+You will get an IPFS hash!
+
+This will lead you to IPFS link: 
+
+
+
+
+ 🎉 Congratulations 🎉 on deploying using the Arweave!  
