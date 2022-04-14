@@ -16,15 +16,17 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'Creating a wrapper',
+          label: 'Creating a wasm wrapper',
           items: [
-            'guides/create-as-wrapper/project-setup',
-            'guides/create-as-wrapper/project-folder',
-            'guides/create-as-wrapper/build-deploy-test',
-            'guides/create-as-wrapper/mutation-functions',
-            'guides/create-as-wrapper/adding-query-functions',
-            'guides/create-as-wrapper/writing-tests-with-recipes-file',
-            'guides/create-as-wrapper/deploying-locally',
+            'guides/create-wasm-wrappers/project-setup',
+            'guides/create-wasm-wrappers/project-folder',
+            'guides/create-wasm-wrappers/build-deploy-test',
+            'guides/create-wasm-wrappers/mutation-functions',
+            'guides/create-wasm-wrappers/adding-query-functions',
+            'guides/create-wasm-wrappers/writing-tests-with-recipes-file',
+            'guides/create-wasm-wrappers/deploy-locally-and-test',
+            'guides/create-wasm-wrappers/deploy-to-ipfs',
+            'guides/create-wasm-wrappers/publish-to-ens'
           ],
         },
         {
@@ -37,13 +39,15 @@ module.exports = {
           ],
         },
         'guides/create-js-plugin',
-        'guides/deploy-fleek',
       ],
     },
     {
       type: 'category',
       label: 'Advanced',
-      items: ['advanced/build-pipeline', 'advanced/uri-redirects'],
+      items: [
+        'advanced/build-pipeline',
+        'advanced/uri-redirects'
+      ],
     },
     {
       type: 'category',

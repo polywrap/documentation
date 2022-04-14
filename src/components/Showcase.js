@@ -17,7 +17,7 @@ const showcaseCards = [
   {
     title: "Get Started",
     description:
-      "Create a wrapper and learn in detail what makes integrating with Polywrap so special!",
+      "Create a wasm wrapper and learn in detail what makes integrating with Polywrap so special!",
     cta: "Get started",
     link: "/getting-started/what-is-polywrap",
   },
@@ -26,7 +26,7 @@ const showcaseCards = [
     description:
       "Start building! Our guides will walk you through how to build your own wrappers or integrate other ones into your dApp",
     cta: "Start building",
-    link: "/guides/create-as-wrapper/project-setup",
+    link: "/guides/create-wasm-wrappers/project-setup",
   },
   {
     title: "Advanced",

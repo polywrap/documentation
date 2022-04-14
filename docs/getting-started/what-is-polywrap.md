@@ -47,6 +47,6 @@ The Polywrap JavaScript client allows the dapp to use **any** deployed wrapper. 
 
 For detailed information on how to integrate in dapps, take a look at our [Create a JS Dapp](../../guides/create-js-dapp/install-client) guide.
 
-For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own dapp, see our [Creating a wrapper guide](../../guides/create-as-wrapper/project-setup).
+For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own dapp, see our [Creating a wasm wrapper guide](../../guides/create-wasm-wrappers/project-setup).
 
 :::
