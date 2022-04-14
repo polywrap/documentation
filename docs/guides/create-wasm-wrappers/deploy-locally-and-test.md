@@ -1,9 +1,9 @@
 ---
-id: 'deploying-locally'
-title: 'Deploying locally & conclusion'
+id: 'deploy-locally-and-test'
+title: 'Deploy locally & run tests'
 ---
 
-### **Testing**
+### **Deploy**
 
 With our recipe complete, let's test the Polywrapper on our local environment! First, let's set up our test environment with the following command in your terminal:
 
@@ -51,6 +51,8 @@ npx w3 build --ipfs http://localhost:5001 --test-ens simplestorage.eth
 
 This will deploy the Polywrapper on an Ethereum Name Service (ENS) domain registered in the test environment that is set to resolve to a local IPFS node.
 :::
+
+### **Test**
 
 Now, we'll use the following command to check whether our Polywrapper and smart contract are working properly:
 

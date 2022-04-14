@@ -1,6 +1,6 @@
 ---
-id: deploy-cli
-title: Deploying using wrapper CLI
+id: wrappers-cli
+title: Deployment using the "wrappers" CLI
 ---
 
 ## **Introduction**
