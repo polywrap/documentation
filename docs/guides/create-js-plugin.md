@@ -5,13 +5,13 @@ title: Plugin an existing JS SDK
 
 ## **Introduction**
 
-In this guide, we'll walk you through creating your own JavaScript-based plugin that can be added to the JavaScript Polywrap Client.
+This guide will walk you through creating your JavaScript-based plugin that can add to the JavaScript Polywrap Client.
 
 :::caution
-Plugins do not retain all of Polywrap's benefits. We recommend re-writing your existing JavaScript SDKs as AssemblyScript (WebAssembly) Polywraps if possible.
+Plugins do not retain all of Polywrap's benefits. We recommend re-writing your existing JavaScript SDKs as AssemblyScript (WebAssembly) Polywraps.
 :::
 
-As always, if you need any help, message us on [Discord](https://discord.com/invite/Z5m88a5qWu)!
+If you need any help, message us on [Discord](https://discord.com/invite/Z5m88a5qWu)!
 
 ## **Prerequisites**
 
@@ -23,24 +23,24 @@ You'll need the following installed before building your plugin:
 You'll be using [TypeScript](https://www.typescriptlang.org/) to implement your Polywrap plugin.
 
 :::tip
-In the future, TypeScript will be one of many supported languages for implementing plugins. As more Polywrap Clients are released in various languages, implementing plugins in those languages will be supported as well.
+TypeScript will be one of many supported languages for implementing plugins in the future. As more Polywrap Clients are released in various languages, implementing plugins in those languages will also be supported.
 :::
 
 ## **Getting started**
 
-To get started, use the following command to spin up a project folder for your plugin.
+Use the following command to spin up a project folder for your plugin to get started.
 
 ```
 npx @web3api/cli create plugin typescript <project-name>
 ```
 
-Where `<project-name>` is replaced with a custom name of your choosing. For example `my-plugin`.
+Where `<project-name>` is replaced with a custom name. For example, `my plugin.`
 
-Once complete, you'll see a new folder appear, named after the custom name you've chosen. Please navigate into this new directory (using `cd` for example).
+Once complete, you'll see a new folder appear, named after your chosen custom name. Please navigate to this new directory (using `cd,` for example).
 
 ## **Installation**
 
-Let's ensure all of your project's dependencies are installed. From inside your project's directory, simply run:
+Let's ensure all of you installed the project's dependencies. From inside your project's directory, run:
 
 - `nvm install && nvm use`
 - `yarn`
@@ -59,7 +59,7 @@ src/
 
 ### **`schema.graphql`**
 
-This file defines the schema of your Polywrap plugin. This is the interface outside wrappers & users will use to query your plugin's functionality.
+This file defines the schema of your Polywrap plugin. This schema is the interface outside wrappers & users will use to query your plugin's functionality.
 
 ### **`src/resolvers.ts`**
 
@@ -69,15 +69,12 @@ The resolvers also receive an instance of your custom Plugin class, enabling the
 
 ### **`src/index.ts`**
 
-The `src/index.ts` file contains the Plugin class, which will be created each time the plugin is instantiated. Use this class to store all contextual configuration data needed for your plugin (providers, settings, etc). Additionally you can add helper methods for the resolvers to use.
+The `src/index.ts` file contains the Plugin class. Use this class to store all contextual configuration data needed for your plugin (providers, settings, etc.). Additionally, you can add helper methods for the resolvers to use.
 
 ### **`src/manifest.ts`**
 
-This file takes the place of the `web3api.yaml` manifest file. It contains the plugin's schema, all Polywraps interfaces the plugin implements, and external Polywraps the plugin is dependent on.
+This file takes the place of the `web3api.yaml` manifest file. It contains the plugin's schema, all Polywraps interfaces the plugin implements, and external Polywraps are dependent.
 
-:::caution
-Polywrap interfaces (schemas with no implementation) haven't been fully developed yet. Please stay tuned!
-:::
 
 ## **Building the plugin**
 
