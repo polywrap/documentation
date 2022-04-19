@@ -114,7 +114,7 @@ Options:
   -c, --client-config <config-path> Add custom configuration to the Web3ApiClient
 ```
 
-### Example: 
+### Commands: 
 You can be specific your recipe path, for example, with:
 ```sh
 w3 query ./recipes/e2e.json
@@ -223,8 +223,21 @@ web3api.yaml
 
 
 
+
 * `w3 create api interface <project-name>` 
-Create a Web3API project in interface
+Create a Web3API project interface:
+
+
+* `w3 create app typescript-node <project-name>`
+Create a typescript-node Web3API application
+
+
+* `w3 create app typescript-react <project-name>`
+Create a typescript react Web3API application
+
+* `plugin <lang>`  
+Create a Web3API plugin in typescript
+
 
 ### `codegen (g)`
 
@@ -239,6 +252,8 @@ Options:
   -i, --ipfs [<node>]                     IPFS node to load external schemas (default: ipfs.io & localhost)
   -e, --ens [<address>]                   ENS address to lookup external schemas (default: 0x0000...2e1e)
 ```
+
+
 
 ### `build (b)`
 
