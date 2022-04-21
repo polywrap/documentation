@@ -25,13 +25,6 @@ so that other apps can integrate.
  * [Arweave](https://docs.arweave.org/info/): enables you to store documents and applications forever. 
 
 
-## **Wrapper IPFS Deployment Guides**:
- * [Wrapper Deployment Guide using CLI](./deployment/deploy-cli) 
- * [Wrapper Deployment Guide using Fleek](./deployment/deploy-fleek)
- * [Wrapper Deployment Guide using Pinata](./deployment/deploy-pinata)
- * [Wrapper Deployment Guide using Crust Files](./deployment/deploy-crust)
- * [Wrapper Deployment Guide using Aleph](./deployment/deploy-aleph)
- * [Wrapper Deployment Guide using Arweave](./deployment/deploy-arweave)  
 
  
 # Wrapper domain names
