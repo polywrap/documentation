@@ -1,6 +1,6 @@
 ---
-id: interface
-title: Interface
+id: create-interface
+title:  Create an Interface
 ---
 
 ## **Introduction**
@@ -51,3 +51,12 @@ Let's ensure all of your project's dependencies are installed. From inside your 
 
 
 
+
+## **Example Plugins**
+
+For inspiration, please refer to these existing JavaScript plugins:
+* [Wrap Utilities](https://github.com/nerfZael/wrap-utilities)
+* [wrap-fs-interface](https://github.com/nerfZael/wrap-utilities/tree/main/src/wrap-fs/wrap-fs-interface)
+* [wrap-metadata-interface](https://github.com/nerfZael/wrap-utilities/tree/main/src/wrap-metadata/wrap-meatadata-interface)
+* [wrap-mustache-interface](https://github.com/nerfZael/wrap-utilities/tree/main/src/wrap-mustache/wrap-mustache-interface)
+* [wrap-regex-interface](https://github.com/nerfZael/wrap-utilities/tree/main/src/wrap-regex/wrap-regex-interface)
