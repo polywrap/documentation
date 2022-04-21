@@ -41,7 +41,7 @@ Currently Chrome and Brave are the only supported browsers. This restriction wil
 > The next section assumes that you're integrating Polywrap into an existing dApp project. If you want a quick start with our template project, simply run:
 >
 > ```bash
-> npx @web3api/cli create app react <project-name>
+> npx @web3api/cli create app typescript-react <project-name>
 > ```
 >
 > Where `<project-name>` is replaced with a custom name of your choosing. For example `my-web3api`.
