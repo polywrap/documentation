@@ -29,7 +29,7 @@ You can learn more about the benefits of using Polywrap [here](/).
 
 We've created an interactive tutorial that can help you get started using the Uniswap wrapper [here](https://github.com/polywrap/uni-workshop).
 
-In general, to use _any_ Polywrap in your dapp, all you need is the Polywrap Client.
+In general, to use _any_ Polywrap in your app, all you need is the Polywrap Client.
 
 ```
 npm install --save @web3api/client-js
@@ -58,7 +58,7 @@ client.query({
 });
 ```
 
-Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS dApp](/guides/create-js-dapp/install-client) guide.
+Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS app](/guides/create-js-app/install-client) guide.
 
 ## Code
 

@@ -22,7 +22,7 @@ import { Web3ApiProvider } from '@web3api/react';
 export default function App() {
   return (
     <Web3ApiProvider>
-      <div>{'Polywrap enabled dApp goes here!'}</div>
+      <div>{'Polywrap enabled app goes here!'}</div>
     </Web3ApiProvider>
   );
 }

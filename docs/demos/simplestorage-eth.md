@@ -1,6 +1,6 @@
 ---
 id: simplestorage-eth
-title: SimpleStorage dApp
+title: SimpleStorage App
 ---
 
 ## **Introduction**
@@ -9,7 +9,7 @@ We believe in learning by doing so we've put together a simple tutorial that sho
 
 ## **Prerequisites**
 
-> _If you're an experienced Web3 dev, chances are you've already done this and can skip to the [Dapp Overview](#dapp-overview)._
+> _If you're an experienced Web3 dev, chances are you've already done this and can skip to the [App Overview](#app-overview)._
 
 1. Install the MetaMask Chrome extension [here](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn) and set up your wallet.<br/>
 
@@ -25,7 +25,7 @@ And that's it 🎉! You're ready to use the Polywrap SimpleStorage website demo.
 
 ## **Demo Overview**
 
-🏁 To begin, visit our SimpleStorage dapp that's deployed at the link below. Be sure to set your MetaMask's network to Rinkeby.<br/>
+🏁 To begin, visit our SimpleStorage app that's deployed at the link below. Be sure to set your MetaMask's network to Rinkeby.<br/>
 
 👉 [**SimpleStorage Demo Website**](https://demo.simplestorage.web3api.dev)
 
@@ -42,9 +42,9 @@ width="650"
    - If you're unfamiliar with ENS and IPFS, this article does a great job explaining how they work: [A Guide to ENS Domains + IPFS by Fleek](https://medium.com/fleek/guide-ens-domains-ipfs-ethereum-name-service-26d6092cfadf).
 2. IPFS
    - This is where the SimpleStorage Polywrap is stored. Feel free to click the "IPFS" link to see the package's contents. It should show the following files: `web3api.yaml`, `schema.graphql`, `query.wasm`, and `mutation.wasm`.
-   - We'll cover these files in detail in the [_For: Developers_](/#for-developers) section. These files are the core of Polywrap -- enabling dApps that can use any blockchain, from _any_ programming language.
+   - We'll cover these files in detail in the [_For: Developers_](/#for-developers) section. These files are the core of Polywrap -- enabling apps that can use any blockchain, from _any_ programming language.
 3. Deploy `SimpleStorage.sol`
-   - Clicking this button will cause the Polywrap client to fetch the Polywrap package. It will first send a request to the ENS domain which resolves to the IPFS content identifier. At that point, our dApp will download the Polywrap from IPFS. Now we're ready to execute some API logic inside of our dApp.
+   - Clicking this button will cause the Polywrap client to fetch the Polywrap package. It will first send a request to the ENS domain which resolves to the IPFS content identifier. At that point, our app will download the Polywrap from IPFS. Now we're ready to execute some API logic inside of our app.
 4. GraphQL query
    - We've added a codeblock to help you see the GraphQL query that will be fired off when you click the deploy button.
    - [GraphQL](https://graphql.org/) is a query language for APIs. Using GraphQL is one of the reasons that Polywrap is so easy to use, as GraphQL is very popular amongst existing Web2 developers.
@@ -63,4 +63,4 @@ Press the up or down arrow on the value input and then click the "Set Value" but
 
 ### **Conclusion**
 
-We hope this demo gave you an idea of the simplicity that Polywrap introduces to your dev team. By hosting the Polywrap package on IPFS, we're able to reduce the size of your dapp, improve security, and enable Web3 queries using GraphQL. If you have any comments or feedback on what you saw, feel free to message our team on Discord.
+We hope this demo gave you an idea of the simplicity that Polywrap introduces to your dev team. By hosting the Polywrap package on IPFS, we're able to reduce the size of your app, improve security, and enable Web3 queries using GraphQL. If you have any comments or feedback on what you saw, feel free to message our team on Discord.

@@ -31,11 +31,11 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Integrate into a JS dapp',
+          label: 'Integrate into a JS App',
           items: [
-            'guides/create-js-dapp/install-client',
-            'guides/create-js-dapp/create-client-instance',
-            'guides/create-js-dapp/react-integration',
+            'guides/create-js-app/install-client',
+            'guides/create-js-app/create-client-instance',
+            'guides/create-js-app/react-integration',
           ],
         },
         'guides/create-js-plugin',
