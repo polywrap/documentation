@@ -6,7 +6,7 @@ title: Deployment using the "wrappers" CLI
 ## **Introduction**
 
 In this 5 step guide,  we'll walk you how to deploy your Polywrapper using the `CLI`.
-so that other dapps could integrate it into their dapps!
+so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
 <details>

@@ -24,7 +24,7 @@ const showcaseCards = [
   {
     title: "Guides",
     description:
-      "Start building! Our guides will walk you through how to build your own wrappers or integrate other ones into your dApp",
+      "Start building! Our guides will walk you through how to build your own wrappers or integrate other ones into your app",
     cta: "Start building",
     link: "/guides/create-wasm-wrappers/project-setup",
   },

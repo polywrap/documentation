@@ -6,7 +6,7 @@ title: Deploying to CRUST Files
 ## **Introduction**
 
 In this 5 step guide,  we'll walk you how to deploy your Polywrapper using the `Crust Files`.
-so that other dapps could integrate it into their dapps!
+so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
 <details>

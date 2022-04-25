@@ -15,7 +15,7 @@ Have questions or want to get involved? Join our [Discord](https://discord.com/i
 
 ## Web3 protocol integration
 
-Web3 developers may want to integrate functions into their own dapp that allows users to perform a token swap, for example. The main way that developers do this today is by installing a JavaScript SDK like the Uniswap SDK as a dependency into their dapp. While JavaScript SDKs is one way for dapps to interact with protocols, they come with major disadvantages.
+Web3 developers may want to integrate functions into their own app that allows users to perform a token swap, for example. The main way that developers do this today is by installing a JavaScript SDK like the Uniswap SDK as a dependency into their app. While JavaScript SDKs is one way for apps to interact with protocols, they come with major disadvantages.
 
 ## What's inside a Polywrap wrapper?
 
@@ -35,18 +35,18 @@ The ENS domain above resolves to the IPFS content holding our Polywrap wrapper! 
 
 [IPFS: Uniswap Polywrapper](https://bafybeifwqlolknl7yvth452s63ujnx45xypgxaisbbgdb6izqjyfvn4igy.ipfs.dweb.link/)
 
-## How can dapps integrate this deployed wrapper?
+## How can apps integrate this deployed wrapper?
 
-In a JavaScript application, a developer would first install the Polywrap JavaScript client. At that point, a Polywrap-enabled dapp will be able to download and use the protocol's functions. These functions are exported from query and mutation WebAssembly (wasm) modules, and can be used in any environment that can execute wasm functions (like your web browser!).
+In a JavaScript application, a developer would first install the Polywrap JavaScript client. At that point, a Polywrap-enabled app will be able to download and use the protocol's functions. These functions are exported from query and mutation WebAssembly (wasm) modules, and can be used in any environment that can execute wasm functions (like your web browser!).
 
 :::tip
-The Polywrap JavaScript client allows the dapp to use **any** deployed wrapper. After instantiating the client, the dapp can call queries to the wrapper using familiar GraphQL. All that is needed in this query is:
+The Polywrap JavaScript client allows the app to use **any** deployed wrapper. After instantiating the client, the app can call queries to the wrapper using familiar GraphQL. All that is needed in this query is:
 
 1. The URI specifying the ENS or IPFS resolving to content containing the wrapper
 2. Specifying the function and arguments provided by that wrapper
 
-For detailed information on how to integrate in dapps, take a look at our [Create a JS Dapp](../../guides/create-js-dapp/install-client) guide.
+For detailed information on how to integrate in apps, take a look at our [Create a JS App](../../guides/create-js-app/install-client) guide.
 
-For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own dapp, see our [Creating a wasm wrapper guide](../../guides/create-wasm-wrappers/project-setup).
+For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own app, see our [Creating a wasm wrapper guide](../../guides/create-wasm-wrappers/project-setup).
 
 :::

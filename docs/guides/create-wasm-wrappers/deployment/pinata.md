@@ -5,7 +5,7 @@ title: Deploying to Pinata
 
 ## **Introduction**
 
-In this 5 step guide, we'll walk you through how to deploy your Polywrapper to [Pinata](https://www.pinata.cloud/) so that other dapps could integrate it into their dapps!
+In this 5 step guide, we'll walk you through how to deploy your Polywrapper to [Pinata](https://www.pinata.cloud/) so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
 <details>
