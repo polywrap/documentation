@@ -86,6 +86,7 @@ yarn build
 ## **Example Plugins**
 
 For inspiration, please refer to these existing JavaScript plugins:
-* [Sample Plugin](https://github.com/polywrap/demos/tree/main/sample-plugin)
-* [DateTime Plugin](https://github.com/polywrap/demos/tree/main/datetime-plugin)
-* [Toolchain Plugins](https://github.com/Web3-API/monorepo/tree/prealpha/packages/js/plugins)
+* [Sample Plugin](https://github.com/polywrap/monorepo/tree/prealpha/packages/templates/plugin/typescript)
+* [Toolchain Plugins](https://github.com/polywrap/monorepo/tree/prealpha/packages/js/plugins)
+* [Demo Plugins](https://github.com/polywrap/demos)
+* [Integration Plugins](https://github.com/polywrap/integrations)
