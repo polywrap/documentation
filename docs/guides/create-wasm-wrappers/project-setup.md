@@ -29,7 +29,7 @@ You'll need the following installed before building your wrapper:
 You'll be using [AssemblyScript](https://www.assemblyscript.org/) to implement your wrapper's logic. AssemblyScript compiles to [WebAssembly](https://webassembly.org/).
 
 :::tip
-For now, AssemblyScript is the only language you can implement your wrapper. In the future, it'll be one of many supported languages that compile to WebAssembly, such as Rust or Go.
+For now, AssemblyScript is the only language you can use to implement your wrapper. In the future, it'll be one of many supported languages that compile to WebAssembly, such as Rust or Go.
 
 If you have experience programming in TypeScript, you'll feel at home with AssemblyScript since the language's syntax is very similar.
 
