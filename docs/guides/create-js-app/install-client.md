@@ -34,9 +34,8 @@ npm install --save @web3api/client-js
 
 The Polywrap JavaScript Client works in both Node.js, and browser applications.
 
-:::warning
-Currently Chrome and Brave are the only supported browsers. This restriction will be removed very shortly.
-:::
+## **Examples**
+Some example projects that integrate the JS client can be found [here](https://github.com/polywrap/demos/tree/main/hello-world/app).
 
 > The next section assumes that you're integrating Polywrap into an existing app project. If you want a quick start with our template project, simply run:
 >
