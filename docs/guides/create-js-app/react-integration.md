@@ -9,6 +9,8 @@ To use the Polywrap React integration, you'll need to install the `@web3api/reac
 npm install --save @web3api/react
 ```
 
+An example React application can be found [here](https://github.com/polywrap/demos/tree/main/hello-world/app/react.js).
+
 ### **Web3ApiProvider**
 
 Once installed, the first step is to add the `Web3ApiProvider` to your DOM. This will instantiate an instance of the `Web3ApiClient` for all queries within the nested DOM hierarchy to use.
