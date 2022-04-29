@@ -30,9 +30,13 @@ Your project should look something like this:
 
 ```
 src/
-|   ├── package.json
-|    |── query.graphql   
-|    └──  web3api.yaml           
+|  ├── README.md
+|  ├── meta
+|  ├──  yarn.lock
+|  ├── node_modules		
+|  ├── package.json
+|   |── query.graphql   
+|  └──  web3api.yaml           
 ```
 
 
@@ -49,14 +53,3 @@ Let's ensure all of your project's dependencies are installed. From inside your 
 ## Build & Deploy Web3API
 `yarn deploy` 
 
-
-
-
-## **Example Plugins**
-
-For inspiration, please refer to these existing JavaScript plugins:
-* [Wrap Utilities](https://github.com/nerfZael/wrap-utilities)
-* [wrap-fs-interface](https://github.com/nerfZael/wrap-utilities/tree/main/src/wrap-fs/wrap-fs-interface)
-* [wrap-metadata-interface](https://github.com/nerfZael/wrap-utilities/tree/main/src/wrap-metadata/wrap-meatadata-interface)
-* [wrap-mustache-interface](https://github.com/nerfZael/wrap-utilities/tree/main/src/wrap-mustache/wrap-mustache-interface)
-* [wrap-regex-interface](https://github.com/nerfZael/wrap-utilities/tree/main/src/wrap-regex/wrap-regex-interface)
