@@ -7,6 +7,9 @@ title:  Create an Interface
 
 In this guide, we'll walk you through creating your own interface
 
+* what an interface is
+* why you would want to use one (what use-cases would be good for using an interface)
+
 As always, if you need any help, message us on [Discord](https://discord.com/invite/Z5m88a5qWu)!
 
 ## **Prerequisites**
@@ -32,11 +35,16 @@ Your project should look something like this:
 src/
 |  ├── README.md
 |  ├── meta
+|   |     ├── icon.png	
+|   |     ├──link.svg	
+|   |     ├──test.graphql	
+|   |     └──test.json
 |  ├──  yarn.lock
 |  ├── node_modules		
 |  ├── package.json
 |   |── query.graphql   
-|  └──  web3api.yaml           
+|   |── web3api.meta.yaml
+|   └──  web3api.yaml    
 ```
 
 
