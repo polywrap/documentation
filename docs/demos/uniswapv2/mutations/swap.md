@@ -5,7 +5,7 @@ title: Swap
 
 ## Imported types
 
-### [Token](/uniswapv2/common-types#token)
+### [Token](../common-types#token)
 
 ```graphql
 type Token {
@@ -15,7 +15,7 @@ type Token {
 }
 ```
 
-### [TradeOptions](/uniswapv2/common-types#tradeoptions)
+### [TradeOptions](../common-types#tradeoptions)
 
 ```graphql
 type TradeOptions {
@@ -28,7 +28,7 @@ type TradeOptions {
 }
 ```
 
-### [TradeType](/uniswapv2/common-types#trade-type)
+### [TradeType](../common-types#trade-type)
 
 ```graphql
 enum TradeType {
@@ -37,7 +37,7 @@ enum TradeType {
 }
 ```
 
-### [TxOverrides](/uniswapv2/common-types#txoverrides)
+### [TxOverrides](../common-types#txoverrides)
 
 ```graphql
 type TxOverrides {
@@ -46,7 +46,7 @@ type TxOverrides {
 }
 ```
 
-### [ChainId](/uniswapv2/common-types#chainid)
+### [ChainId](../common-types#chainid)
 
 ```graphql
 enum ChainId {

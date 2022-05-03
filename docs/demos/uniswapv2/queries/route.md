@@ -5,7 +5,7 @@ title: Route
 
 ## Imported types
 
-### [Token](/uniswapv2/common-types#token)
+### [Token](../common-types#token)
 
 ```graphql
 type Token {

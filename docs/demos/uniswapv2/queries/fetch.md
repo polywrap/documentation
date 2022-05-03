@@ -5,7 +5,7 @@ title: Fetch
 
 ## Imported types
 
-### [Token](/uniswapv2/common-types#token)
+### [Token](../common-types#token)
 
 ```graphql
 type Token {
@@ -15,7 +15,7 @@ type Token {
 }
 ```
 
-### [TokenAmount](/uniswapv2/common-types#tokenamount)
+### [TokenAmount](../common-types#tokenamount)
 
 ```graphql
 type TokenAmount {
@@ -24,7 +24,7 @@ type TokenAmount {
 }
 ```
 
-### [ChainId](/uniswapv2/common-types#chainid)
+### [ChainId](../common-types#chainid)
 
 ```graphql
 enum ChainId {

@@ -5,7 +5,7 @@ title: Trade
 
 ## Imported types
 
-### [Trade](/uniswapv2/common-types#trade)
+### [Trade](../common-types#trade)
 
 ```graphql
 type Trade {
@@ -16,7 +16,7 @@ type Trade {
 }
 ```
 
-### [TradeOptions](/uniswapv2/common-types#tradeoptions)
+### [TradeOptions](../common-types#tradeoptions)
 
 ```graphql
 type TradeOptions {
@@ -29,7 +29,7 @@ type TradeOptions {
 }
 ```
 
-### [TradeType](/uniswapv2/common-types#tradetype)
+### [TradeType](../common-types#tradetype)
 
 ```graphql
 enum TradeType {

@@ -17,7 +17,7 @@ const developerLinks = [
   {
     title: "web3api/cli",
     description: "Command line interface for Polywrap",
-    link: "/reference/cli/cli"
+    link: "/reference/cli/polywrap-cli"
   },
   {
     title: "web3api/client-js",

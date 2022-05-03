@@ -8,7 +8,7 @@ Reference documentation for Polywrap's various CLIs, clients, manifests, and und
 ## Command-line Interface (CLI)
 | CLI | Description |  
 |-|-|  
-| [Polywrap CLI](./cli/cli) | The main CLI for Polywrap |  
+| [Polywrap CLI](./cli/polywrap-cli) | The main CLI for Polywrap |  
 
 ## Clients
 | Client | Description |  

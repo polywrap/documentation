@@ -5,7 +5,7 @@ title: Router
 
 ## Imported types
 
-### [Token](/uniswapv2/common-types#token)
+### [Token](../common-types#token)
 
 ```graphql
 type Token {
@@ -15,7 +15,7 @@ type Token {
 }
 ```
 
-### [TradeOptions](/uniswapv2/common-types#tradeoptions)
+### [TradeOptions](../common-types#tradeoptions)
 
 ```graphql
 type TradeOptions {
@@ -28,7 +28,7 @@ type TradeOptions {
 }
 ```
 
-### [SwapParameters](/uniswapv2/common-types#swapparameters)
+### [SwapParameters](../common-types#swapparameters)
 
 ```graphql
 type SwapParameters {
@@ -38,7 +38,7 @@ type SwapParameters {
 }
 ```
 
-### [TxOverrides](/uniswapv2/common-types#txoverrides)
+### [TxOverrides](../common-types#txoverrides)
 
 ```graphql
 type TxOverrides {
@@ -47,7 +47,7 @@ type TxOverrides {
 }
 ```
 
-### [ChainId](/uniswapv2/common-types#chainid)
+### [ChainId](../common-types#chainid)
 
 ```graphql
 enum ChainId {
