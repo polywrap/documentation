@@ -52,6 +52,7 @@ Your project should look something like this:
 ```
 web3api.plugin.yaml           # Plugin Manifest
 src/
+|   index.ts                  # Entry File
 |   query/
 │   ├── index.ts              # Module
 │   └── schema.graphql        # Schema
@@ -62,6 +63,9 @@ src/
 
 ### **`web3api.plugin.yaml`**
 The `web3api.plugin.yaml` manifest file describes the layout of a plugin, and is used to determine how many modules this plugin has.
+
+### **`src/index.ts`**
+The entry file simply exports all necessary types from the codegen directory. This file shouldn't need to be modified, unless you'd like to override default behaviour (with caution).
 
 ### **`src/query` + `src/mutation`**
 Query & Mutation are 2 separate "modules" that exist within the plugin.
