@@ -1,5 +1,5 @@
 ---
-id: cli
+id: polywrap-cli
 title: 'Polywrap CLI'
 ---
 import Tabs from '@theme/Tabs';

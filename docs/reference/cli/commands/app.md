@@ -1,6 +1,6 @@
 ---
-id: app-command
-title: 'Polywrap CLI'
+id: app
+title: App
 ---
 
 test

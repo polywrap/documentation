@@ -1,4 +1,7 @@
-## `codegen (g)`
+---
+id: codegen
+title: Codegen
+---
 
 ```sh
 w3 codegen [options]
