@@ -50,34 +50,34 @@ Let's ensure all of your project's dependencies are installed. From inside your 
 Your project should look something like this:
 
 ```
-schema.graphql                # Schema
+web3api.plugin.yaml           # Plugin Manifest
 src/
-│   ├── index.ts              # Plugin Class
-│   |── resolvers.ts          # Schema Resolvers
-|   └── manifest.ts           # Manifest
+|   index.ts                  # Entry File
+|   query/
+│   ├── index.ts              # Module
+│   └── schema.graphql        # Schema
+|   mutation/
+│   ├── index.ts              # Module
+│   └── schema.graphql        # Schema
 ```
+
+### **`web3api.plugin.yaml`**
+The `web3api.plugin.yaml` manifest file describes the layout of a plugin, and is used to determine how many modules this plugin has.
+
+### **`src/index.ts`**
+The entry file simply exports all necessary types from the codegen directory. This file shouldn't need to be modified, unless you'd like to override default behaviour (with caution).
+
+### **`src/query` + `src/mutation`**
+Query & Mutation are 2 separate "modules" that exist within the plugin.
 
 ### **`schema.graphql`**
 
-This file defines the schema of your Polywrap plugin. This is the interface outside wrappers & users will use to query your plugin's functionality.
+Each plugin module has a schema. This schema defines the module's: dependencies, methods, and custom types. In short, it's an interface describing how to use the plugin.
 
-### **`src/resolvers.ts`**
+### **`index.ts`**
+The `index.ts` file contains the module method's implementations, which implement the plugin's logic.
 
-The `src/resolvers.ts` file implements all query methods declared on the `Mutation` and `Query` query types in the `schema.graphql`.
-
-The resolvers also receive an instance of your custom Plugin class, enabling them to access its methods and contextual information. For example, in the case of the Ethereum plugin, it gives access to the Web3 provider object.
-
-### **`src/index.ts`**
-
-The `src/index.ts` file contains the Plugin class, which will be created each time the plugin is instantiated. Use this class to store all contextual configuration data needed for your plugin (providers, settings, etc). Additionally you can add helper methods for the resolvers to use.
-
-### **`src/manifest.ts`**
-
-This file takes the place of the `web3api.yaml` manifest file. It contains the plugin's schema, all Polywraps interfaces the plugin implements, and external Polywraps the plugin is dependent on.
-
-:::caution
-Polywrap interfaces (schemas with no implementation) haven't been fully developed yet. Please stay tuned!
-:::
+Within each module's index file, you can expose custom configurations for the module. These configurations can contain application specific contextual data, such as: providers, settings, signing keys, etc.
 
 ## **Building the plugin**
 
@@ -90,6 +90,7 @@ yarn build
 ## **Example Plugins**
 
 For inspiration, please refer to these existing JavaScript plugins:
-* [Sample Plugin](https://github.com/polywrap/demos/tree/main/sample-plugin)
-* [DateTime Plugin](https://github.com/polywrap/demos/tree/main/datetime-plugin)
-* [Toolchain Plugins](https://github.com/Web3-API/monorepo/tree/prealpha/packages/js/plugins)
+* [Sample Plugin](https://github.com/polywrap/monorepo/tree/prealpha/packages/templates/plugin/typescript)
+* [Toolchain Plugins](https://github.com/polywrap/monorepo/tree/prealpha/packages/js/plugins)
+* [Demo Plugins](https://github.com/polywrap/demos)
+* [Integration Plugins](https://github.com/polywrap/integrations)
