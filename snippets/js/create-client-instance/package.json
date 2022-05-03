@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "tsc index.ts --outDir ./build"
+  },
+  "dependencies": {
+    "@web3api/client-js": "latest"
+  },
+  "devDependencies": {
+    "typescript": "4.6.4"
+  }
+}

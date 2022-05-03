@@ -13,7 +13,7 @@ const client = new Web3ApiClient();
 
 At this point, you can already send queries to Polywraps. In the simple example below, we send one to the "hello world" Polywrap.
 
-```jsx
+```typescript
 client.query({
   uri: 'ens/api.helloworld.web3api.eth',
   query: `{
