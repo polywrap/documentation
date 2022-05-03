@@ -1,6 +1,6 @@
 ---
-id: polywrap-clientjs
-title: '@web3api/client-js'
+id: client-js
+title: Client
 ---
 
 <a href="https://www.npmjs.com/package/@web3api/client-js" target="_blank" rel="noopener noreferrer">
@@ -10,7 +10,7 @@ title: '@web3api/client-js'
 <br/>
 <br/>
 
-The Web3API JavaScript client exists to help developers integrate Web3API into their applications. It's designed to run in any environment that can execute JavaScript (think websites, node scripts, etc.).
+The Polywrap JavaScript client exists to help developers integrate wrappers into their applications. It's designed to run in any environment that can execute JavaScript (think websites, node scripts, etc.).
 
 ## Installation
 

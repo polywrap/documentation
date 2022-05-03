@@ -19,14 +19,14 @@ const showcaseCards = [
     description:
       "Create a wasm wrapper and learn in detail what makes integrating with Polywrap so special!",
     cta: "Get started",
-    link: "/getting-started/what-is-polywrap",
+    link: "/concepts/what-is-polywrap",
   },
   {
     title: "Guides",
     description:
       "Start building! Our guides will walk you through how to build your own wrappers or integrate other ones into your app",
     cta: "Start building",
-    link: "/guides/create-wasm-wrappers/project-setup",
+    link: "/quick-start/create-wasm-wrappers/project-setup",
   },
   {
     title: "Advanced",

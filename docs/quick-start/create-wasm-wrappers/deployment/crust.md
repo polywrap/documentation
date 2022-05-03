@@ -62,35 +62,35 @@ yarn build
 
 * Make sure you signin using a wallet `Metamask`.
 
-![Crust Files Step 1](../../../../static/img/guides/crust-step-1.png)
+![Crust Files Step 1](../../../../static/img/quick-start/crust-step-1.png)
 
 
 * Click `Public`
 
 
-![Crust Files Step 2](../../../../static/img/guides/crust-step-2.png)
+![Crust Files Step 2](../../../../static/img/quick-start/crust-step-2.png)
 
 
 * Click `Upload` 
 
-![Crust Files Step 3](../../../../static/img/guides/crust-step-3.png)
+![Crust Files Step 3](../../../../static/img/quick-start/crust-step-3.png)
 
 * Upload the build folder then Click Upload 
 
-![Crust Files Step 4](../../../../static/img/guides/crust-step-4.png)
+![Crust Files Step 4](../../../../static/img/quick-start/crust-step-4.png)
 
 * Click `Sign and Upload` 
 
-![Crust Files Step 5](../../../../static/img/guides/crust-step-5.png)
+![Crust Files Step 5](../../../../static/img/quick-start/crust-step-5.png)
 
 * Your wallet will ask for a signature request 
 * Click `Sign`
 
-![Crust Files Step 6](../../../../static/img/guides/crust-step-6.png)
+![Crust Files Step 6](../../../../static/img/quick-start/crust-step-6.png)
 
 * The page should look like this: 
 
-![Crust Files Step 7](../../../../static/img/guides/crust-step-7.png)
+![Crust Files Step 7](../../../../static/img/quick-start/crust-step-7.png)
 
 
 
@@ -101,7 +101,7 @@ This will lead you to [IPFS link](https://gw.crustapps.net/ipfs/QmVtFE8ScFUv6b4v
 
 https://gw.crustapps.net/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq?filename=build
 
-![Crust Files Step 8](../../../../static/img/guides/crust-step-8.png)
+![Crust Files Step 8](../../../../static/img/quick-start/crust-step-8.png)
 
 
  🎉 Congratulations 🎉 on deploying using the Crust Files!  

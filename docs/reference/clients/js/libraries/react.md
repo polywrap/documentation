@@ -1,5 +1,5 @@
 ---
-id: polywrap-react
+id: react
 title: '@web3api/react'
 ---
 
@@ -15,7 +15,7 @@ The purpose of the Web3API React library is to simplify integration of Web3API i
 ## Installation
 
 ```bash
-npm install @polywrap/react
+npm install @web3api/react
 ```
 
 ## Usage

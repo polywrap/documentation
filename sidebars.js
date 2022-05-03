@@ -2,44 +2,78 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: '👋 Getting started',
+      label: 'Concepts',
       items: [
-        'getting-started/what-is-polywrap',
-        'getting-started/polywrap-vs-javascript-sdks',
-        'getting-started/understanding-uris',
-        'getting-started/understanding-plugins',
+        'concepts/what-is-polywrap',
+        'concepts/polywrap-vs-javascript-sdks',
+        'concepts/understanding-uris',
+        'concepts/understanding-plugins',
       ],
     },
     {
       type: 'category',
-      label: 'Guides',
+      label: 'Quick Start',
       items: [
         {
           type: 'category',
           label: 'Creating a wasm wrapper',
           items: [
-            'guides/create-wasm-wrappers/project-setup',
-            'guides/create-wasm-wrappers/project-folder',
-            'guides/create-wasm-wrappers/build-deploy-test',
-            'guides/create-wasm-wrappers/mutation-functions',
-            'guides/create-wasm-wrappers/adding-query-functions',
-            'guides/create-wasm-wrappers/writing-tests-with-recipes-file',
-            'guides/create-wasm-wrappers/deploy-locally-and-test',
-            'guides/create-wasm-wrappers/deploy-to-ipfs',
-            'guides/create-wasm-wrappers/publish-to-ens'
+            'quick-start/create-wasm-wrappers/project-setup',
+            'quick-start/create-wasm-wrappers/project-folder',
+            'quick-start/create-wasm-wrappers/build-deploy-test',
+            'quick-start/create-wasm-wrappers/mutation-functions',
+            'quick-start/create-wasm-wrappers/adding-query-functions',
+            'quick-start/create-wasm-wrappers/writing-tests-with-recipes-file',
+            'quick-start/create-wasm-wrappers/deploy-locally-and-test',
+            'quick-start/create-wasm-wrappers/deploy-to-ipfs',
+            'quick-start/create-wasm-wrappers/publish-to-ens'
           ],
         },
         {
           type: 'category',
           label: 'Integrate into a JS App',
           items: [
-            'guides/create-js-app/install-client',
-            'guides/create-js-app/create-client-instance',
-            'guides/create-js-app/react-integration',
+            'quick-start/create-js-app/install-client',
+            'quick-start/create-js-app/create-client-instance',
+            'quick-start/create-js-app/react-integration',
           ],
         },
-        'guides/create-js-plugin',
+        'quick-start/create-js-plugin',
       ],
+    },
+    {
+      type: 'category',
+      label: 'Reference',
+      items: [
+        'reference/glossary',
+        {
+          type: 'category',
+          label: 'CLI',
+          items: [
+            'reference/cli/cli',
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Clients',
+          items: [
+            {
+              type: 'category',
+              label: 'JavaScript',
+              items: [
+                'reference/clients/js/client-js',
+                {
+                  type: 'category',
+                  label: 'Libraries',
+                  items: [
+                    'reference/clients/js/libraries/react',
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       type: 'category',
@@ -47,15 +81,6 @@ module.exports = {
       items: [
         'advanced/build-pipeline',
         'advanced/uri-redirects'
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Developer tools',
-      items: [
-        'devtools/polywrap-cli',
-        'devtools/polywrap-clientjs',
-        'devtools/polywrap-react',
       ],
     },
     {

@@ -45,8 +45,8 @@ The Polywrap JavaScript client allows the app to use **any** deployed wrapper. A
 1. The URI specifying the ENS or IPFS resolving to content containing the wrapper
 2. Specifying the function and arguments provided by that wrapper
 
-For detailed information on how to integrate in apps, take a look at our [Create a JS App](../../guides/create-js-app/install-client) guide.
+For detailed information on how to integrate in apps, take a look at our [Create a JS App](../../quick-start/create-js-app/install-client) guide.
 
-For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own app, see our [Creating a wasm wrapper guide](../../guides/create-wasm-wrappers/project-setup).
+For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own app, see our [Creating a wasm wrapper guide](../../quick-start/create-wasm-wrappers/project-setup).
 
 :::

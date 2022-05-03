@@ -58,7 +58,7 @@ client.query({
 });
 ```
 
-Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS app](/guides/create-js-app/install-client) guide.
+Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS app](/quick-start/create-js-app/install-client) guide.
 
 ## Code
 
