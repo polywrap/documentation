@@ -2398,6 +2398,15 @@
   dependencies:
     "@docusaurus/core" "2.0.0-alpha.72"
 
+"@docusaurus/plugin-google-gtag@^2.0.0-beta.19":
+  version "2.0.0-beta.19"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-gtag/-/plugin-google-gtag-2.0.0-beta.19.tgz#a9f14f9a025cd3af0d7495d6e45d409fb8d8c4db"
+  integrity sha512-0dWj6+5YmRNBsGMqucaKQUMJ7ebxf6b1IqwJ5Y0p6v8ZgEC2avXoiAYNCR+IujyJSKzGSW+MqqGrxRFvqitjdQ==
+  dependencies:
+    "@docusaurus/core" "2.0.0-beta.19"
+    "@docusaurus/utils-validation" "2.0.0-beta.19"
+    tslib "^2.4.0"
+
 "@docusaurus/plugin-sitemap@2.0.0-alpha.72":
   version "2.0.0-alpha.72"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-sitemap/-/plugin-sitemap-2.0.0-alpha.72.tgz#6ad55c894c19315c91847d17f0c9dcfb145132f8"
