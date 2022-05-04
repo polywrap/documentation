@@ -1,0 +1,50 @@
+.feedbackWidget {
+    display: inline-block;
+    padding: 16px 30px 16px 40px;
+    min-height: 66px;
+    margin-top: 42px;
+    margin-bottom: 20px;
+    margin-left: -25px;
+    background-color: rgba(116, 221, 159, 0.3);
+    text-align: center;
+    color: var(--ifm-color-primary-darker);
+    line-height: 32px;
+    font-weight: 500;
+    border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+}
+
+svg {
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0 0 0 6px;
+}
+
+svg:hover,
+svg:focus {
+    cursor: pointer;
+    fill: var(--ifm-color-primary);
+}
+
+.thumbsup {
+    fill: #56a211;
+    transform: translateY(0.25em);
+    margin-left: 12px;
+}
+
+.thumbsdown {
+    fill: #e9430f;
+    transform: scale(-1, -1) translateY(-0.25em);
+}
+
+html[data-theme="dark"] .feedbackWidget {
+    background-color: rgba(247, 248, 250, 0.1);
+    color: var(--ifm-color-primary);
+}
+
+@media only screen and (max-width: 996px) {
+    .feedbackWidget {
+        width: 100%;
+        margin: 36px 0 0 !important;
+        border-radius: var(--ifm-global-radius);
+    }
+}
