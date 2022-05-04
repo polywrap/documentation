@@ -26,6 +26,10 @@ module.exports = {
     colorMode: {
       defaultMode: 'dark',
     },
+    googleAnalytics: {
+      trackingID: 'UA-160302501-1',
+      anonymizeIP: true,
+    },
     navbar: {
       title: 'Pre-alpha',
       logo: {
