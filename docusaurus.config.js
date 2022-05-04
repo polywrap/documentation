@@ -116,6 +116,10 @@ module.exports = {
           editUrl: 'https://github.com/web3-api/documentation/tree/main',
           routeBasePath: '/',
         },
+        googleAnalytics: {
+          trackingID: 'UA-160302501-1',
+          anonymizeIP: true,
+        },
         theme: {
           customCss: require.resolve('./style.css'),
         },
@@ -126,4 +130,5 @@ module.exports = {
     ],
   ],
   plugins: [require.resolve('docusaurus-lunr-search')],
+
 };
