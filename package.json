@@ -10,8 +10,11 @@
   },
   "scripts": {
     "docusaurus": "docusaurus",
+    "reset": "yarn clean && yarn && yarn build",
+    "clean": "npx rimraf ./docs ./build ./node_modules ./.docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "prebuild": "ts-node ./scripts/build-docs.ts",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -32,6 +35,14 @@
     "docusaurus-lunr-search": "2.1.10",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@types/copyfiles": "2.4.1",
+    "@types/rimraf": "3.0.2",
+    "copyfiles": "2.4.1",
+    "rimraf": "3.0.2",
+    "ts-node": "10.7.0",
+    "typescript": "4.6.4"
   },
   "browserslist": {
     "production": [
