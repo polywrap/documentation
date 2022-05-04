@@ -5,39 +5,43 @@
     margin-top: 42px;
     margin-bottom: 20px;
     margin-left: -25px;
-    background-color: rgba(116, 221, 159, 0.3);
+    background-color: var(--ifm-hover-overlay);
     text-align: center;
-    color: var(--ifm-color-primary-darker);
+    color: var(--ifm-color-primary);
     line-height: 32px;
-    font-weight: 500;
+    font-weight: 700;
     border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
 }
 
-svg {
-    height: 1.5em;
-    width: 1.5em;
+svg, text {
+    font-size: 1.5em;
+    /*height: 1.5em;*/
+    /*width: 1.5em;*/
     margin: 0 0 0 6px;
 }
 
 svg:hover,
-svg:focus {
+svg:focus,
+text:hover,
+text:focus {
     cursor: pointer;
-    fill: var(--ifm-color-primary);
+    font-size: 1.6em;
+    /*fill: var(--ifm-color-primary);*/
 }
 
 .thumbsup {
-    fill: #56a211;
-    transform: translateY(0.25em);
     margin-left: 12px;
+    /*fill: #56a211;*/
+    /*transform: translateY(0.25em);*/
 }
 
 .thumbsdown {
-    fill: #e9430f;
-    transform: scale(-1, -1) translateY(-0.25em);
+    /*fill: #e9430f;*/
+    /*!*transform: scale(-1, -1) translateY(-0.25em);*!*/
 }
 
 html[data-theme="dark"] .feedbackWidget {
-    background-color: rgba(247, 248, 250, 0.1);
+    background-color: var(--ifm-hover-overlay);
     color: var(--ifm-color-primary);
 }
 
