@@ -1,6 +1,6 @@
 ---
 id: swap
-title: Mutation
+title: Swap
 ---
 
 ### execSwap
