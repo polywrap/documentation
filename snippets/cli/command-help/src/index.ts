@@ -19,7 +19,7 @@ async function main() {
 
   for (const command of commands) {
     const output = await runCommand(`${cli} ${command} --help`);
-    snippets += `$start: cli-command-help-${command}\n${output.stdout}\n$end\n`;
+    snippets += "$" + `start: cli-command-help-${command}\n${output.stdout}\n$end\n`;
   }
 
   writeFileSync(
