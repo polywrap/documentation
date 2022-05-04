@@ -121,7 +121,11 @@ module.exports = {
         },
         pages: {
           path: 'src/pages'
-        }
+        },
+        googleAnalytics: {
+          trackingID: 'UA-160302501-1',
+          anonymizeIP: true,
+        },
       },
     ],
   ],

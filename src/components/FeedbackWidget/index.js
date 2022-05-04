@@ -1,6 +1,6 @@
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import React, {useState} from 'react';
-import "./styles.css"
+import "./styles.css";
 
 const FeedbackWidget = ({label}) => {
   if (!ExecutionEnvironment.canUseDOM) {
@@ -28,14 +28,14 @@ const FeedbackWidget = ({label}) => {
       ) : (
         <>
           Is this page useful?
-          <text className="thumbsup"
+          <p className="feedbackEmoji thumbsup"
                 onClick={() => giveFeedback(1)}>
             👍
-          </text>
-          <text className="thumbsdown"
+          </p>
+          <p className="feedbackEmoji thumbsdown"
                 onClick={() => giveFeedback(1)}>
             👎
-          </text>
+          </p>
         </>
       )}
     </div>
