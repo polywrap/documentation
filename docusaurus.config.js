@@ -22,6 +22,14 @@ module.exports = {
   organizationName: 'polywrap',
   projectName: 'documentation',
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'UA-160302501-1',
+      anonymizeIP: true,
+    },
+    gtag: {
+      trackingID: 'UA-160302501-1',
+      anonymizeIP: true,
+    },
     sidebarCollapsible: true,
     colorMode: {
       defaultMode: 'dark',
@@ -121,14 +129,6 @@ module.exports = {
         },
         pages: {
           path: 'src/pages'
-        },
-        googleAnalytics: {
-          trackingID: 'UA-160302501-1',
-          anonymizeIP: true,
-        },
-        gtag: {
-          trackingID: 'UA-160302501-1',
-          anonymizeIP: true,
         },
       },
     ],
