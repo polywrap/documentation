@@ -39,6 +39,7 @@ module.exports = {
           ],
         },
         'guides/create-js-plugin',
+        'guides/end-to-end-test'
       ],
     },
     {
