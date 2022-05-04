@@ -1,4 +1,4 @@
-import { runCommand } from "./runCommand";
+import { runCommand } from "./run-command";
 
 import path from "path";
 import fs from "fs";

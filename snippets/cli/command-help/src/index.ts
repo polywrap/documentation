@@ -23,7 +23,7 @@ async function main() {
   }
 
   writeFileSync(
-    path.join(__dirname, "../output.txt"),
+    path.join(__dirname, "../snippets.txt"),
     snippets,
     "utf-8"
   );
