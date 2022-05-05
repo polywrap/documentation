@@ -2,12 +2,10 @@ import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import React, {useState} from 'react';
 import "./styles.css";
 
-const FeedbackWidget = ({label}) => {
+const FeedbackWidget = ({label,haveVoted, changeHaveVoted}) => {
   if (!ExecutionEnvironment.canUseDOM) {
     return null;
   }
-
-  const [haveVoted, setHaveVoted] = useState(false);
   const giveFeedback = value => {
     if (window.ga) {
       window.ga('send', {
@@ -18,7 +16,7 @@ const FeedbackWidget = ({label}) => {
         eventValue: value,
       });
     }
-    setHaveVoted(true);
+    changeHaveVoted(true)
   };
 
   return (
