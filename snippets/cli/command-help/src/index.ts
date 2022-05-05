@@ -3,6 +3,7 @@ import { writeFileSync } from "@web3api/os-js";
 import path from "path";
 
 const commands = [
+  "",
   "app",
   "build",
   "codegen",

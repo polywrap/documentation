@@ -45,22 +45,13 @@ Node v16 and above is recommended.
 To list available commands, run the `help` command:
 
 ```bash
-w3 help
+w3 --help
 ```
 
 The following menu will appear in your terminal window:
 
 ```sh
-  w3             🔥 Web3API CLI 🔥
-  help (h)       -
-  test-env (t)   Manage a test environment for Web3API
-  query (q)      Query Web3APIs using recipe scripts
-  plugin (p)     Build/generate types for the plugin
-  deploy (b)     Deploys/Publishes a Web3API
-  create (c)     Create a new project with w3 CLI
-  codegen (g)    Auto-generate API Types
-  build (b)      Builds a Web3API
-  app (a)        Build/generate types for your app
+$snippet: cli-command-help-
 ```
 
 To learn about each command, simply add `--help` after the command name to be given a full description of the options available:

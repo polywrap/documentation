@@ -1,5 +1,5 @@
 ---
-id: uri-redirects
+id: understanding-uri-redirects
 title: 'URI redirects'
 ---
 

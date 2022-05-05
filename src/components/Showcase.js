@@ -15,25 +15,22 @@ const useStyles = makeStyles(() => ({
 
 const showcaseCards = [
   {
-    title: "Get Started",
-    description:
-      "Create a wasm wrapper and learn in detail what makes integrating with Polywrap so special!",
-    cta: "Get started",
+    title: "Concepts",
+    description: "Understand the concepts that make Polywrap so unique",
+    cta: "Learn",
     link: "/concepts/what-is-polywrap",
   },
   {
-    title: "Guides",
-    description:
-      "Start building! Our guides will walk you through how to build your own wrappers or integrate other ones into your app",
-    cta: "Start building",
-    link: "/quick-start/create-wasm-wrappers/project-setup",
+    title: "Quick Start",
+    description: "Get building right away with our quick start guides",
+    cta: "Build",
+    link: "/quick-start/create-js-app/install-client",
   },
   {
-    title: "Advanced",
-    description:
-      "Learn about the advanced concepts of Polywrap, including build pipeline configuration and URI redirects.",
-    cta: "Learn more",
-    link: "/advanced/build-pipeline",
+    title: "Reference",
+    description: "Look through reference documentation for all of Polywrap's software",
+    cta: "Browse",
+    link: "/reference/glossary",
   },
 ];
 

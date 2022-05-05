@@ -8,6 +8,7 @@ module.exports = {
         'concepts/polywrap-vs-javascript-sdks',
         'concepts/understanding-uris',
         'concepts/understanding-plugins',
+        'concepts/understanding-uri-redirects'
       ],
     },
     {
@@ -16,7 +17,16 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'Creating a wasm wrapper',
+          label: 'Integrate Wrappers',
+          items: [
+            'quick-start/create-js-app/install-client',
+            'quick-start/create-js-app/create-client-instance',
+            'quick-start/create-js-app/react-integration',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Create Wasm Wrappers',
           items: [
             'quick-start/create-wasm-wrappers/project-setup',
             'quick-start/create-wasm-wrappers/project-folder',
@@ -26,19 +36,17 @@ module.exports = {
             'quick-start/create-wasm-wrappers/writing-tests-with-recipes-file',
             'quick-start/create-wasm-wrappers/deploy-locally-and-test',
             'quick-start/create-wasm-wrappers/deploy-to-ipfs',
-            'quick-start/create-wasm-wrappers/publish-to-ens'
+            'quick-start/create-wasm-wrappers/publish-to-ens',
+            'quick-start/create-wasm-wrappers/build-pipeline'
           ],
         },
         {
           type: 'category',
-          label: 'Integrate into a JS App',
+          label: 'Create Plugin Wrappers',
           items: [
-            'quick-start/create-js-app/install-client',
-            'quick-start/create-js-app/create-client-instance',
-            'quick-start/create-js-app/react-integration',
+            'quick-start/create-plugin-wrappers/create-js-plugin',
           ],
         },
-        'quick-start/create-js-plugin',
       ],
     },
     {
@@ -88,14 +96,6 @@ module.exports = {
           ]
         }
       ]
-    },
-    {
-      type: 'category',
-      label: 'Advanced',
-      items: [
-        'advanced/build-pipeline',
-        'advanced/uri-redirects'
-      ],
     },
     {
       type: 'category',
