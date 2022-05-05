@@ -5,7 +5,7 @@ title: Understanding plugins
 
 Polywrap plugins enable existing SDKs implemented in the client's language (e.g. JavaScript) to be queried as if they were normal wrappers.
 
-For information on how to create your own Polywrap plugin, read the [guide here](/quick-start/create-js-plugin).
+For information on how to create your own Polywrap plugin, read the [guide here](/quick-start/create-plugin-wrappers/create-js-plugin).
 
 Plugins can be used to enable any native client functionality that cannot be implemented in WebAssembly, such as sending HTTP requests, or signing with a private key.
 
