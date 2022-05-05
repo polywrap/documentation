@@ -35,6 +35,7 @@ module.exports = {
             'quick-start/create-wasm-wrappers/adding-query-functions',
             'quick-start/create-wasm-wrappers/writing-tests-with-recipes-file',
             'quick-start/create-wasm-wrappers/deploy-locally-and-test',
+            'quick-start/create-wasm-wrappers/end-to-end-test',
             'quick-start/create-wasm-wrappers/deploy-to-ipfs',
             'quick-start/create-wasm-wrappers/publish-to-ens',
             'quick-start/create-wasm-wrappers/build-pipeline'

@@ -22,6 +22,14 @@ module.exports = {
   organizationName: 'polywrap',
   projectName: 'documentation',
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'UA-160302501-1',
+      anonymizeIP: true,
+    },
+    gtag: {
+      trackingID: 'UA-160302501-1',
+      anonymizeIP: true,
+    },
     sidebarCollapsible: true,
     colorMode: {
       defaultMode: 'dark',
@@ -116,12 +124,16 @@ module.exports = {
           editUrl: 'https://github.com/web3-api/documentation/tree/main',
           routeBasePath: '/',
         },
+        googleAnalytics: {
+          trackingID: 'UA-160302501-1',
+          anonymizeIP: true,
+        },
         theme: {
           customCss: require.resolve('./style.css'),
         },
         pages: {
           path: 'src/pages'
-        }
+        },
       },
     ],
   ],
