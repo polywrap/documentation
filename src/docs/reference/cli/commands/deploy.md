@@ -3,4 +3,6 @@ id: deploy
 title: Deploy
 ---
 
-test
+```
+$snippet: cli-command-help-deploy
+```

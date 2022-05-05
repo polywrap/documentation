@@ -3,4 +3,6 @@ id: plugin
 title: Plugin
 ---
 
-test
+```
+$snippet: cli-command-help-plugin
+```

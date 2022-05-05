@@ -3,12 +3,12 @@ import { writeFileSync } from "@web3api/os-js";
 import path from "path";
 
 const commands = [
-  //"app",
+  "app",
   "build",
   "codegen",
-  //"create",
+  "create",
   "deploy",
-  //"plugin",
+  "plugin",
   "query",
   "test-env"
 ];
@@ -19,7 +19,9 @@ async function main() {
 
   for (const command of commands) {
     const output = await runCommand(`${cli} ${command} --help`);
-    snippets += "$" + `start: cli-command-help-${command}\n${output.stdout}\n$end\n`;
+    let result = output.stdout.trimStart();
+    result = result.trimEnd();
+    snippets += "$" + `start: cli-command-help-${command}\n${result}\n$end\n`;
   }
 
   writeFileSync(

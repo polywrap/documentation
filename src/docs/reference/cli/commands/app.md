@@ -3,6 +3,6 @@ id: app
 title: App
 ---
 
-```bash
-
+```
+$snippet: cli-command-help-app
 ```
