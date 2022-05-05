@@ -34,7 +34,6 @@ module.exports = {
     colorMode: {
       defaultMode: 'dark',
     },
-
     navbar: {
       title: 'Pre-alpha',
       logo: {
@@ -139,5 +138,4 @@ module.exports = {
     ],
   ],
   plugins: [require.resolve('docusaurus-lunr-search')],
-
 };
