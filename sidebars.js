@@ -2,137 +2,182 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: '👋 Getting started',
+      label: 'Concepts',
       items: [
-        'getting-started/what-is-polywrap',
-        'getting-started/polywrap-vs-javascript-sdks',
-        'getting-started/understanding-uris',
-        'getting-started/understanding-plugins',
+        'concepts/what-is-polywrap',
+        'concepts/polywrap-vs-javascript-sdks',
+        'concepts/understanding-uris',
+        'concepts/understanding-plugins',
+        'concepts/understanding-uri-redirects'
       ],
     },
     {
       type: 'category',
-      label: 'Guides',
+      label: 'Quick Start',
       items: [
         {
           type: 'category',
-          label: 'Creating a wasm wrapper',
+          label: 'Integrate Wrappers',
           items: [
-            'guides/create-wasm-wrappers/project-setup',
-            'guides/create-wasm-wrappers/project-folder',
-            'guides/create-wasm-wrappers/build-deploy-test',
-            'guides/create-wasm-wrappers/mutation-functions',
-            'guides/create-wasm-wrappers/adding-query-functions',
-            'guides/create-wasm-wrappers/writing-tests-with-recipes-file',
-            'guides/create-wasm-wrappers/deploy-locally-and-test',
-            'guides/create-wasm-wrappers/deploy-to-ipfs',
-            'guides/create-wasm-wrappers/publish-to-ens'
+            'quick-start/create-js-app/install-client',
+            'quick-start/create-js-app/create-client-instance',
+            'quick-start/create-js-app/react-integration',
           ],
         },
         {
           type: 'category',
-          label: 'Integrate into a JS App',
+          label: 'Create Wasm Wrappers',
           items: [
-            'guides/create-js-app/install-client',
-            'guides/create-js-app/create-client-instance',
-            'guides/create-js-app/react-integration',
-          ],
-        },
-        'guides/create-js-plugin',
-        'guides/end-to-end-test'
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Advanced',
-      items: [
-        'advanced/build-pipeline',
-        'advanced/uri-redirects'
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Developer tools',
-      items: [
-        'devtools/polywrap-cli',
-        'devtools/polywrap-clientjs',
-        'devtools/polywrap-react',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Uniswap v2 Polywrap',
-      items: [
-        'uniswapv2/uniswapv2-polywrap-intro',
-        'uniswapv2/common-types',
-        {
-          type: 'category',
-          label: 'Queries',
-          items: [
-            'uniswapv2/queries/token',
-            'uniswapv2/queries/trade',
-            'uniswapv2/queries/fetch',
-            'uniswapv2/queries/pair',
-            'uniswapv2/queries/route',
-            'uniswapv2/queries/router',
+            'quick-start/create-wasm-wrappers/project-setup',
+            'quick-start/create-wasm-wrappers/project-folder',
+            'quick-start/create-wasm-wrappers/build-deploy-test',
+            'quick-start/create-wasm-wrappers/mutation-functions',
+            'quick-start/create-wasm-wrappers/adding-query-functions',
+            'quick-start/create-wasm-wrappers/writing-tests-with-recipes-file',
+            'quick-start/create-wasm-wrappers/deploy-locally-and-test',
+            'quick-start/create-wasm-wrappers/end-to-end-test',
+            'quick-start/create-wasm-wrappers/deploy-to-ipfs',
+            'quick-start/create-wasm-wrappers/publish-to-ens',
+            'quick-start/create-wasm-wrappers/build-pipeline'
           ],
         },
         {
           type: 'category',
-          label: 'Mutations',
-          items: ['uniswapv2/mutations/swap'],
+          label: 'Create Plugin Wrappers',
+          items: [
+            'quick-start/create-plugin-wrappers/create-js-plugin',
+          ],
         },
       ],
     },
     {
       type: 'category',
-      label: 'Uniswap v3 Polywrap',
+      label: 'Reference',
       items: [
-        'uniswapv3/intro',
+        'reference/glossary',
         {
           type: 'category',
-          label: 'Types',
+          label: 'CLI',
           items: [
-            'uniswapv3/types/common-types',
-            'uniswapv3/types/query-types',
-            'uniswapv3/types/mutation-types',
-            'uniswapv3/types/enum-types',
+            'reference/cli/polywrap-cli',
+            {
+              type: 'category',
+              label: 'Commands',
+              items: [
+                'reference/cli/commands/app',
+                'reference/cli/commands/build',
+                'reference/cli/commands/codegen',
+                'reference/cli/commands/create',
+                'reference/cli/commands/deploy',
+                'reference/cli/commands/plugin',
+                'reference/cli/commands/query',
+                'reference/cli/commands/test-env',
+              ],
+            },
           ],
         },
         {
           type: 'category',
-          label: 'Queries',
+          label: 'Clients',
           items: [
-            'uniswapv3/queries/token',
-            'uniswapv3/queries/tickProvider',
-            'uniswapv3/queries/pool',
-            'uniswapv3/queries/route',
-            'uniswapv3/queries/trade',
-            'uniswapv3/queries/position',
-            'uniswapv3/queries/router',
-            'uniswapv3/queries/quoter',
-            'uniswapv3/queries/nfpm',
-            'uniswapv3/queries/staker',
-            'uniswapv3/queries/tickUtils',
-            'uniswapv3/queries/poolUtils',
-            'uniswapv3/queries/positionUtils',
-            'uniswapv3/queries/encodeUtils',
-            'uniswapv3/queries/mathUtils',
-            'uniswapv3/queries/enumUtils',
-            'uniswapv3/queries/fetch',
-            'uniswapv3/queries/constants',
+            {
+              type: 'category',
+              label: 'JavaScript',
+              items: [
+                'reference/clients/js/client-js',
+                {
+                  type: 'category',
+                  label: 'Libraries',
+                  items: [
+                    'reference/clients/js/libraries/react',
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Demos',
+      items: [
+        {
+          type: 'category',
+          label: 'Uniswap v2 Polywrap',
+          items: [
+            'demos/uniswapv2/uniswapv2-polywrap-intro',
+            'demos/uniswapv2/common-types',
+            {
+              type: 'category',
+              label: 'Queries',
+              items: [
+                'demos/uniswapv2/queries/token',
+                'demos/uniswapv2/queries/trade',
+                'demos/uniswapv2/queries/fetch',
+                'demos/uniswapv2/queries/pair',
+                'demos/uniswapv2/queries/route',
+                'demos/uniswapv2/queries/router',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Mutations',
+              items: ['demos/uniswapv2/mutations/swap'],
+            },
           ],
         },
         {
           type: 'category',
-          label: 'Mutations',
+          label: 'Uniswap v3 Polywrap',
           items: [
-            'uniswapv3/mutations/call',
-            'uniswapv3/mutations/swap',
-            'uniswapv3/mutations/deploy',
+            'demos/uniswapv3/intro',
+            {
+              type: 'category',
+              label: 'Types',
+              items: [
+                'demos/uniswapv3/types/common-types',
+                'demos/uniswapv3/types/query-types',
+                'demos/uniswapv3/types/mutation-types',
+                'demos/uniswapv3/types/enum-types',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Queries',
+              items: [
+                'demos/uniswapv3/queries/token',
+                'demos/uniswapv3/queries/tickProvider',
+                'demos/uniswapv3/queries/pool',
+                'demos/uniswapv3/queries/route',
+                'demos/uniswapv3/queries/trade',
+                'demos/uniswapv3/queries/position',
+                'demos/uniswapv3/queries/router',
+                'demos/uniswapv3/queries/quoter',
+                'demos/uniswapv3/queries/nfpm',
+                'demos/uniswapv3/queries/staker',
+                'demos/uniswapv3/queries/tickUtils',
+                'demos/uniswapv3/queries/poolUtils',
+                'demos/uniswapv3/queries/positionUtils',
+                'demos/uniswapv3/queries/encodeUtils',
+                'demos/uniswapv3/queries/mathUtils',
+                'demos/uniswapv3/queries/enumUtils',
+                'demos/uniswapv3/queries/fetch',
+                'demos/uniswapv3/queries/constants',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Mutations',
+              items: [
+                'demos/uniswapv3/mutations/call',
+                'demos/uniswapv3/mutations/swap',
+                'demos/uniswapv3/mutations/deploy',
+              ],
+            },
           ],
         },
-      ],
+      ]
     },
     {
       type: 'category',
