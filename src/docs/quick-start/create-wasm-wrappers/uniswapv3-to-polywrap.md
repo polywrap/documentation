@@ -1,11 +1,11 @@
 ---
 id: uniswapv3-to-polywrap
-title: "Uniswap v3: SDK to Wrapper"
+title: "Case study: Uniswap v3 Wrapper"
 ---
 
 The Uniswap v3 wrapper is a Polywrap-compatible API providing the same features as Uniswap's JavaScript SDK, plus more. The wrapper is written in AssemblyScript and compiled to Web Assembly (WASM). Polywrap's JavaScript Client makes interfacing with the wrapper as easy as interfacing with any ordinary JavaScript SDK.
 
-This guide describes how we ported the Uniswap v3 JavaScript SDK to a wasm wrapper. Reference documentation for the Uniswap v3 wrapper is available [here](https://docs.polywrap.io/uniswapv3/intro). This guide uses version **0.0.1-prealpha.75** of the Polywrap toolchain.
+This guide describes how we ported the Uniswap v3 JavaScript SDK to a wasm wrapper. Reference documentation for the Uniswap v3 wrapper is available [here](../../demos/uniswapv3/intro). This guide uses version **0.0.1-prealpha.75** of the Polywrap toolchain.
 
 When writing the Uniswap v3 wrapper, our goal was to provide the same user experience as the SDK. The wrapper provides feature-parity, and the "business logic" is the same. We also ported elements of the Uniswap SDK Core package, as necessary, to implement the v3 wrapper.
 
@@ -281,4 +281,4 @@ As a final touch, we generated ample documentation for the Uniswap v3 wrapper.
 
 Polywrap's GraphQL parser can read documentation comments (comments with triple quotes) from the wrapper's GraphQL schema. Using this capability, Polywrap built a tool to help developers create documentation for their wrappers.
 
-The Polywrap CLI will soon be able to use GraphQL schemas to automatically generate markdown that is compatible with popular documentation tools like Docusaurus. We tested the tool to generate the [reference documentation for the Uniswap v3 wrapper](https://docs.polywrap.io/uniswapv3/intro).
+The Polywrap CLI will soon be able to use GraphQL schemas to automatically generate markdown that is compatible with popular documentation tools like Docusaurus. We tested the tool to generate the [reference documentation for the Uniswap v3 wrapper](../../demos/uniswapv3/intro).
