@@ -39,7 +39,8 @@ module.exports = {
           ],
         },
         'guides/create-js-plugin',
-        'guides/end-to-end-test'
+        'guides/end-to-end-test',
+        'guides/uniswapv3-to-polywrap',
       ],
     },
     {
