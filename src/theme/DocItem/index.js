@@ -4,7 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React from 'react';
+import React, { useState, useRef } from "react";
 import DocPaginator from '@theme/DocPaginator';
 import DocVersionSuggestions from '@theme/DocVersionSuggestions';
 import Seo from '@theme/Seo';
@@ -13,12 +13,14 @@ import TOC from '@theme/TOC';
 import EditThisPage from '@theme/EditThisPage';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Slide from '@mui/material/Slide';
 import {
   useActivePlugin,
   useVersions,
   useActiveVersion,
 } from '@theme/hooks/useDocs';
 import FeedbackWidget from '../../components/FeedbackWidget/index';
+import { InView } from 'react-intersection-observer';
 
 function DocItem(props) {
   const {content: DocContent} = props;
@@ -49,6 +51,9 @@ function DocItem(props) {
   // See https://github.com/facebook/docusaurus/issues/3362
 
   const showVersionBadge = versions.length > 1;
+  const [haveVoted,setHaveVoted] = useState(false)
+  const [stopShowingVote,setStopShowingVote] = useState(false)
+  const [visible,setVisible] = useState(false)
   return (
     <>
       <Seo
@@ -85,7 +90,20 @@ function DocItem(props) {
               </div>
             </article>
             <div className="margin-vert--xl">
-              <FeedbackWidget label={unversionedId} />
+            <InView onChange={(onView) => {
+              if(!onView && haveVoted) {
+                setStopShowingVote(true)
+              }
+            }}>
+    {({ inView, ref, entry }) => (
+     <Slide direction="right" in={inView && !stopShowingVote}>
+       <div ref={ref}>
+       <FeedbackWidget changeHaveVoted={(voted)=> setHaveVoted(voted)} haveVoted={haveVoted} label={unversionedId} />
+     </div>
+            </Slide>
+    )}
+  </InView>
+    
               {(editUrl || lastUpdatedAt || lastUpdatedBy) && (
               <div className="row">
                 <div className="col">
