@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
 const resourceLinks = [
   {
     title: "Uniswap v3 Wrapper",
-    link: "/uniswapv3/intro",
+    link: "demos/uniswapv3/intro",
     icon: <DescriptionOutlinedIcon/>,
   },
   {
