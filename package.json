@@ -11,7 +11,7 @@
   "scripts": {
     "reset": "yarn clean && yarn && yarn build",
     "clean": "npx rimraf ./docs ./build ./node_modules ./**/build ./**/node_modules ./.docusaurus",
-    "start": "run-p start:app start:watch:docs start:watch:snippets",
+    "start": "yarn build:docs && run-p start:app start:watch:docs start:watch:snippets",
     "start:app": "docusaurus start --poll 500",
     "start:watch:docs": "onchange './src/docs/**/*' './snippets/snippets.json' -- yarn build:docs",
     "start:watch:snippets": "onchange './snippets/**/*' --exclude-path .gitignore --exclude ./snippets/snippets.json -- yarn build:snippets",
