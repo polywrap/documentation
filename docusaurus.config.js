@@ -22,14 +22,19 @@ module.exports = {
   organizationName: 'polywrap',
   projectName: 'documentation',
   themeConfig: {
-    sidebarCollapsible: true,
-    colorMode: {
-      defaultMode: 'dark',
-    },
     googleAnalytics: {
       trackingID: 'UA-160302501-1',
       anonymizeIP: true,
     },
+    gtag: {
+      trackingID: 'UA-160302501-1',
+      anonymizeIP: true,
+    },
+    sidebarCollapsible: true,
+    colorMode: {
+      defaultMode: 'dark',
+    },
+
     navbar: {
       title: 'Pre-alpha',
       logo: {
