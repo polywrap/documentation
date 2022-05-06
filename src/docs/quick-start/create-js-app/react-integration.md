@@ -18,16 +18,7 @@ Once installed, the first step is to add the `Web3ApiProvider` to your DOM. This
 To use the provider, simply wrap it around whatever DOM hierarchy you'd like to use Polywrap within:
 
 ```jsx
-import React from 'react';
-import { Web3ApiProvider } from '@web3api/react';
-
-export default function App() {
-  return (
-    <Web3ApiProvider>
-      <div>{'Polywrap enabled app goes here!'}</div>
-    </Web3ApiProvider>
-  );
-}
+$snippet: js-react-provider
 ```
 
 #### **Web3ApiProvider Props**
@@ -35,7 +26,7 @@ export default function App() {
 The `Web3ApiProvider` component's props are the same as the `Web3ApiClient` constructor's arguments. For example, you can configure redirects like so:
 
 ```jsx
-<Web3ApiProvider redirects={ [...] }/>
+$snippet: js-react-provider-empty-redirects
 ```
 
 #### **Multiple Web3ApiProviders**
@@ -43,40 +34,42 @@ The `Web3ApiProvider` component's props are the same as the `Web3ApiClient` cons
 If you need to use multiple providers, you can do so using the `createWeb3ApiProvider("...")` method, which accepts the name of your provider as an argument. For example:
 
 ```jsx
-import { createWeb3ApiProvider } from '@web3api/react';
-
-const CustomWeb3ApiProvider = createWeb3ApiProvider('custom');
-
-<CustomWeb3ApiProvider>
-  <Custom />
-</CustomWeb3ApiProvider>;
+$snippet: js-react-custom-provider
 ```
 
 ### **useWeb3ApiQuery**
-
-usePolywrapQuery (loading, etc)
 
 After enabling your React application with the Web3ApiProvider, you may now use the `useWeb3ApiQuery` hook to send Polywrap queries!
 
 Here's what our "hello world" query from above would look like if we used this method.
 
 ```jsx
-const { execute, data, errors, loading } = useWeb3ApiQuery({
-  uri: 'ens/api.helloworld.polywrap.eth',
-  query: `{
-    logMessage(message: "Hello World!")
-  }`,
-});
+$snippet: js-react-useWeb3ApiQuery
 ```
 
 :::tip
 By default, the `useWeb3ApiQuery` hook uses the first Web3ApiProvider found in the DOM's hierarchy. If you'd like to specify a specific provider to be used, simply set the `provider:` property:
 
 ```jsx
-useWeb3ApiQuery({
-  provider: 'custom',
-  ...
-});
+$snippet: js-react-useWeb3ApiQuery-custom-provider
+```
+
+### **useWeb3ApiInvoke**
+
+The `useWeb3ApiInvoke` hook works the same as the `useWeb3ApiQuery` hook, but uses the client's `invoke` syntax instead.
+
+Here's what our "hello world" query from above would look like with `useWeb3ApiInvoke`.
+
+```jsx
+$snippet: js-react-useWeb3ApiInvoke
+```
+
+### **useWeb3ApiClient**
+
+You can obtain a copy of the client instance from your `Web3ApiProvider` using the `useWeb3ApiClient` hook.
+
+```jsx
+$snippet: js-react-useWeb3ApiClient
 ```
 
 :::
