@@ -53,6 +53,7 @@ By default, the `useWeb3ApiQuery` hook uses the first Web3ApiProvider found in t
 ```jsx
 $snippet: js-react-useWeb3ApiQuery-custom-provider
 ```
+:::
 
 ### **useWeb3ApiInvoke**
 
@@ -71,5 +72,3 @@ You can obtain a copy of the client instance from your `Web3ApiProvider` using t
 ```jsx
 $snippet: js-react-useWeb3ApiClient
 ```
-
-:::

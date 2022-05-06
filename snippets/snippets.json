@@ -11,7 +11,7 @@
   "js-create-client-instance": "import { Web3ApiClient } from \"@web3api/client-js\";\n\nconst client = new Web3ApiClient();",
   "js-client-hello-world": "client.invoke({\n  uri: \"ens/api.helloworld.web3api.eth\",\n  module: \"query\",\n  method: \"logMessage\",\n  input: {\n    message: \"Hello World!\"\n  }\n});",
   "js-react-provider": "import React from 'react';\nimport { Web3ApiProvider } from '@web3api/react';\n\nexport const App: React.FC = () => {\n  return (\n    <Web3ApiProvider>\n        <HelloWorld />\n    </Web3ApiProvider>\n  );\n};",
-  "js-react-provider-empty-redirects": "    <Web3ApiProvider redirects={ [] }/>",
+  "js-react-provider-empty-redirects": "<Web3ApiProvider redirects={ [] }/>",
   "js-react-custom-provider": "import { createWeb3ApiProvider } from '@web3api/react';\n\nconst CustomWeb3ApiProvider = createWeb3ApiProvider('custom');\n\nexport const CustomProvider = ({ children }: { children: JSX.Element }) => {\n  return (\n    <CustomWeb3ApiProvider>\n      {children}\n    </CustomWeb3ApiProvider>\n  );\n};",
   "js-react-useWeb3ApiQuery": "const { execute, data, errors, loading } = useWeb3ApiQuery({\n  uri: 'ens/api.helloworld.polywrap.eth',\n  query: `{\n    logMessage(message: \"Hello World!\")\n  }`,\n});",
   "js-react-useWeb3ApiQuery-custom-provider": "const { execute, data, errors, loading } = useWeb3ApiQuery({\n  provider: \"custom\",\n  uri: 'ens/api.helloworld.polywrap.eth',\n  query: `{\n    logMessage(message: \"Hello World!\")\n  }`,\n});",

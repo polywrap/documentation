@@ -14,8 +14,8 @@ export const App: React.FC = () => {
 
 export const ProviderWithEmptyRedirects: React.FC = () => {
   return (
-    // $start: js-react-provider-empty-redirects
-    <Web3ApiProvider redirects={ [] }/>
-    // $end
+// $start: js-react-provider-empty-redirects
+<Web3ApiProvider redirects={ [] }/>
+// $end
   );
 };
