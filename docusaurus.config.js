@@ -121,7 +121,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/web3-api/documentation/tree/main',
+          editUrl: 'https://github.com/web3-api/documentation/tree/main/src',
           routeBasePath: '/',
         },
         googleAnalytics: {
@@ -132,7 +132,7 @@ module.exports = {
           customCss: require.resolve('./style.css'),
         },
         pages: {
-          path: 'src/pages'
+          path: 'src/pages',
         },
       },
     ],
