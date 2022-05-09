@@ -26,27 +26,7 @@ type Query {
 Implement the `getIpfsData(...)` method like so in `./src/query/index.ts`:
 
 ```typescript title="./src/query/index.ts"
-import {
-  Ethereum_Query,
-  Ipfs_Query,
-  Input_getData,
-  Input_getIpfsData
-} from './w3';
-
-...
-
-export function getIpfsData(input: Input_getIpfsData): string {
-  const hash = Ethereum_Query.callContractView({
-    address: input.address,
-    method: 'function getHash() view returns (string)',
-    args: [],
-    connection: input.connection,
-  });
-
-  return String.UTF8.decode(
-    Ipfs_Query.catFile({ cid: hash })
-  );
-}
+$snippet: as-simple-storage-query
 ```
 
 To verify everything is implemented correctly, try running `yarn build` and see if the Polywrap build succeeds.

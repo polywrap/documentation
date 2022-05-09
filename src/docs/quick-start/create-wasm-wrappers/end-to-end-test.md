@@ -104,20 +104,7 @@ in the `beforeAll` hook, so we can start our test environment before running our
 in the `afterAll` hook to make sure the test environment does not continue running on our system after we finish testing.
 
 ```typescript
-import { initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
-
-describe('Wrapper Test', () => {
-
-  beforeAll(async () => {
-    // initialize test environment
-    const { ipfs, ethereum, ensAddress, registrarAddress, resolverAddress } = await initTestEnvironment();
-  });
-
-  afterAll(async () => {
-    // stop test environment
-    await stopTestEnvironment();
-  });
-});
+$snippet: js-e2e-test-init
 ```
 
 ## **Building and deploying a wasm wrapper for testing with @web3api/test-env-js**
@@ -136,42 +123,7 @@ manifest directory. Finally, we import the node.js feature `path`, and use `path
 our wrapper project.
 
 ```typescript
-// highlight-start
-import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
-import path from "path";
-// highlight-end
-
-describe('Wrapper Test', () => {
-
-  // highlight-start
-  // the ENS URI that will be used to query  the wrapper
-  let ensUri: string;
-  // highlight-end
-  
-  beforeAll(async () => {
-    // initialize test environment
-    const { ipfs, ethereum, ensAddress, registrarAddress, resolverAddress } = await initTestEnvironment();
-    
-    // highlight-start
-    // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../../"); // absolute path to directory with web3api.yaml
-    const api = await buildAndDeployApi({
-      apiAbsPath: apiPath,
-      ipfsProvider: ipfs,
-      ensRegistryAddress: ensAddress,
-      ethereumProvider: ethereum,
-      ensRegistrarAddress: registrarAddress,
-      ensResolverAddress: resolverAddress,
-    });
-    ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
-    // highlight-end
-  });
-
-  afterAll(async () => {
-    // stop test environment
-    await stopTestEnvironment();
-  });
-});
+$snippet: js-e2e-test-build
 ```
 
 ## **Setting up a Polywrap Client**
@@ -190,12 +142,9 @@ The `ipfsPlugin` can be configured with a default IPFS provider and an array of 
 the default provider fails.
 
 ```typescript
-import { IpfsPluginConfigs } from "@web3api/ipfs-plugin-js";
+$snippet: js-e2e-test-config-ipfs-import
 
-const ipfsConfig: IpfsPluginConfigs = { 
-  provider: ipfs,
-  fallbackProviders: undefined,
-};
+$snippet: js-e2e-test-config-ipfs
 ```
 
 ### **Configure the Ethereum Plugin**
@@ -214,19 +163,9 @@ We also need to tell the Ethereum plugin which network should be used when a net
 setting the value of the `defaultNetwork` property to one of our network names.
 
 ```typescript
-import { EthereumPluginConfigs } from "@web3api/ethereum-plugin-js";
+$snippet: js-e2e-test-config-ethereum-import
 
-const ethereumConfig: EthereumPluginConfigs = {
-  networks: {
-    testnet: {
-      provider: ethereum,
-    },
-    mainnet: {
-      provider: "http://localhost:8546", // Ganache Ethereum mainnet fork
-    },
-  },
-  defaultNetwork: "testnet",
-};
+$snippet: js-e2e-test-config-ethereum
 ```
 
 ### **Configure the ENS Plugin**
@@ -236,15 +175,9 @@ in our Ethereum plugin configuration. We will only use the ENS registry deployed
 network.
 
 ```typescript
-import { EnsPluginConfigs } from "@web3api/ens-plugin-js";
+$snippet: js-e2e-test-config-ens-import
 
-const ensConfig: EnsPluginConfigs = {
-  query: {
-    addresses: {
-      testnet: ensAddress,
-    },
-  },
-};
+$snippet: js-e2e-test-config-ens
 ```
 
 ### **Create the Polywrap Client Instance**
@@ -253,98 +186,7 @@ Now we are ready to add the plugins to our Polywrap Client configuration and cre
 our client configuration will redirect to the plugin instances when queried.
 
 ```typescript
-// highlight-start
-import { ClientConfig, Web3ApiClient } from "@web3api/client-js";
-import { ethereumPlugin, EthereumPluginConfigs } from "@web3api/ethereum-plugin-js";
-import { ipfsPlugin, IpfsPluginConfigs } from "@web3api/ipfs-plugin-js";
-import { ensPlugin, EnsPluginConfigs } from "@web3api/ens-plugin-js";
-// highlight-end
-import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
-import path from "path";
-
-describe('Wrapper Test', () => {
-
-  // the ENS URI that will be used to query  the wrapper
-  let ensUri: string;
-
-  // highlight-start
-  // an instance of the Polywrap Client
-  let client: Web3ApiClient;
-  // highlight-end
-  
-  beforeAll(async () => {
-    // initialize test environment
-    const { ipfs, ethereum, ensAddress, registrarAddress, resolverAddress } = await initTestEnvironment();
-    
-    // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../../"); // absolute path to directory with web3api.yaml
-    const api = await buildAndDeployApi({
-      apiAbsPath: apiPath,
-      ipfsProvider: ipfs,
-      ensRegistryAddress: ensAddress,
-      ethereumProvider: ethereum,
-      ensRegistrarAddress: registrarAddress,
-      ensResolverAddress: resolverAddress,
-    });
-    ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
-
-    // highlight-start
-    // configure the ens plugin
-    const ipfsConfig: IpfsPluginConfigs = {
-      provider: ipfs,
-      fallbackProviders: undefined,
-    };
-
-    // configure the ethereum plugin
-    const ethereumConfig: EthereumPluginConfigs = {
-      networks: {
-        testnet: {
-          provider: ethereum, // Ganache test network
-        },
-        mainnet: {
-          provider: "http://localhost:8546", // Ganache Ethereum mainnet fork
-        },
-      },
-      defaultNetwork: "testnet",
-    };
-    
-    // configure the ens plugin
-    const ensConfig: EnsPluginConfigs = {
-      query: {
-        addresses: {
-          testnet: ensAddress,
-        },
-      },
-    };
-    
-    // configure the client
-    const clientConfig: ClientConfig = {
-      plugins: [
-        {
-          uri: "w3://ens/ipfs.web3api.eth",
-          plugin: ipfsPlugin(ipfsConfig),
-        },
-        {
-          uri: "w3://ens/ens.web3api.eth",
-          plugin: ensPlugin(ensConfig),
-        },
-        {
-          uri: "w3://ens/ethereum.web3api.eth",
-          plugin: ethereumPlugin(ethereumConfig),
-        },
-      ],
-    };
-    
-    // create client
-    client = new Web3ApiClient(clientConfig);
-    // highlight-end
-  });
-
-  afterAll(async () => {
-    // stop test environment
-    await stopTestEnvironment();
-  });
-});
+$snippet: js-e2e-test-config
 ```
 
 ## **Testing a Wrapper Method**
@@ -360,28 +202,7 @@ types from a GraphQL schema using the Polywrap CLI's `app` command, but that is 
 Instead, we will write the types we need manually in a new file called `types.ts`.
 
 ```typescript title="types.ts"
-export type UInt8 = number;
-export type String = string;
-
-export enum ChainId {
-  MAINNET,
-  ROPSTEN,
-  RINKEBY,
-  GOERLI,
-  KOVAN,
-}
-
-export interface Currency {
-  decimals: UInt8;
-  symbol?: String | null;
-  name?: String | null;
-}
-
-export interface Token {
-  chainId: ChainId;
-  address: String;
-  currency: Currency;
-}
+$snippet: js-e2e-test-types
 ```
 
 We will test the `fetchToken` method using the DAI token as a test case. DAI is an Ethereum token that is pegged to the
@@ -389,127 +210,5 @@ US dollar. To test the method, we will invoke it using the DAI token's Ethereum 
 value to the test case.
 
 ```typescript title="Final test file"
-import { ClientConfig, Web3ApiClient } from "@web3api/client-js";
-import { ethereumPlugin, EthereumPluginConfigs } from "@web3api/ethereum-plugin-js";
-import { ipfsPlugin, IpfsPluginConfigs } from "@web3api/ipfs-plugin-js";
-import { ensPlugin, EnsPluginConfigs } from "@web3api/ens-plugin-js";
-import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
-import path from "path";
-// highlight-next-line
-import { Token } from "./types";
-
-describe('Wrapper Test', () => {
-
-  // the ENS URI that will be used to query  the wrapper
-  let ensUri: string;
-
-  // an instance of the Polywrap Client
-  let client: Web3ApiClient;
-  
-  beforeAll(async () => {
-    // initialize test environment
-    const { ipfs, ethereum, ensAddress, registrarAddress, resolverAddress } = await initTestEnvironment();
-    
-    // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../../"); // absolute path to directory with web3api.yaml
-    const api = await buildAndDeployApi({
-      apiAbsPath: apiPath,
-      ipfsProvider: ipfs,
-      ensRegistryAddress: ensAddress,
-      ethereumProvider: ethereum,
-      ensRegistrarAddress: registrarAddress,
-      ensResolverAddress: resolverAddress,
-    });
-    ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
-    
-    // configure the ens plugin
-    const ipfsConfig: IpfsPluginConfigs = {
-      provider: ipfs,
-      fallbackProviders: undefined,
-    };
-
-    // configure the ethereum plugin
-    const ethereumConfig: EthereumPluginConfigs = {
-      networks: {
-        testnet: {
-          provider: ethereum, // Ganache test network
-        },
-        mainnet: {
-          provider: "http://localhost:8546", // Ganache Ethereum mainnet fork
-        },
-      },
-      defaultNetwork: "testnet",
-    };
-    
-    // configure the ens plugin
-    const ensConfig: EnsPluginConfigs = {
-      query: {
-        addresses: {
-          testnet: ensAddress,
-        },
-      },
-    };
-    
-    // configure the client
-    const clientConfig: ClientConfig = {
-      plugins: [
-        {
-          uri: "w3://ens/ipfs.web3api.eth",
-          plugin: ipfsPlugin(ipfsConfig),
-        },
-        {
-          uri: "w3://ens/ens.web3api.eth",
-          plugin: ensPlugin(ensConfig),
-        },
-        {
-          uri: "w3://ens/ethereum.web3api.eth",
-          plugin: ethereumPlugin(ethereumConfig),
-        },
-      ],
-    };
-    
-    // create client
-    client = new Web3ApiClient(clientConfig);
-  });
-
-  afterAll(async () => {
-    // stop test environment
-    await stopTestEnvironment();
-  });
-
-  // highlight-start
-  test("fetchToken", async () => {
-    // create test case
-    const DAI: Token = {
-      chainId: ChainId.MAINNET,
-      address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-      currency: {
-        decimals: 18,
-        symbol: "DAI",
-        name: "DAI Stablecoin",
-      },
-    };
-    
-    // invoke wrapper method
-    const { data, error } = await client.invoke<Token>({
-      uri: ensUri,
-      module: "query",
-      method: "fetchToken",
-      input: {
-        chainId: DAI.chainId,
-        address: DAI.address
-      },
-    });
-    
-    // check for errors
-    expect(error).toBeFalsy(); // will be undefined if no exception is thrown in the wrapper
-    expect(data).toBeTruthy(); // will be undefined if an exception is thrown in the wrapper
-    
-    // compare results
-    expect(data?.currency.decimals).toEqual(DAI.currency.decimals);
-    expect(data?.currency.symbol).toEqual(DAI.currency.symbol);
-    expect(data?.currency.name).toEqual(DAI.currency.name);
-  });
-  // highlight-end
-});
+$snippet: js-e2e-test-final
 ```

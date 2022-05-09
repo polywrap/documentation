@@ -54,13 +54,7 @@ type Mutation {
 In the `./src/mutation/index.ts` file, import the new types we've defined:
 
 ```typescript title="./src/mutation/index.ts"
-import {
-  Ethereum_Mutation,
-  Ipfs_Mutation,
-  Input_setData,
-  Input_setIpfsData,
-  SetIpfsDataResult,
-} from './w3';
+$snippet: as-simple-storage-mutation-import
 ```
 
 These new types will not exist yet, but don't worry, they'll be generated in the `./src/mutation/w3/*` folder once the `yarn build` command is run.
@@ -68,28 +62,7 @@ These new types will not exist yet, but don't worry, they'll be generated in the
 Next, we'll implement the `setIpfsData` mutation method. Add this function to the bottom of your `./src/mutation/index.ts` file:
 
 ```typescript title="./src/mutation/index.ts"
-...
-
-export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
-  // 1. Upload the data to IPFS
-  const ipfsHash = Ipfs_Mutation.addFile({
-    data: String.UTF8.encode(input.options.data),
-  });
-
-  // 2. Add the data's IPFS hash to SimpleStorage using `setHash(...)`
-  const txReceipt = Ethereum_Mutation.callContractMethodAndWait({
-    address: input.options.address,
-    method: 'function setHash(string value)',
-    args: [ipfsHash],
-    connection: input.connection,
-  });
-
-  // 3. Return the result
-  return {
-    ipfsHash,
-    txReceipt: txReceipt.transactionHash,
-  };
-}
+$snippet: as-simple-storage-mutation
 ```
 
 As you can see, the `SimpleStorage.sol` smart contract already exposes a `setHash()` method.
