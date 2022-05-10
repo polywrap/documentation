@@ -25,16 +25,7 @@ npm install @web3api/react
 To start using the Web3API React library, wrap your application in a `Web3ApiProvider`:
 
 ```typescript
-import React from 'react';
-import { Web3ApiProvider } from '@web3api/react';
-
-export default function App() {
-  return (
-    <Web3ApiProvider>
-      <div>{'Web3API enabled app goes here!'}</div>
-    </Web3ApiProvider>
-  );
-}
+$snippet: js-react-provider
 ```
 
 The `Web3ApiProvider` instantiates the `Web3ApiClient` for all queries below it in the component tree.
@@ -44,19 +35,13 @@ The `Web3ApiProvider` also accepts URI redirects as props.
 You can pass the redirects array into the provider component like so:
 
 ```typescript
-<Web3ApiProvider redirects={ [...] }/>
+$snippet: js-react-provider-empty-redirects
 ```
 
 If you need to use multiple providers, you can do so using the `createWeb3ApiProvider("...")` method, which accepts the name of your provider as an argument. For example:
 
 ```typescript
-import { createWeb3ApiProvider } from '@polywrap/react';
-
-const CustomWeb3ApiProvider = createWeb3ApiProvider('custom');
-
-<CustomWeb3ApiProvider>
-  <Custom />
-</CustomWeb3ApiProvider>;
+$snippet: js-react-custom-provider
 ```
 
 ### useWeb3ApiQuery
@@ -66,24 +51,31 @@ The `useWeb3ApiQuery` is the primary API for executing queries. To run a query w
 Here's an example query that you could send:
 
 ```typescript
-import { useWeb3ApiQuery } from '@polywrap/react';
-
-const { execute, data, errors, loading } = useWeb3ApiQuery({
-  uri: 'ens/api.helloworld.polywrap.eth',
-  query: `{
-    logMessage(message: "Hello World!")
-  }`,
-});
+$snippet: js-react-useWeb3ApiQuery
 ```
 
 :::tip
 By default, the `useWeb3ApiQuery` hook uses the first `Web3ApiProvider` found in the DOM's hierarchy. If you'd like to specify a specific provider to be used, simply set the provider: property:
 
 ```typescript
-useWeb3ApiQuery({
-  provider: 'custom',
-  ...
-});
+$snippet: js-react-useWeb3ApiQuery-custom-provider
+```
+:::
+
+### **useWeb3ApiInvoke**
+
+The `useWeb3ApiInvoke` hook works the same as the `useWeb3ApiQuery` hook, but uses the client's `invoke` syntax instead.
+
+Here's what our "hello world" query from above would look like with `useWeb3ApiInvoke`.
+
+```jsx
+$snippet: js-react-useWeb3ApiInvoke
 ```
 
-:::
+### **useWeb3ApiClient**
+
+You can obtain a copy of the client instance from your `Web3ApiProvider` using the `useWeb3ApiClient` hook.
+
+```jsx
+$snippet: js-react-useWeb3ApiClient
+```
