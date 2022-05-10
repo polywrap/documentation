@@ -14,24 +14,7 @@ A complete project with the modifications described below can be found [here](ht
 The first step to adding new Polywrapper functionality is defining the method we want our users to query in GraphQL. Add the following method & custom data types to your `./src/mutation/schema.graphql` schema file:
 
 ```graphql title="./src/mutation/schema.graphql"
-type Mutation {
-  ...
-
-  setIpfsData(
-    options: SetIpfsDataOptions!
-    connection: Ethereum_Connection
-  ): SetIpfsDataResult!
-}
-
-type SetIpfsDataOptions {
-  address: String!
-  data: String!
-}
-
-type SetIpfsDataResult {
-  ipfsHash: String!
-  txReceipt: String!
-}
+$snippet: gql-simple-storage-mutation-schema
 ```
 
 ### **Import IPFS' Polywrap mutations**
@@ -39,8 +22,7 @@ type SetIpfsDataResult {
 Since we'll be making use of IPFS in our Polywrapper, let's import its `Mutation` type so we can call it from our code, allowing us to upload content:
 
 ```graphql title="./src/mutation/schema.graphql"
-...
-#import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
+$snippet: gql-simple-storage-mutation-schema-ipfs-import
 
 type Mutation {
   ...

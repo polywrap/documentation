@@ -12,23 +12,13 @@ Add the following `.graphql` query files to the `./recipes` folder.
 `setIpfs.graphql`:
 
 ```graphql title="./recipes/setIpfs.graphql"
-mutation {
-  setIpfsData(
-    options: { address: $address, data: $data }
-    connection: { networkNameOrChainId: $network }
-  ) {
-    ipfsHash
-    txReceipt
-  }
-}
+$snippet: gql-simple-storage-setIpfsData-recipe-schema
 ```
 
 `getIpfs.graphql`:
 
 ```graphql title="./recipes/getIpfs.graphql"
-query {
-  getIpfsData(address: $address, connection: { networkNameOrChainId: $network })
-}
+$snippet: gql-simple-storage-getData-recipe-schema
 ```
 
 Once the queries we want to send have been defined, we just need to add them to our query recipe file `e2e.json` like so:

@@ -1,4 +1,5 @@
-mutation { 
+# $start: gql-simple-storage-setIpfsData-recipe-schema
+mutation {
   setIpfsData(
     options: {
       address: $address
@@ -12,3 +13,4 @@ mutation {
     txReceipt
   }
 }
+# $end

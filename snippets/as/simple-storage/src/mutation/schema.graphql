@@ -1,6 +1,9 @@
 #import { Mutation, Connection } into Ethereum from "w3://ens/ethereum.web3api.eth"
+# $start: gql-simple-storage-mutation-schema-ipfs-import
 #import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
+# $end
 
+# $start: gql-simple-storage-mutation-schema
 type Mutation {
   setData(
     address: String!
@@ -12,6 +15,7 @@ type Mutation {
     connection: Ethereum_Connection
   ): String!
 
+# highlight-start
   setIpfsData(
     options: SetIpfsDataOptions!
     connection: Ethereum_Connection
@@ -27,3 +31,5 @@ type SetIpfsDataResult {
   ipfsHash: String!
   txReceipt: String!
 }
+# highlight-end
+# $end

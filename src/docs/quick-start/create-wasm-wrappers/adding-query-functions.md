@@ -10,17 +10,7 @@ With our mutation implementation complete, it's now time to move onto the schema
 Update the `./src/query/schema.graphql` file like so:
 
 ```graphql title="./src/query/schema.graphql"
-...
-#import { Query } into Ipfs from "w3://ens/ipfs.web3api.eth"
-
-type Query {
-  ...
-
-  getIpfsData(
-    address: String!
-    connection: Ethereum_Connection
-  ): String!
-}
+$snippet: gql-simple-storage-query-schema
 ```
 
 Implement the `getIpfsData(...)` method like so in `./src/query/index.ts`:
