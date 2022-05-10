@@ -36,38 +36,38 @@ describe('Wrapper Test', () => {
     ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
 
     // configure the ipfs plugin
-    // $start: js-e2e-test-config-ipfs
-    const ipfsConfig: IpfsPluginConfigs = {
-      provider: ipfs,
-      fallbackProviders: undefined,
-    };
-    // $end
+// $start: js-e2e-test-config-ipfs
+const ipfsConfig: IpfsPluginConfigs = {
+  provider: ipfs,
+  fallbackProviders: undefined,
+};
+// $end
 
     // configure the ethereum plugin
-    // $start: js-e2e-test-config-ethereum
-    const ethereumConfig: EthereumPluginConfigs = {
-      networks: {
-        testnet: {
-          provider: ethereum, // Ganache test network
-        },
-        mainnet: {
-          provider: "http://localhost:8546", // Ganache Ethereum mainnet fork
-        },
-      },
-      defaultNetwork: "testnet",
-    };
-    // $end
+// $start: js-e2e-test-config-ethereum
+const ethereumConfig: EthereumPluginConfigs = {
+  networks: {
+    testnet: {
+      provider: ethereum, // Ganache test network
+    },
+    mainnet: {
+      provider: "http://localhost:8546", // Ganache Ethereum mainnet fork
+    },
+  },
+  defaultNetwork: "testnet",
+};
+// $end
 
     // configure the ens plugin
-    // $start: js-e2e-test-config-ens
-    const ensConfig: EnsPluginConfigs = {
-      query: {
-        addresses: {
-          testnet: ensAddress,
-        },
-      },
-    };
-    // $end
+// $start: js-e2e-test-config-ens
+const ensConfig: EnsPluginConfigs = {
+  query: {
+    addresses: {
+      testnet: ensAddress,
+    },
+  },
+};
+// $end
 
     // configure the client
     const clientConfig: Partial<ClientConfig> = {
