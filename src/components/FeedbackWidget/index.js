@@ -31,7 +31,7 @@ const FeedbackWidget = ({label,haveVoted, changeHaveVoted}) => {
             👍
           </p>
           <p className="feedbackEmoji thumbsdown"
-                onClick={() => giveFeedback(1)}>
+                onClick={() => giveFeedback(0)}>
             👎
           </p>
         </>
