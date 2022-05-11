@@ -25,27 +25,7 @@ Plugins are configured using URI Redirects. We would specify the `uri` property 
 For example, we can add an Ethereum plugin that uses MetaMask (or any other Ethereum JS provider) for its provider & signer!
 
 ```typescript
-import { ethereumPlugin } from '@web3api/ethereum-plugin-js';
+$snippet: js-metamask-provider-imports
 
-// Enable Metamask
-const ethereum = window.ethereum;
-await ethereum.request({
-  method: 'eth_requestAccounts',
-});
-
-// Configure the Ethereum plugin w/ MetaMask
-const client = new Web3ApiClient({
-  plugins: [
-    uri: "ens/ethereum.web3api.eth",
-    plugin: ethereumPlugin({
-      networks: {
-        mainnet: {
-          provider: ethereum
-        }
-      },
-      // If defaultNetwork is not specified, mainnet will be used.
-      defaultNetwork: "mainnet"
-    })
-  ]
-});
+$snippet: js-metamask-provider
 ```

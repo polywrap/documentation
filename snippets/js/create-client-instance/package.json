@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "build": "tsc index.ts --outDir ./build"
+    "build": "tsc --project ./tsconfig.json --outDir ./build"
   },
   "dependencies": {
-    "@web3api/client-js": "latest"
+    "@web3api/client-js": "latest",
+    "@web3api/ethereum-plugin-js": "latest"
   },
   "devDependencies": {
     "typescript": "4.6.4"

@@ -23,32 +23,11 @@ npm install @web3api/client-js
 Use an `import` or `require` statement, depending on which your environment supports.
 
 ```js
-import { Web3ApiClient } from '@polywrap/client-js';
+$snippet: js-import-client
 ```
 
 Then, you will be able to use the `Web3ApiClient` like so:
 
 ```js
-async function main() {
-  // Simply instantiate the Web3ApiClient.
-  const client = new Web3ApiClient();
-
-  // ...And then you'll be able to use the `query`
-  // method to send GraphQL requests to any Web3API
-  // that's located at the specified URI.
-  const result = await client.query({
-    uri: 'api.example.eth',
-    query: `query {
-      doSomething(
-        variable: $variable
-        value: "important value"
-      ) {
-        returnData
-      }
-    }`,
-    variables: {
-      variable: 555,
-    },
-  });
-}
+$snippet: js-client-query
 ```
