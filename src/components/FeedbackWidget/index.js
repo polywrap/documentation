@@ -1,5 +1,5 @@
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
-import React, {useState} from 'react';
+import React from 'react';
 import "./styles.css";
 
 const FeedbackWidget = ({label,haveVoted, changeHaveVoted}) => {
