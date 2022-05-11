@@ -13,7 +13,6 @@ import TOC from '@theme/TOC';
 import EditThisPage from '@theme/EditThisPage';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import Slide from '@mui/material/Slide';
 import {
   useActivePlugin,
   useVersions,
@@ -21,6 +20,7 @@ import {
 } from '@theme/hooks/useDocs';
 import FeedbackWidget from '../../components/FeedbackWidget/index';
 import { InView } from 'react-intersection-observer';
+import { Fade } from '@mui/material';
 
 function DocItem(props) {
   const {content: DocContent} = props;
@@ -95,15 +95,14 @@ function DocItem(props) {
                 setStopShowingVote(true)
               }
             }}>
-    {({ inView, ref, entry }) => (
-     <Slide direction="right" in={inView && !stopShowingVote}>
-       <div ref={ref}>
-       <FeedbackWidget changeHaveVoted={(voted)=> setHaveVoted(voted)} haveVoted={haveVoted} label={unversionedId} />
-     </div>
-            </Slide>
-    )}
-  </InView>
-    
+              {({ inView, ref, entry }) => (
+               <Fade timeout={3000} in={inView && !stopShowingVote}>
+                 <div ref={ref}>
+                 <FeedbackWidget changeHaveVoted={(voted)=> setHaveVoted(voted)} haveVoted={haveVoted} label={unversionedId} />
+                  </div>
+                </Fade>
+              )}
+            </InView>
               {(editUrl || lastUpdatedAt || lastUpdatedBy) && (
               <div className="row">
                 <div className="col">
