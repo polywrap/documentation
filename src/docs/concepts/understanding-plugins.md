@@ -25,5 +25,7 @@ Plugins are configured using URI Redirects. We would specify the `uri` property 
 For example, we can add an Ethereum plugin that uses MetaMask (or any other Ethereum JS provider) for its provider & signer!
 
 ```typescript
+$snippet: js-metamask-provider-imports
+
 $snippet: js-metamask-provider
 ```

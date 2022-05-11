@@ -1,7 +1,10 @@
-// $start: js-metamask-provider
+// $start: js-metamask-provider-imports
 import { Web3ApiClient } from "@web3api/client-js";
 import { ethereumPlugin } from '@web3api/ethereum-plugin-js';
+// $end
 
+export async function metamaskInEthereumPlugin() {
+// $start: js-metamask-provider
 // Enable Metamask
 const ethereum = (window as any).ethereum;
 await ethereum.request({
@@ -24,3 +27,6 @@ const client = new Web3ApiClient({
   }]
 });
 // $end
+
+  console.log(client);
+}

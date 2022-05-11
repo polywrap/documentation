@@ -10,3 +10,7 @@ const client = new Web3ApiClient({
   ],
 });
 // $end
+
+export function understandingRedirects() {
+  client.resolveUri("test");
+}
