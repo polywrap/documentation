@@ -121,7 +121,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/web3-api/documentation/tree/main/src',
+          editUrl: 'https://github.com/polywrap/documentation/tree/main/src',
           routeBasePath: '/',
         },
         googleAnalytics: {
