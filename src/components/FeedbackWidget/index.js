@@ -1,5 +1,5 @@
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
-import React, {useState} from 'react';
+import React from 'react';
 import "./styles.css";
 
 const FeedbackWidget = ({label,haveVoted, changeHaveVoted}) => {
@@ -31,7 +31,7 @@ const FeedbackWidget = ({label,haveVoted, changeHaveVoted}) => {
             👍
           </p>
           <p className="feedbackEmoji thumbsdown"
-                onClick={() => giveFeedback(1)}>
+                onClick={() => giveFeedback(0)}>
             👎
           </p>
         </>
