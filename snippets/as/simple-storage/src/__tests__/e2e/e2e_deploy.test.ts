@@ -1,10 +1,8 @@
-// $start: js-e2e-test-config
-// highlight-start
+// $start: js-e2e-test-deploy
 import { ClientConfig, Web3ApiClient } from "@web3api/client-js";
 import { ethereumPlugin, EthereumPluginConfigs } from "@web3api/ethereum-plugin-js";
 import { ipfsPlugin, IpfsPluginConfigs } from "@web3api/ipfs-plugin-js";
 import { ensPlugin, EnsPluginConfigs } from "@web3api/ens-plugin-js";
-// highlight-end
 import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
 import path from "path";
 
@@ -12,13 +10,16 @@ jest.setTimeout(120000);
 
 describe('Wrapper Test', () => {
 
+  // the Ethereum address of the SimpleStorage smart contract
+  // highlight-start
+  let simpleStorageAddress: string;
+  // highlight-end
+
   // the ENS URI that will be used to query  the wrapper
   let ensUri: string;
 
-  // highlight-start
   // an instance of the Polywrap Client
   let client: Web3ApiClient;
-  // highlight-end
 
   beforeAll(async () => {
     // initialize test environment
@@ -36,7 +37,6 @@ describe('Wrapper Test', () => {
     });
     ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
 
-    // highlight-start
     // configure the ipfs plugin
     const ipfsConfig: IpfsPluginConfigs = {
       provider: ipfs,
@@ -85,6 +85,16 @@ describe('Wrapper Test', () => {
 
     // create client
     client = new Web3ApiClient(clientConfig);
+
+    // deploy simple storage contract
+    // highlight-start
+    const { data, error } = await client.invoke<string>({
+      uri: ensUri,
+      module: "mutation",
+      method: "deployContract",
+    });
+    if (error) throw error;
+    simpleStorageAddress = data as string;
     // highlight-end
   });
 

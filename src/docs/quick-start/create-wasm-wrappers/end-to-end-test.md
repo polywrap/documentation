@@ -189,25 +189,58 @@ our client configuration will redirect to the plugin instances when queried.
 $snippet: js-e2e-test-config
 ```
 
+## **Deploy the Smart Contract**
+
+The Simple Storage wrapper is designed to interact with a Simple Storage smart contract. We need to deploy an
+instance of the contract to work with. While there are many tools developers can use to deploy a smart contract on a
+local network, the Simple Storage API has a method `deployContract` we can use to get the job done. We'll call it before
+running our test to make sure the contract is ready.
+
+```typescript
+$snippet: js-e2e-test-deploy
+```
+
+## **Generate TypeScript Types**
+
+Since we are using TypeScript, we will want types to work with. It is possible to automatically generate TypeScript
+types from a GraphQL schema using the Polywrap CLI's `app` command. 
+
+Let's set up a `web3api.app.yaml` manifest in a new folder called `types`.
+
+Before building our wrapper, we have a GraphQL schema for each of our modules. The `app` command is intended to be used 
+with built wrappers, which have only one schema. We will provide the manifest with the path to the composed schema in 
+our build folder. This means we need to build our wrapper before running tests.
+
+```yaml title="web3api.app.yaml"
+$start: yaml-e2e-test-app-manifest
+```
+
+We can then call the `app` command of the Polywrap CLI.
+
+```shell
+yarn w3 app codegen -m ./src/__tests__/types/web3api.app.yaml -c ./src/__tests__/types/w3
+```
+
+The generated output includes TypeScript types for the Simple Storage wrapper and its imports.
+
+```typescript title="types.ts"
+...
+$snippet: js-e2e-test-types
+...
+```
+
 ## **Testing a Wrapper Method**
 
 From this point, testing a function in your wrapper is no different from testing a traditional SDK. Instead of calling
 a method in a traditional SDK, you will invoke your wrapper.
 
-For our example, we will test the `fetchToken` method in the [Uniswap v3 wasm wrapper](../../demos/uniswapv3/intro). `fetchToken` accepts the Ethereum
-address and chain ID of an ERC20-compliant Ethereum token's smart contract and returns some information about the token.
+We will test the `setIpfsData` method we added to the SimpleStorage API in [Adding new mutation functions](./mutation-functions). 
+For arguments, the `setIpfsData` method takes the Ethereum address of a deployed Simple Storage contract and the data 
+the user wants to add to IPFS. It returns the IPFS hash of the data.
 
-Since we are using TypeScript, we will want types to work with. It is possible to automatically generate TypeScript 
-types from a GraphQL schema using the Polywrap CLI's `app` command, but that is outside the scope of this guide. 
-Instead, we will write the types we need manually in a new file called `types.ts`.
-
-```typescript title="types.ts"
-$snippet: js-e2e-test-types
-```
-
-We will test the `fetchToken` method using the DAI token as a test case. DAI is an Ethereum token that is pegged to the
-US dollar. To test the method, we will invoke it using the DAI token's Ethereum address and chain ID and then compare its return
-value to the test case.
+We will test the `setIpfsData` method using the string `"Hello from IPFS!"` as the data for our test case. To be sure
+our method returns the correct IPFS hash, we can compare the method's return value to the value we get from the free 
+[*File CID Checker*](https://app.pinata.cloud/cidchecker) service provided by [Pinata](https://www.pinata.cloud/).
 
 ```typescript title="Final test file"
 $snippet: js-e2e-test-final

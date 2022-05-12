@@ -1,24 +1,27 @@
+// THIS FILE IS FOR DEMONSTRATION PURPOSES ONLY!
+
+// @ts-ignore
+import * as Types from "./";
+
 // $start: js-e2e-test-types
-export type UInt8 = number;
 export type String = string;
+export type Boolean = boolean;
 
-export enum ChainId {
-  MAINNET,
-  ROPSTEN,
-  RINKEBY,
-  GOERLI,
-  KOVAN,
+export interface SetIpfsDataOptions {
+  address: Types.String;
+  data: Types.String;
 }
 
-export interface Currency {
-  decimals: UInt8;
-  symbol?: String | null;
-  name?: String | null;
+export interface SetIpfsDataResult {
+  ipfsHash: Types.String;
+  txReceipt: Types.String;
 }
 
-export interface Token {
-  chainId: ChainId;
-  address: String;
-  currency: Currency;
+/// Imported Objects START ///
+
+/* URI: "w3://ens/ethereum.web3api.eth" */
+export interface Ethereum_Connection {
+  node?: Types.String | null;
+  networkNameOrChainId?: Types.String | null;
 }
 // $end

@@ -3,12 +3,17 @@ import { ClientConfig, Web3ApiClient } from "@web3api/client-js";
 import { ethereumPlugin, EthereumPluginConfigs } from "@web3api/ethereum-plugin-js";
 import { ipfsPlugin, IpfsPluginConfigs } from "@web3api/ipfs-plugin-js";
 import { ensPlugin, EnsPluginConfigs } from "@web3api/ens-plugin-js";
-import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
+import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from '@web3api/test-env-js';
 import path from "path";
 // highlight-next-line
-import { Token, ChainId } from "./types";
+import { SetIpfsDataResult } from '../types/w3';
+
+jest.setTimeout(120000);
 
 describe('Wrapper Test', () => {
+
+  // the Ethereum address of the SimpleStorage smart contract
+  let simpleStorageAddress: string;
 
   // the ENS URI that will be used to query  the wrapper
   let ensUri: string;
@@ -80,6 +85,15 @@ describe('Wrapper Test', () => {
 
     // create client
     client = new Web3ApiClient(clientConfig);
+
+    // deploy simple storage contract
+    const { data, error } = await client.invoke<string>({
+      uri: ensUri,
+      module: "mutation",
+      method: "deployContract",
+    });
+    if (error) throw error;
+    simpleStorageAddress = data as string;
   });
 
   afterAll(async () => {
@@ -88,27 +102,18 @@ describe('Wrapper Test', () => {
   });
 
   // highlight-start
-  test("fetchToken", async () => {
-    // create test case
-    const DAI: Token = {
-      chainId: ChainId.MAINNET,
-      address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-      currency: {
-        decimals: 18,
-        symbol: "DAI",
-        name: "DAI Stablecoin",
-      },
-    };
-
-    // invoke wrapper method
-    const { data, error } = await client.invoke<Token>({
+  test("setIpfsData", async () => {
+    // invoke setIpfs method
+    const { data, error } = await client.invoke<SetIpfsDataResult>({
       uri: ensUri,
-      module: "query",
-      method: "fetchToken",
+      module: "mutation",
+      method: "setIpfsData",
       input: {
-        chainId: DAI.chainId,
-        address: DAI.address
-      },
+        options: {
+          address: simpleStorageAddress,
+          data: "Hello from IPFS!",
+        },
+      }
     });
 
     // check for errors
@@ -116,9 +121,7 @@ describe('Wrapper Test', () => {
     expect(data).toBeTruthy(); // will be undefined if an exception is thrown in the wrapper
 
     // compare results
-    expect(data?.currency.decimals).toEqual(DAI.currency.decimals);
-    expect(data?.currency.symbol).toEqual(DAI.currency.symbol);
-    expect(data?.currency.name).toEqual(DAI.currency.name);
+    expect(data?.ipfsHash).toEqual("QmPhAJz5QbidN3LgT2eDiu6Z3nCFs2gYQMbjgEAncrGsis");
   });
   // highlight-end
 });

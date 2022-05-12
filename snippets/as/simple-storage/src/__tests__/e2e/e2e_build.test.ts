@@ -4,6 +4,8 @@ import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@we
 import path from "path";
 // highlight-end
 
+jest.setTimeout(120000);
+
 describe('Wrapper Test', () => {
 
   // highlight-start
@@ -17,7 +19,7 @@ describe('Wrapper Test', () => {
 
     // highlight-start
     // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../../"); // absolute path to directory with web3api.yaml
+    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with web3api.yaml
     const api = await buildAndDeployApi({
       apiAbsPath: apiPath,
       ipfsProvider: ipfs,
@@ -34,5 +36,7 @@ describe('Wrapper Test', () => {
     // stop test environment
     await stopTestEnvironment();
   });
+
+  test("", async () => { });
 });
 // $end

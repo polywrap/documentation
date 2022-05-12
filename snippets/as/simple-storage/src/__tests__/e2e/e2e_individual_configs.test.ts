@@ -11,6 +11,8 @@ import { ensPlugin, EnsPluginConfigs } from "@web3api/ens-plugin-js";
 import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
 import path from "path";
 
+jest.setTimeout(120000);
+
 describe('Wrapper Test', () => {
 
   // the ENS URI that will be used to query  the wrapper
@@ -24,7 +26,7 @@ describe('Wrapper Test', () => {
     const { ipfs, ethereum, ensAddress, registrarAddress, resolverAddress } = await initTestEnvironment();
 
     // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../../"); // absolute path to directory with web3api.yaml
+    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with web3api.yaml
     const api = await buildAndDeployApi({
       apiAbsPath: apiPath,
       ipfsProvider: ipfs,
@@ -95,4 +97,6 @@ const ensConfig: EnsPluginConfigs = {
     // stop test environment
     await stopTestEnvironment();
   });
+
+  test("", async () => { });
 });
