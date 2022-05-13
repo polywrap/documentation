@@ -1,3 +1,3 @@
 yarn --no-lockfile
 yarn build
-yarn test
+yarn test:e2e

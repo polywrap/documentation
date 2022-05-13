@@ -1,0 +1,12 @@
+format: 0.0.1-prealpha.1
+stages:
+  ipfs_deploy:
+    package: ipfs
+    uri: fs/./build
+  ens_deploy:
+    package: ens
+    depends_on: ipfs_deploy
+    config:
+      domainName: simplestorage.eth
+      provider: 'http://localhost:8545'
+      ensRegistryAddress: ''
