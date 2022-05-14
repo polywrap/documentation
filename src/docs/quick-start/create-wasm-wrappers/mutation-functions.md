@@ -7,7 +7,7 @@ title: 'Adding new mutation functions'
 
 It's time to build and customizing your own Polywrapper! We'll be adding IPFS support to the SimpleStorage Polywrap.
 
-A complete project with the modifications described below can be found [here](https://github.com/Web3-API/demos/tree/main/simple-storage/web3api-completed).
+A complete project with the modifications described below can be found [here](https://github.com/polywrap/demos/tree/main/simple-storage/wrapper).
 
 ### **Update the mutation schema**
 

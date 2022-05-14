@@ -8,14 +8,7 @@ Similar to how browsers can redirect from one URI to another, the Polywrap clien
 For example, if we'd like to redirect all queries to the `ens/api.helloworld.polywrap.eth` URI to our own custom URI (`ens/api.myhelloworld.eth` , for example), we'd simply configure the client like so:
 
 ```typescript
-const client = new Web3ApiClient({
-  redirects: [
-    {
-      from: `ens/api.helloworld.polywrap.eth`,
-      to: `ens/api.myhelloworld.eth`,
-    },
-  ],
-});
+$snippet: js-understanding-redirects
 ```
 
 :::caution

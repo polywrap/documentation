@@ -73,13 +73,13 @@ async function injectSnippetIntoFile(
     }
 
     contents = contents.replace(
-      `${marker}${name}`,
-      snippets[name]
+      `${marker}${name}\n`,
+      `${snippets[name]}\n`
     );
     console.log("- Inject Snippet", name, "into", filePath);
 
     modified = true;
-    index = nameStartIdx + snippets[name].length;
+    index = markerIdx + snippets[name].length;
   }
 
   if (modified) {
