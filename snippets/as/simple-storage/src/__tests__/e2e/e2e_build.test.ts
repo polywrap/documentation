@@ -4,7 +4,7 @@ import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@we
 import path from "path";
 // highlight-end
 
-jest.setTimeout(120000);
+jest.setTimeout(360000);
 
 describe('Wrapper Test', () => {
 

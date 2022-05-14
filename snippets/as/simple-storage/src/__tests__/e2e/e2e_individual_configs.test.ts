@@ -11,7 +11,7 @@ import { ensPlugin, EnsPluginConfigs } from "@web3api/ens-plugin-js";
 import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
 import path from "path";
 
-jest.setTimeout(120000);
+jest.setTimeout(360000);
 
 describe('Wrapper Test', () => {
 

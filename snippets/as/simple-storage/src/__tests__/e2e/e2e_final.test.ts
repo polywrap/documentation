@@ -8,7 +8,7 @@ import path from "path";
 // highlight-next-line
 import { SetIpfsDataResult } from '../types/w3';
 
-jest.setTimeout(120000);
+jest.setTimeout(360000);
 
 describe('Wrapper Test', () => {
 

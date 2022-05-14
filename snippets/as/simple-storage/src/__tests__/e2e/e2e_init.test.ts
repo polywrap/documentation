@@ -1,7 +1,7 @@
 // $start: js-e2e-test-init
 import { initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
 
-jest.setTimeout(120000);
+jest.setTimeout(360000);
 
 describe('Wrapper Test', () => {
 
