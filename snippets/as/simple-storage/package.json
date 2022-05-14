@@ -9,8 +9,8 @@
     "build:contract": "node ./scripts/build-contract.js",
     "test:env:up": "npx w3 test-env up",
     "test:env:down": "npx w3 test-env down",
-    "deploy": "yarn deploy:contract && yarn deploy:web3api",
-    "deploy:web3api": "npx w3 deploy",
+    "deploy": "yarn deploy:contract && yarn deploy:api",
+    "deploy:api": "node ./scripts/deploy-api.js",
     "deploy:contract": "node ./scripts/deploy-contract.js",
     "test": "yarn test:e2e && yarn test:env:up && yarn deploy && yarn test:recipe && yarn test:env:down",
     "test:e2e": "yarn test:e2e:codegen && jest --passWithNoTests --runInBand --verbose",
@@ -29,6 +29,7 @@
     "ethers": "5.0.7",
     "js-yaml": "3.14.0",
     "solc": "0.8.3",
-    "typescript": "4.6.4"
+    "typescript": "4.6.4",
+    "axios": "0.21.2"
   }
 }
