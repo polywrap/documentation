@@ -14,24 +14,7 @@ A complete project with the modifications described below can be found [here](ht
 The first step to adding new Polywrapper functionality is defining the method we want our users to query in GraphQL. Add the following method & custom data types to your `./src/mutation/schema.graphql` schema file:
 
 ```graphql title="./src/mutation/schema.graphql"
-type Mutation {
-  ...
-
-  setIpfsData(
-    options: SetIpfsDataOptions!
-    connection: Ethereum_Connection
-  ): SetIpfsDataResult!
-}
-
-type SetIpfsDataOptions {
-  address: String!
-  data: String!
-}
-
-type SetIpfsDataResult {
-  ipfsHash: String!
-  txReceipt: String!
-}
+$snippet: gql-simple-storage-mutation-schema
 ```
 
 ### **Import IPFS' Polywrap mutations**
@@ -39,8 +22,7 @@ type SetIpfsDataResult {
 Since we'll be making use of IPFS in our Polywrapper, let's import its `Mutation` type so we can call it from our code, allowing us to upload content:
 
 ```graphql title="./src/mutation/schema.graphql"
-...
-#import { Mutation } into Ipfs from "w3://ens/ipfs.web3api.eth"
+$snippet: gql-simple-storage-mutation-schema-ipfs-import
 
 type Mutation {
   ...
@@ -54,13 +36,7 @@ type Mutation {
 In the `./src/mutation/index.ts` file, import the new types we've defined:
 
 ```typescript title="./src/mutation/index.ts"
-import {
-  Ethereum_Mutation,
-  Ipfs_Mutation,
-  Input_setData,
-  Input_setIpfsData,
-  SetIpfsDataResult,
-} from './w3';
+$snippet: as-simple-storage-mutation-import
 ```
 
 These new types will not exist yet, but don't worry, they'll be generated in the `./src/mutation/w3/*` folder once the `yarn build` command is run.
@@ -68,28 +44,7 @@ These new types will not exist yet, but don't worry, they'll be generated in the
 Next, we'll implement the `setIpfsData` mutation method. Add this function to the bottom of your `./src/mutation/index.ts` file:
 
 ```typescript title="./src/mutation/index.ts"
-...
-
-export function setIpfsData(input: Input_setIpfsData): SetIpfsDataResult {
-  // 1. Upload the data to IPFS
-  const ipfsHash = Ipfs_Mutation.addFile({
-    data: String.UTF8.encode(input.options.data),
-  });
-
-  // 2. Add the data's IPFS hash to SimpleStorage using `setHash(...)`
-  const txReceipt = Ethereum_Mutation.callContractMethodAndWait({
-    address: input.options.address,
-    method: 'function setHash(string value)',
-    args: [ipfsHash],
-    connection: input.connection,
-  });
-
-  // 3. Return the result
-  return {
-    ipfsHash,
-    txReceipt: txReceipt.transactionHash,
-  };
-}
+$snippet: as-simple-storage-mutation
 ```
 
 As you can see, the `SimpleStorage.sol` smart contract already exposes a `setHash()` method.

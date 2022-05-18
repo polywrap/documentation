@@ -1,0 +1,5 @@
+# $start: yaml-e2e-test-app-manifest
+format: 0.0.1-prealpha.1
+language: app/typescript
+schema: ../../../build/schema.graphql
+# $end

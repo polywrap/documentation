@@ -1,0 +1,10 @@
+# $start: gql-simple-storage-getData-recipe-schema
+query GetData($address: String!) {
+  getData(
+    address: $address
+    connection: {
+      networkNameOrChainId: $network
+    }
+  )
+}
+# $end
