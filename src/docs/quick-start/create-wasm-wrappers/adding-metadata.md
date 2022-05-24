@@ -11,7 +11,7 @@ query recipes.
 
 Its location must be referenced in the `web3api.yaml` manifest with a field labeled *meta*.
 
-```yaml title="Declaration of Meta Manifest location in web3api.yaml"
+```yaml"
 meta: ./web3api.meta.yaml
 ```
 
@@ -41,6 +41,7 @@ interface MetaManifest {
     query: string; // path to recipe graphql schema
     vars?: string; // path to recipe variables json
   }[];
+  __type: "MetaManifest"; // this field is automatically populated
 }
 ```
 

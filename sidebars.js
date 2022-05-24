@@ -22,6 +22,7 @@ module.exports = {
             'quick-start/create-js-app/install-client',
             'quick-start/create-js-app/create-client-instance',
             'quick-start/create-js-app/react-integration',
+            'quick-start/create-js-app/get-wrapper-metadata',
           ],
         },
         {
@@ -39,7 +40,7 @@ module.exports = {
             'quick-start/create-wasm-wrappers/deploy-to-ipfs',
             'quick-start/create-wasm-wrappers/publish-to-ens',
             'quick-start/create-wasm-wrappers/build-pipeline',
-            'quick-start/adding-metadata',
+            'quick-start/create-wasm-wrappers/adding-metadata',
             'quick-start/create-wasm-wrappers/uniswapv3-to-polywrap',
           ],
         },
