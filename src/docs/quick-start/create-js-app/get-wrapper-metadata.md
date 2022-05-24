@@ -8,7 +8,6 @@ Wrapper developers can add metadata to their wrappers by writing a Meta Manifest
 Application developers can obtain the Meta Manifest as an object or class in the client's native language.
 
 ```typescript
-// returns a 'MetaManifest | undefined'
 const manifest = await client.getManifest(uri, { type: "meta" });
 ```
 
@@ -18,21 +17,20 @@ To obtain icons from paths listed in a wrapper's Meta Manifest, use `getFile`.
 The return type of `getFile` will be a string if the `encoding` option is used, and an ArrayBuffer otherwise.
 
 ```typescript
-// returns an ArrayBuffer
 const isBuffer = await client.getFile(uri, { path: manifest.icon });
-// returns a string
 const isString = await client.getFile(uri, { path: manifest.icon, encoding: "utf-8" });
 ```
 
 We wrote a React app to demo fetching and displaying wrapper metadata.
 [You can view the source code here](https://github.com/polywrap/demos/tree/main/fetch-metadata).
 
-The following function was pulled directly from the demo. The function fetches wrapper metadata from a URI that is
-declared and assigned in a higher scope. The wrapper Meta Manifest is used as input to the setManifest function to
-update the application's state. A similar approach is used for images that are fetched from the URI based on paths
-referenced in the Meta Manifest.
+The following function was pulled directly from the demo. 
+It can be viewed [here](https://github.com/polywrap/demos/blob/main/fetch-metadata/src/components/FetchMetadata/FetchMetadata.tsx). 
+The function fetches wrapper metadata from a URI that is declared and assigned in a higher scope. 
+The wrapper Meta Manifest is used as input to the setManifest function to update the application's state. 
+A similar approach is used for images that are fetched from the URI based on paths referenced in the Meta Manifest.
 ```typescript title="Example: fetching a Meta Manifest in TypeScript"
-  const fetchHandler = async (event: FormEvent<HTMLFormElement>): Promise<any> => {
+  const fetchHandler = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     if (!uri) {
       return;
