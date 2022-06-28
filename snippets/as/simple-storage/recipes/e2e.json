@@ -1,6 +1,6 @@
 [
   {
-    "api": "ens/testnet/best-bridge.eth",
+    "api": "ens/testnet/gullible-week.eth",
     "constants": "./constants.json"
   },
   {

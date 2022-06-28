@@ -9,6 +9,7 @@ module.exports = {
         'concepts/understanding-uris',
         'concepts/understanding-plugins',
         'concepts/understanding-uri-redirects',
+        'concepts/plugin-vs-wasm-wrapper',
         'concepts/faq',
       ],
     },
