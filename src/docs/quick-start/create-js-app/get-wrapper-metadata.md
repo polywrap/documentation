@@ -3,7 +3,7 @@ id: 'get-wrapper-metadata'
 title: 'Get Wrapper Metadata'
 ---
 
-Some application developers may be interested in wrapper meta data.
+Some application developers may be interested adding or retrieving wrapper metadata.
 Wrapper developers can add metadata to their wrappers by writing a Meta Manifest file.
 Application developers can obtain the Meta Manifest as an object or class in the client's native language.
 
@@ -73,7 +73,7 @@ const fetchHandler = async (event: FormEvent<HTMLFormElement>): Promise<void> =>
   if (manifest.icon) {
     try {
       // highlight-next-line
-      const imageBuffer: ArrayBuffer = await client.getFile(uri, {path: manifest.icon}) as ArrayBuffer;
+      const imageBuffer: ArrayBuffer = await client.getFile(uri, { path: manifest.icon }) as ArrayBuffer;
       icons[manifest.icon] = Buffer.from(imageBuffer).toString("base64");
     } catch (e: any) {
       console.log(e.message);
@@ -85,7 +85,7 @@ const fetchHandler = async (event: FormEvent<HTMLFormElement>): Promise<void> =>
       if (link.icon) {
         try {
           // highlight-next-line
-          const imageBuffer: ArrayBuffer = await client.getFile(uri, {path: link.icon}) as ArrayBuffer;
+          const imageBuffer: ArrayBuffer = await client.getFile(uri, { path: link.icon }) as ArrayBuffer;
           icons[link.icon] = Buffer.from(imageBuffer).toString("base64");
         } catch (e: any) {
           console.log(e.message);
