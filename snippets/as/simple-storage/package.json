@@ -18,11 +18,11 @@
     "test:recipe": "npx w3 query ./recipes/e2e.json"
   },
   "devDependencies": {
-    "@web3api/cli": "latest",
-    "@web3api/ethereum-plugin-js": "latest",
-    "@web3api/wasm-as": "latest",
-    "@web3api/client-js": "latest",
-    "@web3api/test-env-js": "latest",
+    "@web3api/cli": "0.0.1-prealpha.83",
+    "@web3api/ethereum-plugin-js": "0.0.1-prealpha.83",
+    "@web3api/wasm-as": "0.0.1-prealpha.83",
+    "@web3api/client-js": "0.0.1-prealpha.83",
+    "@web3api/test-env-js": "0.0.1-prealpha.83",
     "ts-jest": "~28.0.2",
     "jest": "~28.1.0",
     "@types/jest": "~27.5.0",

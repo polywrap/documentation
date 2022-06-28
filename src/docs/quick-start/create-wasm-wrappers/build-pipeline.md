@@ -149,7 +149,7 @@ docker:
   dockerfile: ./Dockerfile
 ```
 
-You can also name your custom Dockerfile with a mustache file extension like so `Dockerfile.mustache`, which would enable Mustache capabilities for your Dockerfile. Mustache is a logic-less template sysetm that can be used for HTML, config files, and more. Learn more about Mustache [here](https://www.npmjs.com/package/mustache).
+You can also name your custom Dockerfile with a mustache file extension like so `Dockerfile.mustache`, which would enable Mustache capabilities for your Dockerfile. Mustache is a logic-less template system that can be used for HTML, config files, and more. Learn more about Mustache [here](https://www.npmjs.com/package/mustache).
 
 With Mustache, your Dockerfile will be able to recognize variable tags set by the `web3api.build.yaml` file. For example, in your `web3api.build.yaml` file, you could have a key such as `foo` with the value `hey` like so:
 

@@ -8,6 +8,7 @@ build
 # Generated files
 .docusaurus
 .cache-loader
+coverage
 
 # Misc
 .DS_Store
@@ -23,3 +24,4 @@ yarn-error.log*
 # Snippets
 build-error.log
 snippets.txt
+snippets.json

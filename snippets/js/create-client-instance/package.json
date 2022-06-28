@@ -3,8 +3,8 @@
     "build": "tsc --project ./tsconfig.json --outDir ./build"
   },
   "dependencies": {
-    "@web3api/client-js": "latest",
-    "@web3api/ethereum-plugin-js": "latest"
+    "@web3api/client-js": "0.0.1-prealpha.83",
+    "@web3api/ethereum-plugin-js": "0.0.1-prealpha.83"
   },
   "devDependencies": {
     "typescript": "4.6.4"
