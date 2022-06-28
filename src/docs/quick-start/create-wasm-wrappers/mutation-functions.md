@@ -5,7 +5,7 @@ title: 'Adding new mutation functions'
 
 ## **Custom functionality: IPFS SimpleStorage**
 
-It's time to build and customizing your own Polywrapper! We'll be adding IPFS support to the SimpleStorage Polywrap.
+It's time to build and customize your own Polywrapper! We'll be adding IPFS support to the SimpleStorage Polywrap.
 
 A complete project with the modifications described below can be found [here](https://github.com/polywrap/demos/tree/main/simple-storage/wrapper).
 
@@ -49,8 +49,8 @@ $snippet: as-simple-storage-mutation
 
 As you can see, the `SimpleStorage.sol` smart contract already exposes a `setHash()` method.
 
-In steps `1` and `2`, our SimpleStorage Polywrapper is sending a "sub-query" to the IPFS and Ethereum Polywrappers we imported within our schema. These Polywrappers can be implements as a WebAssembly-based Polywrapper, or a plugin in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/quick-start/create-plugin-wrappers/create-js-plugin) documentation.
+In steps `1` and `2`, our SimpleStorage Polywrapper is sending a "sub-query" to the IPFS and Ethereum Polywrappers we imported within our schema. These Polywrappers can be implemented as a WebAssembly-based Polywrapper, or a plugin in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/quick-start/create-plugin-wrappers/create-js-plugin) documentation.
 
-The `Ethereum_Mutation.callContractMethodAndWait` function also accepts an optional argument, `connection`. This option allows you to select the network in which you're transacting with, by specifying a node's endpoint, or a network (name or chain ID) (e.g. `"rinkeby"`).
+The `Ethereum_Mutation.callContractMethodAndWait` function also accepts an optional argument, `connection`. This option allows you to select the network which you're transacting with, by specifying a node's endpoint, or a network (name or chain ID) (e.g. `"rinkeby"`).
 
 To verify everything is implemented correctly, try running `yarn build` and see if the Polywrap build succeeds.

@@ -15,7 +15,7 @@ The best way to set up a Polywrap project is to start with one of the project te
 
 The initial project setup includes a `mutation` folder and a `query` folder within `src`, which correspond to the two types of modules a wrapper can have.
 
-It also includes a `web3api.yaml` manifest file, a `web3api.build.yaml` build manifest file, and a `web3api.meta.yaml` meta manaifest file. The `web3api.yaml` manifest tells the Polywrap CLI what language your wrapper is in, where your module schemas are located, and more. Our `web3api.yaml` looked like this:
+It also includes a `web3api.yaml` manifest file, a `web3api.build.yaml` build manifest file, and a `web3api.meta.yaml` meta manifest file. The `web3api.yaml` manifest tells the Polywrap CLI what language your wrapper is in, where your module schemas are located, and more. Our `web3api.yaml` looked like this:
 
 ```yaml
 format: 0.0.1-prealpha.5
@@ -73,7 +73,7 @@ The first draft of the Uniswap v3 wrapper's schema was written in just a few hou
 
 ## Implementing the first functions
 
-When porting an SDK, it's important to understand its project structure. The organization of the SDK's soure code can indicate how wrapper development should proceed. Development should allow for iterative changes and testing.
+When porting an SDK, it's important to understand its project structure. The organization of the SDK's source code can indicate how wrapper development should proceed. Development should allow for iterative changes and testing.
 
 The Unsiwap v3 SDK can be mentally modularized into a roughly linear set of dependent components. We can start with the concept of a `Token`, which is the component of a `CurrencyAmount` and a `Pool`. A `Route` is a set of pools and currencies.  A `Trade` is constructed from two currency amounts and one or more routes. Based on this pattern, it made sense for us to start with `Token`.
 
@@ -94,7 +94,7 @@ public sortsBefore(other: Token): boolean {
 
 Using the Polywrap CLI's `codegen` command, we generated AssemblyScript classes corresponding to each type we defined in the schema. This was as simple as typing `w3 codegen`. The classes work like TypeScript interfaces (statically typed JavaScript objects) that include some boilerplate serialization logic. When you declare a function in your schema that returns a custom type or accepts one as an argument, these generated classes are used as the AssemblyScript analogs.
 
-The `codegen` command simulatenously generates another flavor of AssemblyScript class: function inputs. An `Input_*` class is generated for each function, where `*` is the name of the function. The classes have properties corresponding to the arguments defined in the schema. These `Input_*` classes are used as inputs to the functions declared in the GraphQL schema.
+The `codegen` command simultaneously generates another flavor of AssemblyScript class: function inputs. An `Input_*` class is generated for each function, where `*` is the name of the function. The classes have properties corresponding to the arguments defined in the schema. These `Input_*` classes are used as inputs to the functions declared in the GraphQL schema.
 
 The Polywrap CLI places the generated files in directories named `w3`, which can be found within each module folder (as declared in your `web3api.yaml` manifest). From there you can implement and use them.
 
