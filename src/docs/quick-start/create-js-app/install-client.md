@@ -8,7 +8,7 @@ title: 'Installing the Polywrap JS client'
 If you're a JavaScript developer building Browser, Node.js, or React based apps, this guide is for you.
 
 :::tip
-In the future, JavaScript will be one of many supported languages. Our goal is to enable the use of Polywraps in every major programming language.
+In the future, JavaScript will be one of many supported languages. Our goal is to enable the use of Polywrap in every major programming language.
 :::
 
 By the end of this document, you'll gain the following skills:
@@ -26,10 +26,10 @@ As prerequisites for this guide, we recommend having familiarity with [TypeScrip
 
 ## **Installation**
 
-To use Polywraps in your app, all you need is the Polywrap Client!
+To use wrappers in your app, all you need is the Polywrap Client!
 
 ```
-npm install --save @web3api/client-js
+npm install --save @polywrap/client-js
 ```
 
 The Polywrap JavaScript Client works in both Node.js, and browser applications.
@@ -40,10 +40,10 @@ Some example projects that integrate the JS client can be found [here](https://g
 > The next section assumes that you're integrating Polywrap into an existing app project. If you want a quick start with our template project, simply run:
 >
 > ```bash
-> npx @web3api/cli create app typescript-react <project-name>
+> npx polywrap create app typescript-react <project-name>
 > ```
 >
-> Where `<project-name>` is replaced with a custom name of your choosing. For example `my-web3api`.
+> Where `<project-name>` is replaced with a custom name of your choosing. For example `my-wrapper`.
 >
 > This command will create a new project folder with a "Hello World" app that
-> lets you interact with a simple Polywrap at `ens/helloworld.web3api.eth`.
+> lets you interact with a simple Wasm wrapper at `ens/helloworld.web3api.eth`.

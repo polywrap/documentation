@@ -1,15 +1,15 @@
 # $start: yaml-simple-storage-meta-manifest
-format: 0.0.1-prealpha.3
+format: 0.1.0
 displayName: Simple Storage
 subtext: Simple Storage on Ethereum
-description: Set and get a value on an Ethereum smart sontract using Polywrap.
+description: Set and get a value on an Ethereum smart contract using Polywrap.
 repository: https://github.com/polywrap/demos
-icon: ./meta/icon.svg
+icon: ./meta/icon.png
 links:
   - name: dApp
-    icon: ./meta/icon.svg
+    icon: ./meta/link.svg
     url: https://demo.simplestorage.polywrap.io
   - name: Polywrap
-    icon: ./meta/logo.png
+    icon: ./meta/link.svg
     url: https://polywrap.io
 # $end

@@ -1,5 +1,5 @@
-# SimpleStorage Demo Web3API
-A simple starter template that uses a SimpleStorage.sol contract on ethereum, as well as storing and fetching data on IPFS. For more information on how this project works, and a step by step on how to extend its behavior, see the documentation [here](https://docs.web3api.dev/developers/create-as-web3api).
+# SimpleStorage Demo Polywrap
+Simplestorage demo uses SimpleStorage.sol ethereum contract and allows storing and retriveing data to/from ethereum blockchain. For more information on how this project works, and a step by step on how to extend its behavior, see the documentation [here](https://docs.polywrap.io/).
 
 # How To Run
 
@@ -7,11 +7,9 @@ A simple starter template that uses a SimpleStorage.sol contract on ethereum, as
 `nvm install && nvm use`  
 `yarn`  
 
-## Start Test Environment
-`yarn test:env:up`  
+## Build
+`yarn build`  
 
-## Build & Deploy Web3API
-`yarn deploy`  
-
-## Run Test Query Recipe
-`yarn test`  
+## Test
+`yarn test:e2e`  
+`yarn test:workflow`  

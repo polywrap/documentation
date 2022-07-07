@@ -3,8 +3,8 @@ id: client-js
 title: Client
 ---
 
-<a href="https://www.npmjs.com/package/@web3api/client-js" target="_blank" rel="noopener noreferrer">
-<img src="https://img.shields.io/npm/v/@web3api/client-js.svg" alt="npm"/>
+<a href="https://www.npmjs.com/package/@polywrap/client-js" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/npm/v/@polywrap/client-js.svg" alt="npm"/>
 </a>
 
 <br/>
@@ -15,7 +15,7 @@ The Polywrap JavaScript client exists to help developers integrate wrappers into
 ## Installation
 
 ```bash
-npm install @web3api/client-js
+npm install @polywrap/client-js
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Use an `import` or `require` statement, depending on which your environment supp
 $snippet: js-import-client
 ```
 
-Then, you will be able to use the `Web3ApiClient` like so:
+Then, you will be able to use the `PolywrapClient` like so:
 
 ```js
 $snippet: js-client-query

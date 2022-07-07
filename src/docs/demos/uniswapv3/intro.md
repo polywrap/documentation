@@ -3,15 +3,19 @@ id: intro
 title: Uniswap v3 Polywrap Documentation
 ---
 
+:::caution
+This demo was made with a deprecated version of Polywrap!
+:::
+
 ## Overview
 
 Welcome to the Uniswap v3 Polywrap documentation!
 
-The Uniswap Polywrapper is written in [AssemblyScript](https://www.assemblyscript.org/), and like the official Uniswap SDK, it has a robust test suite and performs arbitrary precision arithmetic. The Uniswap Polywrapper business logic will be deployed on a decentralized endpoint, like IPFS.
+The Uniswap Polywrap wrapper is written in [AssemblyScript](https://www.assemblyscript.org/), and like the official Uniswap SDK, it has a robust test suite and performs arbitrary precision arithmetic. The Uniswap Polywrap wrapper business logic will be deployed on a decentralized endpoint, like IPFS.
 
-Our first Polywrap client is for JavaScript(`@web3api/client-js`) and it can run in any environment that can execute JavaScript. We also have a working Rust implementation. In the future, we'll have Polywrap clients for other environments (Python, Go, and more).
+Our first Polywrap client is for JavaScript(`@polywrap/client-js`) and it can run in any environment that can execute JavaScript. We also have a working Rust implementation. In the future, we'll have Polywrap clients for other environments (Python, Go, and more).
 
-Developers integrating the Uniswap wrapper into their app would use [GraphQL](https://graphql.org/) queries to execute functions provided by the Uniswap wrapper. This documentation shows you which **query** and **mutation** functions are made available by the Uniswap wrapper and how to use them.
+Developers integrating the Uniswap Wasm wrapper into their app would use [GraphQL](https://graphql.org/) queries to execute functions provided by the Uniswap wrapper. This documentation shows you which functions are made available by the Uniswap wrapper and how to use them.
 
 ## Uniswap wrapper vs. Existing SDK
 
@@ -28,7 +32,7 @@ We've created an interactive tutorial that can help you get started using the Un
 In general, to use _any_ Polywrap in your application, all you need is the Polywrap Client.
 
 ```
-npm install --save @web3api/client-js
+npm install --save @polywrap/client-js
 ```
 
 The Polywrap JavaScript Client works in both Node.js and browser applications.
@@ -36,7 +40,7 @@ The Polywrap JavaScript Client works in both Node.js and browser applications.
 Then, initialize the client.
 
 ```typescript
-import { Web3ApiClient } from '@web3api/client-js';
+import { Web3ApiClient } from '@polywrap/client-js';
 const client = new Web3ApiClient();
 ```
 

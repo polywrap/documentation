@@ -11,4 +11,4 @@ There are multiple ways to publish your wrapper's IPFS hash to ENS:
 [ENS App](https://docs.ens.domains/) is a distributed, open, and extensible naming system based on the Ethereum blockchain.
 
 ## `wrappers` CLI
-[`wrappers`](https://www.npmjs.com/package/@nerfzael/wrappers) is a command-line tool for publishing polywrappers to IPFS and ENS. IPFS publishing is done via a [wrap-persistence-node endpoint](https://www.npmjs.com/package/@nerfzael/wrap-persistence-node). By default it publishes to the public https://ipfs.wrappers.io endpoint.  
+[`wrappers`](https://www.npmjs.com/package/@nerfzael/wrappers) is a command-line tool for publishing Wasm wrappers to IPFS and ENS. IPFS publishing is done via a [wrap-persistence-node endpoint](https://www.npmjs.com/package/@nerfzael/wrap-persistence-node). By default it publishes to the public https://ipfs.wrappers.io endpoint.  

@@ -1,14 +1,15 @@
-import { ClientConfig, Web3ApiClient } from "@web3api/client-js";
+import { ClientConfig, PolywrapClient } from "@polywrap/client-js";
 // $start: js-e2e-test-config-ethereum-import
-import { ethereumPlugin, EthereumPluginConfigs } from "@web3api/ethereum-plugin-js";
+import { ethereumPlugin, EthereumPluginConfig } from "@polywrap/ethereum-plugin-js";
 // $end
 // $start: js-e2e-test-config-ipfs-import
-import { ipfsPlugin, IpfsPluginConfigs } from "@web3api/ipfs-plugin-js";
+import { ipfsPlugin, IpfsPluginConfig } from "@polywrap/ipfs-plugin-js";
 // $end
 // $start: js-e2e-test-config-ens-import
-import { ensPlugin, EnsPluginConfigs } from "@web3api/ens-plugin-js";
+import { ensResolverPlugin, EnsResolverPluginConfig } from "@polywrap/ens-resolver-plugin-js";
 // $end
-import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
+
+import { buildAndDeployWrapper, initTestEnvironment, stopTestEnvironment, providers, ensAddresses } from "@polywrap/test-env-js";
 import path from "path";
 
 jest.setTimeout(360000);
@@ -19,41 +20,35 @@ describe('Wrapper Test', () => {
   let ensUri: string;
 
   // an instance of the Polywrap Client
-  let client: Web3ApiClient;
+  let client: PolywrapClient;
 
   beforeAll(async () => {
     // initialize test environment
-    const { ipfs, ethereum, ensAddress, registrarAddress, resolverAddress } = await initTestEnvironment();
+    await initTestEnvironment();
 
     // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with web3api.yaml
-    const api = await buildAndDeployApi({
-      apiAbsPath: apiPath,
-      ipfsProvider: ipfs,
-      ensRegistryAddress: ensAddress,
-      ethereumProvider: ethereum,
-      ensRegistrarAddress: registrarAddress,
-      ensResolverAddress: resolverAddress,
+    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with polywrap.yaml
+    const api = await buildAndDeployWrapper({
+      wrapperAbsPath: apiPath,
+      ipfsProvider: providers.ipfs,
+      ethereumProvider: providers.ethereum,
     });
     ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
 
     // configure the ipfs plugin
 // $start: js-e2e-test-config-ipfs
-const ipfsConfig: IpfsPluginConfigs = {
-  provider: ipfs,
+const ipfsConfig: IpfsPluginConfig = {
+  provider: providers.ipfs,
   fallbackProviders: undefined,
 };
 // $end
 
     // configure the ethereum plugin
 // $start: js-e2e-test-config-ethereum
-const ethereumConfig: EthereumPluginConfigs = {
+const ethereumConfig: EthereumPluginConfig = {
   networks: {
     testnet: {
-      provider: ethereum, // Ganache test network
-    },
-    mainnet: {
-      provider: "http://localhost:8546", // Ganache Ethereum mainnet fork
+      provider: providers.ethereum, // Ganache test network
     },
   },
   defaultNetwork: "testnet",
@@ -62,11 +57,9 @@ const ethereumConfig: EthereumPluginConfigs = {
 
     // configure the ens plugin
 // $start: js-e2e-test-config-ens
-const ensConfig: EnsPluginConfigs = {
-  query: {
-    addresses: {
-      testnet: ensAddress,
-    },
+const ensConfig: EnsResolverPluginConfig = {
+  addresses: {
+    testnet: ensAddresses.ensAddress,
   },
 };
 // $end
@@ -75,22 +68,22 @@ const ensConfig: EnsPluginConfigs = {
     const clientConfig: Partial<ClientConfig> = {
       plugins: [
         {
-          uri: "w3://ens/ipfs.web3api.eth",
+          uri: "wrap://ens/ipfs.polywrap.eth",
           plugin: ipfsPlugin(ipfsConfig),
         },
         {
-          uri: "w3://ens/ens.web3api.eth",
-          plugin: ensPlugin(ensConfig),
+          uri: "wrap://ens/ens-resolver.polywrap.eth",
+          plugin: ensResolverPlugin(ensConfig),
         },
         {
-          uri: "w3://ens/ethereum.web3api.eth",
+          uri: "wrap://ens/ethereum.polywrap.eth",
           plugin: ethereumPlugin(ethereumConfig),
         },
       ],
     };
 
     // create client
-    client = new Web3ApiClient(clientConfig);
+    client = new PolywrapClient(clientConfig);
   });
 
   afterAll(async () => {

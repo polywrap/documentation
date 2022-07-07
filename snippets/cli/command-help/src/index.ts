@@ -10,8 +10,8 @@ const commands = [
   "create",
   "deploy",
   "plugin",
-  "query",
-  "test-env"
+  "infra",
+  "run"
 ];
 
 async function main() {

@@ -50,7 +50,7 @@ const fetchHandler = async (event: FormEvent<HTMLFormElement>): Promise<void> =>
     manifest = await client.getManifest(uri, {type: "meta"});
     setManifest(manifest);
   } catch (e: any) {
-    if (e.message.includes("WasmWeb3Api: File was not found.")) {
+    if (e.message.includes("File was not found.")) {
       setManifest({
         format: "0.0.1-prealpha.3",
         displayName: "File not found",

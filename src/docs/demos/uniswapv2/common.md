@@ -3,7 +3,7 @@ id: common-types
 title: 'Common GraphQL Types'
 ---
 
-**Common GraphQL types** represent types that are used by both of Uniswap v2 Web3API's queries and mutations.
+**Common GraphQL types** represent types that are used by both of Uniswap v2 Web3API's methods.
 
 ## Enumeration Types
 

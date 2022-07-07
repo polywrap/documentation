@@ -5,7 +5,7 @@ title: Deploying to Pinata
 
 ## **Introduction**
 
-In this 5 step guide, we'll walk you through how to deploy your Polywrapper to [Pinata](https://www.pinata.cloud/) so that other apps could integrate it into their apps!
+In this 5 step guide, we'll walk you through how to deploy your Polywrap wrapper to [Pinata](https://www.pinata.cloud/) so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
 <details>
@@ -52,7 +52,7 @@ git pull origin polywrap-metadata
 ```
 
 ### Step 3. Build the wrapper
-Now, we can build the sample Polywrapper with the following commands:
+Now, we can build the sample wrapper with the following commands:
 
 ```bash
 nvm use
@@ -60,7 +60,7 @@ yarn
 yarn build
 ```
 
-Your `build` folder should be generated now. Copy and paste the `./web3api.meta.yaml` and `./meta` files into the `build` folder.
+Your `build` folder should be generated now. Copy and paste the `./polywrap.meta.yaml` and `./meta` files into the `build` folder.
 
 ### Step 4.  **Upload the build folder to Pinata**
 
@@ -98,6 +98,6 @@ You will get an IPFS hash!
 This will lead you to [IPFS link](https://gateway.pinata.cloud/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq): 
 https://gateway.pinata.cloud/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq
 
-Now that you have the IPFS hash located in the CID column in the pinata manager, you can use it as a value in the URI property of your Polywrap queries to access the mutation and query functions on this Polywrapper. 
+Now that you have the IPFS hash located in the CID column in the pinata manager, you can use it as a value in the URI property of your Polywrap queries to access the functions in this wrapper. 
 
  🎉 Congratulations 🎉 on deploying to Pinata!  

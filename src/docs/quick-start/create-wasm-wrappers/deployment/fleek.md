@@ -5,7 +5,7 @@ title: Deploying to Fleek
 
 ## **Introduction**
 
-In this 5 step guide, we'll walk you through how to deploy your Polywrapper to [Fleek](https://fleek.co/) so that other apps could integrate it into their apps!
+In this 5 step guide, we'll walk you through how to deploy your Polywrap wrapper to [Fleek](https://fleek.co/) so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
 <details>
@@ -50,7 +50,7 @@ git pull origin polywrap-metadata
 ```
 
 ### Step 3. Build the wrapper
-Now, we can build the sample Polywrapper with the following commands:
+Now, we can build the sample wrapper with the following commands:
 
 ```bash
 nvm use
@@ -58,7 +58,7 @@ yarn
 yarn build
 ```
 
-Your `build` folder should be generated now. Copy and paste the `./web3api.meta.yaml` and `./meta` files into the `build` folder.
+Your `build` folder should be generated now. Copy and paste the `./polywrap.meta.yaml` and `./meta` files into the `build` folder.
 
 ### Step 4.  **Upload the build folder to Fleek**
 
@@ -109,7 +109,7 @@ You will get an IPFS hash!
 For an example of what you should see, visit this [IPFS link](https://ipfs.fleek.co/ipfs/QmQLsx7sxkLrXwh8dPmF2MTWJmgB5C2FmWYth11i7oL3vN).
 
 
-Now that you have the IPFS hash, you can use it as a value in the URI property of your Polywrap queries to access the mutation and query functions on this Polywrapper. 
+Now that you have the IPFS hash, you can use it as a value in the URI property of your Polywrap queries to access the functions in this wrapper. 
 
 You can also register an ENS domain and have it resolved to this IPFS content.
 

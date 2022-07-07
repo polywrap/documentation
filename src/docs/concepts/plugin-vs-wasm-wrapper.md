@@ -16,7 +16,7 @@ Despite the benefits of Wasm wrappers, however, plugin wrappers are sometimes ne
 
 
 ### A hybrid approach
-If you are starting a new project, you can take a "Wasm wrapper-first" approach by following our guide to ["Creating a wasm wrapper"](https://docs.polywrap.io/guides/create-wasm-wrappers/project-setup)
+If you are starting a new project, you can take a "Wasm wrapper-first" approach by following our guide to ["Creating a Wasm wrapper"](https://docs.polywrap.io/guides/create-wasm-wrappers/project-setup)
 
 
 If you have an existing SDK, you can consider an approach of first "wrapping" the SDK as a plugin wrapper and then gradually moving each interface that your SDK provides to a Wasm wrapper. The example of [migrating the Uniswap v3 SDK to a wrapper](https://github.com/polywrap/integrations/tree/main/uniswapv3/wrapper) demonstrates how to think about this migration process while preserving feature parity and code quality.

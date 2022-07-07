@@ -1,35 +1,36 @@
 {
-  "name": "polywrap-simple-storage-demo",
-  "description": "Polywrap Assemblyscript SimpleStorage Wrapper",
+  "name": "simple-storage",
+  "description": "Ethereum simple storage contract wrapper",
   "private": true,
-  "version": "0.0.1-prealpha.77",
+  "version": "0.1.0",
   "scripts": {
-    "build": "yarn build:contract && yarn build:web3api",
-    "build:web3api": "npx w3 build",
+    "build": "yarn build:contract && yarn build:polywrap",
+    "build:polywrap": "npx polywrap build",
     "build:contract": "node ./scripts/build-contract.js",
-    "test:env:up": "npx w3 test-env up",
-    "test:env:down": "npx w3 test-env down",
-    "deploy": "yarn deploy:contract && yarn deploy:api",
-    "deploy:api": "node ./scripts/deploy-api.js",
+    "test:env:up": "npx polywrap infra up --modules=eth-ens-ipfs",
+    "test:env:down": "npx polywrap infra down --modules=eth-ens-ipfs",
+    "deploy": "yarn deploy:api && yarn deploy:contract",
+    "deploy:api": "npx polywrap deploy",
     "deploy:contract": "node ./scripts/deploy-contract.js",
-    "test": "yarn test:e2e && yarn test:env:up && yarn deploy && yarn test:recipe && yarn test:env:down",
-    "test:e2e": "yarn test:e2e:codegen && jest --passWithNoTests --runInBand --verbose",
-    "test:e2e:codegen": "npx w3 app codegen -m ./src/__tests__/types/web3api.app.yaml -c ./src/__tests__/types/w3",
-    "test:recipe": "npx w3 query ./recipes/e2e.json"
+    "test": "yarn test:e2e && yarn test:workflow",
+    "test:e2e": "yarn test:e2e:codegen && jest --passWithNoTests --runInBand --verbose src/__tests__/e2e/e2e_final.test.ts",
+    "test:e2e:codegen": "npx polywrap app codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/wrap",
+    "test:workflow": "yarn test:env:up && sleep 5 && npx polywrap run ./workflows/e2e.yaml -c ./workflows/config.ts -v ./workflows/validator.cue && yarn test:env:down"
   },
   "devDependencies": {
-    "@web3api/cli": "0.0.1-prealpha.83",
-    "@web3api/ethereum-plugin-js": "0.0.1-prealpha.83",
-    "@web3api/wasm-as": "0.0.1-prealpha.83",
-    "@web3api/client-js": "0.0.1-prealpha.83",
-    "@web3api/test-env-js": "0.0.1-prealpha.83",
-    "ts-jest": "~28.0.2",
-    "jest": "~28.1.0",
-    "@types/jest": "~27.5.0",
+    "@types/jest": "27.0.3",
+    "@types/node": "16.11.11",
+    "@types/prettier": "2.6.0",
+    "assemblyscript": "0.19.1",
     "ethers": "5.0.7",
-    "js-yaml": "3.14.0",
+    "jest": "26.6.3",
+    "polywrap": "0.1.0",
     "solc": "0.8.3",
-    "typescript": "4.6.4",
-    "axios": "0.21.2"
+    "ts-jest": "26.5.4",
+    "ts-node": "8.10.2",
+    "typescript": "4.0.7"
+  },
+  "dependencies": {
+    "@polywrap/wasm-as": "0.1.1"
   }
 }

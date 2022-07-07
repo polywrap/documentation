@@ -1,14 +1,14 @@
 import React from 'react';
 // $start: js-react-custom-provider
-import { createWeb3ApiProvider } from '@web3api/react';
+import { createPolywrapProvider } from '@polywrap/react';
 
-const CustomWeb3ApiProvider = createWeb3ApiProvider('custom');
+const CustomPolywrapProvider = createPolywrapProvider('custom');
 
 export const CustomProvider = ({ children }: { children: JSX.Element }) => {
   return (
-    <CustomWeb3ApiProvider>
+    <CustomPolywrapProvider>
       {children}
-    </CustomWeb3ApiProvider>
+    </CustomPolywrapProvider>
   );
 };
 // $end

@@ -5,7 +5,7 @@ title: Deploying to CRUST Files
 
 ## **Introduction**
 
-In this 5 step guide,  we'll walk you how to deploy your Polywrapper using the `Crust Files`.
+In this 5 step guide,  we'll walk you how to deploy your Polywrap wrapper using the `Crust Files`.
 so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
@@ -49,7 +49,7 @@ git pull origin polywrap-metadata
 ```
 
 ### Step 3. Build the wrapper
-Now, we can build the sample Polywrapper with the following commands:
+Now, we can build the sample wrapper with the following commands:
 
 ```bash
 nvm use

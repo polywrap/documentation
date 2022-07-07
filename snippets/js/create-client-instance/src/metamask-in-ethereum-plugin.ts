@@ -1,6 +1,6 @@
 // $start: js-metamask-provider-imports
-import { Web3ApiClient } from "@web3api/client-js";
-import { ethereumPlugin } from '@web3api/ethereum-plugin-js';
+import { PolywrapClient } from "@polywrap/client-js";
+import { ethereumPlugin } from '@polywrap/ethereum-plugin-js';
 // $end
 
 export async function metamaskInEthereumPlugin() {
@@ -12,7 +12,7 @@ await ethereum.request({
 });
 
 // Configure the Ethereum plugin w/ MetaMask
-const client = new Web3ApiClient({
+const client = new PolywrapClient({
   plugins: [{
     uri: "ens/ethereum.web3api.eth",
     plugin: ethereumPlugin({

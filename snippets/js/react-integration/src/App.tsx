@@ -1,13 +1,13 @@
 import { HelloWorld } from './components/HelloWorld';
 // $start: js-react-provider
 import React from 'react';
-import { Web3ApiProvider } from '@web3api/react';
+import { PolywrapProvider } from '@polywrap/react';
 
 export const App: React.FC = () => {
   return (
-    <Web3ApiProvider>
+    <PolywrapProvider>
         <HelloWorld />
-    </Web3ApiProvider>
+    </PolywrapProvider>
   );
 };
 // $end
@@ -15,7 +15,7 @@ export const App: React.FC = () => {
 export const ProviderWithEmptyRedirects: React.FC = () => {
   return (
 // $start: js-react-provider-empty-redirects
-<Web3ApiProvider redirects={ [] }/>
+<PolywrapProvider redirects={ [] }/>
 // $end
   );
 };

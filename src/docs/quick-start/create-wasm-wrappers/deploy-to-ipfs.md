@@ -7,7 +7,7 @@ There are multiple ways that can be used to deploy your newly created wrapper pa
 to IPFS, enabling other apps to integrate your wrapper:
 
 ## `wrappers` CLI
-[`wrappers`](https://www.npmjs.com/package/@nerfzael/wrappers) is a command-line tool for publishing polywrappers to IPFS and ENS. IPFS publishing is done via a [wrap-persistence-node endpoint](https://www.npmjs.com/package/@nerfzael/wrap-persistence-node). By default it publishes to the public https://ipfs.wrappers.io endpoint.  
+[`wrappers`](https://www.npmjs.com/package/@nerfzael/wrappers) is a command-line tool for publishing Wasm wrappers to IPFS and ENS. IPFS publishing is done via a [wrap-persistence-node endpoint](https://www.npmjs.com/package/@nerfzael/wrap-persistence-node). By default it publishes to the public https://ipfs.wrappers.io endpoint.  
 
 [> Step-By-Step Guide](./deployment/wrappers-cli)  
 

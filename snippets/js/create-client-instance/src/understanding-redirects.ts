@@ -1,7 +1,7 @@
-import { Web3ApiClient } from "@web3api/client-js";
+import { PolywrapClient } from "@polywrap/client-js";
 
 // $start: js-understanding-redirects
-const client = new Web3ApiClient({
+const client = new PolywrapClient({
   redirects: [
     {
       from: `ens/api.helloworld.polywrap.eth`,

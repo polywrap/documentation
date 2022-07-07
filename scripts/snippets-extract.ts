@@ -29,7 +29,7 @@ async function extractSnippets(
   const dirents = fs.readdirSync(dir, { withFileTypes: true });
 
   // Only search specific types of files
-  const exts = [".ts", ".json", ".yaml", ".txt", ".md", ".graphql"];
+  const exts = [".ts", ".json", ".yaml", ".txt", ".md", ".graphql", ".cue"];
 
   // Ignore specific directories
   const filter = ["node_modules"];
