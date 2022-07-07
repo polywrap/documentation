@@ -3,7 +3,7 @@ import { ClientConfig, PolywrapClient } from "@polywrap/client-js";
 import { ethereumPlugin, EthereumPluginConfig } from "@polywrap/ethereum-plugin-js";
 // $end
 // $start: js-e2e-test-config-ipfs-import
-import { ipfsResolverPlugin, IpfsResolverPluginConfig } from "@polywrap/ipfs-resolver-plugin-js";
+import { ipfsPlugin, IpfsPluginConfig } from "@polywrap/ipfs-plugin-js";
 // $end
 // $start: js-e2e-test-config-ens-import
 import { ensResolverPlugin, EnsResolverPluginConfig } from "@polywrap/ens-resolver-plugin-js";
@@ -37,7 +37,7 @@ describe('Wrapper Test', () => {
 
     // configure the ipfs plugin
 // $start: js-e2e-test-config-ipfs
-const ipfsConfig: IpfsResolverPluginConfig = {
+const ipfsConfig: IpfsPluginConfig = {
   provider: providers.ipfs,
   fallbackProviders: undefined,
 };
@@ -68,8 +68,8 @@ const ensConfig: EnsResolverPluginConfig = {
     const clientConfig: Partial<ClientConfig> = {
       plugins: [
         {
-          uri: "wrap://ens/ipfs-resolver.polywrap.eth",
-          plugin: ipfsResolverPlugin(ipfsConfig),
+          uri: "wrap://ens/ipfs.polywrap.eth",
+          plugin: ipfsPlugin(ipfsConfig),
         },
         {
           uri: "wrap://ens/ens-resolver.polywrap.eth",

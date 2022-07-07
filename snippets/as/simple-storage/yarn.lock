@@ -1263,27 +1263,12 @@
   resolved "https://registry.yarnpkg.com/@polywrap/polywrap-manifest-schemas/-/polywrap-manifest-schemas-0.1.0.tgz#1dffead0ef9321a7b2dc7d9bc31acd4361936966"
   integrity sha512-uLIg5C2dEV8K1nFkIEb5Vxni5ynXIlgJLkhvNfreReOKYSnsIAnnO1k+BgNrAFtGPmGy+GhOc/tFB/FpnmhEyQ==
 
-"@polywrap/polywrap-manifest-schemas@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@polywrap/polywrap-manifest-schemas/-/polywrap-manifest-schemas-0.1.1.tgz#a31c4c23dc271e194ec9c1d2fcbaeed346deaf73"
-  integrity sha512-9LOtI9nehxqIuMmEPSqdfxZGb3Hc9THLANOQviA2BgSKB/psS/dGpAshQUb17R8Uf/Xi70SrfXnO1J1h/QKugg==
-
 "@polywrap/polywrap-manifest-types-js@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@polywrap/polywrap-manifest-types-js/-/polywrap-manifest-types-js-0.1.0.tgz#20ae62bdfc17032b35b7dd449fb6a307f2faaf81"
   integrity sha512-SVPZJ1ounmek2xOkEKAQmNPEhpdO2cwxAsQ4tiynXym5T0jUJfMnsiSIy6DIctDOOWsqQwueW6YS+dD+7qFZEA==
   dependencies:
     "@polywrap/polywrap-manifest-schemas" "0.1.0"
-    js-yaml "3.14.0"
-    jsonschema "1.4.0"
-    semver "7.3.5"
-
-"@polywrap/polywrap-manifest-types-js@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@polywrap/polywrap-manifest-types-js/-/polywrap-manifest-types-js-0.1.1.tgz#239c1ef05859f5560430cf1dc69cb9ebb1b698dd"
-  integrity sha512-2C4xgXWqKd9CbbWyWo5QGzEMHLh7ishwyijyFrmKb9TyseRVGdk14heDyxIAe4DZ7BbTqa3HdgildAubMnS9OQ==
-  dependencies:
-    "@polywrap/polywrap-manifest-schemas" "0.1.1"
     js-yaml "3.14.0"
     jsonschema "1.4.0"
     semver "7.3.5"
@@ -1360,10 +1345,10 @@
     "@polywrap/core-js" "0.1.0"
     idna-uts46-hx "3.4.0"
 
-"@polywrap/wasm-as@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@polywrap/wasm-as/-/wasm-as-0.1.0.tgz#850a858c6c6e2cc2f6062b38ddd3c100baec4b13"
-  integrity sha512-zgNApcHbAiT9MmmWjjP4tkUII+7xPmfMgmUj/J73eqTN1PGHvG/g2oo6sqXHsM+en/BHRBbFLvH1GXdLIay4Rg==
+"@polywrap/wasm-as@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@polywrap/wasm-as/-/wasm-as-0.1.1.tgz#d2b5f1aac430ad1b9c9c2a86fb7e6ba86c2694dc"
+  integrity sha512-oN9CTBaNnlo2VTwrIMAoJvSxKVPRa0JcOahlaw78IMsLYfyFDV4OXYLwvlJypWrCGlIOeKxXZbWoXGqKMrZ2Gw==
   dependencies:
     "@web3api/assemblyscript-json" "1.2.0"
     as-bigint "0.5.3"
