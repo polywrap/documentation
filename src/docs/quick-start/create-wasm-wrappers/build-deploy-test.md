@@ -16,15 +16,12 @@ In the output window, you'll see that our smart contract was compiled, and our P
 ```
 build/
     |── wrap.wasm          # Wrapper Logic
-    ├── schema.graphql     # Schema
-    └── wrap.info          # Wrapper ABI
+    └── wrap.info          # Wrapper Manifest
 ```
 
-This directory's contents will be uploaded to decentralized storage, and enable any Polywrap Client to download, query, and execute your wrapper's functionality within the application.
+This directory's contents will be uploaded to decentralized storage, and enable any Polywrap Client to download, and execute your wrapper's functionality within the application.
 
 The `wrap.wasm` file is the WebAssembly file that was compiled from AssemblyScript.
-
-The `schema.graphql` file contains the API's schema, consisting of custom types and callable methods.
 
 Lastly, the `wrap.info` file describes the layout of the package, as well as its methods and custom types.
 

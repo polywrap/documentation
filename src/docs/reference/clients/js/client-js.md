@@ -29,5 +29,5 @@ $snippet: js-import-client
 Then, you will be able to use the `PolywrapClient` like so:
 
 ```js
-$snippet: js-client-query
+$snippet: js-client-invoke
 ```

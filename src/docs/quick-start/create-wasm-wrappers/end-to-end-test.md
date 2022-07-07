@@ -92,7 +92,7 @@ $snippet: js-e2e-test-init
 
 ## **Building and deploying a Wasm wrapper for testing with @polywrap/test-env-js**
 
-To query a Wasm wrapper in a test, we first need to build and deploy it. We can do this with `@polywrap/test-env-js` using
+To invoke a Wasm wrapper in a test, we first need to build and deploy it. We can do this with `@polywrap/test-env-js` using
 the `buildAndDeployWrapper` function. The `buildAndDeployWrapper` function requires an absolute path to the directory of 
 your wrapper project that contains the `polywrap.yaml` manifest file, the values that were returned by `initTestEnvironment`, 
 and optionally an ENS domain name.
@@ -112,7 +112,7 @@ $snippet: js-e2e-test-build
 ## **Setting up a Polywrap Client**
 
 Now that we have deployed our Wasm wrapper to a local test environment, we need to set up a Polywrap Client that can
-query it. We can make sure our client is ready to query the wrapper by configuring three of the default plugin wrappers.
+invoke it. We can make sure our client is ready to invoke the wrapper by configuring three of the default plugin wrappers.
 
 - The `ipfsResolverPlugin` can be configured using the test environment's local IPFS node.
 - The `ethereumPlugin` can be configured with Ethereum providers on the Ganache Ethereum test network and the Ganache
@@ -201,7 +201,7 @@ $start: yaml-e2e-test-app-manifest
 We can then call the `app` command of the Polywrap CLI.
 
 ```shell
-yarn polywrap app codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/w3
+yarn polywrap app codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/wrap
 ```
 
 The generated output includes TypeScript types for the SimpleStorage wrapper and its imports.

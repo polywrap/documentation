@@ -1,25 +1,8 @@
 import { usePolywrapClient, usePolywrapInvoke, usePolywrapQuery } from '@polywrap/react';
 
-export function usePolywrapQuery_() {
-// $start: js-react-usePolywrapQuery
-const { execute, data, errors, loading } = usePolywrapQuery({
-  uri: 'ens/api.helloworld.polywrap.eth',
-  query: `{
-    logMessage(message: "Hello World!")
-  }`,
-});
-// $end
-}
-
-export function usePolywrapQuery_customProvider() {
-// $start: js-react-usePolywrapQuery-custom-provider
-const { execute, data, errors, loading } = usePolywrapQuery({
-  provider: "custom",
-  uri: 'ens/api.helloworld.polywrap.eth',
-  query: `{
-    logMessage(message: "Hello World!")
-  }`,
-});
+export function usePolywrapClient_() {
+// $start: js-react-usePolywrapClient
+const client = usePolywrapClient();
 // $end
 }
 
@@ -35,8 +18,26 @@ const { execute, data, error, loading } = usePolywrapInvoke({
 // $end
 }
 
-export function usePolywrapClient_() {
-// $start: js-react-usePolywrapClient
-const client = usePolywrapClient();
+export function usePolywrapInvoke_customProvider() {
+// $start: js-react-usePolywrapInvoke-custom-provider
+const { execute, data, errors, loading } = usePolywrapInvoke({
+  provider: "custom",
+  uri: 'ens/api.helloworld.polywrap.eth',
+  method: "logMessage",
+  args: {
+    message: "Hello World!",
+  },
+});
+// $end
+}
+
+export function usePolywrapQuery_() {
+// $start: js-react-usePolywrapQuery
+const { execute, data, errors, loading } = usePolywrapQuery({
+  uri: 'ens/api.helloworld.polywrap.eth',
+  query: `{
+    logMessage(message: "Hello World!")
+  }`,
+});
 // $end
 }

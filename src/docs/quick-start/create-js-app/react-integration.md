@@ -37,38 +37,34 @@ If you need to use multiple providers, you can do so using the `createPolywrapPr
 $snippet: js-react-custom-provider
 ```
 
-### **usePolywrapQuery**
-
-After enabling your React application with the PolywrapProvider, you may now use the `usePolywrapQuery` hook to send Polywrap queries!
-
-Here's what our "hello world" query from above would look like if we used this method.
-
-```jsx
-$snippet: js-react-usePolywrapQuery
-```
-
-:::tip
-By default, the `usePolywrapQuery` hook uses the first PolywrapProvider found in the DOM's hierarchy. If you'd like to specify a specific provider to be used, simply set the `provider:` property:
-
-```jsx
-$snippet: js-react-usePolywrapQuery-custom-provider
-```
-:::
-
-### **usePolywrapInvoke**
-
-The `usePolywrapInvoke` hook works the same as the `usePolywrapQuery` hook, but uses the client's `invoke` syntax instead.
-
-Here's what our "hello world" query from above would look like with `usePolywrapInvoke`.
-
-```jsx
-$snippet: js-react-usePolywrapInvoke
-```
-
 ### **usePolywrapClient**
 
 You can obtain a copy of the client instance from your `PolywrapProvider` using the `usePolywrapClient` hook.
 
 ```jsx
 $snippet: js-react-usePolywrapClient
+```
+
+### **usePolywrapInvoke**
+
+After enabling your React application with the PolywrapProvider, you may now use the `usePolywrapInvoke` hook to call into wrappers!
+
+```jsx
+$snippet: js-react-usePolywrapInvoke
+```
+
+:::tip
+By default, the `usePolywrapInvoke` hook uses the first PolywrapProvider found in the DOM's hierarchy. If you'd like to specify a specific provider to be used, simply set the `provider:` property:
+
+```jsx
+$snippet: js-react-usePolywrapInvoke-custom-provider
+```
+:::
+
+### **usePolywrapQuery**
+
+The `usePolywrapQuery` hook works the same as the `usePolywrapInvoke` hook, but uses the client's `query` syntax instead.
+
+```jsx
+$snippet: js-react-usePolywrapQuery
 ```

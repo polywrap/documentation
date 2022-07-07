@@ -37,8 +37,7 @@ in Wasm. The Ethereum Plugin package can be configured to make Ethereum transact
 Base Schema Types are default types that can be used by wrapper developers in their wrapper schemas.
 Some are primitive types, while others are objects with implementations that may differ between wrapper development languages.
 
-Application developers do not use Base Schema Types when querying wrappers with the client. They instead use
-serializable types and objects that correspond to the Base Schema Types.
+Each language has has type mappings that correspond to the Base Schema Types. These are used when invoking wrappers, and correctly serialize to the corresponding Base Schema Types.
 
 ### **What schema types are supported by Polywrap?**
 | Schema Type | TypeScript Type | Description |

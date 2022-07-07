@@ -8,7 +8,6 @@ const customFields = {
   forumUrl: 'https://forum.polywrap.io',
   daoUrl: 'https://snapshot.org/#/polywrap.eth',
   blogUrl: 'https://blog.polywrap.io/',
-  gitcoinUrl: 'https://gitcoin.co/grants/1252/web3api',
 };
 
 module.exports = {
@@ -62,12 +61,6 @@ module.exports = {
               href: customFields.twitterUrl,
               className: 'twitter-logo',
               'aria-label': 'twitter account',
-            },
-            {
-              label: 'Donate',
-              href: customFields.gitcoinUrl,
-              className: 'gitcoin-logo',
-              'aria-label': 'gitcoin grant',
             },
           ],
         },

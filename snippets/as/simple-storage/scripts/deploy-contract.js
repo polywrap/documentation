@@ -1,4 +1,4 @@
-const { EthereumPlugin } = require("@web3api/ethereum-plugin-js");
+const { EthereumPlugin } = require("@polywrap/ethereum-plugin-js");
 const fs = require("fs");
 const buildContract = require("./build-contract");
 
@@ -22,7 +22,7 @@ async function main() {
     },
   });
 
-  const address = await eth.getModules().mutation.deployContract({
+  const address = await eth.deployContract({
     abi: contractAbi.abi,
     bytecode: contractAbi.bytecode,
     connection: {

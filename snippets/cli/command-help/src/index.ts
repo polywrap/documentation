@@ -1,5 +1,5 @@
 import { runCommand } from "./runCommand";
-import { writeFileSync } from "@web3api/os-js";
+import { writeFileSync } from "@polywrap/os-js";
 import path from "path";
 
 const commands = [
@@ -15,7 +15,7 @@ const commands = [
 ];
 
 async function main() {
-  const cli = "../node_modules/.bin/w3";
+  const cli = "../node_modules/.bin/polywrap";
   let snippets = "";
 
   for (const command of commands) {

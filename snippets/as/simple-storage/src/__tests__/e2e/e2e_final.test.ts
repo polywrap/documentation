@@ -15,7 +15,7 @@ describe('Wrapper Test', () => {
   // the Ethereum address of the SimpleStorage smart contract
   let simpleStorageAddress: string;
 
-  // the ENS URI that will be used to query  the wrapper
+  // the ENS URI that will be used to invoke the wrapper
   let ensUri: string;
 
   // an instance of the Polywrap Client

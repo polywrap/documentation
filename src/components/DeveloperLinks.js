@@ -15,18 +15,18 @@ const useStyles = makeStyles(() => ({
 
 const developerLinks = [
   {
-    title: "web3api/cli",
-    description: "Command line interface for Polywrap",
+    title: "> polywrap",
+    description: "Command Line Interface",
     link: "/reference/cli/polywrap-cli"
   },
   {
-    title: "web3api/client-js",
-    description: "Integrate Web3API into your application",
+    title: "@polywrap/client-js",
+    description: "JavaScript Client",
     link: "/reference/clients/js/client-js"
   },
   {
-    title: "web3api/react",
-    description: "Simplifies integration of Web3API into React applications",
+    title: "@polywrap/react",
+    description: "React Integration",
     link: "/reference/clients/js/libraries/react"
   },
 ];

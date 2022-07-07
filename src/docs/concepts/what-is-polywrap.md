@@ -23,20 +23,17 @@ A Polywrap Wasm "wrapper" consists of the following files:
 
 ## Where is it deployed?
 
-We currently support deploying wrappers to decentralized endpoints, [Ethereum Name Service (ENS)](https://ens.domains/), a decentralized Ethereum-based naming system and [InterPlanetary File System (IPFS)](https://ipfs.io/), a distributed P2P file system. For an example of a deployed wrapper, take a look at the ENS domain below:
+We currently support deploying wrappers to decentralized endpoints, [Ethereum Name Service (ENS)](https://ens.domains/), a decentralized Ethereum-based naming system and [InterPlanetary File System (IPFS)](https://ipfs.io/), a distributed P2P file system.
 
-[ENS: Uniswap Polywrap wrapper](https://app.ens.domains/name/v2.uniswap.web3api.eth)
-
-The ENS domain above resolves to the IPFS content holding our Polywrap wrapper! Below is a link to the IPFS storage:
-
-[IPFS: Uniswap Polywrap wrapper](https://bafybeifwqlolknl7yvth452s63ujnx45xypgxaisbbgdb6izqjyfvn4igy.ipfs.dweb.link/)
+You can see a list of all deployed wrappers here:  
+https://wrappers.io/pins
 
 ## How can apps integrate this deployed wrapper?
 
 In a JavaScript application, a developer would first install the Polywrap JavaScript client. At that point, a Polywrap-enabled app will be able to download and use the protocol's functions. These functions are exported from WebAssembly (Wasm) modules, and can be used in any environment that can execute Wasm functions (like your web browser!).
 
 :::tip
-The Polywrap JavaScript client allows the app to use **any** deployed wrapper. After instantiating the client, the app can call queries to the wrapper using familiar GraphQL or our streamlined invocation syntax. All that is needed in this query is:
+The Polywrap JavaScript client allows the app to use **any** deployed wrapper. After instantiating the client, the app can call queries to the wrapper using familiar GraphQL or our streamlined invocation syntax. All that is needed is:
 
 1. The URI specifying the ENS or IPFS resolving to content containing the wrapper
 2. Specifying the function and arguments provided by that wrapper

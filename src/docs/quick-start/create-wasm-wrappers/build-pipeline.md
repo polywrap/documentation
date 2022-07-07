@@ -52,8 +52,8 @@ import_redirects:	# Redirects enabling the import of plugins
 format: 0.1.0
 repository: https://github.com/polywrap/monorepo
 language: wasm/assemblyscript
-schema: ./src/query/schema.graphql
-module: ./src/query/index.ts
+schema: ./src/schema.graphql
+module: ./src/index.ts
 import_redirects:
   - uri: wrap://wrap/logger
     schema: ../../core-apis/logger/schema.graphql
@@ -85,8 +85,8 @@ repository: https://github.com/polywrap/monorepo
 language: wasm/assemblyscript
 //highlight-next-line
 build: ./polywrap.build.yaml
-schema: ./src/query/schema.graphql
-module: ./src/query/index.ts
+schema: ./src/schema.graphql
+module: ./src/index.ts
 import_redirects:
   - uri: wrap://wrap/logger
     schema: ../../core-apis/logger/schema.graphql
