@@ -5,22 +5,22 @@ title: "Case study: Uniswap v3 Wrapper"
 
 The Uniswap v3 wrapper is a Polywrap-compatible API providing the same features as Uniswap's JavaScript SDK, plus more. The wrapper is written in AssemblyScript and compiled to Web Assembly (WASM). Polywrap's JavaScript Client makes interfacing with the wrapper as easy as interfacing with any ordinary JavaScript SDK.
 
-This guide describes how we ported the Uniswap v3 JavaScript SDK to a wasm wrapper. Reference documentation for the Uniswap v3 wrapper is available [here](../../demos/uniswapv3/intro). This guide uses version **0.0.1-prealpha.75** of the Polywrap toolchain.
+This guide describes how we ported the Uniswap v3 JavaScript SDK to a Wasm wrapper. Reference documentation for the Uniswap v3 wrapper is available [here](../../demos/uniswapv3/intro). This guide uses version **0.0.1-prealpha.75** of the Polywrap toolchain.
 
 When writing the Uniswap v3 wrapper, our goal was to provide the same user experience as the SDK. The wrapper provides feature-parity, and the "business logic" is the same. We also ported elements of the Uniswap SDK Core package, as necessary, to implement the v3 wrapper.
 
 ## Project scaffolding
 
-The best way to set up a Polywrap project is to start with one of the project templates available in the Polywrap CLI. The `w3 create` command lets you bootstrap your project structure without effort.
+The best way to set up a Polywrap project is to start with one of the project templates available in the Polywrap CLI. The `polywrap create` command lets you bootstrap your project structure without effort.
 
 The initial project setup includes a `mutation` folder and a `query` folder within `src`, which correspond to the two types of modules a wrapper can have.
 
-It also includes a `web3api.yaml` manifest file, a `web3api.build.yaml` build manifest file, and a `web3api.meta.yaml` meta manifest file. The `web3api.yaml` manifest tells the Polywrap CLI what language your wrapper is in, where your module schemas are located, and more. Our `web3api.yaml` looked like this:
+It also includes a `polywrap.yaml` manifest file, a `polywrap.build.yaml` build manifest file, and a `polywrap.meta.yaml` meta manifest file. The `polywrap.yaml` manifest tells the Polywrap CLI what language your wrapper is in, where your module schemas are located, and more. Our `polywrap.yaml` looked like this:
 
 ```yaml
 format: 0.0.1-prealpha.5
-build: ./web3api.build.yaml
-meta: ./web3api.meta.yaml
+build: ./polywrap.build.yaml
+meta: ./polywrap.meta.yaml
 language: wasm/assemblyscript
 modules:
   mutation:
@@ -33,7 +33,7 @@ modules:
 
 The build manifest lets you customize the build process. The meta manifest lets you add meta-data to your project, like a description and a link to your repo.
 
-For the Uniswap v3 wrapper, we left the `web3api.yaml` manifest and the build manifest unchanged. We added detail to the meta manifest much later, when wrapper development was largely complete.
+For the Uniswap v3 wrapper, we left the `polywrap.yaml` manifest and the build manifest unchanged. We added detail to the meta manifest much later, when wrapper development was largely complete.
 
 ## Writing the interface in a GraphQL Schema
 
@@ -92,11 +92,11 @@ public sortsBefore(other: Token): boolean {
 }
 ```
 
-Using the Polywrap CLI's `codegen` command, we generated AssemblyScript classes corresponding to each type we defined in the schema. This was as simple as typing `w3 codegen`. The classes work like TypeScript interfaces (statically typed JavaScript objects) that include some boilerplate serialization logic. When you declare a function in your schema that returns a custom type or accepts one as an argument, these generated classes are used as the AssemblyScript analogs.
+Using the Polywrap CLI's `codegen` command, we generated AssemblyScript classes corresponding to each type we defined in the schema. This was as simple as typing `polywrap codegen`. The classes work like TypeScript interfaces (statically typed JavaScript objects) that include some boilerplate serialization logic. When you declare a function in your schema that returns a custom type or accepts one as an argument, these generated classes are used as the AssemblyScript analogs.
 
 The `codegen` command simultaneously generates another flavor of AssemblyScript class: function inputs. An `Input_*` class is generated for each function, where `*` is the name of the function. The classes have properties corresponding to the arguments defined in the schema. These `Input_*` classes are used as inputs to the functions declared in the GraphQL schema.
 
-The Polywrap CLI places the generated files in directories named `w3`, which can be found within each module folder (as declared in your `web3api.yaml` manifest). From there you can implement and use them.
+The Polywrap CLI places the generated files in directories named `w3`, which can be found within each module folder (as declared in your `polywrap.yaml` manifest). From there you can implement and use them.
 
 Once we generated the classes, we imported the generated types and implemented the functions just as we found them in the Uniswap SDK. The function signatures match the schema definitions we declared earlier.
 
@@ -140,10 +140,10 @@ Although the Uniswap v3 JavaScript SDK does not include methods that mutate stat
 Our `src/query/schema.graphql` schema declares several imports at the top of the file. Among these is the Ethereum plugin, which is included in the Polywrap client by default.
 
 ```graphql
-#import { Query } into Ethereum from "w3://ens/ethereum.web3api.eth"
-#import { Query } into SHA3 from "w3://ens/sha3.web3api.eth"
-#import { Query } into ERC20 from "w3://ipfs/QmeiPWHe2ixfitcgjRwP5AaJD5R7DbsGhQNQwT4rFNyxx8"
-#import { Query } into Subgraph from "w3://ipfs/QmcnrHegojMFqHkRhixazY67Zb9mSbMLv6sSxyDpUtnrQS"
+#import { Query } into Ethereum from "wrap://ens/ethereum.polywrap.eth"
+#import { Query } into SHA3 from "wrap://ens/sha3.polywrap.eth"
+#import { Query } into ERC20 from "wrap://ipfs/QmeiPWHe2ixfitcgjRwP5AaJD5R7DbsGhQNQwT4rFNyxx8"
+#import { Query } into Subgraph from "wrap://ipfs/QmcnrHegojMFqHkRhixazY67Zb9mSbMLv6sSxyDpUtnrQS"
 #import { ChainId, TradeType, Currency, Token, Price, TokenAmount, Tick, Pool, FeeAmount, Route, TradeSwap, Trade, BestTradeOptions, Position, PermitOptions, FeeOptions, SwapOptions, MethodParameters, MintAmounts } from "../common/schema.graphql"
 ```
 
@@ -201,7 +201,7 @@ export function tokenAmountEquals(input: Input_tokenAmountEquals): boolean {
 }
 ```
 
-Other base schema types include `BigNumber`, `JSON`, and `Map<T,U>`. These types, along with `BigInt`, can be imported directly into AssemblyScript modules from the `web3api/wasm` package.
+Other base schema types include `BigNumber`, `JSON`, and `Map<T,U>`. These types, along with `BigInt`, can be imported directly into AssemblyScript modules from the `polywrap/wasm` package.
 
 ## Testing
 
@@ -249,13 +249,13 @@ You can learn how to set up a Polywrap test environment in JavaScript by reading
 
 ### Other tips for testing in JavaScript
 
-The Polywrap CLI can automatically generate TypeScript types using the `w3 app` command. The types mirror those declared in your GraphQL schema.
+The Polywrap CLI can automatically generate TypeScript types using the `polywrap app` command. The types mirror those declared in your GraphQL schema.
 
 If you love brevity, you can write functions that "wrap" your wrapper calls. This can make your tests a bit easier to read.
 
 ```typescript
 // This function lets us call the createRoute function in the Uniswap v3 wrapper with one line of code
-export async function createRoute(client: Web3ApiClient, ensUri: string, pools: Pool[], inToken: Token, outToken: Token): Promise<Route> {
+export async function createRoute(client: PolywrapClient, ensUri: string, pools: Pool[], inToken: Token, outToken: Token): Promise<Route> {
   const query = await client.invoke<Route>({
     uri: ensUri,
     module: "query",

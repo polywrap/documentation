@@ -5,7 +5,7 @@ title: 'Build, deploy and test'
 
 ### **Build**
 
-Let's start building our template project! Simply run:
+Let's start building our project! Simply run:
 
 ```bash
 yarn build
@@ -15,19 +15,18 @@ In the output window, you'll see that our smart contract was compiled, and our P
 
 ```
 build/
-    ├── web3api.yaml           # Manifest
-    ├── schema.graphql         # Schema
-    |── query.wasm             # Query Logic
-    └── mutation.wasm          # Mutation Logic
+    |── wrap.wasm          # Wrapper Logic
+    ├── schema.graphql     # Schema
+    └── wrap.info          # Wrapper ABI
 ```
 
-This directory's contents will be uploaded to decentralized storage, and enable any Polywrap Client to download, query, and execute your Polywrap's functionality within the application.
+This directory's contents will be uploaded to decentralized storage, and enable any Polywrap Client to download, query, and execute your wrapper's functionality within the application.
 
-The `mutation.wasm` and `query.wasm` files are the WebAssembly files that are compiled from AssemblyScript.
+The `wrap.wasm` file is the WebAssembly file that was compiled from AssemblyScript.
 
-The `schema.graphql` file contain the APIs schema, consisting of custom types and callable methods (query and mutation).
+The `schema.graphql` file contains the API's schema, consisting of custom types and callable methods.
 
-Lastly, the `web3api.yaml` manifest file describes the layout of the package.
+Lastly, the `wrap.info` file describes the layout of the package, as well as its methods and custom types.
 
 ### **Deploy**
 
@@ -43,7 +42,7 @@ This will stand-up an Ethereum node, as well as an IPFS node.
 In the future, test environments will be easily configurable to include any nodes your Polywrap wrapper requires.
 :::
 
-Next, let's deploy the `SimpleStorage.sol` smart contract, and the `simplestorage.eth` Polywrap by running:
+Next, let's deploy the `SimpleStorage.sol` smart contract, and the `simplestorage.eth` wrapper URI by running:
 
 ```bash
 yarn deploy
@@ -51,10 +50,10 @@ yarn deploy
 
 ### **Test**
 
-With our Polywrapper live at `simplestorage.eth` on our test network, it's now time to test it out!
+With our Polywrap wrapper live at `simplestorage.eth` on our test network, it's now time to test it out!
 
-This is where our query recipes come in handy. Run `yarn test` to see this in action.
+This is where our workflows come in handy. Run `yarn test` to see this in action.
 
-In the output window, you'll see a combination of input queries, and returned results from the Polywrapper. In this query recipe, we send a combination of `set.graphql` and `get.graphql` queries which modify the `SimpleStorage.sol` contract's stored value.
+In the output window, you'll see a combination of jobs and returned results from the Polywrap wrapper. In this workflow, we send a combination of `setData` and `getData` queries which modify the `SimpleStorage.sol` contract's stored value.
 
-Now that we've built the template Polywrapper, let's add custom functionality to the template in the next section!
+Now that we've built the SimpleStorage Wasm wrapper, let's add custom functionality to it in the next section!

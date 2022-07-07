@@ -1,12 +1,12 @@
 // $start: js-e2e-test-final
-import { ClientConfig, Web3ApiClient } from "@web3api/client-js";
-import { ethereumPlugin, EthereumPluginConfigs } from "@web3api/ethereum-plugin-js";
-import { ipfsPlugin, IpfsPluginConfigs } from "@web3api/ipfs-plugin-js";
-import { ensPlugin, EnsPluginConfigs } from "@web3api/ens-plugin-js";
-import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from '@web3api/test-env-js';
+import { ClientConfig, PolywrapClient } from "@polywrap/client-js";
+import { ethereumPlugin, EthereumPluginConfig } from "@polywrap/ethereum-plugin-js";
+import { ipfsResolverPlugin, IpfsResolverPluginConfig } from "@polywrap/ipfs-resolver-plugin-js";
+import { ensResolverPlugin, EnsResolverPluginConfig } from "@polywrap/ens-resolver-plugin-js";
+import { buildAndDeployWrapper, initTestEnvironment, stopTestEnvironment, providers, ensAddresses } from "@polywrap/test-env-js";
 import path from "path";
 // highlight-next-line
-import { SetIpfsDataResult } from '../types/w3';
+import { SetIpfsDataResult } from '../types/wrap';
 
 jest.setTimeout(360000);
 
@@ -19,49 +19,41 @@ describe('Wrapper Test', () => {
   let ensUri: string;
 
   // an instance of the Polywrap Client
-  let client: Web3ApiClient;
+  let client: PolywrapClient;
 
   beforeAll(async () => {
     // initialize test environment
-    const { ipfs, ethereum, ensAddress, registrarAddress, resolverAddress } = await initTestEnvironment();
+    await initTestEnvironment();
 
     // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with web3api.yaml
-    const api = await buildAndDeployApi({
-      apiAbsPath: apiPath,
-      ipfsProvider: ipfs,
-      ensRegistryAddress: ensAddress,
-      ethereumProvider: ethereum,
-      ensRegistrarAddress: registrarAddress,
-      ensResolverAddress: resolverAddress,
+    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with polywrap.yaml
+    const api = await buildAndDeployWrapper({
+      wrapperAbsPath: apiPath,
+      ipfsProvider: providers.ipfs,
+      ethereumProvider: providers.ethereum,
     });
     ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
 
     // configure the ipfs plugin
-    const ipfsConfig: IpfsPluginConfigs = {
-      provider: ipfs,
+    const ipfsConfig: IpfsResolverPluginConfig = {
+      provider: providers.ipfs,
       fallbackProviders: undefined,
     };
 
     // configure the ethereum plugin
-    const ethereumConfig: EthereumPluginConfigs = {
+    const ethereumConfig: EthereumPluginConfig = {
       networks: {
         testnet: {
-          provider: ethereum, // Ganache test network
-        },
-        mainnet: {
-          provider: "http://localhost:8546", // Ganache Ethereum mainnet fork
+          provider: providers.ethereum, // Ganache test network
         },
       },
       defaultNetwork: "testnet",
     };
 
     // configure the ens plugin
-    const ensConfig: EnsPluginConfigs = {
-      query: {
-        addresses: {
-          testnet: ensAddress,
-        },
+    const ensConfig: EnsResolverPluginConfig = {
+      addresses: {
+        testnet: ensAddresses.ensAddress,
       },
     };
 
@@ -69,27 +61,26 @@ describe('Wrapper Test', () => {
     const clientConfig: Partial<ClientConfig> = {
       plugins: [
         {
-          uri: "w3://ens/ipfs.web3api.eth",
-          plugin: ipfsPlugin(ipfsConfig),
+          uri: "wrap://ens/ipfs-resolver.polywrap.eth",
+          plugin: ipfsResolverPlugin(ipfsConfig),
         },
         {
-          uri: "w3://ens/ens.web3api.eth",
-          plugin: ensPlugin(ensConfig),
+          uri: "wrap://ens/ens-resolver.polywrap.eth",
+          plugin: ensResolverPlugin(ensConfig),
         },
         {
-          uri: "w3://ens/ethereum.web3api.eth",
+          uri: "wrap://ens/ethereum.polywrap.eth",
           plugin: ethereumPlugin(ethereumConfig),
         },
       ],
     };
 
     // create client
-    client = new Web3ApiClient(clientConfig);
+    client = new PolywrapClient(clientConfig);
 
     // deploy simple storage contract
     const { data, error } = await client.invoke<string>({
       uri: ensUri,
-      module: "mutation",
       method: "deployContract",
     });
     if (error) throw error;
@@ -106,9 +97,8 @@ describe('Wrapper Test', () => {
     // invoke setIpfs method
     const { data, error } = await client.invoke<SetIpfsDataResult>({
       uri: ensUri,
-      module: "mutation",
       method: "setIpfsData",
-      input: {
+      args: {
         options: {
           address: simpleStorageAddress,
           data: "Hello from IPFS!",

@@ -19,7 +19,7 @@ export interface SetIpfsDataResult {
 
 /// Imported Objects START ///
 
-/* URI: "w3://ens/ethereum.web3api.eth" */
+/* URI: "wrap://ens/ethereum.polywrap.eth" */
 export interface Ethereum_Connection {
   node?: Types.String | null;
   networkNameOrChainId?: Types.String | null;

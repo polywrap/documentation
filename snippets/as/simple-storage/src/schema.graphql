@@ -1,0 +1,58 @@
+#import { Module, Connection } into Ethereum from "wrap://ens/ethereum.polywrap.eth"
+# $start: gql-simple-storage-schema-ipfs-import
+#import { Module } into Ipfs from "wrap://ens/ipfs.polywrap.eth"
+# $end
+
+type Module {
+    """
+    Module to deploy and interect with the simple-storage smart-contract
+    """
+
+    getData(
+        """
+        Get the latest set integer from the smart contract
+        """
+        address: String!
+        connection: Ethereum_Connection
+    ): Int!
+
+    setData(
+        """
+        Set the new integer value in the smart contract
+        """
+        address: String!
+        value: UInt32!
+        connection: Ethereum_Connection
+    ): String!
+
+    deployContract(
+        """
+        Deploys the simple-storage contract to the given blockchain
+        """
+        connection: Ethereum_Connection
+    ): String!
+
+# $start: gql-simple-storage-getIpfs-schema
+    getIpfsData(
+        address: String!
+        connection: Ethereum_Connection
+    ): String!
+# $end
+
+# $start: gql-simple-storage-setIpfs-schema
+    setIpfsData(
+        options: SetIpfsDataOptions!
+        connection: Ethereum_Connection
+    ): SetIpfsDataResult!
+}
+
+type SetIpfsDataOptions {
+    address: String!
+    data: String!
+}
+
+type SetIpfsDataResult {
+    ipfsHash: String!
+    txReceipt: String!
+}
+# $end

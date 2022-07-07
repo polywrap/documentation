@@ -5,7 +5,7 @@ title: Deployment using the "wrappers" CLI
 
 ## **Introduction**
 
-In this 5 step guide,  we'll walk you how to deploy your Polywrapper using the `CLI`.
+In this 5 step guide,  we'll walk you how to deploy your Polywrap wrapper using the `CLI`.
 so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
@@ -27,7 +27,7 @@ so that other apps could integrate it into their apps!
 ### What you need to get started:
 * We'll be using the [Polywrap Demos](https://github.com/polywrap/demos) repo for this guide. 
 * 💚 [Node. js](https://nodejs.org/en/) 
-* 🖥️📦 [CLI](https://www.npmjs.com/package/@web3api/cli)
+* 🖥️📦 [CLI](https://www.npmjs.com/package/polywrap)
 * 🐳 [Docker](https://www.docker.com/)
 * 🧶[Yarn](https://classic.yarnpkg.com/en/)
     * Versions:  `node >=10.0.0` or `yarn >=1.0.0`
@@ -48,7 +48,7 @@ git pull origin polywrap-metadata
 ```
 
 ### Step 3. Build the wrapper
-Now, we can build the sample Polywrapper with the following commands:
+Now, we can build the sample wrapper with the following commands:
 
 ```bash
 nvm use
@@ -61,7 +61,7 @@ yarn build
 Upload build results to an IPFS node (default: dev-server's node)
 
 ```bash
-npx w3 build --ipfs http://localhost:5001
+npx polywrap build --ipfs http://localhost:5001
 ```
 
 ### Step 5.

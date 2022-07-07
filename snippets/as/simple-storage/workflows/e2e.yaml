@@ -1,0 +1,33 @@
+name: simple-storage
+jobs:
+  cases:
+    steps:
+    - uri: fs/build
+      method: deployContract
+      input:
+    jobs:
+      case1:
+        steps:
+        - uri: fs/build
+          method: setData
+          input:
+            address: "$cases.0.data"
+            value: 100
+        - uri: fs/build
+          method: getData
+          input:
+            address: "$cases.0.data"
+# $start: yaml-simple-storage-ipfs-workflow
+      case2:
+        steps:
+          - uri: fs/build
+            method: setIpfsData
+            input:
+              options:
+                address: "$cases.0.data"
+                data: "Hello from IPFS!"
+          - uri: fs/build
+            method: getIpfsData
+            input:
+              address: "$cases.0.data"
+# $end

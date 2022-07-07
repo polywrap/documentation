@@ -37,11 +37,9 @@ values={[
 ```yml
 format:				# Polywrap YAML format version
 repository:			# URL of Core toolchain repository
-language: 			# Language that will be compiled to wasm
-modules:			# Modules of Polywrap schema and implementation
-  query:			# Modules can be for either query or mutations
-    schema:	 		# Path to graphql schema
-    module: 		# Path to Polywrap implementation
+language: 			# Language that will be compiled to Wasm
+schema:	 		# Path to graphql schema
+module: 		# Path to Polywrap implementation
 import_redirects:	# Redirects enabling the import of plugins
   - uri: 			# URI resolving to the plugin schema
     schema:		 	# Graphql schema for imported plugin
@@ -51,15 +49,13 @@ import_redirects:	# Redirects enabling the import of plugins
 <TabItem value="example">
 
 ```yml
-format: 0.0.1-prealpha.2
+format: 0.1.0
 repository: https://github.com/polywrap/monorepo
 language: wasm/assemblyscript
-modules:
-  query:
-    schema: ./src/query/schema.graphql
-    module: ./src/query/index.ts
+schema: ./src/query/schema.graphql
+module: ./src/query/index.ts
 import_redirects:
-  - uri: w3://w3/logger
+  - uri: wrap://wrap/logger
     schema: ../../core-apis/logger/schema.graphql
 ```
 
@@ -71,7 +67,7 @@ import_redirects:
 The manifest shown above does not require configuring the build process. When you run `yarn build`, the following default build YAML file is used:
 
 ```yml
-format: 0.0.1-prealpha.2
+format: 0.1.0
 docker:
   name: build-env
 config:
@@ -81,24 +77,22 @@ config:
     - ./package.json
 ```
 
-To customize the build, first create a new YAML file in the project's root directory and name it `web3api.build.yaml`. Then, in the original YAML file, add a key called `build` with the path of the custom build YAML as the value.
+To customize the build, first create a new YAML file in the project's root directory and name it `polywrap.build.yaml`. Then, in the original YAML file, add a key called `build` with the path of the custom build YAML as the value.
 
 ```yml
-format: 0.0.1-prealpha.2
-repository: https://github.com/web3-api/monorepo
+format: 0.1.0
+repository: https://github.com/polywrap/monorepo
 language: wasm/assemblyscript
 //highlight-next-line
-build: ./web3api.build.yaml
-modules:
-  query:
-    schema: ./src/query/schema.graphql
-    module: ./src/query/index.ts
+build: ./polywrap.build.yaml
+schema: ./src/query/schema.graphql
+module: ./src/query/index.ts
 import_redirects:
-  - uri: w3://w3/logger
+  - uri: wrap://wrap/logger
     schema: ../../core-apis/logger/schema.graphql
 ```
 
-In the `web3api.build.yaml` file, you could then customize your build. In the code below, you can see the schema as well as an example custom build YAML:
+In the `polywrap.build.yaml` file, you could then customize your build. In the code below, you can see the schema as well as an example custom build YAML:
 
 <Tabs
 defaultValue="schema"
@@ -121,7 +115,7 @@ config:				# Build configuration
 <TabItem value="example">
 
 ```yml
-format: 0.0.1-prealpha.2
+format: 0.1.0
 docker:
   name: build-env
 config:
@@ -140,10 +134,10 @@ For those who need even more customization of the build pipeline, Polywrap allow
 
 In the context of Polywrap, it allows you to fully customize your Docker image build steps. To customize your Dockerfile, first, either copy the default Dockerfile from the `/build` folder or create your own.
 
-Then, in the `web3api.build.yaml` file, add a key called `dockerfile` with the path of the newly created Dockerfile as the value. That's it! Now, you can customize the Dockerfile to your heart's content.
+Then, in the `polywrap.build.yaml` file, add a key called `dockerfile` with the path of the newly created Dockerfile as the value. That's it! Now, you can customize the Dockerfile to your heart's content.
 
 ```yml
-format: 0.0.1-prealpha.2
+format: 0.1.0
 docker:
   name: build-env
   dockerfile: ./Dockerfile
@@ -151,10 +145,10 @@ docker:
 
 You can also name your custom Dockerfile with a mustache file extension like so `Dockerfile.mustache`, which would enable Mustache capabilities for your Dockerfile. Mustache is a logic-less template system that can be used for HTML, config files, and more. Learn more about Mustache [here](https://www.npmjs.com/package/mustache).
 
-With Mustache, your Dockerfile will be able to recognize variable tags set by the `web3api.build.yaml` file. For example, in your `web3api.build.yaml` file, you could have a key such as `foo` with the value `hey` like so:
+With Mustache, your Dockerfile will be able to recognize variable tags set by the `polywrap.build.yaml` file. For example, in your `polywrap.build.yaml` file, you could have a key such as `foo` with the value `hey` like so:
 
 ```yml
-format: 0.0.1-prealpha.2
+format: 0.1.0
 docker:
   name: build-env
   dockerfile: ./Dockerfile.mustache

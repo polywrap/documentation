@@ -1,6 +1,6 @@
 // $start: js-e2e-test-build
 // highlight-start
-import { buildAndDeployApi, initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
+import { buildAndDeployWrapper, initTestEnvironment, stopTestEnvironment, providers } from "@polywrap/test-env-js";
 import path from "path";
 // highlight-end
 
@@ -15,18 +15,15 @@ describe('Wrapper Test', () => {
 
   beforeAll(async () => {
     // initialize test environment
-    const { ipfs, ethereum, ensAddress, registrarAddress, resolverAddress } = await initTestEnvironment();
+    await initTestEnvironment();
 
     // highlight-start
     // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with web3api.yaml
-    const api = await buildAndDeployApi({
-      apiAbsPath: apiPath,
-      ipfsProvider: ipfs,
-      ensRegistryAddress: ensAddress,
-      ethereumProvider: ethereum,
-      ensRegistrarAddress: registrarAddress,
-      ensResolverAddress: resolverAddress,
+    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with polywrap.yaml
+    const api = await buildAndDeployWrapper({
+      wrapperAbsPath: apiPath,
+      ipfsProvider: providers.ipfs,
+      ethereumProvider: providers.ethereum,
     });
     ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
     // highlight-end

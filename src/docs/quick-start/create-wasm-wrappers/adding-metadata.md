@@ -3,15 +3,15 @@ id: 'adding-metadata'
 title: 'Adding Metadata'
 ---
 
-Wrapper developers can add metadata to their wrappers by writing a Meta Manifest file named `web3api.meta.yaml`.
+Wrapper developers can add metadata to their wrappers by writing a Meta Manifest file named `polywrap.meta.yaml`.
 Metadata makes it easier for application developers to display a wrapper, make it searchable, and find helpful links.
 
 ## Declaration
 
-Its location must be referenced in the `web3api.yaml` manifest with a field labeled *meta*.
+Its location must be referenced in the `polywrap.yaml` manifest with a field labeled *meta*.
 
 ```yaml"
-meta: ./web3api.meta.yaml
+meta: ./polywrap.meta.yaml
 ```
 
 ## Content

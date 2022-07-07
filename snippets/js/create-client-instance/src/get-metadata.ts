@@ -1,10 +1,12 @@
-import { MetaManifest, Web3ApiClient } from '@web3api/client-js';
+import { PolywrapClient } from '@polywrap/client-js';
+import { AnyMetaManifest as MetaManifest } from '@polywrap/polywrap-manifest-types-js';
 
 export async function getMetaManifest(): Promise<MetaManifest> {
-  const client = new Web3ApiClient();
-  const uri = "ens/api.helloworld.web3api.eth";
+  const client = new PolywrapClient();
+  const uri = "ens/api.helloworld.polywrap.eth";
 // $start: js-client-getManifest-meta
-const manifest: MetaManifest = await client.getManifest(uri, { type: "meta" });
+const manifestString = await client.getFile(uri, { path: "./polywrap.meta.json", encoding: "utf-8" }) as string;
+const manifest: MetaManifest = JSON.parse(manifestString);
 // $end
   if (manifest.icon) {
 // $start: js-client-getFile-icon

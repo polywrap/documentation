@@ -1,8 +1,8 @@
-import { useWeb3ApiClient, useWeb3ApiInvoke, useWeb3ApiQuery } from '@web3api/react';
+import { usePolywrapClient, usePolywrapInvoke, usePolywrapQuery } from '@polywrap/react';
 
-export function useWeb3ApiQuery_() {
-// $start: js-react-useWeb3ApiQuery
-const { execute, data, errors, loading } = useWeb3ApiQuery({
+export function usePolywrapQuery_() {
+// $start: js-react-usePolywrapQuery
+const { execute, data, errors, loading } = usePolywrapQuery({
   uri: 'ens/api.helloworld.polywrap.eth',
   query: `{
     logMessage(message: "Hello World!")
@@ -11,9 +11,9 @@ const { execute, data, errors, loading } = useWeb3ApiQuery({
 // $end
 }
 
-export function useWeb3ApiQuery_customProvider() {
-// $start: js-react-useWeb3ApiQuery-custom-provider
-const { execute, data, errors, loading } = useWeb3ApiQuery({
+export function usePolywrapQuery_customProvider() {
+// $start: js-react-usePolywrapQuery-custom-provider
+const { execute, data, errors, loading } = usePolywrapQuery({
   provider: "custom",
   uri: 'ens/api.helloworld.polywrap.eth',
   query: `{
@@ -23,21 +23,20 @@ const { execute, data, errors, loading } = useWeb3ApiQuery({
 // $end
 }
 
-export function useWeb3ApiInvoke_() {
-// $start: js-react-useWeb3ApiInvoke
-const { execute, data, error, loading } = useWeb3ApiInvoke({
+export function usePolywrapInvoke_() {
+// $start: js-react-usePolywrapInvoke
+const { execute, data, error, loading } = usePolywrapInvoke({
   uri: 'ens/api.helloworld.polywrap.eth',
-  module: "query",
   method: "logMessage",
-  input: {
+  args: {
     message: "Hello World!",
   },
 });
 // $end
 }
 
-export function useWeb3ApiClient_() {
-// $start: js-react-useWeb3ApiClient
-const client = useWeb3ApiClient();
+export function usePolywrapClient_() {
+// $start: js-react-usePolywrapClient
+const client = usePolywrapClient();
 // $end
 }

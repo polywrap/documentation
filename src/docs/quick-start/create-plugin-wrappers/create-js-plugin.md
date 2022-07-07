@@ -5,10 +5,10 @@ title: Plugin an existing JS SDK
 
 ## **Introduction**
 
-In this guide, we'll walk you through creating your own JavaScript-based plugin that can be added to the JavaScript Polywrap Client.
+In this guide, we'll walk you through creating your own JavaScript-based plugin wrapper that can be added to the JavaScript Polywrap Client.
 
 :::caution
-Plugins do not retain all of Polywrap's benefits. We recommend re-writing your existing JavaScript SDKs as AssemblyScript (WebAssembly) Polywraps if possible.
+Plugins do not retain all of Polywrap's benefits. We recommend re-writing your existing JavaScript SDKs as Wasm wrappers if possible.
 :::
 
 As always, if you need any help, message us on [Discord](https://discord.com/invite/Z5m88a5qWu)!
@@ -31,7 +31,7 @@ In the future, TypeScript will be one of many supported languages for implementi
 To get started, use the following command to spin up a project folder for your plugin.
 
 ```
-npx @web3api/cli create plugin typescript <project-name>
+npx polywrap create plugin typescript <project-name>
 ```
 
 Where `<project-name>` is replaced with a custom name of your choosing. For example `my-plugin`.
@@ -50,41 +50,27 @@ Let's ensure all of your project's dependencies are installed. From inside your 
 Your project should look something like this:
 
 ```
-web3api.plugin.yaml           # Plugin Manifest
+polywrap.plugin.yaml           # Plugin Manifest
 src/
 |   index.ts                  # Entry File
-|   query/
-│   ├── index.ts              # Module
-│   └── schema.graphql        # Schema
-|   mutation/
-│   ├── index.ts              # Module
-│   └── schema.graphql        # Schema
+│   schema.graphql            # Schema
 ```
 
-### **`web3api.plugin.yaml`**
-The `web3api.plugin.yaml` manifest file describes the layout of a plugin, and is used to determine how many modules this plugin has.
-
-### **`src/index.ts`**
-The entry file simply exports all necessary types from the codegen directory. This file shouldn't need to be modified, unless you'd like to override default behaviour (with caution).
-
-### **`src/query` + `src/mutation`**
-Query & Mutation are 2 separate "modules" that exist within the plugin.
+### **`polywrap.plugin.yaml`**
+The `polywrap.plugin.yaml` manifest file describes the layout of a plugin.
 
 ### **`schema.graphql`**
+Each wrapper has a schema. This schema defines the wrapper's: dependencies, methods, and custom types. In short, it's an interface describing how to use the wrapper.
 
-Each plugin module has a schema. This schema defines the module's: dependencies, methods, and custom types. In short, it's an interface describing how to use the plugin.
-
-### **`index.ts`**
-The `index.ts` file contains the module method's implementations, which implement the plugin's logic.
-
-Within each module's index file, you can expose custom configurations for the module. These configurations can contain application specific contextual data, such as: providers, settings, signing keys, etc.
+### **`src/index.ts`**
+The `index.ts` file exports the wrapper's method's implementations, which contain the plugin's logic.
 
 ## **Building the plugin**
 
 To build your plugin, all you need is the following command:
 
 ```bash
-yarn build
+yarn build # alias for "npx polywrap build"
 ```
 
 ## **Example Plugins**

@@ -5,8 +5,8 @@ title: 'Polywrap CLI'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<a href="https://www.npmjs.com/package/@web3api/cli" target="_blank" rel="noopener noreferrer">
-<img src="https://img.shields.io/npm/v/@web3api/cli.svg" alt="npm"/>
+<a href="https://www.npmjs.com/package/polywrap" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/npm/v/polywrap.svg" alt="npm"/>
 </a>
 
 <br/>
@@ -25,13 +25,13 @@ values={[
   <TabItem value="npm">
 
   ```bash
-  npm install @web3api/cli
+  npm install polywrap
   ```
   </TabItem>
   <TabItem value="yarn">
 
   ```bash
-  yarn add @web3api/cli
+  yarn add polywrap
   ```
   </TabItem>
 </Tabs>
@@ -45,7 +45,7 @@ Node v16 and above is recommended.
 To list available commands, run the `help` command:
 
 ```bash
-w3 --help
+polywrap --help
 ```
 
 The following menu will appear in your terminal window:
@@ -56,5 +56,5 @@ $snippet: cli-command-help-
 
 To learn about each command, simply add `--help` after the command name to be given a full description of the options available:
 ```bash
-w3 build --help
+polywrap build --help
 ```

@@ -1,5 +1,5 @@
 // $start: js-e2e-test-init
-import { initTestEnvironment, stopTestEnvironment } from "@web3api/test-env-js";
+import { initTestEnvironment, stopTestEnvironment } from "@polywrap/test-env-js";
 
 jest.setTimeout(360000);
 
@@ -7,7 +7,7 @@ describe('Wrapper Test', () => {
 
   beforeAll(async () => {
     // initialize test environment
-    const { ipfs, ethereum, ensAddress, registrarAddress, resolverAddress } = await initTestEnvironment();
+    await initTestEnvironment();
   });
 
   afterAll(async () => {
