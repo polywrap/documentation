@@ -1,2 +1,2 @@
-#yarn --no-lockfile
-#yarn build
+yarn --no-lockfile
+yarn build
