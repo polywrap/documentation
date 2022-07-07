@@ -9,7 +9,7 @@ jest.setTimeout(360000);
 describe('Wrapper Test', () => {
 
   // highlight-start
-  // the ENS URI that will be used to query  the wrapper
+  // the ENS URI that will be used to invoke the wrapper
   let ensUri: string;
   // highlight-end
 

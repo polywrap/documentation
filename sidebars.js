@@ -102,7 +102,7 @@ module.exports = {
         }
       ]
     },
-    {
+    /*{
       type: 'category',
       label: 'Demos',
       items: [
@@ -182,7 +182,7 @@ module.exports = {
           ],
         },
       ]
-    },
+    },*/
     {
       type: 'category',
       label: 'Resources',

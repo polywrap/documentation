@@ -14,7 +14,7 @@ In the future, JavaScript will be one of many supported languages. Our goal is t
 By the end of this document, you'll gain the following skills:
 
 - How to instantiate the Polywrap client in your JavaScript App
-- Query any Polywrap using the Polywrap client
+- Invoke any wrapper using the Polywrap client
 - Configure custom Polywrap URI redirects
 - Build React apps with ease
 
@@ -46,4 +46,4 @@ Some example projects that integrate the JS client can be found [here](https://g
 > Where `<project-name>` is replaced with a custom name of your choosing. For example `my-wrapper`.
 >
 > This command will create a new project folder with a "Hello World" app that
-> lets you interact with a simple Wasm wrapper at `ens/helloworld.web3api.eth`.
+> lets you interact with a simple Wasm wrapper at `ens/rinkeby/helloworld.dev.polywrap.eth`.

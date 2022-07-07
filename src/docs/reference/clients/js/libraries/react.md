@@ -20,56 +20,30 @@ npm install @polywrap/react
 
 ## Usage
 
-### PolywrapProvider
+### **PolywrapProvider**
 
-To start using the Polywrap React library, wrap your application in a `PolywrapProvider`:
+Once installed, the first step is to add the `PolywrapProvider` to your DOM. This will instantiate an instance of the `PolywrapClient` for all queries within the nested DOM hierarchy to use.
 
-```typescript
+To use the provider, simply wrap it around whatever DOM hierarchy you'd like to use Polywrap within:
+
+```jsx
 $snippet: js-react-provider
 ```
 
-The `PolywrapProvider` instantiates the `PolywrapClient` for all queries below it in the component tree.
+#### **PolywrapProvider Props**
 
-The `PolywrapProvider` also accepts URI redirects as props.
+The `PolywrapProvider` component's props are the same as the `PolywrapClient` constructor's arguments. For example, you can configure URI redirects like so:
 
-You can pass the redirects array into the provider component like so:
-
-```typescript
+```jsx
 $snippet: js-react-provider-empty-redirects
 ```
 
+#### **Multiple PolywrapProviders**
+
 If you need to use multiple providers, you can do so using the `createPolywrapProvider("...")` method, which accepts the name of your provider as an argument. For example:
 
-```typescript
-$snippet: js-react-custom-provider
-```
-
-### usePolywrapQuery
-
-The `usePolywrapQuery` is the primary API for executing queries. To run a query within a React component, call `usePolywrapQuery` and pass it a GraphQL query string. When your component renders, `usePolywrapQuery` returns an object from the Polywrap client that contains `execute`, `data`, `loading`, and `error` properties you can use to render your UI.
-
-Here's an example query that you could send:
-
-```typescript
-$snippet: js-react-usePolywrapQuery
-```
-
-:::tip
-By default, the `usePolywrapQuery` hook uses the first `PolywrapProvider` found in the DOM's hierarchy. If you'd like to specify a specific provider to be used, simply set the provider: property:
-
-```typescript
-$snippet: js-react-usePolywrapQuery-custom-provider
-```
-:::
-
-### **usePolywrapInvoke**
-
-The `usePolywrapInvoke` hook works the same as the `usePolywrapQuery` hook, but uses the client's `invoke` syntax instead.
-
-Here's what our "hello world" query from above would look like with `usePolywrapInvoke`.
-
 ```jsx
-$snippet: js-react-usePolywrapInvoke
+$snippet: js-react-custom-provider
 ```
 
 ### **usePolywrapClient**
@@ -78,4 +52,28 @@ You can obtain a copy of the client instance from your `PolywrapProvider` using 
 
 ```jsx
 $snippet: js-react-usePolywrapClient
+```
+
+### **usePolywrapInvoke**
+
+After enabling your React application with the PolywrapProvider, you may now use the `usePolywrapInvoke` hook to call into wrappers!
+
+```jsx
+$snippet: js-react-usePolywrapInvoke
+```
+
+:::tip
+By default, the `usePolywrapInvoke` hook uses the first PolywrapProvider found in the DOM's hierarchy. If you'd like to specify a specific provider to be used, simply set the `provider:` property:
+
+```jsx
+$snippet: js-react-usePolywrapInvoke-custom-provider
+```
+:::
+
+### **usePolywrapQuery**
+
+The `usePolywrapQuery` hook works the same as the `usePolywrapInvoke` hook, but uses the client's `query` syntax instead.
+
+```jsx
+$snippet: js-react-usePolywrapQuery
 ```

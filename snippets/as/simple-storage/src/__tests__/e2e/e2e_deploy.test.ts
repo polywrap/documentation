@@ -15,7 +15,7 @@ describe('Wrapper Test', () => {
   let simpleStorageAddress: string;
   // highlight-end
 
-  // the ENS URI that will be used to query  the wrapper
+  // the ENS URI that will be used to invoke the wrapper
   let ensUri: string;
 
   // an instance of the Polywrap Client

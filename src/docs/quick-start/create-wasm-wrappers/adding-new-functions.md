@@ -9,7 +9,7 @@ It's time to build and customize your own Polywrap Wasm wrapper! We'll be adding
 
 ### **Update the schema**
 
-The first step to adding new wrapper functionality is defining the method we want our users to query. Add the following method & custom data types to your `./src/schema.graphql` schema file:
+The first step to adding new wrapper functionality is defining the method we want our users to invoke. Add the following method & custom data types to your `./src/schema.graphql` schema file:
 
 ```graphql title="./src/schema.graphql"
 type Module {

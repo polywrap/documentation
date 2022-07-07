@@ -14,7 +14,7 @@ await ethereum.request({
 // Configure the Ethereum plugin w/ MetaMask
 const client = new PolywrapClient({
   plugins: [{
-    uri: "ens/ethereum.web3api.eth",
+    uri: "ens/ethereum.polywrap.eth",
     plugin: ethereumPlugin({
       networks: {
         mainnet: {

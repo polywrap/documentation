@@ -7,7 +7,7 @@ const client = new PolywrapClient();
 export function helloWorld() {
 // $start: js-client-hello-world
 client.invoke({
-  uri: "ens/api.helloworld.web3api.eth",
+  uri: "ens/rinkeby/helloworld.dev.polywrap.eth",
   method: "logMessage",
   args: {
     message: "Hello World!"

@@ -3,7 +3,7 @@ id: uniswapv3-to-polywrap
 title: "Case study: Uniswap v3 Wrapper"
 ---
 
-The Uniswap v3 wrapper is a Polywrap-compatible API providing the same features as Uniswap's JavaScript SDK, plus more. The wrapper is written in AssemblyScript and compiled to Web Assembly (WASM). Polywrap's JavaScript Client makes interfacing with the wrapper as easy as interfacing with any ordinary JavaScript SDK.
+The Uniswap v3 wrapper provides the same features as Uniswap's JavaScript SDK, plus more. The wrapper is written in AssemblyScript and compiled to WebAssembly (WASM). Polywrap's JavaScript Client makes interfacing with the wrapper as easy as interfacing with any ordinary JavaScript SDK.
 
 This guide describes how we ported the Uniswap v3 JavaScript SDK to a Wasm wrapper. Reference documentation for the Uniswap v3 wrapper is available [here](../../demos/uniswapv3/intro). This guide uses version **0.0.1-prealpha.75** of the Polywrap toolchain.
 

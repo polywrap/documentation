@@ -11,12 +11,17 @@ Plugins can be used to enable any native client functionality that cannot be imp
 
 ### **Default Plugin wrappers**
 
-All Polywrap clients come equipped with the following default plugins:
+The Polywrap client has a [default configuration](https://github.com/polywrap/monorepo/blob/origin/packages/js/client/src/default-client-config.ts) that enables developers to use the following plugins:  
+* `wrap://ens/js-logger.polywrap.eth`
+* `wrap://ens/ipfs.polywrap.eth`
+* `wrap://ens/ens-resolver.polywrap.eth`
+* `wrap://ens/ethereum.polywrap.eth`
+* `wrap://ens/http.polywrap.eth`
+* `wrap://ens/fs.polywrap.eth`
+* `wrap://ens/fs-resolver.polywrap.eth`
+* `wrap://ens/ipfs-resolver.polywrap.eth`
 
-- `ens/ens.web3api.eth`
-- `ens/ipfs.web3api.eth`
-- `ens/ethereum.web3api.eth`
-- `w3/logger`
+NOTE: This default configuration will be removed in the near future, and replaced by a "config builder". This will make the client agnostic, and allow users to combine and customize different "config bundles", in addition to creating their your own.
 
 ### **Plugin URI Redirects**
 
