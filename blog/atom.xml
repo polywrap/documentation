@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.polywrap.io/blog</id>
-    <title>Polywrap (Pre-alpha) Blog</title>
+    <title>Polywrap (Origin) Blog</title>
     <updated>2015-10-25T23:29:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.polywrap.io/blog"/>
-    <subtitle>Polywrap (Pre-alpha) Blog</subtitle>
+    <subtitle>Polywrap (Origin) Blog</subtitle>
     <icon>https://docs.polywrap.io/img/favicon.png</icon>
 </feed>
