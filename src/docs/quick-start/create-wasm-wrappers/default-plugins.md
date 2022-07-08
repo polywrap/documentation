@@ -4,24 +4,26 @@ title: Default plugins
 ---
 
 ## Default Plugins
-Polywrap plugins extend the capabilities of your wrappers.  Some wrappers come included in the Polywrap client by default:
+Polywrap plugin wrappers extend the capabilities of Wasm wrappers. Some plugin wrappers come included in the Polywrap client by default:
 
-- ENS
+- ENS Resolver
 - Ethereum
 - Filesystem
+- Filesystem Resolver
 - Graph-node
 - HTTP
 - IPFS
+- IPFS Resolver
 - Logger
 - SHA3
 - UTS-46
 
-In this guide, we'll show you what it's like to import these default plugins into your wrapper, and explain what each one does.
+In this guide, we'll show you what it's like to import these default plugins into your wrapper, and explain what some commonly used plugins do.
 
-## Importing
+## Import to schema
 We'll use one of the default plugins, Ethereum, to show how you can import its modules into your wrapper's schema (`schema.graphql` file).
 
-`#import { Module, Connection } into Ethereum from "w3://ens/ethereum.web3api.eth"`
+`#import { Module, Connection } into Ethereum from "wrap://ens/ethereum.polywrap.eth"`
 
 Below, we explain what each part of this code means.
 
@@ -34,21 +36,21 @@ Below, we explain what each part of this code means.
 - `into Ethereum`
     - This is a namespace, enabling you to use the modules in your schema e.g. `Ethereum_Module` or `Ethereum_Connection`
 
-- `from "w3://ens/ethereum.web3api.eth"`
-    - `w3` is a local folder where types are automatically generated upon `yarn build`.
-    - For plugins that aren't default, this could be an ens address that resolves to a decentralized storage hosting the types e.g. `ens.uniswapv3.eth`
+- `from "wrap://ens/ethereum.polywrap.eth"`
+    - `wrap://` is the Polywrap URI schema.
+    - `ens` is the URI authority. It tells the Polywrap client what kind of URI it needs to resolve. The `ens` authority tells the Polywrap client that what follows is an ENS address that resolves to a decentralized storage hosting a wrapper. Other valid authorities include `ipfs` for IPFS content hashes, `fs` for wrappers located on your local filesystem (often used while testing wrappers), or a custom authority that may be handled by a custom URI resolver.
+    - `ethereum.polywrap.eth` is the URI path, which in this case is an ENS address.
+    - Note: The client redirects queries from the URI of a plugin wrapper to the plugin object that exists in memory. While plugins typically use an ENS URI for readability, the client does not need to query the ENS registry or an external storage location. See our section on [URI redirects](../../concepts/understanding-uri-redirects.md) for more information.
 
-## Use in Wrapper Implementation
+## Use in Wasm Wrapper
 Once types have been imported, the functionality of these imported modules can be used in wrapper development.
 
-Upon `yarn build`, the modules will be made available to you in the `./w3` folder.  To use them, you simply need to import the specific modules that you'd like to use.
+Upon `yarn build`, the imported types and modules will be made available to you in the `src/wrap` folder.  To use them, you simply need to import the specific modules that you'd like to use.
 
-If you're building an AssemblyScript-based wrapper, the import will look like this:
+If you're building an AssemblyScript-based wrapper, the import might look like this:
 
 ```typescript
-import {
-  Ethereum_Module
-} from './wrap';
+import { Ethereum_Module, Ethereum_Connection } from './wrap';
 ```
 
 The `Ethereum_Module` will contain the methods shown [here](https://github.com/polywrap/monorepo/blob/255caa0a40130f0733a31ac28efed272bfa00889/packages/js/plugins/ethereum/src/schema.graphql#L104), under the `Module` type.
@@ -57,13 +59,13 @@ Once imported, you can access methods like so:
 
 `Ethereum_Module.callContractMethod({ ... })`
 
-## Available Defaults
+## Commonly used default plugins
 This section contains guides on commonly used default plugins: Ethereum, Subgraph, HTTP, and Logger.
 
-## Ethereum
+### Ethereum
 The Ethereum plugin enables wrappers to query the ethereum blockchain.
 
-Schema Codebase: [Link](https://github.com/polywrap/monorepo/blob/prealpha/packages/js/plugins/ethereum/src/schema.graphql)
+Schema: [Link](https://github.com/polywrap/monorepo/blob/prealpha/packages/js/plugins/ethereum/src/schema.graphql)
 
 Example:
 
@@ -80,12 +82,12 @@ export function getData(input: Input_getData): u32 {
 }
 ```
 
-## Subgraph
+### Subgraph
 The subgraph plugin enables wrappers to query The Graph's subgraphs.
 
-Schema Codebase: [Link](https://github.com/polywrap/monorepo/blob/2947f956485decb43363f42c99c2a6176a25bde8/packages/js/plugins/graph-node/schema.graphql#L3-L9)
+Schema: [Link](https://github.com/polywrap/monorepo/blob/2947f956485decb43363f42c99c2a6176a25bde8/packages/js/plugins/graph-node/schema.graphql#L3-L9)
 
-### Example Implementation:
+#### Example Implementation:
 
 In our `./src/schema.graphql` file, we'll write the schema for our wrapper.
 
@@ -138,13 +140,13 @@ subgraphName: 'ens',
 query: '{\ndomains(first: 5){\nid\nname\nlabelName\nlabelhash\n}\n}',
 ```
 
-## HTTP
+### HTTP
 The HTTP plugin enables wrappers to perform HTTP queries in JavaScript applications.
 
-Schema Codebase: [Link](https://github.com/polywrap/monorepo/blob/2947f956485decb43363f42c99c2a6176a25bde8/packages/js/plugins/http/schema.graphql#L30-L33)
+Schema: [Link](https://github.com/polywrap/monorepo/blob/2947f956485decb43363f42c99c2a6176a25bde8/packages/js/plugins/http/schema.graphql#L30-L33)
 
-### Example Implementation
-In this example, we will implement a simple `Ping` method which pings CoinGecko to see their server status using an HTTP query request from your wrapper.
+#### Example Implementation
+In this example, we will implement a simple `Ping` method which pings CoinGecko to see their server status using an HTTP Get request from your wrapper.
 
 In our `./src/schema.graphql file`, we’ll write the schema for our wrapper.
 
@@ -154,7 +156,7 @@ At the top of this file, import the HTTP module into your wrapper:
 #import { Module, Request, Response } into HTTP from "wrap://ens/http.polywrap.eth"
 ```
 
-Then, define the types and fields on the `Ping` method.  First, create a type `Ping` under type `Module`.
+Then, define the types and fields on the `Ping` method.  First, add a new `Ping` type at the bottom of the schema.
 
 ```graphql
 type Ping {
@@ -162,12 +164,18 @@ type Ping {
 }
 ```
 
-Then, include the `ping` type and its `Ping!` field under the `Module` type.
+Then, add an argument-less method called `ping` that returns a non-nullable `Ping` to the `Module` type. 
+Our completed schema looks like this:
 
 ```graphql
-...
+#import { Module, Request, Response } into HTTP from "wrap://ens/http.polywrap.eth"
+type Module {
   ping: Ping!
-...
+}
+
+type Ping {
+  gecko_says: String!
+}
 ```
 
 Now, we'll implement the `ping` method in `./src/index.ts`
@@ -178,7 +186,6 @@ At the top of the file, we'll import the HTTP/Ping methods and types.
 import {
   HTTP_Module,
   HTTP_ResponseType,
-  Args_get,
   Ping,
 } from './wrap';
 ```
@@ -221,8 +228,8 @@ export function ping(): Ping {
 }
 ```
 
-## Logger
-The Logger plugin enables logging inside wrapper which can be useful for debugging.
+### Logger
+The Logger plugin enables logging in a Wasm wrapper, which can be useful for debugging.
 
 In our `./src/schema.graphql file`, import the Logger module into your wrapper:
 
