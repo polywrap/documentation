@@ -36,7 +36,7 @@ const fetchHandler = async (event: FormEvent<HTMLFormElement>): Promise<void> =>
   }
   if (!Uri.isValidUri(uri)) {
     setManifest({
-      format: "0.0.1-prealpha.3",
+      format: "0.1.0",
       displayName: "Invalid URI",
       subtext: "Need help? Check out our docs using the link in the header.",
       __type: "MetaManifest",
@@ -47,19 +47,20 @@ const fetchHandler = async (event: FormEvent<HTMLFormElement>): Promise<void> =>
   let manifest: MetaManifest | undefined;
   try {
     // highlight-next-line
-    manifest = await client.getManifest(uri, {type: "meta"});
+    const manifestString = await client.getFile(uri, { path: "./polywrap.meta.json", encoding: "utf-8" }) as string;
+    const manifest: MetaManifest = JSON.parse(manifestString);
     setManifest(manifest);
   } catch (e: any) {
     if (e.message.includes("File was not found.")) {
       setManifest({
-        format: "0.0.1-prealpha.3",
+        format: "0.1.0",
         displayName: "File not found",
         subtext: "Metadata is optional. Does the wrapper declare a Meta Manifest?",
         __type: "MetaManifest",
       })
     } else {
       setManifest({
-        format: "0.0.1-prealpha.3",
+        format: "0.1.0",
         displayName: "Failed to resolve URI",
         subtext: "We didn't find a wrapper at that URI, or didn't receive a response from the host.",
         __type: "MetaManifest",

@@ -22,7 +22,7 @@ comments next to each property.
 
 ```typescript title="Meta Manifest represented as TypeScript object"
 interface MetaManifest {
-  format: "0.0.1-prealpha.3"; // determines which fields are expected or required.
+  format: "0.1.0"; // determines which fields are expected or required.
   displayName?: string; // name of the wrapper that users should use for presentation
   subtext?: string; // subtext of display name; brief description of the wrapper
   description?: string; // full description of the wrapper
