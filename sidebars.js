@@ -41,6 +41,7 @@ module.exports = {
             'quick-start/create-wasm-wrappers/deploy-to-ipfs',
             'quick-start/create-wasm-wrappers/publish-to-ens',
             'quick-start/create-wasm-wrappers/build-pipeline',
+            'quick-start/create-wasm-wrappers/default-plugins',
             'quick-start/create-wasm-wrappers/adding-metadata',
             'quick-start/create-wasm-wrappers/uniswapv3-to-polywrap',
           ],
