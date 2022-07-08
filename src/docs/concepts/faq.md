@@ -72,12 +72,12 @@ The Polywrap CLI can be used to start and stop a local test environment you can 
 
 ### **How can I pin my Wasm wrapper to IPFS?**
 Several third-party services exist to help users pin files to IPFS. 
-They are described in our section on [Deploying to IPFS](../quick-start/create-wasm-wrappers/deploy-to-ipfs).
+They are described in our section on [Deploying to IPFS](../quick-start/build-and-deploy-wasm-wrappers/deploy-to-ipfs).
 You can learn more about IFPS and "pinning" at [https://docs.ipfs.io/how-to/pin-files](https://docs.ipfs.io/how-to/pin-files)
 
 ### **How can I deploy my Wasm wrapper?**
 Wasm wrappers can be deployed using Polywrap's deployment pipeline or pinned to IPFS using the tools described in
-[Deploying to IPFS](../quick-start/create-wasm-wrappers/deploy-to-ipfs).
+[Deploying to IPFS](../quick-start/build-and-deploy-wasm-wrappers/deploy-to-ipfs).
 
 ## App Integration
 
