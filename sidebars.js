@@ -38,6 +38,7 @@ module.exports = {
             'quick-start/create-wasm-wrappers/writing-tests-with-workflows',
             'quick-start/create-wasm-wrappers/deploy-locally-and-test',
             'quick-start/create-wasm-wrappers/end-to-end-test',
+            'quick-start/create-wasm-wrappers/default-plugins',
             'quick-start/create-wasm-wrappers/adding-metadata',
             'quick-start/create-wasm-wrappers/uniswapv3-to-polywrap',
           ],

@@ -11,7 +11,7 @@ const customFields = {
 };
 
 module.exports = {
-  title: 'Polywrap (Pre-alpha)',
+  title: 'Polywrap (Origin)',
   tagline: 'The Universal Web3 Integration Standard',
   url: 'https://docs.polywrap.io',
   baseUrl: '/',
@@ -34,7 +34,7 @@ module.exports = {
       defaultMode: 'dark',
     },
     navbar: {
-      title: 'Pre-alpha',
+      title: 'Origin',
       logo: {
         alt: 'Polywrap Icon',
         src: 'img/polywrap-logo-light.png',
