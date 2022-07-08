@@ -38,11 +38,18 @@ module.exports = {
             'quick-start/create-wasm-wrappers/writing-tests-with-workflows',
             'quick-start/create-wasm-wrappers/deploy-locally-and-test',
             'quick-start/create-wasm-wrappers/end-to-end-test',
-            'quick-start/create-wasm-wrappers/deploy-to-ipfs',
-            'quick-start/create-wasm-wrappers/publish-to-ens',
-            'quick-start/create-wasm-wrappers/build-pipeline',
             'quick-start/create-wasm-wrappers/adding-metadata',
             'quick-start/create-wasm-wrappers/uniswapv3-to-polywrap',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Build & Deploy Wasm Wrappers',
+          items: [
+            'quick-start/build-and-deploy-wasm-wrappers/build-pipeline',
+            'quick-start/build-and-deploy-wasm-wrappers/deploy-to-ipfs',
+            'quick-start/build-and-deploy-wasm-wrappers/publish-to-ens',
+            'quick-start/build-and-deploy-wasm-wrappers/deploy-pipeline',
           ],
         },
         {
