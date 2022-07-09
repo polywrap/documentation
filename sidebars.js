@@ -45,6 +45,13 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'Test Wasm Wrappers',
+          items: [
+            'quick-start/test-wasm-wrappers/infra-pipeline',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Build & Deploy Wasm Wrappers',
           items: [
             'quick-start/build-and-deploy-wasm-wrappers/build-pipeline',
