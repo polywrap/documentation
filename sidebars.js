@@ -34,7 +34,7 @@ module.exports = {
             'quick-start/create-wasm-wrappers/project-setup',
             'quick-start/create-wasm-wrappers/project-folder',
             'quick-start/create-wasm-wrappers/build-deploy-test',
-            'quick-start/create-wasm-wrappers/adding-new-functions',
+            'quick-start/create-wasm-wrappers/adding-new-methods',
             'quick-start/create-wasm-wrappers/writing-tests-with-workflows',
             'quick-start/create-wasm-wrappers/deploy-locally-and-test',
             'quick-start/create-wasm-wrappers/end-to-end-test',

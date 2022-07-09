@@ -15,7 +15,7 @@ The Uniswap Polywrap wrapper is written in [AssemblyScript](https://www.assembly
 
 Our first Polywrap client is for JavaScript(`@polywrap/client-js`) and it can run in any environment that can execute JavaScript. We also have a working Rust implementation. In the future, we'll have Polywrap clients for other environments (Python, Go, and more).
 
-Developers integrating the Uniswap Wasm wrapper into their app would use [GraphQL](https://graphql.org/) queries to execute functions provided by the Uniswap wrapper. This documentation shows you which functions are made available by the Uniswap wrapper and how to use them.
+Developers integrating the Uniswap Wasm wrapper into their app would use client invocations to execute functions provided by the Uniswap wrapper. This documentation shows you which functions are made available by the Uniswap wrapper and how to use them.
 
 ## Uniswap wrapper vs. Existing SDK
 
