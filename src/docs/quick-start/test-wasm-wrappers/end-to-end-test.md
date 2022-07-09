@@ -50,13 +50,13 @@ wrappers can be deployed and queried on your local machine.
 The Polywrap CLI can be used to start a Polywrap-ready test environment.
 See [Configure Polywrap infrastructure pipeline](./infra-pipeline) for more information.
 
-This guide will use the [`@polywrap/test-env-js`](../../reference/clients/libraries/test-env-js) package.
+This guide will use the [`@polywrap/test-env-js`](../../reference/clients/js/libraries/test-env-js) package.
 The `@polywrap/test-env-js` package uses the default infrastructure module included with the [`polywrap`](../../reference/cli/polywrap-cli) CLI as a standard test environment.
 We can use `@polywrap/test-env-js` to start and stop the test environment programmatically.
 
 ## **Starting and stopping a Polywrap Test environment with @polywrap/test-env-js**
 
-If you're unfamiliar with [`@polywrap/test-env-js`](../../reference/clients/libraries/test-env-js), feel free to check 
+If you're unfamiliar with [`@polywrap/test-env-js`](../../reference/clients/js/libraries/test-env-js), feel free to check 
 out the reference documentation before we continue.
 
 Let's start a new file where we will write our first test. Like many testing frameworks in
@@ -187,7 +187,7 @@ $snippet: js-e2e-test-types
 From this point, testing a function in your wrapper is no different from testing a traditional SDK. Instead of calling
 a method in a traditional SDK, you will invoke your wrapper.
 
-We will test the `setIpfsData` method we added to the SimpleStorage API in [Adding new functions](./adding-new-functions). 
+We will test the `setIpfsData` method we added to the SimpleStorage API in [Adding new functions](../create-wasm-wrappers/tutorial/adding-new-functions). 
 For arguments, the `setIpfsData` method takes the Ethereum address of a deployed SimpleStorage contract and the data 
 the user wants to add to IPFS. It returns the IPFS hash of the data.
 

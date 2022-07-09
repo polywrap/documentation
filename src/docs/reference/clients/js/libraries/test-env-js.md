@@ -5,7 +5,7 @@ title: '@polywrap/test-env-js'
 
 The `@polywrap/test-env-js` package is a library of functions that facilitate end-to-end testing in JavaScript.
 The package is based on the default infrastructure module described in 
-[Configure Polywrap infrastructure pipeline](./../../..//quick-start/test-wasm-wrappers/infra-pipeline).
+[Configure Polywrap infrastructure pipeline](./../../../../quick-start/test-wasm-wrappers/infra-pipeline).
 
 ## Constants
 
@@ -42,7 +42,7 @@ export const initTestEnvironment = async (cli?: string): Promise<void>
 ```
 
 The `initTestEnvironment` function starts a local test environment using the default infrastructure module. 
-It optionally accepts a path to a [`polywrap`](./../../cli/polywrap-cli) CLI binary.
+It optionally accepts a path to a [`polywrap`](./../../../cli/polywrap-cli) CLI binary.
 
 ### stopTestEnvironment
 
@@ -51,7 +51,7 @@ export const stopTestEnvironment = async (cli?: string): Promise<void>
 ```
 
 The `stopTestEnvironment` function tears down the local test environment (default infrastructure module) if one is running.
-It optionally accepts a path to a [`polywrap`](./../../cli/polywrap-cli) CLI binary.
+It optionally accepts a path to a [`polywrap`](./../../../cli/polywrap-cli) CLI binary.
 
 ### buildWrapper
 
@@ -113,10 +113,10 @@ export const runCLI = async (options: {
 }>
 ```
 
-The `runCLI` function can be used to run the [`polywrap`](./../../cli/polywrap-cli) CLI programmatically. 
+The `runCLI` function can be used to run the [`polywrap`](./../../../cli/polywrap-cli) CLI programmatically. 
 It requires an array of command line arguments `args`, which should include the CLI command to be run.
 An alternative current working directory `cwd` can be provided to change the context from which the CLI is invoked.
-It also optionally accepts a path to a [`polywrap`](./../../cli/polywrap-cli) CLI binary.
+It also optionally accepts a path to a [`polywrap`](./../../../cli/polywrap-cli) CLI binary.
 The optional map of environmental variables `env` will be set before running the CLI.
 
 ```typescript title="Example: runCLI calling the 'infra' command"
