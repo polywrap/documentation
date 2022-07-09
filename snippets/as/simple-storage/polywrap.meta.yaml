@@ -5,6 +5,9 @@ subtext: Simple Storage on Ethereum
 description: Set and get a value on an Ethereum smart contract using Polywrap.
 repository: https://github.com/polywrap/demos
 icon: ./meta/icon.png
+tags:
+  - simple
+  - polywrap
 links:
   - name: dApp
     icon: ./meta/link.svg
