@@ -31,12 +31,18 @@ module.exports = {
           type: 'category',
           label: 'Create Wasm Wrappers',
           items: [
-            'quick-start/create-wasm-wrappers/project-setup',
-            'quick-start/create-wasm-wrappers/project-folder',
-            'quick-start/create-wasm-wrappers/build-deploy-test',
-            'quick-start/create-wasm-wrappers/adding-new-functions',
-            'quick-start/create-wasm-wrappers/writing-tests-with-workflows',
-            'quick-start/create-wasm-wrappers/deploy-locally-and-test',
+            {
+              type: 'category',
+              label: 'Tutorial',
+              items: [
+                'quick-start/create-wasm-wrappers/tutorial/project-setup',
+                'quick-start/create-wasm-wrappers/tutorial/project-folder',
+                'quick-start/create-wasm-wrappers/tutorial/build-deploy-test',
+                'quick-start/create-wasm-wrappers/tutorial/adding-new-functions',
+                'quick-start/create-wasm-wrappers/tutorial/writing-tests-with-workflows',
+                'quick-start/create-wasm-wrappers/tutorial/deploy-locally-and-test',
+              ]
+            },
             'quick-start/create-wasm-wrappers/default-plugins',
             'quick-start/create-wasm-wrappers/adding-metadata',
             // 'quick-start/create-wasm-wrappers/uniswapv3-to-polywrap',
