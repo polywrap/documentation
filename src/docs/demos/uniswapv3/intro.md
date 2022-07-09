@@ -11,7 +11,7 @@ This demo was made with a deprecated version of Polywrap!
 
 Welcome to the Uniswap v3 Polywrap documentation!
 
-The Uniswap Polywrap wrapper is written in [AssemblyScript](https://www.assemblyscript.org/), and like the official Uniswap SDK, it has a robust test suite and performs arbitrary precision arithmetic. The Uniswap Polywrap wrapper business logic will be deployed on a decentralized endpoint, like IPFS.
+The Uniswap Wasm wrapper is written in [AssemblyScript](https://www.assemblyscript.org/), and like the official Uniswap SDK, it has a robust test suite and performs arbitrary precision arithmetic. The Uniswap Polywrap wrapper business logic will be deployed on a decentralized endpoint, like IPFS.
 
 Our first Polywrap client is for JavaScript(`@polywrap/client-js`) and it can run in any environment that can execute JavaScript. We also have a working Rust implementation. In the future, we'll have Polywrap clients for other environments (Python, Go, and more).
 
