@@ -58,6 +58,8 @@ module.exports = {
           label: 'Create Plugin Wrappers',
           items: [
             'quick-start/create-plugin-wrappers/create-js-plugin',
+            'quick-start/create-plugin-wrappers/plugin-manifest',
+            'quick-start/create-plugin-wrappers/plugin-architecture'
           ],
         },
       ],
