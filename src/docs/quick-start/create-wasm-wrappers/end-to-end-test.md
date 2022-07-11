@@ -217,7 +217,7 @@ $snippet: js-e2e-test-types
 From this point, testing a function in your wrapper is no different from testing a traditional SDK. Instead of calling
 a method in a traditional SDK, you will invoke your wrapper.
 
-We will test the `setIpfsData` method we added to the SimpleStorage API in [Adding new functions](./adding-new-functions). 
+We will test the `setIpfsData` method we added to the SimpleStorage API in [Adding new functions](./adding-new-methods). 
 For arguments, the `setIpfsData` method takes the Ethereum address of a deployed SimpleStorage contract and the data 
 the user wants to add to IPFS. It returns the IPFS hash of the data.
 

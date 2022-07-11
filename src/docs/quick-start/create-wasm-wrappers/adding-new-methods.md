@@ -1,6 +1,6 @@
 ---
-id: 'adding-new-functions'
-title: 'Adding new functions'
+id: 'adding-new-methods'
+title: 'Adding new Methods'
 ---
 
 ## **Custom functionality: IPFS SimpleStorage**
