@@ -25,8 +25,7 @@ To validate a workflow, you must have CUE installed on your computer.
 ## Writing a validation script
 
 A validation script should match the structure of the workflow it seeks to validate. 
-It is compared against the JSON output of the workflow.
-See the Workflow Output section of [Running Workflows](./running-workflows) for more information on workflow output.
+It is compared against the output of the workflow.
 
 :::tip
 To validate a particular job in a workflow, your validation file should be modified to match the output of that particular job.

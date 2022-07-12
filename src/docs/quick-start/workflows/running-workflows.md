@@ -14,11 +14,12 @@ Workflows are defined in YAML or JSON. Workflows can be run with the [`run`](../
 A workflow consists of a tree of `Jobs` and `Steps`.
 
 A `Job` is an independent, named unit that can contain an array of `Steps` named `steps` and/or a set of sub-`Jobs` named `jobs`. 
-Each `Job` is run asynchronously, and therefore `Jobs` may run in any order.
+Each `Job` runs asynchronously, and therefore `Jobs` may run in any order. Although all the sub-jobs are guaranteed to be executed after the parent job completes. Outputs of the parent jobs can be referenced as the input of any of its sub-jobs.
 By default, [`run`](../../reference/cli/commands/run) will run all jobs in a workflow.
 A `Job` index can be provided to [`run`](../../reference/cli/commands/run) to execute a specific job.
 
 A `Step` is a wrapper invocation. An array of `Steps` runs synchronously--i.e. in the order defined in the workflow.
+
 
 The result of a `Job` or `Step` can be passed as an input argument to a `Job` or `Step` that is its child in the tree hierarchy.
 
@@ -99,7 +100,7 @@ export function getClientConfig(defaultConfigs)
 
 ## Workflow output
 
-The output of a workflow can be printed to a JSON file with the `output-file` option of the Polywrap CLI's
+The output of a workflow can be written as a file in the JSON or YAML format with the `output-file` option of the Polywrap CLI's
 [`run`](../../reference/cli/commands/run) command.
 
 Workflow output is printed to the console by default. 
