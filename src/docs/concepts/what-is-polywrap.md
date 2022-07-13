@@ -18,8 +18,7 @@ Web3 developers may want to integrate functions into their own app that allows u
 A Polywrap Wasm "wrapper" consists of the following files:
 
 - **A Wasm module** containing the protocol's business logic functions (e.g. Uniswap's swap functions)
-- **GraphQL** schema to provide types and parameters for the module functions
-- **Manifest** files that orchestrate the wrapper
+- **Wrap Manifest** file that orchestrates the wrapper, and provides types and parameters for the module functions
 
 ## Where is it deployed?
 

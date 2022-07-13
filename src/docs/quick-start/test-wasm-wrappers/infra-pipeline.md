@@ -105,9 +105,15 @@ modules:
 ### Default
 
 A default infrastructure module is included with the [`polywrap`](../../reference/cli/polywrap-cli) CLI. 
-It is declared in the Infra manifest as a module named *eth-ens-ipfs* and the value *default*. 
-If an Infra manifest is not found, the Polywrap CLI [`infra`](../../reference/cli/commands/deploy) command will use
-this module.
+It is declared in the Infra manifest as a module named *eth-ens-ipfs* and the value *default*.
+
+If an Infra manifest is not found, the Polywrap CLI [`infra`](../../reference/cli/commands/deploy) command can still use
+this module. 
+To use the default module without an Infra manifest, pass `eth-ens-ipfs` as an argument to the [`infra`](../../reference/cli/commands/deploy) command's `modules` option:
+
+```bash
+npx polywrap infra up --modules=eth-ens-ipfs
+```
 
 The default infrastructure module defines a docker container with:
 - A test server at http://localhost:**4040**
