@@ -73,6 +73,14 @@ module.exports = {
             'quick-start/create-plugin-wrappers/create-js-plugin',
           ],
         },
+        {
+          type: 'category',
+          label: 'Workflows',
+          items: [
+            'quick-start/workflows/running-workflows',
+            'quick-start/workflows/workflow-validation',
+          ],
+        },
       ],
     },
     {
