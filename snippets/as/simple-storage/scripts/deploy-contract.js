@@ -32,17 +32,6 @@ async function main() {
 
   console.log(`✔️ SimpleStorage live at: ${address}`)
 
-  // Store the address in our recipes' constants file
-  const constants = require(`${__dirname}/../recipes/constants.json`);
-  constants.SimpleStorageAddr = address;
-  fs.writeFileSync(
-    `${__dirname}/../recipes/constants.json`,
-    JSON.stringify(constants, null, 2)
-  );
-
-  console.log("✔️ Recipe Constants Updated");
-}
-
 if (require.main === module) {
   main()
     .then(() => process.exit(0))

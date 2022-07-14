@@ -3,7 +3,10 @@ id: 'adding-metadata'
 title: 'Adding Metadata'
 ---
 
-Wrapper developers can add metadata to their wrappers by writing a Meta Manifest file named `polywrap.meta.yaml`.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Developers can add metadata to their wrappers by writing a Meta Manifest `polywrap.meta.yaml` file.
 Metadata makes it easier for application developers to display a wrapper, make it searchable, and find helpful links.
 
 ## Declaration
@@ -16,34 +19,36 @@ meta: ./polywrap.meta.yaml
 
 ## Content
 
-The content of a Meta Manifest can be represented in pseudocode as an interface with the fields that can 
-(or must) be populated in the manifest file. Here we represent the manifest as a TypeScript interface, with explanatory 
-comments next to each property.
+The Meta Manifest contains titles, descriptions, images, tags, and links that application developers can display
+when presenting or discussing your wrapper.
 
-```typescript title="Meta Manifest represented as TypeScript object"
-interface MetaManifest {
-  format: "0.0.1-prealpha.3"; // determines which fields are expected or required.
-  displayName?: string; // name of the wrapper that users should use for presentation
-  subtext?: string; // subtext of display name; brief description of the wrapper
-  description?: string; // full description of the wrapper
-  repository?: string; // repository URL
-  tags?: string[]; // terms that can help find your wrapper in search
-  icon?: string; // path to wrapper icon or logo
-  links?: { // links relevant to your wrapper
-    name: string; // name of link
-    icon?: string; // icon associated with link
-    url: string; // link URL
-  }[];
-}
+<Tabs
+defaultValue="schema"
+values={[
+{label: 'Schema', value: 'schema'},
+{label: 'Example', value: 'example'},
+]}>
+<TabItem value="schema">
+
+```yaml
+format: # The manifest format version
+displayName: # (Optional) Name of the wrapper that users should use for presentation
+subtext: # (Optional) Subtext of display name; brief description of the wrapper
+description: # (Optional) Detailed description
+repository: # (Optional) Repository URL
+icon: # (Optional) Path to wrapper icon or log
+tags: # (Optional) Array of terms that can help find your wrapper in search
+links: # (Optional) Array of links relevant to your wrapper
+  - name: # Name of link
+    icon: # (Optional) Icon associated with link
+    url: # (Optional) Link URL
 ```
 
-Most fields of the Meta Manifest are optional. 
-The required fields (indicated in the TypeScript example above with *?* symbols) are as follows:
-* format
-* If a link is specified, the name of the link and its URL are required
-
-## Example
+</TabItem>
+<TabItem value="example">
 
 ```yaml title="Fully configured Meta Manifest"
 $snippet: yaml-simple-storage-meta-manifest
 ```
+</TabItem>
+</Tabs>

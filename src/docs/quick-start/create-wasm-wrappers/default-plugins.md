@@ -3,7 +3,6 @@ id: default-plugins
 title: Default plugins
 ---
 
-## Default Plugins
 Polywrap plugin wrappers extend the capabilities of Wasm wrappers. Some plugin wrappers come included in the Polywrap client by default:
 
 - ENS Resolver
