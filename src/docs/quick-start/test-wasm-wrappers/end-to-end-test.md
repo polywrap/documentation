@@ -28,9 +28,9 @@ As more Polywrap Clients are released in various languages, implementing plugin 
 
 You'll need the following installed as developer dependencies before testing your wrapper:
 
-- [polywrap](../../reference/cli/polywrap-cli)
-- `@polywrap/test-env-js`
-- [@polywrap/client-js](../../reference/clients/js/client-js)
+- [`polywrap`](../../reference/cli/polywrap-cli)
+- [`@polywrap/test-env-js`](../../reference/clients/js/libraries/test-env-js)
+- [`@polywrap/client-js`](../../reference/clients/js/client-js)
 - `jest`
 - `@types/jest`
 
@@ -44,47 +44,30 @@ yarn add -D polywrap @polywrap/test-env-js @polywrap/client-js jest @types/jest
 
 ## **The Polywrap Test Environment**
 
-A Polywrap test environment is most useful when it integrates an IPFS node and an Ethereum test network, so that incomplete 
-wrappers can be deployed and queried on your local machine.
+An ideal Polywrap test environment will integrate everything you need to test your wrapper. 
+In the case of this guide, we will need an IPFS node and an Ethereum test network.
 
-The Polywrap CLI can be used to start a Polywrap-ready test environment:
-
-```shell
-npx polywrap infra up --modules=eth-ens-ipfs
-```
-
-The CLI can also be used to stop the test environment:
-
-```shell
-npx polywrap infra down --modules=eth-ens-ipfs
-```
-
-The test environment is a docker container with:
-- A test server at **http://localhost:4040**
-- A standard Ganache Ethereum test network at **http://localhost:8545**
-- An IPFS node at **http://localhost:5001**
-
-It also sets up an ENS contract at initialization, so you can build wrappers and deploy them to an ENS URI on your locally hosted testnet.
-
-However, this guide will use the `@polywrap/test-env-js` package instead. The `@polywrap/test-env-js` can be used to start 
-and stop this same test environment programmatically.
+:::tip
+Polywrap makes it easy to create a custom test environment that you can start and stop with the Polywrap CLI.
+See [Configure Polywrap infrastructure pipeline](./infra-pipeline) for more information.
 :::
+
+This guide will use the [`@polywrap/test-env-js`](../../reference/clients/js/libraries/test-env-js) package.
+The `@polywrap/test-env-js` package uses the default infrastructure module included with the [`polywrap`](../../reference/cli/polywrap-cli) CLI.
+We can use `@polywrap/test-env-js` to start and stop the test environment programmatically. 
+The package also exports the ethereum provider, ipfs provider, and ens addresses used by the default infrastructure module.
 
 ## **Starting and stopping a Polywrap Test environment with @polywrap/test-env-js**
 
-The `@polywrap/test-env-js` package includes functions for starting and stopping a Polywrap test environment.
+If you're unfamiliar with [`@polywrap/test-env-js`](../../reference/clients/js/libraries/test-env-js), feel free to check 
+out the reference documentation before we continue.
 
-The `initTestEnvironment` function takes no arguments starts a local test environment.
+Let's start a new file where we will write our first test. 
 
-The `stopTestEnvironment` function takes no arguments and tears down a test environment if one is running.
-
-The package also exports a `providers` object with URIs for our local ethereum network provider and IPFS provider,
-as well as an `ensAddresses` object containing the Ethereum address of our locally-deployed ENS registry smart contract.
-
-To see these in action, let's start a new file where we will write our first test. Like many testing frameworks in
-JavaScript, the Jest framework includes hooks that run before and after all tests. I've added a call to `initTestEnvironment`
-in the `beforeAll` hook, so we can start our test environment before running our tests. I added a call to `stopTestEnvironment` 
-in the `afterAll` hook to make sure the test environment does not continue running on our system after we finish testing.
+Like many testing frameworks in JavaScript, the Jest framework includes hooks that run before and after all tests. 
+I've added a call to `initTestEnvironment` in the `beforeAll` hook, so we can start our test environment before running our tests. 
+I added a call to `stopTestEnvironment` in the `afterAll` hook to make sure the test environment does not continue running 
+on our system after we finish testing.
 
 ```typescript
 $snippet: js-e2e-test-init
@@ -92,18 +75,24 @@ $snippet: js-e2e-test-init
 
 ## **Building and deploying a Wasm wrapper for testing with @polywrap/test-env-js**
 
-To invoke a Wasm wrapper in a test, we first need to build and deploy it. We can do this with `@polywrap/test-env-js` using
-the `buildAndDeployWrapper` function. The `buildAndDeployWrapper` function requires an absolute path to the directory of 
-your wrapper project that contains the `polywrap.yaml` manifest file, the values that were returned by `initTestEnvironment`, 
-and optionally an ENS domain name.
+To invoke a Wasm wrapper in a test, we first need to build it. In this guide, we will do this with 
+`@polywrap/test-env-js` using the `buildWrapper` function.
 
-The `buildAndDeployWrapper` function returns an ENS domain name and an IPFS CID. Either of these outputs can be used to call
-your wrapper. If an ENS domain name was not provided when calling `buildAndDeployWrapper`, a name will be randomly selected for you.
+:::tip
+Alternatively, we could have used the `@polywrap/test-env-js` function `buildAndDeployWrapper`.
+The `buildAndDeployWrapper` function will build a wrapper, deploy it to IPFS, point an ENS domain to it.
+It returns both the IPFS content hash and the ENS domain, either of which could be used to invoke the wrapper.
+:::
 
-Here we obtain the absolute path to our wrapper project in three steps. First we get the directory of the folder containing
+The `buildWrapper` function requires an absolute path to the directory containing the wrapper's polywrap manifest.
+We will obtain the absolute path to our wrapper project in three steps. First we get the directory of the folder containing
 our test script, using the node.js `__dirname` global variable. We then append the path from our test script file to the
 manifest directory. Finally, we import the node.js feature `path`, and use `path.resolve` to get direct absolute path to
 our wrapper project.
+
+We will invoke our wrapper using the path to our build folder. 
+We prefix the path with `wrap://fs/` to conform to the WRAP URI standard, though prefixing the path with `fs/` alone would
+work just as well. See [Understanding URIs](../../concepts/understanding-uris) to learn more.
 
 ```typescript
 $snippet: js-e2e-test-build
@@ -112,12 +101,11 @@ $snippet: js-e2e-test-build
 ## **Setting up a Polywrap Client**
 
 Now that we have deployed our Wasm wrapper to a local test environment, we need to set up a Polywrap Client that can
-invoke it. We can make sure our client is ready to invoke the wrapper by configuring three of the default plugin wrappers.
+invoke it. We can make sure our client is ready to invoke the wrapper by configuring two of the default plugin wrappers.
 
 - The `ipfsResolverPlugin` can be configured using the test environment's local IPFS node.
 - The `ethereumPlugin` can be configured with Ethereum providers on the Ganache Ethereum test network and the Ganache
 mainnet fork network from our test environment.
-- The `ensResolverPlugin` can be configured using the Ethereum address of the test environment's ENS registry contract.
 
 ### **Configure the IPFS Resolver Plugin**
 
@@ -151,18 +139,6 @@ $snippet: js-e2e-test-config-ethereum-import
 $snippet: js-e2e-test-config-ethereum
 ```
 
-### **Configure the ENS Resolver Plugin**
-
-The `ensResolverPlugin` accepts an Ethereum address for the ENS registry contract on each of the Ethereum networks declared
-in our Ethereum plugin configuration. We will only use the ENS registry deployed on our test environment's Ethereum
-network.
-
-```typescript
-$snippet: js-e2e-test-config-ens-import
-
-$snippet: js-e2e-test-config-ens
-```
-
 ### **Create the Polywrap Client Instance**
 
 Now we are ready to add the plugins to our Polywrap Client configuration and create the client. The URI's we assign in
@@ -188,14 +164,11 @@ $snippet: js-e2e-test-deploy
 Since we are using TypeScript, we will want types to work with. It is possible to automatically generate TypeScript
 types from a GraphQL schema using the Polywrap CLI's `app` command. 
 
-Let's set up a `polywrap.app.yaml` manifest in a new folder called `types`.
-
-Before building our wrapper, we have a GraphQL schema for each of our modules. The `app` command is intended to be used 
-with built wrappers, which have only one schema. We will provide the manifest with the path to the composed schema in 
-our build folder. This means we need to build our wrapper before running tests.
+Let's set up a `polywrap.app.yaml` manifest in a new folder called `types`. 
+We will provide the manifest with the path to the composed schema in our build folder.
 
 ```yaml title="polywrap.app.yaml"
-$start: yaml-e2e-test-app-manifest
+$snippet: yaml-e2e-test-app-manifest
 ```
 
 We can then call the `app` command of the Polywrap CLI.
@@ -217,7 +190,7 @@ $snippet: js-e2e-test-types
 From this point, testing a function in your wrapper is no different from testing a traditional SDK. Instead of calling
 a method in a traditional SDK, you will invoke your wrapper.
 
-We will test the `setIpfsData` method we added to the SimpleStorage API in [Adding new functions](./adding-new-functions). 
+We will test the `setIpfsData` method we added to the SimpleStorage API in [Adding new functions](../create-wasm-wrappers/tutorial/adding-new-methods). 
 For arguments, the `setIpfsData` method takes the Ethereum address of a deployed SimpleStorage contract and the data 
 the user wants to add to IPFS. It returns the IPFS hash of the data.
 

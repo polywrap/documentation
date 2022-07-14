@@ -61,7 +61,7 @@ The `polywrap.plugin.yaml` manifest file describes the layout of a plugin.
 Learn more about the plugin manifest by reading [`Configure a Plugin Manifest`](./plugin-manifest).
 
 ### **`schema.graphql`**
-Each wrapper has a schema. This schema defines the wrapper's: dependencies, methods, and custom types. 
+Each wrapper project has a schema. This schema defines the wrapper's: dependencies, methods, and custom types. 
 In short, it's an interface describing how to use the wrapper.
 
 ### **`src/index.ts`**

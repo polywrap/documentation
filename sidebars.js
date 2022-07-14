@@ -31,16 +31,29 @@ module.exports = {
           type: 'category',
           label: 'Create Wasm Wrappers',
           items: [
-            'quick-start/create-wasm-wrappers/project-setup',
-            'quick-start/create-wasm-wrappers/project-folder',
-            'quick-start/create-wasm-wrappers/build-deploy-test',
-            'quick-start/create-wasm-wrappers/adding-new-functions',
-            'quick-start/create-wasm-wrappers/writing-tests-with-workflows',
-            'quick-start/create-wasm-wrappers/deploy-locally-and-test',
-            'quick-start/create-wasm-wrappers/end-to-end-test',
+            {
+              type: 'category',
+              label: 'Tutorial',
+              items: [
+                'quick-start/create-wasm-wrappers/tutorial/project-setup',
+                'quick-start/create-wasm-wrappers/tutorial/project-folder',
+                'quick-start/create-wasm-wrappers/tutorial/build-deploy-test',
+                'quick-start/create-wasm-wrappers/tutorial/adding-new-methods',
+                'quick-start/create-wasm-wrappers/tutorial/writing-tests-with-workflows',
+                'quick-start/create-wasm-wrappers/tutorial/deploy-locally-and-test',
+              ]
+            },
             'quick-start/create-wasm-wrappers/default-plugins',
             'quick-start/create-wasm-wrappers/adding-metadata',
-            'quick-start/create-wasm-wrappers/uniswapv3-to-polywrap',
+            // 'quick-start/create-wasm-wrappers/uniswapv3-to-polywrap',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Test Wasm Wrappers',
+          items: [
+            'quick-start/test-wasm-wrappers/end-to-end-test',
+            'quick-start/test-wasm-wrappers/infra-pipeline',
           ],
         },
         {
@@ -60,6 +73,14 @@ module.exports = {
             'quick-start/create-plugin-wrappers/create-js-plugin',
             'quick-start/create-plugin-wrappers/plugin-manifest',
             'quick-start/create-plugin-wrappers/plugin-architecture'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Workflows',
+          items: [
+            'quick-start/workflows/running-workflows',
+            'quick-start/workflows/workflow-validation',
           ],
         },
       ],
@@ -104,12 +125,13 @@ module.exports = {
                   label: 'Libraries',
                   items: [
                     'reference/clients/js/libraries/react',
+                    'reference/clients/js/libraries/test-env-js'
                   ]
                 }
               ]
             }
           ]
-        }
+        },
       ]
     },
     /*{

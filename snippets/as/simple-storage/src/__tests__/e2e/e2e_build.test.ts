@@ -1,6 +1,6 @@
 // $start: js-e2e-test-build
 // highlight-start
-import { buildAndDeployWrapper, initTestEnvironment, stopTestEnvironment, providers } from "@polywrap/test-env-js";
+import { buildWrapper, initTestEnvironment, stopTestEnvironment } from "@polywrap/test-env-js";
 import path from "path";
 // highlight-end
 
@@ -8,24 +8,19 @@ jest.setTimeout(360000);
 
 describe('Wrapper Test', () => {
 
-  // highlight-start
-  // the ENS URI that will be used to invoke the wrapper
-  let ensUri: string;
-  // highlight-end
+  // path to the wrapper's build folder
+  let wrapperPath: string;
 
   beforeAll(async () => {
     // initialize test environment
     await initTestEnvironment();
 
     // highlight-start
-    // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with polywrap.yaml
-    const api = await buildAndDeployWrapper({
-      wrapperAbsPath: apiPath,
-      ipfsProvider: providers.ipfs,
-      ethereumProvider: providers.ethereum,
-    });
-    ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
+    // absolute path to directory with polywrap.yaml
+    const wrapperDirectory: string = path.resolve(__dirname + "/../../../");
+    // build the wrapper
+    await buildWrapper(wrapperDirectory);
+    wrapperPath = `wrap://fs/${wrapperDirectory}/build`
     // highlight-end
   });
 

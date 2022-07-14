@@ -2,8 +2,7 @@
 import { ClientConfig, PolywrapClient } from "@polywrap/client-js";
 import { ethereumPlugin, EthereumPluginConfig } from "@polywrap/ethereum-plugin-js";
 import { ipfsPlugin, IpfsPluginConfig } from "@polywrap/ipfs-plugin-js";
-import { ensResolverPlugin, EnsResolverPluginConfig } from "@polywrap/ens-resolver-plugin-js";
-import { buildAndDeployWrapper, initTestEnvironment, stopTestEnvironment, providers, ensAddresses } from "@polywrap/test-env-js";
+import { buildWrapper, initTestEnvironment, stopTestEnvironment, providers } from "@polywrap/test-env-js";
 import path from "path";
 // highlight-next-line
 import { SetIpfsDataResult } from '../types/wrap';
@@ -15,8 +14,8 @@ describe('Wrapper Test', () => {
   // the Ethereum address of the SimpleStorage smart contract
   let simpleStorageAddress: string;
 
-  // the ENS URI that will be used to invoke the wrapper
-  let ensUri: string;
+  // path to the wrapper's build folder
+  let wrapperPath: string;
 
   // an instance of the Polywrap Client
   let client: PolywrapClient;
@@ -25,14 +24,12 @@ describe('Wrapper Test', () => {
     // initialize test environment
     await initTestEnvironment();
 
-    // deploy api
-    const apiPath: string = path.resolve(__dirname + "/../../../"); // absolute path to directory with polywrap.yaml
-    const api = await buildAndDeployWrapper({
-      wrapperAbsPath: apiPath,
-      ipfsProvider: providers.ipfs,
-      ethereumProvider: providers.ethereum,
-    });
-    ensUri = `ens/testnet/${api.ensDomain}`; // we will call our Ethereum test network "testnet"
+    // absolute path to directory with polywrap.yaml
+    const wrapperDirectory: string = path.resolve(__dirname + "/../../../");
+    // build the wrapper
+    await buildWrapper(wrapperDirectory);
+    wrapperPath = `wrap://fs/${wrapperDirectory}/build`
+    console.log(wrapperPath);
 
     // configure the ipfs plugin
     const ipfsConfig: IpfsPluginConfig = {
@@ -44,17 +41,10 @@ describe('Wrapper Test', () => {
     const ethereumConfig: EthereumPluginConfig = {
       networks: {
         testnet: {
-          provider: providers.ethereum, // Ganache test network
+          provider: providers.ethereum // Ganache test network
         },
       },
       defaultNetwork: "testnet",
-    };
-
-    // configure the ens plugin
-    const ensConfig: EnsResolverPluginConfig = {
-      addresses: {
-        testnet: ensAddresses.ensAddress,
-      },
     };
 
     // configure the client
@@ -63,10 +53,6 @@ describe('Wrapper Test', () => {
         {
           uri: "wrap://ens/ipfs.polywrap.eth",
           plugin: ipfsPlugin(ipfsConfig),
-        },
-        {
-          uri: "wrap://ens/ens-resolver.polywrap.eth",
-          plugin: ensResolverPlugin(ensConfig),
         },
         {
           uri: "wrap://ens/ethereum.polywrap.eth",
@@ -80,11 +66,12 @@ describe('Wrapper Test', () => {
 
     // deploy simple storage contract
     const { data, error } = await client.invoke<string>({
-      uri: ensUri,
+      uri: wrapperPath,
       method: "deployContract",
     });
     if (error) throw error;
     simpleStorageAddress = data as string;
+    console.log(simpleStorageAddress);
   });
 
   afterAll(async () => {
@@ -96,7 +83,7 @@ describe('Wrapper Test', () => {
   test("setIpfsData", async () => {
     // invoke setIpfs method
     const { data, error } = await client.invoke<SetIpfsDataResult>({
-      uri: ensUri,
+      uri: wrapperPath,
       method: "setIpfsData",
       args: {
         options: {

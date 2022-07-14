@@ -1,6 +1,6 @@
 # $start: yaml-e2e-test-app-manifest
 format: 0.1.0
-name: generate-simple-storage-typescript-types
+name: generate-typescript-types
 language: app/typescript
 schema: ../../../build/schema.graphql
 # $end
