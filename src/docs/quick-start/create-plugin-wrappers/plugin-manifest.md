@@ -46,7 +46,7 @@ language: plugin/typescript
 module: ./src/index.ts
 schema: ./src/schema.graphql
 import_redirects:
-  - uri: w3://ens/imported-plugin.eth
+  - uri: wrap://ens/imported-plugin.eth
     schema: ./../local-plugin/schema.graphql
 ```
 </TabItem>
