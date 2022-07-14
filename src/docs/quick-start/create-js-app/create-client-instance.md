@@ -9,7 +9,7 @@ Once the Polywrap JS client has been installed, the next step is to create a `Po
 $snippet: js-create-client-instance
 ```
 
-At this point, you can already send queries to wrappers. In the simple example below, we send one to the "hello world" wrapper.
+At this point, you can already invoke wrappers. In the simple example below, we send one to the "hello world" wrapper.
 
 ```typescript
 $snippet: js-client-hello-world

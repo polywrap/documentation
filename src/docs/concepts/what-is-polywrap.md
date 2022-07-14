@@ -18,8 +18,7 @@ Web3 developers may want to integrate functions into their own app that allows u
 A Polywrap Wasm "wrapper" consists of the following files:
 
 - **A Wasm module** containing the protocol's business logic functions (e.g. Uniswap's swap functions)
-- **GraphQL** schema to provide types and parameters for the module functions
-- **Manifest** files that orchestrate the wrapper
+- **Wrap Manifest** file that orchestrates the wrapper, and provides types and parameters for the module functions
 
 ## Where is it deployed?
 
@@ -40,6 +39,6 @@ The Polywrap JavaScript client allows the app to use **any** deployed wrapper. A
 
 For detailed information on how to integrate in apps, take a look at our [Create a JS App](../../quick-start/create-js-app/install-client) guide.
 
-For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own app, see our [Creating a Wasm wrapper guide](../../quick-start/create-wasm-wrappers/project-setup).
+For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own app, see our [Creating a Wasm wrapper guide](../../quick-start/create-wasm-wrappers/tutorial/project-setup).
 
 :::
