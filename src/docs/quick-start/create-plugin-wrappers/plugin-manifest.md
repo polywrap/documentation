@@ -30,10 +30,10 @@ format: # The manifest format version
 name: # (Optional) Name of plugin
 language: # Plugin programming language
 module: # Entry file 
-schema: # GraphQL schema
+schema: # Wrapper schema
 import_redirects: # Array of URI redirects
   - uri: # Source URI to be redirected
-    schema: # Path to GraphQL schema of the module to which URI will be redirected
+    schema: # Path to schema of the module to which URI will be redirected
 ```
 
 </TabItem>
@@ -46,7 +46,7 @@ language: plugin/typescript
 module: ./src/index.ts
 schema: ./src/schema.graphql
 import_redirects:
-  - uri: w3://ens/imported-plugin.eth
+  - uri: wrap://ens/imported-plugin.eth
     schema: ./../local-plugin/schema.graphql
 ```
 </TabItem>
