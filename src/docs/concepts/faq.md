@@ -37,28 +37,12 @@ in Wasm. The Ethereum Plugin package can be configured to make Ethereum transact
 Base Schema Types are default types that can be used by wrapper developers in their wrapper schemas.
 Some are primitive types, while others are objects with implementations that may differ between wrapper development languages.
 
-Each language has has type mappings that correspond to the Base Schema Types. These are used when invoking wrappers, and correctly serialize to the corresponding Base Schema Types.
+Each language has type mappings that correspond to the Base Schema Types. These are used when invoking wrappers, and correctly serialize to the corresponding Base Schema Types.
 
 ### **What schema types are supported by Polywrap?**
-| Schema Type | TypeScript Type | Description |
-|-|-|-|
-| UInt | number | 32-bit unsigned integer. |
-| UInt8 | number | 8-bit unsigned integer. |
-| UInt16 | number | 16-bit unsigned integer. |
-| UInt32 | number | 32-bit unsigned integer. |
-| Int | number | 32-bit signed integer. |
-| Int8 | number | 8-bit signed integer. |
-| Int16 | number | 16-bit signed integer. |
-| Int32 | number | 32-bit signed integer. |
-| String | string | UTF-8 string. |
-| Boolean | boolean | True or false stored as 1 byte. |
-| Bytes | ArrayBuffer | Array of 8-bit unsigned integers. |
-| BigInt | string | Multiple precision integer. |
-| BigNumber | string | Multiple precision float. |
-| JSON | string | JSON object. |
-| [Type] | Array<Type\> | Array of elements. |
-| Map | Map<K,V\> | Map of key-value pairs. |
-| type CustomObject {<br/>&nbsp;&nbsp;prop: Type<br/>} | object | Structured object. |
+Polywrap supports several default types, as well as user-defined custom types.
+You can find a list of supported default types in [Wrapper Schema](../quick-start/wrapper-schema), 
+as well as guidance on creating your own custom types.
 
 ### **How can I create Polywrap "schema types"?**
 Polywrap schemas use a subset of [GraphQL syntax](https://graphql.org/learn/).
