@@ -14,7 +14,7 @@ Once you've configured the manifest, you can use the Polywrap CLI's [`deploy`](.
 
 The location of the deployment manifest should be declared in your Polywrap Manifest `polywrap.yaml` with a field labeled *deploy*.
 
-```yaml"
+```yaml
 deploy: ./polywrap.deploy.yaml
 ```
 

@@ -13,7 +13,7 @@ Metadata makes it easier for application developers to display a wrapper, make i
 
 Its location must be referenced in the `polywrap.yaml` manifest with a field labeled *meta*.
 
-```yaml"
+```yaml
 meta: ./polywrap.meta.yaml
 ```
 

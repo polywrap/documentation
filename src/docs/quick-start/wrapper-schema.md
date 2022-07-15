@@ -11,8 +11,18 @@ The schema defines the wrapper's dependencies, methods, and custom types.
 In short, it's an interface describing how to use the wrapper.
 
 The schema is a sort of contract between a wrapper's developers and its users.
-A wrapper will not compile unless it implements and exports all of the methods declared in the schema.
-A wrapper's users can be certain that all of the methods declared in a schema are callable using the declared method signatures.
+A Wasm wrapper will not compile unless it implements and exports all of the methods declared in the schema.
+A Wasm wrapper's users can be certain that all of the methods declared in a schema are callable using the declared method signatures.
+Plugin wrappers do not have this same guarantee.
+However, the client will throw an exception if a user attempts to invoke a method and the method is not found.
+
+## Declaration
+
+A wrapper project's schema must be declared in the project manifest (Polywrap Manifest or [Plugin Manifest](./create-plugin-wrappers/plugin-manifest)).
+
+```yaml
+schema: ./src/schema.graphql
+```
 
 ## Codegen
 
