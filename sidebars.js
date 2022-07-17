@@ -10,6 +10,7 @@ module.exports = {
         'concepts/understanding-plugins',
         'concepts/understanding-uri-redirects',
         'concepts/plugin-vs-wasm-wrapper',
+        'concepts/project-manifests',
         'concepts/faq',
       ],
     },
@@ -43,8 +44,9 @@ module.exports = {
                 'quick-start/create-wasm-wrappers/tutorial/deploy-locally-and-test',
               ]
             },
+            'quick-start/create-wasm-wrappers/polywrap-manifest',
             'quick-start/create-wasm-wrappers/default-plugins',
-            'quick-start/create-wasm-wrappers/adding-metadata',
+            'quick-start/create-wasm-wrappers/add-metadata',
             // 'quick-start/create-wasm-wrappers/uniswapv3-to-polywrap',
           ],
         },
