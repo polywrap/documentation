@@ -11,7 +11,7 @@ Metadata makes it easier for application developers to display a wrapper, make i
 
 ## Declaration
 
-Its location must be referenced in the [Polywrap Manifest](./polylwrap-manifest) with a field labeled *meta*.
+Its location must be referenced in the [Polywrap Manifest](./polywrap-manifest) with a field labeled *meta*.
 
 ```yaml"
 meta: ./polywrap.meta.yaml

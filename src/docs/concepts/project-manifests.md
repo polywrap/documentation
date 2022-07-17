@@ -4,7 +4,7 @@ title: 'Project Manifests'
 ---
 
 Polywrap projects use manifest files to configure various parts of the project. 
-Every Wasm wrapper project has a [Polywrap Manifest](../quick-start/create-wasm-wrappers/polylwrap-manifest), 
+Every Wasm wrapper project has a [Polywrap Manifest](../quick-start/create-wasm-wrappers/polywrap-manifest), 
 and every plugin wrapper project has a [Plugin Manifest](../quick-start/create-plugin-wrappers/plugin-manifest).
 
 ## **The YAML format**
@@ -15,7 +15,7 @@ If you're not familiar with the YAML syntax, you can learn the basics at [Learn 
 
 ## **Manifest Types**
 
- - [Polywrap Manifest](../quick-start/create-wasm-wrappers/polylwrap-manifest) - Orchestrates a Wasm wrapper project
+ - [Polywrap Manifest](../quick-start/create-wasm-wrappers/polywrap-manifest) - Orchestrates a Wasm wrapper project
  - [Plugin Manifest](../quick-start/create-plugin-wrappers/plugin-manifest) - Orchestrates a Plugin wrapper project
  - [Infra Manifest](../quick-start/test-wasm-wrappers/infra-pipeline) - Manage local test environment infrastructure
  - [Build Manifest](../quick-start/build-and-deploy-wasm-wrappers/build-pipeline) - Customize the build process
