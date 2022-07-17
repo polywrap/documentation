@@ -20,7 +20,7 @@ deploy: ./polywrap.deploy.yaml
 
 ## Content
 
-The concents of a Deploy manifest consists of one or more stages, each of which has some common fields and a set of configuration
+The concents of a Deploy Manifest consists of one or more stages, each of which has some common fields and a set of configuration
 options particular to the module. The result of a stage can be passed as input to a later stage.
 
 <Tabs

@@ -15,11 +15,11 @@ modules as directed by the user.
 
 ## Declaration
 
-Unlike some manifests, the Infra manifest does not need to be declared in your Polywrap manifest.
+Unlike some manifests, the Infra Manifest does not need to be declared in your Polywrap manifest.
 
 ## Content
 
-The Infra manifest consists of environmental variable declarations and one or more infrastructure modules. 
+The Infra Manifest consists of environmental variable declarations and one or more infrastructure modules. 
 Each module points to a local, remote, or default docker-compose file.
 
 <Tabs
@@ -66,7 +66,7 @@ modules:
 
 ## Infrastructure Modules
 
-An Infra manifest can declare any number of infrastructure modules. 
+An Infra Manifest can declare any number of infrastructure modules. 
 Polywrap currently supports three types of infrastructure modules: 
 - A local module exists on your local filesystem.
 - A remote module is a package hosted by a package registry.
@@ -74,7 +74,7 @@ Polywrap currently supports three types of infrastructure modules:
 
 ### Local
 
-A local infrastructure module is a path from the Infra manifest to a local folder with a docker-compose file.
+A local infrastructure module is a path from the Infra Manifest to a local folder with a docker-compose file.
 
 ```yaml title="Example: local module configuration"
 format: 0.1.0
@@ -87,7 +87,7 @@ modules:
 
 A remote infrastructure module is a package hosted at a package registry. 
 The package must contain a docker-compose file. 
-The path to the docker-compose file must be declared in the Infra manifest if the file is not located in the package root.
+The path to the docker-compose file must be declared in the Infra Manifest if the file is not located in the package root.
 
 Remote packages can be shared. 
 Users can add remote packages to their manifest to replicate the infrastructure modules defined by other users or projects.
@@ -105,11 +105,11 @@ modules:
 ### Default
 
 A default infrastructure module is included with the [`polywrap`](../../reference/cli/polywrap-cli) CLI. 
-It is declared in the Infra manifest as a module named *eth-ens-ipfs* and the value *default*.
+It is declared in the Infra Manifest as a module named *eth-ens-ipfs* and the value *default*.
 
-If an Infra manifest is not found, the Polywrap CLI [`infra`](../../reference/cli/commands/deploy) command can still use
+If an Infra Manifest is not found, the Polywrap CLI [`infra`](../../reference/cli/commands/deploy) command can still use
 this module. 
-To use the default module without an Infra manifest, pass `eth-ens-ipfs` as an argument to the [`infra`](../../reference/cli/commands/deploy) command's `modules` option:
+To use the default module without an Infra Manifest, pass `eth-ens-ipfs` as an argument to the [`infra`](../../reference/cli/commands/deploy) command's `modules` option:
 
 ```bash
 npx polywrap infra up --modules=eth-ens-ipfs
