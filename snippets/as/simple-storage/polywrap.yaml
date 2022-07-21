@@ -1,8 +1,10 @@
+# $start: yaml-simple-storage-package-manifest
 format: 0.1.0
 name: simple-storage
 language: wasm/assemblyscript
+schema: ./src/schema.graphql
+module: ./src/index.ts
 build: ./polywrap.build.yaml
 meta: ./polywrap.meta.yaml
 deploy: ./polywrap.deploy.yaml
-module: ./src/index.ts
-schema: ./src/schema.graphql
+# $end

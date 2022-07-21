@@ -7,7 +7,7 @@ Some application developers may be interested adding or retrieving wrapper metad
 Wrapper developers can add metadata to their wrappers by writing a Meta Manifest file.
 Application developers can obtain the Meta Manifest as an object or class in the client's native language.
 
-More information about the contents of the Meta Manifest can be found in [Adding Metadata](../create-wasm-wrappers/adding-metadata).
+More information about the contents of the Meta Manifest can be found in [Add Metadata](../create-wasm-wrappers/add-metadata).
 
 The client's `getFile` method can be used to retrieve a file from a wrapper. It uses the wrapper URI as the root path.
 
