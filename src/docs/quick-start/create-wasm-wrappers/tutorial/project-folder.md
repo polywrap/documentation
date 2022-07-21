@@ -9,7 +9,7 @@ Once you have your project set up, the folder tree should look something like th
 polywrap.yaml                  # Manifest File
 src/
 │   ├── index.ts              # Entry point, exports methods defined in schema
-│   |── schema.graphql/       # GraphQL Schema
+│   |── schema.graphql/       # Schema
 |   └── contracts/            # Smart Contracts
 |
 workflows/                    # Job definitions (described below)
@@ -21,7 +21,9 @@ scripts/                      # Smart Contract Build/Deploy
 The `polywrap.yaml` is a manifest file describing the layout of a Polywrap Wasm wrapper.
 
 ### **`schema.graphql`**
-Each wrapper has a schema. This schema defines the wrapper's: dependencies, methods, and custom types. In short, it's an interface describing how to use the wrapper.
+Each wrapper project has a [Wrapper Schema](../../wrapper-schema). 
+The schema defines the wrapper's dependencies, methods, and custom types. 
+In short, it's an interface describing how to use the wrapper.
 
 ### **`src/index.ts`**
 The `index.ts` file exports the wrapper's method's implementations, which contain the wrapper's logic.
@@ -30,7 +32,7 @@ The `index.ts` file exports the wrapper's method's implementations, which contai
 The `src/contracts` directory contains our protocol's Ethereum-based smart contracts.
 
 ### **`workflows/*`**
-Workflows provide a simple way to test your Polywrap without having to write custom testing logic (with JavaScript and Jest, for example).
+[Workflows](../../workflows/running-workflows) provide a simple way to test your Polywrap without having to write custom testing logic (with JavaScript and Jest, for example).
 
 We'll be using this functionality further down in this guide with the `polywrap run` command, allowing us to easily send test queries against our API.
 

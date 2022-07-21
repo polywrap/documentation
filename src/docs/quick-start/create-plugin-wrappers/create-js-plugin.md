@@ -57,16 +57,16 @@ src/
 ```
 
 ### **`polywrap.plugin.yaml`**
-The `polywrap.plugin.yaml` manifest file describes the layout of a plugin. 
-Learn more about the plugin manifest by reading [`Configure a Plugin Manifest`](./plugin-manifest).
+The [Plugin Manifest](./plugin-manifest) describes the layout of a plugin.
 
 ### **`schema.graphql`**
-Each wrapper project has a schema. This schema defines the wrapper's: dependencies, methods, and custom types. 
+Each wrapper project has a [Wrapper Schema](../wrapper-schema). 
+The schema defines the wrapper's dependencies, methods, and custom types. 
 In short, it's an interface describing how to use the wrapper.
 
 ### **`src/index.ts`**
 The `index.ts` file exports the wrapper's method's implementations, which contain the plugin's logic.
-Learn more about the plugin's code architecture by reading [`Plugin Architecture`](./plugin-architecture)
+Learn more about the plugin's code architecture by reading [Plugin Architecture](./plugin-architecture)
 
 ## **Building the plugin**
 

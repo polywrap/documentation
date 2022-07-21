@@ -15,7 +15,7 @@ The best way to set up a Polywrap project is to start with one of the project te
 
 The initial project setup includes a `mutation` folder and a `query` folder within `src`, which correspond to the two types of modules a wrapper can have.
 
-It also includes a `polywrap.yaml` manifest file, a `polywrap.build.yaml` build manifest file, and a `polywrap.meta.yaml` meta manifest file. The `polywrap.yaml` manifest tells the Polywrap CLI what language your wrapper is in, where your module schemas are located, and more. Our `polywrap.yaml` looked like this:
+It also includes a `polywrap.yaml` manifest file, a `polywrap.build.yaml` Build Manifest file, and a `polywrap.meta.yaml` Meta Manifest file. The `polywrap.yaml` manifest tells the Polywrap CLI what language your wrapper is in, where your module schemas are located, and more. Our `polywrap.yaml` looked like this:
 
 ```yaml
 format: 0.0.1-prealpha.5
@@ -31,9 +31,9 @@ modules:
     module: ./src/query/index.ts
 ```
 
-The build manifest lets you customize the build process. The meta manifest lets you add meta-data to your project, like a description and a link to your repo.
+The Build Manifest lets you customize the build process. The Meta Manifest lets you add meta-data to your project, like a description and a link to your repo.
 
-For the Uniswap v3 wrapper, we left the `polywrap.yaml` manifest and the build manifest unchanged. We added detail to the meta manifest much later, when wrapper development was largely complete.
+For the Uniswap v3 wrapper, we left the `polywrap.yaml` manifest and the Build Manifest unchanged. We added detail to the Meta Manifest much later, when wrapper development was largely complete.
 
 ## Writing the interface in a GraphQL Schema
 

@@ -85,6 +85,7 @@ module.exports = {
             'quick-start/workflows/workflow-validation',
           ],
         },
+        'quick-start/wrapper-schema',
       ],
     },
     {
