@@ -9,7 +9,7 @@ To use the Polywrap React integration, you'll need to install the `@polywrap/rea
 npm install --save @polywrap/react
 ```
 
-An example React application can be found [here](https://github.com/polywrap/demos/tree/main/hello-world/app/react.js).
+An example React application can be found [here](https://github.com/polywrap/demos/tree/main/hello-world/app/).
 
 ### **PolywrapProvider**
 
