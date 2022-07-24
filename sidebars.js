@@ -79,6 +79,14 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'Interfaces',
+          items: [
+            'quick-start/interfaces/define-implement-interfaces',
+            'quick-start/interfaces/client-config-interfaces'
+          ],
+        },
+        {
+          type: 'category',
           label: 'Workflows',
           items: [
             'quick-start/workflows/running-workflows',
