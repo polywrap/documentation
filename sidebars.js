@@ -81,8 +81,9 @@ module.exports = {
           type: 'category',
           label: 'Interfaces',
           items: [
+            'quick-start/interfaces/client-config-interfaces',
             'quick-start/interfaces/define-implement-interfaces',
-            'quick-start/interfaces/client-config-interfaces'
+            'quick-start/interfaces/interface-instances'
           ],
         },
         {

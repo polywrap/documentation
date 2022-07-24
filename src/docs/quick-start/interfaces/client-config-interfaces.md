@@ -1,6 +1,6 @@
 ---
 id: client-config-interfaces
-title: Configure Interfaces in the Client
+title: Configure interfaces in the client
 ---
 
 The [Polywrap Client](../../reference/clients/js/client-js) can be configured to use one or more implementations for

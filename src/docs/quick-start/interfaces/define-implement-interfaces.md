@@ -1,6 +1,6 @@
 ---
 id: define-implement-interfaces
-title: Define and Implement Interfaces
+title: Define and implement interfaces
 ---
 
 import Tabs from '@theme/Tabs';
@@ -14,7 +14,7 @@ For example, the [URI Resolver](https://github.com/polywrap/monorepo/tree/origin
 interface is used to standardize the interface of URI resolvers. 
 It is implemented by multiple plugin wrappers to help the Polywrap client query different types of URIs.
 
-## Declaring an Interface Project
+## Declaring an interface project
 
 Interface projects are declared using a [Polywrap Manifest](./create-wasm-wrappers/polylwrap-manifest).
 To indicate that a project is an abstract interface, set the project language to `interface`.
@@ -29,7 +29,7 @@ language: interface
 schema: ./src/schema.graphql
 ```
 
-## Defining an Interface
+## Defining an interface
 
 Defining an interface is as simple as writing the [Wrapper Schema](./wrapper-schema). 
 Once the schema is complete, you are ready to deploy the interface wrapper.
