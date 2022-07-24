@@ -1,6 +1,6 @@
 ---
-id: 'adding-metadata'
-title: 'Adding Metadata'
+id: 'add-metadata'
+title: 'Add Metadata'
 ---
 
 import Tabs from '@theme/Tabs';
@@ -11,9 +11,9 @@ Metadata makes it easier for application developers to display a wrapper, make i
 
 ## Declaration
 
-Its location must be referenced in the `polywrap.yaml` manifest with a field labeled *meta*.
+Its location must be referenced in the [Polywrap Manifest](./polywrap-manifest) with a field labeled *meta*.
 
-```yaml"
+```yaml
 meta: ./polywrap.meta.yaml
 ```
 

@@ -104,8 +104,7 @@ Now that we have deployed our Wasm wrapper to a local test environment, we need 
 invoke it. We can make sure our client is ready to invoke the wrapper by configuring two of the default plugin wrappers.
 
 - The `ipfsResolverPlugin` can be configured using the test environment's local IPFS node.
-- The `ethereumPlugin` can be configured with Ethereum providers on the Ganache Ethereum test network and the Ganache
-mainnet fork network from our test environment.
+- The `ethereumPlugin` can be configured with an Ethereum provider for the Ganache Ethereum test network.
 
 ### **Configure the IPFS Resolver Plugin**
 
