@@ -1,4 +1,6 @@
+# $start: yaml-hello-world-app-manifest
 format: 0.1.0
-name: react-integration
+name: hello-world
 language: app/typescript
 schema: ./schema.graphql
+# $end

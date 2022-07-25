@@ -25,7 +25,8 @@ module.exports = {
             'quick-start/integrate-wrappers/install-client',
             'quick-start/integrate-wrappers/create-client-instance',
             'quick-start/integrate-wrappers/react-integration',
-            'quick-start/integrate-wrappers/get-wrapper-metadata',
+            'quick-start/integrate-wrappers/types-for-app',
+            'quick-start/integrate-wrappers/get-wrapper-metadata'
           ],
         },
         {
