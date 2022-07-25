@@ -22,10 +22,10 @@ module.exports = {
           type: 'category',
           label: 'Integrate Wrappers',
           items: [
-            'quick-start/create-js-app/install-client',
-            'quick-start/create-js-app/create-client-instance',
-            'quick-start/create-js-app/react-integration',
-            'quick-start/create-js-app/get-wrapper-metadata',
+            'quick-start/integrate-wrappers/install-client',
+            'quick-start/integrate-wrappers/create-client-instance',
+            'quick-start/integrate-wrappers/react-integration',
+            'quick-start/integrate-wrappers/get-wrapper-metadata',
           ],
         },
         {

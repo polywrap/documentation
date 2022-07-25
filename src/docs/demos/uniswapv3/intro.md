@@ -76,7 +76,7 @@ const routerQuery: InvokeApiResult<MethodParameters> = await client.invoke<Metho
 const swapCallParameters: MethodParameters | undefined = routerQuery.data;
 ```
 
-Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS App](/quick-start/create-js-app/install-client) guide.
+Take a look at more sophisticated tooling, such as our `useWeb3ApiQuery` hook, in our [Create a JS App](/quick-start/integrate-wrappers/install-client) guide.
 
 ## Code
 

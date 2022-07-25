@@ -24,7 +24,7 @@ const showcaseCards = [
     title: "Quick Start",
     description: "Get building right away with our quick start guides",
     cta: "Build",
-    link: "/quick-start/create-js-app/install-client",
+    link: "/quick-start/integrate-wrappers/install-client",
   },
   {
     title: "Reference",
