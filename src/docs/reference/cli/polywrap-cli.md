@@ -14,6 +14,12 @@ import TabItem from '@theme/TabItem';
 
 Command line interface for building with Polywrap.
 
+## Prerequisites
+
+[Docker](https://www.docker.com/) is required to perform some tasks, including to [`build`](./commands/build) Wasm wrappers.
+Linux users will also need to install [Docker Compose](https://docs.docker.com/compose/install/).
+Docker is free for personal use. Once Docker is installed and enabled, you're ready to go!
+
 ## Installation
 
 <Tabs
