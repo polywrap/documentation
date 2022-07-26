@@ -12,7 +12,7 @@ const FeedbackWidget = ({label,haveVoted, changeHaveVoted}) => {
         hitType: 'event',
         eventCategory: 'button',
         eventAction: 'feedback',
-        eventLabel: label,
+        eventLabel: 'docs/' + label,
         eventValue: value,
       });
     }
