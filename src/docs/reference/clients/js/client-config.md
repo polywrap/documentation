@@ -36,7 +36,7 @@ They offer a user experience similar to that of wrappers, but with different ben
 
 Plugins are declared and constructed in the Client config by providing an array of `PluginRegistration`.
 Each `PluginRegistration` contains the URI at which the plugin will be queried and a `PluginPackage`.
-A `PluginPackage` is a factory function the [`PolywrapClient`](../../reference/clients/js/client-js) uses to create new
+A `PluginPackage` is a factory function the [`PolywrapClient`](./client-js) uses to create new
 instances of the plugin.
 Each plugin can have its own configuration.
 
