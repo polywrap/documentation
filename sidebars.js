@@ -24,8 +24,9 @@ module.exports = {
           items: [
             'quick-start/integrate-wrappers/install-client',
             'quick-start/integrate-wrappers/create-client-instance',
-            'quick-start/integrate-wrappers/react-integration',
+            'quick-start/integrate-wrappers/configure-client',
             'quick-start/integrate-wrappers/types-for-app',
+            'quick-start/integrate-wrappers/react-integration',
             'quick-start/integrate-wrappers/get-wrapper-metadata'
           ],
         },
@@ -80,6 +81,15 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'Interfaces',
+          items: [
+            'quick-start/interfaces/client-config-interfaces',
+            'quick-start/interfaces/define-implement-interfaces',
+            'quick-start/interfaces/interface-instances'
+          ],
+        },
+        {
+          type: 'category',
           label: 'Workflows',
           items: [
             'quick-start/workflows/running-workflows',
@@ -124,6 +134,7 @@ module.exports = {
               label: 'JavaScript',
               items: [
                 'reference/clients/js/client-js',
+                'reference/clients/js/client-config',
                 {
                   type: 'category',
                   label: 'Libraries',
