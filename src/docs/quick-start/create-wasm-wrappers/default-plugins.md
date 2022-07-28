@@ -17,6 +17,8 @@ Polywrap plugin wrappers extend the capabilities of Wasm wrappers. Some plugin w
 - SHA3
 - UTS-46
 
+The full default client configuration can be viewed [here](https://github.com/polywrap/monorepo/blob/origin/packages/js/client/src/default-client-config.ts).
+
 In this guide, we'll show you what it's like to import these default plugins into your wrapper, and explain what some commonly used plugins do.
 
 ## Import to schema
