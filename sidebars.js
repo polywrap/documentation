@@ -24,6 +24,7 @@ module.exports = {
           items: [
             'quick-start/create-js-app/install-client',
             'quick-start/create-js-app/create-client-instance',
+            'quick-start/create-js-app/configure-client',
             'quick-start/create-js-app/react-integration',
             'quick-start/create-js-app/get-wrapper-metadata',
           ],
@@ -123,6 +124,7 @@ module.exports = {
               label: 'JavaScript',
               items: [
                 'reference/clients/js/client-js',
+                'reference/clients/js/client-config',
                 {
                   type: 'category',
                   label: 'Libraries',
