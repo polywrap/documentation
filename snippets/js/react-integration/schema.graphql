@@ -1,1 +1,3 @@
-#import * into HelloWorld from "ens/helloworld.polywrap.eth"
+# $start: graphql-hello-world-app-schema
+#import * into HelloWorld from "ens/helloworld.polytest.eth"
+# $end

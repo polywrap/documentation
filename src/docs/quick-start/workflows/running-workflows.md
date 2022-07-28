@@ -60,7 +60,7 @@ configuration file.
 The configuration file can be a JavaScript or TypeScript module.
 It must implement and export a function named `getClientConfig`. 
 
-The `getClientConfig` function accepts the default [`ClientConfig`](../create-js-app/configure-client) as an argument and returns the custom Polywrap 
+The `getClientConfig` function accepts the default [`ClientConfig`](../integrate-wrappers/configure-client) as an argument and returns the custom Polywrap 
 client configuration. 
 It must be implemented with the following signature:
 
