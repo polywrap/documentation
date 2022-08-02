@@ -3,7 +3,7 @@ id: 'plugin-vs-wasm-wrapper'
 title: Should you build a Wasm or Plugin Wrapper?
 ---
 
-Everything created via the Polywrap development platform is a "wrapper". App and wrapper developers can invoke WebAssembly (Wasm) wrappers and plugin wrappers in the same way, without concern for how a particular bit of functionality has been implemented.
+Everything created via the Polywrap development platform is a "wrapper". Developers can invoke WebAssembly (Wasm) wrappers and plugin wrappers in the same way, without concern for how a particular bit of functionality has been implemented.
 
 However, Wasm and plugin wrappers each have their strengths and a set of use cases for which they are ideally suited. This page offers some guidance for recognizing when to build a Wasm wrapper, when you need to build a plugin wrapper, and how you can combine both in new projects.
 
