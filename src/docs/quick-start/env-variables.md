@@ -28,7 +28,19 @@ type Module {
 
 ## Access Env in the module
 
-Wrapper developers can access the `Env` instance by accepting the `Env` as a second argument in their module's methods. When an application developer invokes the method, the environmental variables they set in their [`ClientConfig`](./integrate-wrappers/configure-client#envs) will be provided.
+Environmental variables can be used in both plugin wrappers and Wasm wrappers.
+
+### Env in plugin wrappers
+
+Plugin wrapper developers can access the `Env` instance as a class property.
+
+```typescript
+const env: Env = this.env;
+```
+
+### Env in wasm wrappers
+
+Wasm wrapper developers can access the `Env` instance by accepting the `Env` as a second argument in their module's methods. When an application developer invokes the method, the environmental variables they set in their [`ClientConfig`](./integrate-wrappers/configure-client#envs) will be provided.
 
 <Tabs
 defaultValue="as"
