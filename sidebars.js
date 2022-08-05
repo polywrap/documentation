@@ -19,6 +19,8 @@ module.exports = {
       type: 'category',
       label: 'Quick Start',
       items: [
+        'quick-start/polywrap-cli',
+        'quick-start/wrapper-schema',
         {
           type: 'category',
           label: 'Integrate Wrappers',
@@ -26,8 +28,8 @@ module.exports = {
             'quick-start/integrate-wrappers/install-client',
             'quick-start/integrate-wrappers/create-client-instance',
             'quick-start/integrate-wrappers/configure-client',
-            'quick-start/integrate-wrappers/types-for-app',
             'quick-start/integrate-wrappers/react-integration',
+            'quick-start/integrate-wrappers/types-for-app',
             'quick-start/integrate-wrappers/get-wrapper-metadata'
           ],
         },
@@ -96,8 +98,7 @@ module.exports = {
             'quick-start/workflows/running-workflows',
             'quick-start/workflows/workflow-validation',
           ],
-        },
-        'quick-start/wrapper-schema',
+        }
       ],
     },
     {
