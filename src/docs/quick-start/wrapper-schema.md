@@ -28,7 +28,7 @@ schema: ./src/schema.graphql
 
 The wrapper schema tells the Polywrap compiler which types and serialization logic to generate. 
 Generated types are updated every time you [`build`](../reference/cli/commands/codegen) the wrapper.
-The [`polywrap`](../reference/cli/polywrap-cli) CLI also provides a [`codegen`](../reference/cli/commands/codegen) command to
+The [`polywrap`](./polywrap-cli) CLI also provides a [`codegen`](../reference/cli/commands/codegen) command to
 quickly update the generated `wrap` folder where generated types are stored.
 
 The Polywrap compiler generates types for method arguments and custom schema types. 

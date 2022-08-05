@@ -28,9 +28,9 @@ As more Polywrap Clients are released in various languages, implementing plugin 
 
 You'll need the following installed as developer dependencies before testing your wrapper:
 
-- [`polywrap`](../../reference/cli/polywrap-cli)
+- [`polywrap`](../polywrap-cli)
 - [`@polywrap/test-env-js`](../../reference/clients/js/libraries/test-env-js)
-- [`@polywrap/client-js`](../../reference/clients/js/client-js)
+- [`@polywrap/client-js`](../integrate-wrappers/install-client)
 - `jest`
 - `@types/jest`
 
@@ -53,7 +53,7 @@ See [Configure Polywrap infrastructure pipeline](./infra-pipeline) for more info
 :::
 
 This guide will use the [`@polywrap/test-env-js`](../../reference/clients/js/libraries/test-env-js) package.
-The `@polywrap/test-env-js` package uses the default infrastructure module included with the [`polywrap`](../../reference/cli/polywrap-cli) CLI.
+The `@polywrap/test-env-js` package uses the default infrastructure module included with the [`polywrap`](../polywrap-cli) CLI.
 We can use `@polywrap/test-env-js` to start and stop the test environment programmatically. 
 The package also exports the ethereum provider, ipfs provider, and ens addresses used by the default infrastructure module.
 

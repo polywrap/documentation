@@ -104,7 +104,7 @@ modules:
 
 ### Default
 
-A default infrastructure module is included with the [`polywrap`](../../reference/cli/polywrap-cli) CLI. 
+A default infrastructure module is included with the [`polywrap`](../polywrap-cli) CLI. 
 It is declared in the Infra Manifest as a module named *eth-ens-ipfs* and the value *default*.
 
 If an Infra Manifest is not found, the Polywrap CLI [`infra`](../../reference/cli/commands/deploy) command can still use

@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 A workflow is a configurable process that will execute one or more Polywrap wrapper invocations. 
-Workflows are defined in YAML or JSON. Workflows can be run with the [`run`](../../reference/cli/commands/run) command of the [`polywrap`](../../reference/cli/polywrap-cli) CLI.
+Workflows are defined in YAML or JSON. Workflows can be run with the [`run`](../../reference/cli/commands/run) command of the [`polywrap`](../polywrap-cli) CLI.
 
 ## Writing workflows
 

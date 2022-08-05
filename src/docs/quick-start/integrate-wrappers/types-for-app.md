@@ -6,7 +6,7 @@ title: Generate types for your app
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [`polywrap`](../../reference/cli/polywrap-cli) CLI's [`app`](../../reference/cli/commands/app) command interacts with 
+The [`polywrap`](../polywrap-cli) CLI's [`app`](../../reference/cli/commands/app) command interacts with 
 an App Manifest to automatically generate wrapper types in the language of your application.
 
 ## App Manifest content
