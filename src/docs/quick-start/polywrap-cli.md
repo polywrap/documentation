@@ -8,6 +8,30 @@ import TabItem from '@theme/TabItem';
 
 The [`polywrap`](../reference/cli/polywrap-cli) command line interface (CLI) is a necessary and helpful tool for interacting with the Polywrap toolchain. It is expressive and easy to use. 
 
+## Installation
+
+<Tabs
+defaultValue="npm"
+values={[
+{label: 'NPM', value: 'npm'},
+{label: 'Yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm install --save-dev polywrap
+```
+
+</TabItem>
+<TabItem value="yarn">
+
+```bash
+yarn add -D polywrap
+```
+
+</TabItem>
+</Tabs>
+
 ## Commands
 
 The CLI performs several important tasks:
