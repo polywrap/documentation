@@ -6,7 +6,7 @@ title: What is Polywrap?
 **Polywrap** is a developer tool that enables easy integration of Web3 protocols into any application. It makes it possible for applications on any platform, written in any language, to read and write data to Web3 protocols.
 
 :::tip
-Have questions or want to get involved? Join our [Discord](https://discord.polywrap.io/) or [open an issue](https://github.com/polywrap/monorepo/issues) on our GitHub repo.
+Have questions or want to get involved? Join our [Discord](https://discord.polywrap.io/) or [open an issue](https://github.com/polywrap/toolchain/issues/new/choose) on our GitHub repo.
 :::
 
 ## Web3 protocol integration
