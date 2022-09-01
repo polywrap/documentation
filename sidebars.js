@@ -98,6 +98,7 @@ module.exports = {
           ],
         },
         'quick-start/wrapper-schema',
+        'quick-start/env-variables'
       ],
     },
     {

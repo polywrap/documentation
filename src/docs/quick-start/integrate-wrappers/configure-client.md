@@ -86,6 +86,7 @@ const clientConfig: Partial<ClientConfig> = {
 ## Envs
 
 Users can provide wrapper-specific environmental variables by providing the wrapper URI and an object with strings as keys.
+Wrapper developers use the [Wrapper Schema](../wrapper-schema#environmental-variables) to specify which methods accept or require environmental variables.
 
 ```typescript
 const clientConfig: Partial<ClientConfig> = {

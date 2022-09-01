@@ -347,3 +347,39 @@ type ImplementationType implements Interface_InterfaceType {
     # declares properties of Interface_InterfaceType
 }
 ```
+
+## Environmental Variables
+
+Wrapper developers can declare a map of environmental variables for application developers to provide. To use environmental variables, declare an `Env` type and add a directive to each schema method that will use it. 
+
+You can learn how to access environmental variables in code by reading the [Access Env in the module](./env-variables#access-env-in-the-module) section of our [Environmental Variables](./env-variables) documentation for wrapper developers.
+
+### Declare the Env object
+
+Environmental variables are declared in a custom type named `Env`.
+
+```graphql
+type Env {
+    str: String!
+    number: Int!
+    bool: Boolean!
+}
+```
+
+### Add the @env directive
+
+To access an `Env` object during a method invocation, add the `@env` directive to a method. The `@env` directive has one attribute that indicates whether the `Env` is required or optional.
+
+```graphql
+type Module {
+    # App developers are required to provide Env to invoke this method
+    methodRequireEnv(
+        arg: String!
+    ): String! @env(required: true)
+
+    # Env is optional when invoking this method
+    methodOptionalEnv(
+        arg: String!
+    ): String! @env(required: false)
+}
+```
