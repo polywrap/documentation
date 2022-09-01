@@ -76,7 +76,7 @@ We do not have a formal grant program, but we have given grants in extraordinary
 [Join our discord](https://discord.com/invite/Z5m88a5qWu) and tell us about your idea!
 
 ### **How can I join the Polywrap DAO?**
-You can learn more about joining and contributing to the Polywrap DAO in [our handbook](https://handbook.polywrap.io/).
+You can learn more about joining and contributing to the Polywrap DAO [here](https://contribute.polywrap.io/).
 
 ### **What are Polywrap mini-hacks?**
 The community hackathons are a way for you to earn rewards and learn more about the project. 
