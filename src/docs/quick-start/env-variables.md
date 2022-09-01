@@ -16,13 +16,13 @@ To use environmental variables, wrapper developers must first declare an `Env` t
 
 ```graphql
 type Env {
-    str: String!
+  str: String!
 }
 
 type Module {
-    foo(
-        arg: String!
-    ): String! @env(required: true)
+  foo(
+    arg: String!
+  ): String! @env(required: true)
 }
 ```
 

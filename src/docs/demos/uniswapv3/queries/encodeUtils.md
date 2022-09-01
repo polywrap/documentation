@@ -65,8 +65,7 @@ encodeSweepToken(
 _Encodes arguments and returns transaction calldata to call refundEth on an instance of Uniswap's NonfungiblePositionManager contract: https://github.com/Uniswap/v3-periphery/blob/main/contracts/NonfungiblePositionManager.sol_
 
 ```graphql
-encodeRefundETH(
-): String!
+encodeRefundETH: String!
 ```
 
 ### encodeMulticall

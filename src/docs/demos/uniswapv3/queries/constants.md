@@ -8,8 +8,7 @@ title: Constants
 _The address of Uniswap's pool factory contract_
 
 ```graphql
-FACTORY_ADDRESS(
-): String!
+FACTORY_ADDRESS: String!
 ```
 
 ### POOL_INIT_CODE_HASH
@@ -17,8 +16,7 @@ FACTORY_ADDRESS(
 
 
 ```graphql
-POOL_INIT_CODE_HASH(
-): String!
+POOL_INIT_CODE_HASH: String!
 ```
 
 ### POOL_INIT_CODE_HASH_OPTIMISM
@@ -26,8 +24,7 @@ POOL_INIT_CODE_HASH(
 
 
 ```graphql
-POOL_INIT_CODE_HASH_OPTIMISM(
-): String!
+POOL_INIT_CODE_HASH_OPTIMISM: String!
 ```
 
 ### POOL_INIT_CODE_HASH_OPTIMISM_KOVAN
@@ -35,8 +32,7 @@ POOL_INIT_CODE_HASH_OPTIMISM(
 _A historical artifact due to small compiler mismatch_
 
 ```graphql
-POOL_INIT_CODE_HASH_OPTIMISM_KOVAN(
-): String!
+POOL_INIT_CODE_HASH_OPTIMISM_KOVAN: String!
 ```
 
 ### MIN_TICK
@@ -44,8 +40,7 @@ POOL_INIT_CODE_HASH_OPTIMISM_KOVAN(
 _Smallest valid tick index in a pool_
 
 ```graphql
-MIN_TICK(
-): Int32!
+MIN_TICK: Int32!
 ```
 
 ### MAX_TICK
@@ -53,8 +48,7 @@ MIN_TICK(
 _Largest valid tick index in a pool_
 
 ```graphql
-MAX_TICK(
-): Int32!
+MAX_TICK: Int32!
 ```
 
 ### MIN_SQRT_RATIO
@@ -62,8 +56,7 @@ MAX_TICK(
 _Smallest valid sqrtRatioX96 in a pool_
 
 ```graphql
-MIN_SQRT_RATIO(
-): BigInt!
+MIN_SQRT_RATIO: BigInt!
 ```
 
 ### MAX_SQRT_RATIO
@@ -71,6 +64,5 @@ MIN_SQRT_RATIO(
 _Largest valid sqrtRatioX96 in a pool_
 
 ```graphql
-MAX_SQRT_RATIO(
-): BigInt!
+MAX_SQRT_RATIO: BigInt!
 ```

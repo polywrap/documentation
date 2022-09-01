@@ -40,9 +40,9 @@ _Compares two `TokenAmount` types for equality, returning true if they have the 
 
 ```graphql
 tokenAmountEquals(
-    tokenAmount0: TokenAmount!
-    tokenAmount1: TokenAmount!
-  ): Boolean!
+  tokenAmount0: TokenAmount!
+  tokenAmount1: TokenAmount!
+): Boolean!
 ```
 
 ### tokenSortsBefore

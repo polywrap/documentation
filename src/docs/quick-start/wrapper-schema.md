@@ -48,15 +48,14 @@ values={[
 
 ```graphql
 type Module {
-    
-    foo(
-        bar: String!
-        arg: Int!
-    ): ReturnType!
+  foo(
+    bar: String!
+    arg: Int!
+  ): ReturnType!
 }
 
 type ReturnType {
-    prop: Int!
+  prop: Int!
 }
 ```
 </TabItem>
@@ -89,12 +88,12 @@ any supported type, including other custom types.
 
 ```graphql
 type CustomType {
-    myString: String!
-    myObject: AnotherType!
+  myString: String!
+  myObject: AnotherType!
 }
 
 type AnotherType {
-    myInt: Int!
+  myInt: Int!
 }
 ```
 
@@ -106,8 +105,8 @@ The absence of a `!` indicates that a value is nullable.
 
 ```graphql
 type CustomType {
-    nullable: String # can be String or null
-    nonNullable: String! # must be String
+  nullable: String # can be String or null
+  nonNullable: String! # must be String
 }
 ```
 
@@ -117,11 +116,10 @@ Methods are declared within the `Module` type. Methods must return a value.
 
 ```graphql
 type Module {
-
-    foo(
-        arg: CustomType!
-        bar: CustomType
-    ): ReturnType!
+  foo(
+    arg: CustomType!
+    bar: CustomType
+  ): ReturnType!
 }
 ```
 
@@ -136,7 +134,7 @@ Imported types and modules must be assigned a namespace. References to them are 
 #import { Module, CustomType } into Namespace from "wrap://authority/path"
 
 type CustomType {
-    prop: Namespace_CustomType!
+  prop: Namespace_CustomType!
 }
 ```
 
@@ -340,11 +338,11 @@ were declared explicitly.
 #import { Module, InterfaceType } into Interface from "wrap://ens/interface.eth"
 
 type Module implements Interface_Module {
-    # declares methods of Interface_Module
+  # declares methods of Interface_Module
 }
 
 type ImplementationType implements Interface_InterfaceType {
-    # declares properties of Interface_InterfaceType
+  # declares properties of Interface_InterfaceType
 }
 ```
 
@@ -360,9 +358,9 @@ Environmental variables are declared in a custom type named `Env`.
 
 ```graphql
 type Env {
-    str: String!
-    number: Int!
-    bool: Boolean!
+  str: String!
+  number: Int!
+  bool: Boolean!
 }
 ```
 
@@ -372,14 +370,14 @@ To access an `Env` object during a method invocation, add the `@env` directive t
 
 ```graphql
 type Module {
-    # App developers are required to provide Env to invoke this method
-    methodRequireEnv(
-        arg: String!
-    ): String! @env(required: true)
+  # App developers are required to provide Env to invoke this method
+  methodRequireEnv(
+    arg: String!
+  ): String! @env(required: true)
 
-    # Env is optional when invoking this method
-    methodOptionalEnv(
-        arg: String!
-    ): String! @env(required: false)
+  # Env is optional when invoking this method
+  methodOptionalEnv(
+    arg: String!
+  ): String! @env(required: false)
 }
 ```
