@@ -53,11 +53,11 @@ tokenEquals(token: Token!, other: Token!): Boolean!
 _Creates a new trade._
 
 ```graphql
-  createTrade(
-    route: Route!
-    amount: TokenAmount!
-    tradeType: TradeType!
-  ): Trade!
+createTrade(
+  route: Route!
+  amount: TokenAmount!
+  tradeType: TradeType!
+): Trade!
 ```
 
 ### tradeExecutionPrice
@@ -65,9 +65,9 @@ _Creates a new trade._
 _Calculates the average price that the trade would execute at._
 
 ```graphql
-  tradeExecutionPrice(
-    trade: Trade!
-  ): String!
+tradeExecutionPrice(
+  trade: Trade!
+): String!
 ```
 
 ### tradeNextMidPrice
@@ -75,9 +75,9 @@ _Calculates the average price that the trade would execute at._
 _What the new mid price would be if the trade were to execute._
 
 ```graphql
-  tradeNextMidPrice(
-    trade: Trade!
-  ): String!
+tradeNextMidPrice(
+  trade: Trade!
+): String!
 ```
 
 ### tradeSlippage
@@ -85,9 +85,9 @@ _What the new mid price would be if the trade were to execute._
 _The slippage incurred by the trade. (strictly > 0.30%) result is a percent like 100.0%_
 
 ```graphql
-  tradeSlippage(
-    trade: Trade!
-  ): String!
+tradeSlippage(
+  trade: Trade!
+): String!
 ```
 
 ### tradeMinimumAmountOut
@@ -95,10 +95,10 @@ _The slippage incurred by the trade. (strictly > 0.30%) result is a percent like
 _Trades the minimum amount out._
 
 ```graphql
-  tradeMinimumAmountOut(
-    trade: Trade!
-    slippageTolerance: String! # Float32!
-  ): TokenAmount!
+tradeMinimumAmountOut(
+  trade: Trade!
+  slippageTolerance: String! # Float32!
+): TokenAmount!
 ```
 
 ### tradeMaximumAmountIn
@@ -106,10 +106,10 @@ _Trades the minimum amount out._
 _Trades the maximum amount in._
 
 ```graphql
-  tradeMaximumAmountIn(
-    trade: Trade!
-    slippageTolerance: String! # Float32!
-  ): TokenAmount!
+tradeMaximumAmountIn(
+  trade: Trade!
+  slippageTolerance: String! # Float32!
+): TokenAmount!
 ```
 
 ### bestTradeExactIn
@@ -120,12 +120,12 @@ _output token, making at most maxHops hops. The returned trades are sorted by_
 _output amount, in decreasing order, and all share the given input amount._
 
 ```graphql
-  bestTradeExactIn(
-    pairs: [Pair!]!
-    amountIn: TokenAmount!
-    tokenOut: Token!
-    options: BestTradeOptions
-  ): [Trade!]!
+bestTradeExactIn(
+  pairs: [Pair!]!
+  amountIn: TokenAmount!
+  tokenOut: Token!
+  options: BestTradeOptions
+): [Trade!]!
 ```
 
 ### bestTradeExactOut
@@ -135,10 +135,10 @@ _returned trades are sorted by input amount, in increasing order, and all share_
 _the given output amount._
 
 ```graphql
-  bestTradeExactOut(
-    pairs: [Pair!]!
-    tokenIn: Token!
-    amountOut: TokenAmount!
-    options: BestTradeOptions
-  ): [Trade!]!
+bestTradeExactOut(
+  pairs: [Pair!]!
+  tokenIn: Token!
+  amountOut: TokenAmount!
+  options: BestTradeOptions
+): [Trade!]!
 ```
