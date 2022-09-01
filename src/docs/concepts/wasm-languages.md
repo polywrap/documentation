@@ -10,11 +10,10 @@ A Wasm wrapper can seamlessly interact with any other wrapper, regardless of the
 ## Demos
 | | Language | Hello World | Simple Storage | JSON RPC | Subgraph Query |
 |-|-|-|-|-|-|
-| ![as logo] | **AssemblyScript** | [Source][as hello-world] | [Source][as json-rpc] | [Source][as simple-storage] | [Source][as subgraph-query] |
-| ![rust logo] | **Rust** | [Source][rust hello-world] | [Source][rust json-rpc] | [Source][rust simple-storage] | [Source][rust subgraph-query] |
-| ![tiny-go logo] | **TinyGo (Coming Soon)** | ... | ... | ... | ... |
+| <img src="/img/lang-logos/as.svg" alt="as" height="17px" /> | **AssemblyScript** | [Source][as hello-world] | [Source][as json-rpc] | [Source][as simple-storage] | [Source][as subgraph-query] |
+| <img src="/img/lang-logos/rust.svg" alt="rs" height="18px" /> | **Rust** | [Source][rust hello-world] | [Source][rust json-rpc] | [Source][rust simple-storage] | [Source][rust subgraph-query] |
+| <img src="/img/lang-logos/go.svg" alt="rs" height="12px" /> | **TinyGo (Coming Soon)** | ... | ... | ... | ... |
 
-[as logo]: /img/lang-logos/as.svg
 [as link]: #assemblyscript
 [as hello-world]: https://github.com/polywrap/demos/tree/main/hello-world/wrapper/assemblyscript
 [as json-rpc]: https://github.com/polywrap/demos/tree/main/json-rpc/wrapper/assemblyscript
@@ -22,15 +21,12 @@ A Wasm wrapper can seamlessly interact with any other wrapper, regardless of the
 [as subgraph-query]: https://github.com/polywrap/demos/tree/main/subgraph-query/wrapper/assemblyscript
 [as docs]: https://www.assemblyscript.org/introduction.html
 
-[rust logo]: /img/lang-logos/rust.svg
 [rust link]: #rust
 [rust hello-world]: https://github.com/polywrap/demos/tree/main/hello-world/wrapper/rust
 [rust json-rpc]: https://github.com/polywrap/demos/tree/main/json-rpc/wrapper/rust
 [rust simple-storage]: https://github.com/polywrap/demos/tree/main/simple-storage/wrapper/rust
 [rust subgraph-query]: https://github.com/polywrap/demos/tree/main/subgraph-query/wrapper/rust
 [rust docs]: https://www.rust-lang.org/learn
-
-[tiny-go logo]: /img/lang-logos/go.svg
 
 ## Choosing a language
 
@@ -40,7 +36,7 @@ The choice of language(s) for your project may depend on a variety of factors. H
 Each supported wasm development language may have its own quirks when compiling to WebAssembly. Please reference the documentation available for your language of choice.
 :::
 
-### ![as logo] AssemblyScript
+### <img src="/img/lang-logos/as.svg" alt="as" height="17px" /> AssemblyScript
 
 [AssemblyScript](https://www.assemblyscript.org/) is an easy-to-learn language with syntax similar to TypeScript. It is a relatively new language designed for WebAssembly.  AssemblyScript is a garbage-collected language, simplifying the developer experience. Due to its newness, it has a comparatively small ecosystem and lacks some features found in more mature languages.
 
@@ -54,7 +50,7 @@ Each supported wasm development language may have its own quirks when compiling 
 [Uniswap v3]: https://github.com/polywrap/integrations/tree/main/protocol/ethereum/uniswapv3/wrapper
 [ENS Wrapper]: https://github.com/polywrap/integrations/tree/main/protocol/ethereum/ens/wrapper
 
-### ![rust logo] Rust
+### <img src="/img/lang-logos/rust.svg" alt="rs" height="18px" /> Rust
 
 [Rust](https://www.rust-lang.org/) is a systems programming language with modern features. In 2021, it was rated the #1 most loved language in StackOverflow's annual Developer Survey for the sixth year in a row. Rust implements a new kind of memory management that eliminates most errors related to memory and concurrency without manual memory allocation or garbage collection.
 
