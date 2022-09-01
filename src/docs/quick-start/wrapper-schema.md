@@ -320,7 +320,7 @@ values={[
 | Schema Type | AssemblyScript | Rust | Go |
 |-|-|-|-|
 | [Type] | [Array<T\>](https://www.assemblyscript.org/stdlib/array.html) | [Vec<T\>](https://doc.rust-lang.org/std/vec/struct.Vec.html) | Coming soon... |
-| Map | [Map<K, V\>](https://www.assemblyscript.org/stdlib/map.html) | [BTreeMap<K, V\>](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) | Coming soon... |
+| Map | [Map<K, V\>](https://www.assemblyscript.org/stdlib/map.html) | [HashMap<K, V\>](https://doc.rust-lang.org/std/collections/struct.HashMap.html) | Coming soon... |
 
 </TabItem>
 </Tabs>
