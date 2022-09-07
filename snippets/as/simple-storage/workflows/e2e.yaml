@@ -5,18 +5,20 @@ jobs:
     steps:
     - uri: fs/build
       method: deployContract
-      input:
+      args:
+        connection:
+          networkNameOrChainId: "testnet"
     jobs:
       case1:
         steps:
         - uri: fs/build
           method: setData
-          input:
+          args:
             address: "$cases.0.data"
             value: 100
         - uri: fs/build
           method: getData
-          input:
+          args:
             address: "$cases.0.data"
 # $end
 # $start: yaml-simple-storage-ipfs-workflow
@@ -24,12 +26,12 @@ jobs:
         steps:
           - uri: fs/build
             method: setIpfsData
-            input:
+            args:
               options:
                 address: "$cases.0.data"
                 data: "Hello from IPFS!"
           - uri: fs/build
             method: getIpfsData
-            input:
+            args:
               address: "$cases.0.data"
 # $end
