@@ -17,17 +17,17 @@ cases: {
     }
   }
   case2: {
-		$0: {
-			data: {
-				txReceipt: string,
-				ipfsHash: "QmPhAJz5QbidN3LgT2eDiu6Z3nCFs2gYQMbjgEAncrGsis"
-			},
-			error?: _|_,
-		}
-		$1: {
-			data: "Hello from IPFS!",
-			error?: _|_,
-		}
-	}
+    $0: {
+      data: {
+        txReceipt: string,
+        ipfsHash: "QmPhAJz5QbidN3LgT2eDiu6Z3nCFs2gYQMbjgEAncrGsis"
+	    },
+      error?: _|_,
+	  }
+    $1: {
+      data: "Hello from IPFS!",
+      error?: _|_,
+    }
+  }
 }
 // $end
