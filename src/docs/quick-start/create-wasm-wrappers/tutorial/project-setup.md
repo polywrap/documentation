@@ -49,7 +49,7 @@ From the root of this new directory, navigate to `simple-storage/wrapper/assembl
 The best way to start a new wrapper project is with a project template generated using our CLI.
 
 ```bash
-npx polywrap create api assemblyscript <project-name>
+npx polywrap create wasm assemblyscript <project-name>
 ```
 
 Where `<project-name>` is replaced with a custom name of your choice. For example `my-wrapper`.
