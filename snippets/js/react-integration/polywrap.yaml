@@ -1,0 +1,8 @@
+# $start: yaml-hello-world-app-manifest
+format: 0.2.0
+project:
+  name: hello-world
+  type: app/typescript
+source:
+  schema: ./schema.graphql
+# $end

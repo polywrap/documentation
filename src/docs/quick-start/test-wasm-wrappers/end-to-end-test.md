@@ -170,10 +170,10 @@ We will provide the manifest with the path to the composed schema in our build f
 $snippet: yaml-e2e-test-app-manifest
 ```
 
-We can then call the `app` command of the Polywrap CLI.
+We can then call the `codegen` command of the Polywrap CLI.
 
 ```shell
-yarn polywrap app codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/wrap
+yarn polywrap codegen -m ./src/__tests__/types/polywrap.yaml -g ./src/__tests__/types/wrap
 ```
 
 The generated output includes TypeScript types for the SimpleStorage wrapper and its imports.

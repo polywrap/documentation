@@ -22,6 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# w3 codegen folder
-.w3
-w3
+# polywrap folders
+.polywrap
+wrap
