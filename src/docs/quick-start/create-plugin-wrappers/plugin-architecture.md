@@ -13,7 +13,7 @@ A `PluginFactory` is a function that returns a `PluginPackageManifest` and a `fa
 
 ## TypeScript Support
 
-The Polywrap CLI's [`plugin`](../../reference/cli/commands/plugin) and [`build`](../../reference/cli/commands/build) commands will generate a `wrap` folder containing useful types.
+The Polywrap CLI's [`codegen`](../../reference/cli/commands/codegen) and [`build`](../../reference/cli/commands/build) commands will generate a `wrap` folder containing useful types.
 The generated types will save you time and energy.
 You won't have to manually create or update your types every time you change your schema, and your code will have fewer bugs.
 You can forget about boilerplate code and focus on your plugin's logic.

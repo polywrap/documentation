@@ -4,14 +4,13 @@ import path from "path";
 
 const commands = [
   "",
-  "app",
   "build",
   "codegen",
   "create",
   "deploy",
-  "plugin",
   "infra",
-  "run"
+  "run",
+  "docgen"
 ];
 
 async function main() {

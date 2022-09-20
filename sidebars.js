@@ -115,12 +115,11 @@ module.exports = {
               type: 'category',
               label: 'Commands',
               items: [
-                'reference/cli/commands/app',
                 'reference/cli/commands/build',
                 'reference/cli/commands/codegen',
                 'reference/cli/commands/create',
+                'reference/cli/commands/docgen',
                 'reference/cli/commands/deploy',
-                'reference/cli/commands/plugin',
                 'reference/cli/commands/infra',
                 'reference/cli/commands/run',
               ],
