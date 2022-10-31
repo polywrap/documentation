@@ -20,7 +20,9 @@ deploy: ./polywrap.deploy.yaml
 
 ## Content
 
-The concents of a Deploy Manifest consists of one or more jobs with their steps, each of which has some common fields and a set of configuration options particular to the step's module. All jobs run in parallel, while steps of each job run in series. The result of a step can be passed as input to a later step.
+The concents of a Deploy Manifest consists of one or more jobs with their steps, each of which has some common fields and a set of configuration options particular to the step's module. All jobs run in parallel, while steps of each job run in series.
+
+The result of a step can be passed as input to a later step using `$$step_name`.
 
 <Tabs
 defaultValue="schema"
