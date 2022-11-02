@@ -20,8 +20,9 @@ deploy: ./polywrap.deploy.yaml
 
 ## Content
 
-The concents of a Deploy Manifest consists of one or more stages, each of which has some common fields and a set of configuration
-options particular to the module. The result of a stage can be passed as input to a later stage.
+The concents of a Deploy Manifest consists of one or more jobs with their steps, each of which has some common fields and a set of configuration options particular to the step's module. All jobs run in parallel, while steps of each job run in series.
+
+The result of a step can be passed as input to a later step using `$$step_name`.
 
 <Tabs
 defaultValue="schema"
@@ -33,33 +34,40 @@ values={[
 
 ```yaml
 format: # The manifest format version
-stages: # Each stage describes an event in the pipeline
-  [name]: # Name of stage, set by the user
-    package: # Deployment module
-    uri: # The wrap URI of source content
-    depends_on: # (Optional) Use prior stage's output
-    config: # Configuration for the deployment module
+jobs: # Each job describes series of events in the pipeline
+  [name]: # Name of the job
+    config: # configuration for all deployment modules, can be overridden within each step
+    steps: # Each step describes an event in the pipeline
+      - name: # The name of the step
+        package: # Deployment module
+        uri: # The wrap URI of source content
+        depends_on: # (Optional) Use prior step's output
+        config: # Configuration for the deployment module
 ```
 
 </TabItem>
 <TabItem value="example">
 
 ```yaml
-format: 0.1.0
-stages:
+format: 0.2.0
+jobs:
   ipfs_deploy:
-    package: ipfs
-    uri: fs/./build
     config:
       gatewayUri: 'ipfs.wrappers.io'
-  ens_deploy:
-    package: ens
-    depends_on: ipfs_deploy
-    config:
-      domainName: uniswapv3.eth
-      provider: 'https://rinkeby.infura.io/v3/d119148113c047ca90f0311ed729c467'
-      ensRegistryAddress: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e'
-      privateKey: '0xNeverShareYourPrivateKey'
+    steps:
+      - name: ipfs_deploy
+        package: ipfs
+        uri: fs/./build
+        config:
+          gatewayUri: ipfs.wrappers.io
+      - name: ens_deploy
+        package: ens
+        uri: $$ipfs_deploy
+        config:
+          domainName: uniswapv3.eth
+          provider: https://rinkeby.infura.io/v3/d119148113c047ca90f0311ed729c467
+          ensRegistryAddress: "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e"
+          privateKey: 0xNeverShareYourPrivateKey
 ```
 </TabItem>
 </Tabs>
