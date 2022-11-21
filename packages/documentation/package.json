@@ -1,0 +1,69 @@
+{
+  "name": "@polywrap/docs",
+  "version": "0.0.1-prealpha.1",
+  "description": "Polywrap Documentation",
+  "author": "Polywrap",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/web3-api/monorepo.git"
+  },
+  "scripts": {
+    "reset": "yarn clean && yarn && yarn build",
+    "clean": "npx rimraf ./docs ./build ./node_modules ./**/build ./**/node_modules ./.docusaurus",
+    "start": "yarn build:docs && run-p start:app start:watch:docs start:watch:snippets",
+    "start:app": "docusaurus start --poll 500",
+    "start:watch:docs": "onchange './src/docs/**/*' './snippets/snippets.json' -- yarn build:docs",
+    "start:watch:snippets": "onchange './snippets/**/*' --exclude-path .gitignore --exclude ./snippets/snippets.json -- yarn build:snippets",
+    "build": "yarn build:snippets && yarn build:docs && yarn build:app",
+    "build:app": "docusaurus build",
+    "build:docs": "ts-node ./scripts/build-docs.ts",
+    "build:snippets": "ts-node ./scripts/build-snippets.ts"
+  },
+  "resolutions": {
+    "terser": "4.8.0"
+  },
+  "dependencies": {
+    "@polywrap/docs-snippet-tools": "0.1.0",
+    "@docusaurus/core": "2.0.0-alpha.72",
+    "@docusaurus/plugin-google-analytics": "2.0.0-beta.19",
+    "@docusaurus/plugin-google-gtag": "2.0.0-beta.19",
+    "@docusaurus/preset-classic": "2.0.0-alpha.72",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mdx-js/react": "^1.6.21",
+    "@mui/icons-material": "^5.0.1",
+    "@mui/material": "^5.0.1",
+    "@mui/styles": "^5.0.1",
+    "clsx": "1.1.1",
+    "docusaurus-lunr-search": "2.1.10",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-intersection-observer": "^9.1.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "9.0.13",
+    "@types/rimraf": "3.0.2",
+    "fs-extra": "9.1.0",
+    "rimraf": "3.0.2",
+    "npm-run-all": "4.1.5",
+    "onchange": "7.1.0",
+    "ts-node": "10.7.0",
+    "typescript": "4.6.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

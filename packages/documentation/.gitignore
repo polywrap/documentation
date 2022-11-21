@@ -1,6 +1,15 @@
 # Dependencies
 node_modules
 
+# Production
+build
+/docs
+
+# Generated files
+.docusaurus
+.cache-loader
+coverage
+
 # Misc
 .DS_Store
 .env.local
@@ -14,3 +23,5 @@ yarn-error.log*
 
 # Snippets
 build-error.log
+snippets.txt
+snippets.json
