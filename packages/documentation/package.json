@@ -17,7 +17,7 @@
     "start:watch:snippets": "onchange './snippets/**/*' --exclude-path .gitignore --exclude ./snippets/snippets.json -- yarn build:snippets",
     "build": "yarn build:snippets && yarn build:docs && yarn build:app",
     "build:app": "docusaurus build",
-    "build:docs": "ts-node ./scripts/build-docs.ts",
+    "build:docs": "npx rimraf ./docs && npx polywrap-snippet-tools combine ./snippets ./src/docs ./docs",
     "build:snippets": "ts-node ./scripts/build-snippets.ts"
   },
   "resolutions": {

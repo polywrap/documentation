@@ -1,33 +1,32 @@
-import path from "path";
-import fs from "fs";
+import path from 'path';
+import fs from 'fs';
 
-export async function generateSnippetsFile(snippetsDir: string, snippetsFile: string) {
+/**
+ * Extract snippets from all files within a directory
+ * @param {string} dir - The directory to search and extract snippets from
+ * @returns 
+ */
+export async function extractSnippets(
+  dir: string
+): Promise<Record<string, string>> {
   const snippets: Record<string, string> = {};
 
-  // Extract all snippets found
-  await extractSnippets(
-    snippets,
-    snippetsDir
-  );
+  await searchAndExtractSnippetsFromDir(snippets, dir);
 
-  fs.writeFileSync(
-    snippetsFile,
-    JSON.stringify(snippets, null, 2),
-    "utf-8"
-  );
+  return snippets;
 }
 
-async function extractSnippets(
+async function searchAndExtractSnippetsFromDir(
   snippets: Record<string, string>,
   dir: string
 ) {
   const dirents = fs.readdirSync(dir, { withFileTypes: true });
 
   // Only search specific types of files
-  const exts = [".ts", ".json", ".yaml", ".txt", ".md", ".graphql", ".cue"];
+  const exts = ['.ts', '.json', '.yaml', '.txt', '.md', '.graphql', '.cue'];
 
   // Ignore specific directories
-  const filter = ["node_modules"];
+  const filter = ['node_modules'];
 
   const match = (str: string, tests: string[]) => {
     for (const test of tests) {
@@ -36,7 +35,7 @@ async function extractSnippets(
       }
     }
     return false;
-  }
+  };
 
   for (const dirent of dirents) {
     const direntPath = path.join(dir, dirent.name);
@@ -44,7 +43,7 @@ async function extractSnippets(
     if (dirent.isFile() && match(dirent.name, exts)) {
       await extractSnippetsFromFile(snippets, direntPath);
     } else if (dirent.isDirectory() && !match(dirent.name, filter)) {
-      await extractSnippets(snippets, direntPath)
+      await searchAndExtractSnippetsFromDir(snippets, direntPath);
     }
   }
 }
@@ -53,12 +52,12 @@ async function extractSnippetsFromFile(
   snippets: Record<string, string>,
   filePath: string
 ) {
-  const contents = fs.readFileSync(filePath, "utf-8");
+  const contents = fs.readFileSync(filePath, 'utf-8');
   let index = 0;
 
   while (index < contents.length) {
-    const start = "$start: ";
-    const end = "$end";
+    const start = '$start: ';
+    const end = '$end';
     const startIdx = contents.indexOf(start, index);
 
     if (startIdx < 0) {
@@ -67,7 +66,7 @@ async function extractSnippetsFromFile(
     }
 
     const nameStartIdx = startIdx + start.length;
-    const nameEndIdx = contents.indexOf("\n", nameStartIdx);
+    const nameEndIdx = contents.indexOf('\n', nameStartIdx);
     const name = contents.substr(nameStartIdx, nameEndIdx - nameStartIdx);
 
     const snippetStartIdx = nameEndIdx + 1;
@@ -75,15 +74,18 @@ async function extractSnippetsFromFile(
 
     // Walk back from the $end until we hit the first \n
     while (true) {
-      if (contents[snippetEndIdx] === "\n") {
+      if (contents[snippetEndIdx] === '\n') {
         break;
       }
       snippetEndIdx -= 1;
     }
 
-    const snippet = contents.substr(snippetStartIdx, snippetEndIdx - snippetStartIdx);
+    const snippet = contents.substr(
+      snippetStartIdx,
+      snippetEndIdx - snippetStartIdx
+    );
 
-    console.log("- Extract Snippet", name);
+    console.log('- Extract Snippet', name);
 
     if (snippets[name]) {
       throw Error(`Duplicate Snippet Definition: ${name}`);

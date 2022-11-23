@@ -1,6 +1,12 @@
 import path from "path";
 import fs from "fs";
 
+/**
+ * Inject snippets into .md files within a directory
+ * @param {Record<string, string>} snippets - The snippets to inject
+ * @param {string} dir - The directory containing .md files
+ * @returns 
+ */
 export async function injectSnippets(
   snippets: Record<string, string>,
   dir: string

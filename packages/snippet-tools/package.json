@@ -10,8 +10,12 @@
   },
   "main": "build/index.js",
   "files": [
-    "build"
+    "build",
+    "bin"
   ],
+  "bin": {
+    "polywrap-snippet-tools": "bin/polywrap-snippet-tools"
+  },
   "scripts": {
     "build": "rimraf ./build && tsc --project tsconfig.build.json",
     "clean": "rimraf ./build ./node_modules",
@@ -22,5 +26,8 @@
     "rimraf": "3.0.2",
     "ts-node": "10.7.0",
     "typescript": "4.6.4"
+  },
+  "dependencies": {
+    "commander": "^9.4.1"
   }
 }
