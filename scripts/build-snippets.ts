@@ -1,13 +1,9 @@
 import * as SnippetsBuild from "./snippets-build";
-import * as SnippetsExtract from "./snippets-extract";
 
 async function main() {
 
   console.log("- Build ./snippets");
   await SnippetsBuild.run();
-
-  console.log("- Extract ./snippets");
-  await SnippetsExtract.run();
 }
 
 main()

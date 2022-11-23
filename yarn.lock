@@ -4192,6 +4192,11 @@ commander@^8.3.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
   integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
 
+commander@^9.4.1:
+  version "9.4.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-9.4.1.tgz#d1dd8f2ce6faf93147295c0df13c7c21141cfbdd"
+  integrity sha512-5EEkTNyHNGFPD2H+c/dXXfQZYa/scCKasxWcXJaWnNJ99pnQN9Vnmqow+p+PlFPE63Q6mThaZws1T+HxfpgtPw==
+
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -5079,6 +5084,14 @@ dns-txt@^2.0.2:
   integrity sha1-uR2Ab10nGI5Ks+fRB9iBocxGQrY=
   dependencies:
     buffer-indexof "^1.0.0"
+
+doc-snippets@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/doc-snippets/-/doc-snippets-0.1.0.tgz#e2e909d4765fe2f70a6749e2b3c07c600d747d5e"
+  integrity sha512-Pt2ts1D0EA6knPrtj3NIKztjg/h4GTlYNmHzKejKPT0VhByZZyDwW00V7Vd2Ukuv9Esla2g8bgkE7Ag3LgZrFQ==
+  dependencies:
+    commander "^9.4.1"
+    fs-extra "^10.1.0"
 
 docusaurus-lunr-search@2.1.10:
   version "2.1.10"
