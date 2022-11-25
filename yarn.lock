@@ -5085,10 +5085,10 @@ dns-txt@^2.0.2:
   dependencies:
     buffer-indexof "^1.0.0"
 
-doc-snippets-temp@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/doc-snippets-temp/-/doc-snippets-temp-0.1.0.tgz#9e9a3e2819e02f0865a355bcd8c1455e0da67ede"
-  integrity sha512-0SvpAuoINd5p7IO9d0Mz9AIZGAmlUIZv7TwGOQ8gLB9Nm9IjYF+hcyqq9vPky0v8zNErCZI32qOYM3sFQLr2uQ==
+doc-snippets@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/doc-snippets/-/doc-snippets-0.1.1.tgz#8a4b937527eec124dd1e83bb107d282f380d5a70"
+  integrity sha512-M0jKN1rPJxKUQ7WspG8mC40YQxSV39lW/SfDg8QhsC99CP0j3U53+Kl7jFZJnAAxexj/0quONPgV2Hafe3nKYg==
   dependencies:
     commander "^9.4.1"
     fs-extra "^10.1.0"
