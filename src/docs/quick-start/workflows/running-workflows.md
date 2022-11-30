@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 A workflow is a configurable process that will execute one or more Polywrap wrapper invocations. 
-Workflows are defined in YAML or JSON. Workflows can be run with the [`run`](../../reference/cli/commands/run) command of the [`polywrap`](../../reference/cli/polywrap-cli) CLI.
+Workflows are defined in YAML or JSON. Workflows can be run with the [`test`](../../reference/cli/commands/test) command of the [`polywrap`](../../reference/cli/polywrap-cli) CLI.
 
 ## Writing workflows
 
@@ -15,8 +15,8 @@ A workflow consists of a tree of `Jobs` and `Steps`.
 
 A `Job` is an independent, named unit that can contain an array of `Steps` named `steps` and/or a set of sub-`Jobs` named `jobs`. 
 Each `Job` runs asynchronously, and therefore `Jobs` may run in any order. Although all the sub-jobs are guaranteed to be executed after the parent job completes. Outputs of the parent jobs can be referenced as the input of any of its sub-jobs.
-By default, [`run`](../../reference/cli/commands/run) will run all jobs in a workflow.
-A `Job` index can be provided to [`run`](../../reference/cli/commands/run) to execute a specific job.
+By default, [`test`](../../reference/cli/commands/test) will run all jobs in a workflow.
+A `Job` index can be provided to [`test`](../../reference/cli/commands/test) to execute a specific job.
 
 A `Step` is a wrapper invocation. An array of `Steps` runs synchronously--i.e. in the order defined in the workflow.
 
@@ -55,7 +55,7 @@ $snippet: yaml-simple-storage-original-workflow
 ## Configuring the Client
 
 Users can configure the Polywrap client used to execute a workflow. 
-This is done by providing the Polywrap CLI's [`run`](../../reference/cli/commands/run) command with the path to a custom 
+This is done by providing the Polywrap CLI's [`test`](../../reference/cli/commands/test) command with the path to a custom 
 configuration file.
 The configuration file can be a JavaScript or TypeScript module.
 It must implement and export a function named `getClientConfig`. 
@@ -101,8 +101,8 @@ export function getClientConfig(defaultConfigs)
 ## Workflow output
 
 The output of a workflow can be written as a file in the JSON or YAML format with the `output-file` option of the Polywrap CLI's
-[`run`](../../reference/cli/commands/run) command.
+[`test`](../../reference/cli/commands/test) command.
 
 Workflow output is printed to the console by default. 
-Console output can be suppressed with the `quiet` option of the Polywrap CLI's [`run`](../../reference/cli/commands/run) command.
+Console output can be suppressed with the `quiet` option of the Polywrap CLI's [`test`](../../reference/cli/commands/test) command.
 
