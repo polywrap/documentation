@@ -4,13 +4,13 @@ import { PolywrapClient } from "@polywrap/client-js";
 const client = new PolywrapClient({
   redirects: [
     {
-      from: `ens/api.helloworld.polywrap.eth`,
-      to: `ens/api.myhelloworld.eth`,
+      from: "ens/api.helloworld.polywrap.eth",
+      to: "ens/api.myhelloworld.eth",
     },
   ],
 });
 // $end
 
 export function understandingRedirects() {
-  client.resolveUri("test");
+  client.tryResolveUri({ uri: "ens/api.helloworld.polywrap.eth" });
 }
