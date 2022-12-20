@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/fs-extra": "9.0.13",
     "@types/rimraf": "3.0.2",
-    "doc-snippets": "^0.4.0",
+    "doc-snippets": "^0.4.0-pre.0",
     "fs-extra": "9.1.0",
     "npm-run-all": "4.1.5",
     "onchange": "7.1.0",
