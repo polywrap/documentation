@@ -5,13 +5,13 @@ const clonesDir: string = path.resolve(path.join(__dirname, "../clones"));
 const referenceDir: string = path.resolve(path.join(__dirname, "../src/docs/reference"));
 
 // paths are relative to clone and reference doc dirs
-const repoToPaths: Record<string, string> = {
+const readmeToDocPaths: Record<string, string> = {
   "./polywrap/toolchain/packages/js/client/README.md": "./clients/js/client-js.md",
   "./polywrap/toolchain/packages/cli/README.md": "./cli/polywrap-cli.md"
 }
 
 async function main() {
-  for (const [relReadmePath, relDocPath] of Object.entries(repoToPaths)) {
+  for (const [relReadmePath, relDocPath] of Object.entries(readmeToDocPaths)) {
     const readmePath = path.resolve(path.join(clonesDir, relReadmePath));
     const docPath = path.resolve(path.join(referenceDir, relDocPath));
 
