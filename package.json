@@ -78,7 +78,7 @@
     },
     "inject": {
       "dir": "./src/docs",
-      "include": "./**"
+      "include": "./**/*.*"
     },
     "outputDir": "./docs"
   }
