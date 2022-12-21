@@ -20,7 +20,8 @@
     "build:docs": "yarn doc-snippets combine ./snippets ./src/docs ./docs --ignore node_modules .polywrap/",
     "rebuild:docs": "npx rimraf ./docs && yarn build:docs",
     "build:snippets": "ts-node ./scripts/build-snippets.ts",
-    "rtd": "rtd run --root ../toolchain --outDir ./reference --exclude 'node_modules|src|build|workflows|scripts|.polywrap|test-cases'"
+    "clone:repos": "ts-node ./scripts/clone-repos.ts",
+    "clone:readmes": "ts-node ./scripts/clone-readmes.ts"
   },
   "resolutions": {
     "terser": "4.8.0"
@@ -51,8 +52,7 @@
     "onchange": "7.1.0",
     "rimraf": "3.0.2",
     "ts-node": "10.7.0",
-    "typescript": "4.6.4",
-    "readme-to-doc": "^0.0.2"
+    "typescript": "4.6.4"
   },
   "browserslist": {
     "production": [

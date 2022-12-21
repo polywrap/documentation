@@ -25,3 +25,6 @@ yarn-error.log*
 build-error.log
 snippets.txt
 snippets.json
+
+# Cloned repos
+/clones
