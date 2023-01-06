@@ -17,7 +17,7 @@
     "start:watch:snippets": "onchange './snippets/**/*' --exclude-path .gitignore -- yarn build:snippets && yarn build:docs",
     "build": "yarn build:snippets && yarn rebuild:docs && yarn build:app",
     "build:app": "docusaurus build",
-    "build:docs": "yarn doc-snippets combine ./snippets ./src/docs ./docs --ignore node_modules .polywrap/",
+    "build:docs": "yarn doc-snippets combine",
     "rebuild:docs": "npx rimraf ./docs && yarn build:docs",
     "build:snippets": "ts-node ./scripts/build-snippets.ts",
     "clone:repos": "ts-node ./scripts/clone-repos.ts",
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@types/fs-extra": "9.0.13",
     "@types/rimraf": "3.0.2",
-    "doc-snippets": "^0.3.0",
+    "doc-snippets": "^1.0.0",
     "fs-extra": "9.1.0",
     "npm-run-all": "4.1.5",
     "onchange": "7.1.0",
@@ -68,5 +68,20 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "doc-snippets": {
+    "extract": {
+      "include": "./**/*.{ts,tsx,json,yaml,txt,md,graphql,cue}",
+      "ignore": [
+        "./**/node_modules/**",
+        "./**/.polywrap/**"
+      ],
+      "dir": "./snippets"
+    },
+    "inject": {
+      "dir": "./src/docs",
+      "include": "./**/*.*"
+    },
+    "outputDir": "./docs"
   }
 }
