@@ -19,7 +19,9 @@
     "build:app": "docusaurus build",
     "build:docs": "yarn doc-snippets combine",
     "rebuild:docs": "npx rimraf ./docs && yarn build:docs",
-    "build:snippets": "ts-node ./scripts/build-snippets.ts"
+    "build:snippets": "ts-node ./scripts/build-snippets.ts",
+    "clone:repos": "ts-node ./scripts/clone-repos.ts",
+    "clone:readmes": "ts-node ./scripts/clone-readmes.ts"
   },
   "resolutions": {
     "terser": "4.8.0"
