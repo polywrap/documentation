@@ -4,25 +4,38 @@ import fs from 'fs';
 const clonesDir: string = path.resolve(path.join(__dirname, "../clones"));
 const referenceDir: string = path.resolve(path.join(__dirname, "../src/docs/reference"));
 
+interface GroupOrPath {
+  [p: string]: string | Record<string, string | GroupOrPath>
+}
+
 // paths are relative to clone and reference doc dirs
-const readmeToDocPaths: Record<string, string | Record<string, string>> = {
+const readmeToDocPaths: GroupOrPath = {
   toolchain: {
-    "./polywrap/toolchain/packages/cli/README.md": "./cli/polywrap-cli.md",
-    "./polywrap/toolchain/packages/js/asyncify/README.md": "./clients/js/libraries/asyncify-js.md",
-    "./polywrap/toolchain/packages/js/client/README.md": "./clients/js/client-js.md",
-    "./polywrap/toolchain/packages/js/client-config-builder/README.md": "./clients/js/client-config-builder-js.md",
-    "./polywrap/toolchain/packages/js/core/README.md": "./clients/js/libraries/core-js.md",
-    "./polywrap/toolchain/packages/js/manifests/wrap/README.md": "./clients/js/libraries/wrap-manifest-types-js.md",
-    "./polywrap/toolchain/packages/js/manifests/polywrap/README.md": "./clients/js/libraries/polywrap-manifest-types-js.md",
-    "./polywrap/toolchain/packages/js/msgpack/README.md": "./clients/js/libraries/msgpack-js.md",
-    "./polywrap/toolchain/packages/js/os/README.md": "./clients/js/libraries/os-js.md",
-    "./polywrap/toolchain/packages/js/result/README.md": "./clients/js/libraries/result.md",
-    "./polywrap/toolchain/packages/js/test-env/README.md": "./clients/js/libraries/test-env-js.md",
-    "./polywrap/toolchain/packages/js/tracing/README.md": "./clients/js/libraries/tracing-js.md",
-    "./polywrap/toolchain/packages/js/uri-resolver-extensions/README.md": "./clients/js/libraries/uri-resolver-extensions-js.md",
-    "./polywrap/toolchain/packages/js/uri-resolvers/README.md": "./clients/js/libraries/uri-resolvers-js.md",
-    "./polywrap/toolchain/packages/js/validation/README.md": "./clients/js/libraries/package-validation.md",
-    "./polywrap/toolchain/packages/js/wasm/README.md": "./clients/js/libraries/wasm-js.md",
+    cli: {
+      "./polywrap/toolchain/packages/cli/README.md": "./cli/polywrap-cli.md",
+    },
+    js: {
+      "./polywrap/toolchain/packages/js/asyncify/README.md": "./clients/js/libraries/asyncify-js.md",
+      "./polywrap/toolchain/packages/js/client/README.md": "./clients/js/client-js.md",
+      "./polywrap/toolchain/packages/js/client-config-builder/README.md": "./clients/js/client-config-builder-js.md",
+      "./polywrap/toolchain/packages/js/core/README.md": "./clients/js/libraries/core-js.md",
+      "./polywrap/toolchain/packages/js/manifests/wrap/README.md": "./clients/js/libraries/wrap-manifest-types-js.md",
+      "./polywrap/toolchain/packages/js/manifests/polywrap/README.md": "./clients/js/libraries/polywrap-manifest-types-js.md",
+      "./polywrap/toolchain/packages/js/msgpack/README.md": "./clients/js/libraries/msgpack-js.md",
+      "./polywrap/toolchain/packages/js/os/README.md": "./clients/js/libraries/os-js.md",
+      "./polywrap/toolchain/packages/js/result/README.md": "./clients/js/libraries/result.md",
+      "./polywrap/toolchain/packages/js/test-env/README.md": "./clients/js/libraries/test-env-js.md",
+      "./polywrap/toolchain/packages/js/tracing/README.md": "./clients/js/libraries/tracing-js.md",
+      "./polywrap/toolchain/packages/js/uri-resolver-extensions/README.md": "./clients/js/libraries/uri-resolver-extensions-js.md",
+      "./polywrap/toolchain/packages/js/uri-resolvers/README.md": "./clients/js/libraries/uri-resolvers-js.md",
+      "./polywrap/toolchain/packages/js/validation/README.md": "./clients/js/libraries/package-validation.md",
+      "./polywrap/toolchain/packages/js/wasm/README.md": "./clients/js/libraries/wasm-js.md",
+    },
+    scema: {
+      "./polywrap/toolchain/packages/schema/parse/README.md": "./schema/schema-parse.md",
+      "./polywrap/toolchain/packages/schema/compose/README.md": "./schema/schema-compose.md",
+      "./polywrap/toolchain/packages/schema/bind/README.md": "./schema/schema-bind.md",
+    },
   }
 }
 
@@ -32,7 +45,7 @@ async function main() {
   process.exit(0);
 }
 
-function traverseReadmeToDocMap(readmeToDocPaths: Record<string, string | Record<string, string>>): void {
+function traverseReadmeToDocMap(readmeToDocPaths: GroupOrPath): void {
   for (const [key, val] of Object.entries(readmeToDocPaths)) {
     if (typeof val === "object") {
       traverseReadmeToDocMap(val);
