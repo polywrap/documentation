@@ -50,6 +50,12 @@ async function cloneRepo(repo: Repo): Promise<{ stdout?: string; stderr?: string
     fs.mkdirSync(orgRoot);
   }
 
+  // make sure repo dir does not exist
+  const repoDir = path.join(orgRoot, name);
+  if (fs.existsSync(repoDir)) {
+    await fs.promises.rm(repoDir, { recursive: true, force: true });
+  }
+
   // clone repo
   const uri = `https://github.com/${org}/${name}.git`;
   const result = await runCommand(
