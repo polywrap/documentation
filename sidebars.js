@@ -162,6 +162,15 @@ module.exports = {
             }
           ]
         },
+        {
+          type: 'category',
+          label: 'Schema',
+          items: [
+            'reference/schema/schema-parse',
+            'reference/schema/schema-compose',
+            'reference/schema/schema-bind',
+          ],
+        },
       ]
     },
     /*{

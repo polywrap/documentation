@@ -1,6 +1,6 @@
 ---
 id: polywrap-cli
-title: polywrap cli
+hide_title: true
 ---
 
 # The Polywrap CLI (polywrap)

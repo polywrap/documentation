@@ -1,6 +1,6 @@
 ---
 id: test-env-js
-title: test env js
+hide_title: true
 ---
 
 # @polywrap/test-env-js

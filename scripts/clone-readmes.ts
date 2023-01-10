@@ -75,7 +75,7 @@ function writeReadmeAsDoc(docPath: string, readme: string): void {
 
   const doc = `---
 id: ${id}
-title: ${title}
+hide_title: true
 ---
 
 ` + readme;
