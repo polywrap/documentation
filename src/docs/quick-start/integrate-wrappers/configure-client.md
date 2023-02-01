@@ -37,6 +37,10 @@ const config = new ClientConfigBuilder()
 const client = new PolywrapClient(config, { noDefaults: true });
 ```
 
+:::caution
+If you are using any kind of custom configuration, it is recommended that you use the `ClientConfigBuilder` to build your configuration objects, as the Polywrap client and its configurations are undergoing a major change from version `0.9` to `0.10`. Doing so will ensure that you encounter as few breaking changes as possible - most likely none.
+:::
+
 ## Redirects
 
 [URI Redirects](../../concepts/understanding-uri-redirects) can be used to redirect queries from one URI to another. 
@@ -53,7 +57,7 @@ const clientConfig: Partial<ClientConfig> = {
 };
 ```
 
-We can use the `ClientConfigBuilder` to easily add a URI Redirect to our config:
+We can also use the `ClientConfigBuilder` to add a URI Redirect to our config:
 
 ```typescript
 const config = new ClientConfigBuilder()
@@ -88,7 +92,7 @@ const clientConfig: Partial<ClientConfig> = {
 };
 ```
 
-We can use the `ClientConfigBuilder` to easily add a Plugin to our config:
+We can also use the `ClientConfigBuilder` to add a Plugin to our config:
 
 ```typescript
 const config = new ClientConfigBuilder()
@@ -106,6 +110,7 @@ const config = new ClientConfigBuilder()
   )
   .build();
 ```
+
 ## Interfaces
 
 Users can declare custom implementations for an interface by providing the interface URI and one or more URIs that resolve to implementations.
@@ -121,7 +126,7 @@ const clientConfig: Partial<ClientConfig> = {
 };
 ```
 
-We can use the `ClientConfigBuilder` to easily add an Interface implementation to our config:
+We can also use the `ClientConfigBuilder` to add an Interface implementation to our config:
 
 ```typescript
 const config = new ClientConfigBuilder()
@@ -150,7 +155,7 @@ const clientConfig: Partial<ClientConfig> = {
 };
 ```
 
-We can use the `ClientConfigBuilder` to easily add an Interface implementation to our config:
+We can also use the `ClientConfigBuilder` to add an Interface implementation to our config:
 
 ```typescript
 const config = new ClientConfigBuilder()
