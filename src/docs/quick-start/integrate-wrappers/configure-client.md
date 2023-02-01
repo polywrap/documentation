@@ -24,6 +24,19 @@ interface ClientConfig {
 }
 ```
 
+## The `ClientConfigBuilder`
+
+You can use the `ClientConfigBuilder` class present in `@polywrap/client-config-builder-js` to easily build the `ClientConfig` object:
+
+```typescript
+const config = new ClientConfigBuilder()
+  .addDefaults()
+  .build();
+
+// We must specify `noDefaults: true` because they are included with the `addDefaults()` method of the ClientConfigBuilder.
+const client = new PolywrapClient(config, { noDefaults: true });
+```
+
 ## Redirects
 
 [URI Redirects](../../concepts/understanding-uri-redirects) can be used to redirect queries from one URI to another. 
@@ -40,6 +53,14 @@ const clientConfig: Partial<ClientConfig> = {
 };
 ```
 
+We can use the `ClientConfigBuilder` to easily add a URI Redirect to our config:
+
+```typescript
+const config = new ClientConfigBuilder()
+  .addDefaults()
+  .addUriRedirect("wrap://ens/from.eth", "wrap://ens/to.eth")
+  .build();
+```
 
 ## Plugins
 
@@ -67,6 +88,24 @@ const clientConfig: Partial<ClientConfig> = {
 };
 ```
 
+We can use the `ClientConfigBuilder` to easily add a Plugin to our config:
+
+```typescript
+const config = new ClientConfigBuilder()
+  .addDefaults()
+  .addPlugin(
+    "wrap://ens/ethereum.polywrap.eth", 
+    ethereumPlugin({
+      networks: {
+        testnet: {
+          provider: "http://localhost:8545"
+        },
+      },
+      defaultNetwork: "testnet",
+    })
+  )
+  .build();
+```
 ## Interfaces
 
 Users can declare custom implementations for an interface by providing the interface URI and one or more URIs that resolve to implementations.
@@ -82,6 +121,14 @@ const clientConfig: Partial<ClientConfig> = {
 };
 ```
 
+We can use the `ClientConfigBuilder` to easily add an Interface implementation to our config:
+
+```typescript
+const config = new ClientConfigBuilder()
+  .addDefaults()
+  .addInterfaceImplementation("wrap://ens/logger.core.polywrap.eth", "wrap://ens/js-logger.polywrap.eth")
+  .build();
+```
 
 ## Envs
 
@@ -101,6 +148,22 @@ const clientConfig: Partial<ClientConfig> = {
     },
   ],
 };
+```
+
+We can use the `ClientConfigBuilder` to easily add an Interface implementation to our config:
+
+```typescript
+const config = new ClientConfigBuilder()
+  .addDefaults()
+  .addEnv(
+    "wrap://ens/wrapper.eth", 
+    {
+      connection: {
+        networkNameOrChainId: "polygon",
+      },
+    }
+  )
+  .build();
 ```
 
 ## Uri Resolvers
