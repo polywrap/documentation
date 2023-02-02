@@ -31,6 +31,7 @@ You can use the `ClientConfigBuilder` class present in `@polywrap/client-config-
 ```typescript
 const config = new ClientConfigBuilder()
   .addDefaults()
+  // add or remove configs here using ClientConfigBuilder methods...
   .build();
 
 // We must specify `noDefaults: true` because they are included with the `addDefaults()` method of the ClientConfigBuilder.
