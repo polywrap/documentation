@@ -38,7 +38,7 @@ const config = new ClientConfigBuilder()
 const client = new PolywrapClient(config, { noDefaults: true });
 ```
 
-Alternativelty, default configs will be added to the start of our custom configuration if we just pass a built `ClientConfig` to the client without specifying `{ noDefaults: true }` in the options:
+Alternatively, default configs will be added to the start of our custom configuration if we just pass a built `ClientConfig` to the client without specifying `{ noDefaults: true }` in the options:
 
 ```typescript
 const config = new ClientConfigBuilder()
