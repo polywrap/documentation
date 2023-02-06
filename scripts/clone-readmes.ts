@@ -82,15 +82,15 @@ function localPathToHttp(relReadmePath: string, readme: string): string {
   while (pathArr[i++] !== "polywrap"){}
   const repo = pathArr[i];
   const branch = branches[repo];
-  const dir = pathArr.slice(++i, pathArr.length - 1).join("/");
+  const readmeDir = pathArr.slice(++i, pathArr.length - 1).join("/");
 
   const re = /\[[\w.\\/]+]\((?<uri>[\w.\\/]+)\)/g;
   let uriSearch: RegExpGroups<"uri">;
   while (uriSearch = re.exec(readme)) {
     const { uri } = uriSearch.groups!;
-    if ( !uri || uri.startsWith("http")) continue;
+    if ( !uri || uri.startsWith("http") || uri.startsWith("#")) continue;
 
-    const httpPath = path.join(dir, uri);
+    const httpPath = path.join(readmeDir, uri);
     const url = `https://github.com/polywrap/${repo}/tree/${branch}/${httpPath}`;
 
     // replaceAll
