@@ -4,8 +4,19 @@ import fs from 'fs';
 const clonesDir: string = path.resolve(path.join(__dirname, "../clones"));
 const referenceDir: string = path.resolve(path.join(__dirname, "../src/docs/reference"));
 
+type RegExpGroups<T extends string> =
+  | (RegExpExecArray & {
+  groups?: { [name in T]: string | undefined } | { [key: string]: string };
+})
+  | null;
+
 interface GroupOrPath {
   [p: string]: string | Record<string, string | GroupOrPath>
+}
+
+// branch used for http links
+const branches: Record<string, string> = {
+  toolchain: "origin"
 }
 
 // paths are relative to clone and reference doc dirs
@@ -31,7 +42,7 @@ const readmeToDocPaths: GroupOrPath = {
       "./polywrap/toolchain/packages/js/validation/README.md": "./clients/js/libraries/package-validation.md",
       "./polywrap/toolchain/packages/js/wasm/README.md": "./clients/js/libraries/wasm-js.md",
     },
-    scema: {
+    schema: {
       "./polywrap/toolchain/packages/schema/parse/README.md": "./schema/schema-parse.md",
       "./polywrap/toolchain/packages/schema/compose/README.md": "./schema/schema-compose.md",
       "./polywrap/toolchain/packages/schema/bind/README.md": "./schema/schema-bind.md",
@@ -58,10 +69,35 @@ function traverseReadmeToDocMap(readmeToDocPaths: GroupOrPath): void {
         throw Error(`Path does not exist: ${readmePath}`);
       }
 
-      const readme = fs.readFileSync(readmePath, 'utf-8');
+      let readme = fs.readFileSync(readmePath, 'utf-8');
+      readme = localPathToHttp(relReadmePath, readme);
       writeReadmeAsDoc(docPath, readme);
     }
   }
+}
+
+function localPathToHttp(relReadmePath: string, readme: string): string {
+  const pathArr = relReadmePath.split("/");
+  let i = 0;
+  while (pathArr[i++] !== "polywrap"){}
+  const repo = pathArr[i];
+  const branch = branches[repo];
+  const dir = pathArr.slice(++i, pathArr.length - 1).join("/");
+
+  const re = /\[[\w.\\/]+]\((?<uri>[\w.\\/]+)\)/g;
+  let uriSearch: RegExpGroups<"uri">;
+  while (uriSearch = re.exec(readme)) {
+    const { uri } = uriSearch.groups!;
+    if ( !uri || uri.startsWith("http")) continue;
+
+    const httpPath = path.join(dir, uri);
+    const url = `https://github.com/polywrap/${repo}/tree/${branch}/${httpPath}`;
+
+    // replaceAll
+    const readmeSplit = readme.split(uri);
+    readme = readmeSplit.join(url);
+  }
+  return readme;
 }
 
 function writeReadmeAsDoc(docPath: string, readme: string): void {
@@ -71,7 +107,6 @@ function writeReadmeAsDoc(docPath: string, readme: string): void {
   }
 
   const id = path.basename(docPath, ".md");
-  const title = id.replace(/-/g, " ");
 
   const doc = `---
 id: ${id}
