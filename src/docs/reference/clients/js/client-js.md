@@ -1,6 +1,6 @@
 ---
 id: client-js
-title: Client
+hide_title: true
 ---
 
 # @polywrap/client-js

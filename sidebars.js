@@ -136,18 +136,40 @@ module.exports = {
               label: 'JavaScript',
               items: [
                 'reference/clients/js/client-js',
+                'reference/clients/js/client-config-builder-js',
                 'reference/clients/js/client-config',
                 {
                   type: 'category',
                   label: 'Libraries',
                   items: [
+                    'reference/clients/js/libraries/asyncify-js',
+                    'reference/clients/js/libraries/core-js',
+                    'reference/clients/js/libraries/msgpack-js',
+                    'reference/clients/js/libraries/os-js',
+                    'reference/clients/js/libraries/package-validation',
+                    'reference/clients/js/libraries/polywrap-manifest-types-js',
                     'reference/clients/js/libraries/react',
-                    'reference/clients/js/libraries/test-env-js'
+                    'reference/clients/js/libraries/result',
+                    'reference/clients/js/libraries/test-env-js',
+                    'reference/clients/js/libraries/tracing-js',
+                    'reference/clients/js/libraries/uri-resolver-extensions-js',
+                    'reference/clients/js/libraries/uri-resolvers-js',
+                    'reference/clients/js/libraries/wasm-js',
+                    'reference/clients/js/libraries/wrap-manifest-types-js',
                   ]
                 }
               ]
             }
           ]
+        },
+        {
+          type: 'category',
+          label: 'Schema',
+          items: [
+            'reference/schema/schema-parse',
+            'reference/schema/schema-compose',
+            'reference/schema/schema-bind',
+          ],
         },
       ]
     },

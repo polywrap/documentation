@@ -15,7 +15,7 @@
     "start:app": "docusaurus start --poll 500",
     "start:watch:docs": "onchange './src/docs/**/*' -- yarn build:docs",
     "start:watch:snippets": "onchange './snippets/**/*' --exclude-path .gitignore -- yarn build:snippets && yarn build:docs",
-    "build": "yarn build:snippets && yarn rebuild:docs && yarn build:app",
+    "build": "yarn clone:repos && yarn clone:readmes && yarn build:snippets && yarn rebuild:docs && yarn build:app",
     "build:app": "docusaurus build",
     "build:docs": "yarn doc-snippets combine",
     "rebuild:docs": "npx rimraf ./docs && yarn build:docs",

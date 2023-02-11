@@ -3,8 +3,8 @@
     "start": "ts-node ./src/index.ts"
   },
   "dependencies": {
-    "polywrap": "0.9.4",
-    "@polywrap/os-js": "0.9.4",
+    "polywrap": "0.9.5",
+    "@polywrap/os-js": "0.9.5",
     "ts-node": "10.7.0",
     "typescript": "4.6.4"
   }

@@ -3,9 +3,9 @@
     "build": "tsc --project ./tsconfig.json --outDir ./build"
   },
   "dependencies": {
-    "@polywrap/client-js": "0.9.4",
-    "@polywrap/polywrap-manifest-types-js": "0.9.4",
-    "@polywrap/ethereum-plugin-js": "0.9.4"
+    "@polywrap/client-js": "0.9.5",
+    "@polywrap/polywrap-manifest-types-js": "0.9.5",
+    "@polywrap/ethereum-plugin-js": "0.9.5"
   },
   "devDependencies": {
     "typescript": "4.6.4"
