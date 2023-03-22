@@ -41,7 +41,7 @@ Below, we explain what each part of this code means.
     - `wrap://` is the Polywrap URI schema.
     - `ens` is the URI authority. It tells the Polywrap client what kind of URI it needs to resolve. The `ens` authority tells the Polywrap client that what follows is an ENS address that resolves to a decentralized storage hosting a wrapper. Other valid authorities include `ipfs` for IPFS content hashes, `fs` for wrappers located on your local filesystem (often used while testing wrappers), or a custom authority that may be handled by a custom URI resolver.
     - `ethereum.polywrap.eth` is the URI path, which in this case is an ENS address.
-    - Note: The client redirects queries from the URI of a plugin wrapper to the plugin object that exists in memory. While plugins typically use an ENS URI for readability, the client does not need to query the ENS registry or an external storage location. See our section on [URI redirects](../../concepts/understanding-uri-redirects.md) for more information.
+    - Note: The client redirects queries from the URI of a plugin wrapper to the plugin object that exists in memory. While plugins typically use an ENS URI for readability, the client does not need to query the ENS registry or an external storage location. See our section on [URI redirects](/tutorials/understanding-uri-redirects) for more information.
 
 ## Use in Wasm Wrapper
 Once types have been imported, the functionality of these imported modules can be used in wrapper development.

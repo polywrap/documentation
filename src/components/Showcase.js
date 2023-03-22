@@ -15,22 +15,22 @@ const useStyles = makeStyles(() => ({
 
 const showcaseCards = [
   {
-    title: "Concepts",
-    description: "Understand the concepts that make Polywrap so unique",
-    cta: "Learn",
-    link: "/concepts/what-is-polywrap",
+    title: "Introduction",
+    description: "Discover how Polywrap can help you build the next generation of SDKs",
+    cta: "Discover",
+    link: "/introduction",
   },
   {
     title: "Quick Start",
     description: "Get building right away with our quick start guides",
     cta: "Build",
-    link: "/quick-start/integrate-wrappers/install-client",
+    link: "/quick-start/the-polywrap-client",
   },
   {
-    title: "Reference",
-    description: "Look through reference documentation for all of Polywrap's software",
-    cta: "Browse",
-    link: "/reference/glossary",
+    title: "Concepts",
+    description: "Understand the concepts that make Polywrap so unique",
+    cta: "Learn",
+    link: "/concepts/wraps",
   },
 ];
 

@@ -89,7 +89,10 @@ function DocItem(props) {
                 <DocContent />
               </div>
             </article>
-            <div className="margin-vert--xl">
+            <div className="margin-vert--lg">
+              <DocPaginator metadata={metadata} />
+            </div>
+            <div className="margin-vert--md">
             <InView onChange={(onView) => {
               if(!onView && haveVoted) {
                 setStopShowingVote(true)
@@ -117,9 +120,6 @@ function DocItem(props) {
                 )}
               </div>
               )}
-            </div>
-            <div className="margin-vert--lg">
-              <DocPaginator metadata={metadata} />
             </div>
           </div>
         </div>
