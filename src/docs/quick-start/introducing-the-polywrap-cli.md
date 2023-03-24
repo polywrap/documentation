@@ -73,7 +73,7 @@ Now let's take a look at some of the files Polywrap works with.
 In order for the Polywrap CLI to know what it's working with, it needs a Polywrap Manifest file to obtain some basic information about your project. This is the `polywrap.yaml` file.
 
 It has a structure similar to this:
-```yaml
+```yaml title="polywrap.yaml"
 format: 0.2.0
 project:
   name: Sample
@@ -96,7 +96,7 @@ In the context of an application project, the Schema file defines which Wraps ou
 
 Taking a look at the file, we can see two `import` statements:
 
-```graphql
+```graphql title="schema.graphql"
 #import * into HelloWorld from "ens/helloworld.polytest.eth"
 #import * into Ethereum from "ens/ethereum.polywrap.eth"
 ```
@@ -158,7 +158,7 @@ const daiResult = await client.invoke({
 
 Instead, we can now add an `import` statement for the Uniswap V2 Wrap to our `schema.graphql` file:
 
-```graphql
+```graphql title="schema.graphql"
 #import * into UniswapV2 from "ens/goerli/v2.uniswap.wrappers.eth"
 ```
 

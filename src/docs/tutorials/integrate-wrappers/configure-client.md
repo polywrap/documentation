@@ -3,7 +3,7 @@ id: 'configure-client'
 title: 'Configure the Polywrap Client'
 ---
 
-The Polywrap Client accepts a [`ClientConfig`](../../reference/clients/js/client-config) argument at construction. 
+The Polywrap Client accepts a [`ClientConfig`](/reference/clients/js/client-config) argument at construction. 
 
 While the [default Client Config](https://github.com/polywrap/monorepo/blob/origin/packages/js/client/src/default-client-config.ts)
 is sufficient for some use cases, you will likely want to customize it.
@@ -11,7 +11,7 @@ The config you provide to the client will modify and add to the default configur
 
 ## The `ClientConfig` object
 
-The [`PolywrapClient`](../../reference/clients/js/client-js) can be configured to redirect URIs, use different plugins, 
+The [`PolywrapClient`](/reference/clients/js/client-js) can be configured to redirect URIs, use different plugins, 
 register interface implementations, set environmental variables, and customize URI resolution.
 
 ```typescript
@@ -55,7 +55,7 @@ If you are using any kind of custom configuration, it is recommended that you us
 
 ## Redirects
 
-[URI Redirects](../../concepts/understanding-uri-redirects) can be used to redirect queries from one URI to another. 
+[URI Redirects](/tutorials/understanding-uri-redirects) can be used to redirect queries from one URI to another. 
 This redirection occurs in all queries to the URI, even in cases where one wrapper calls another during its execution.
 
 ```typescript
@@ -80,9 +80,9 @@ const config = new ClientConfigBuilder()
 
 ## Plugins
 
-To use a [plugin wrapper](../../concepts/understanding-plugins), it has to be registered in the [`ClientConfig`](../../reference/clients/js/client-config).
+To use a [plugin wrapper](/tutorials/understanding-plugins), it has to be registered in the [`ClientConfig`](/reference/clients/js/client-config).
 Each item in the array of plugins contains the URI at which the plugin will be invoked and a `PluginPackage`.
-A `PluginPackage` is a factory function the [`PolywrapClient`](../../reference/clients/js/client-js) uses to create new
+A `PluginPackage` is a factory function the [`PolywrapClient`](/reference/clients/js/client-js) uses to create new
 instances of the plugin. 
 Each plugin can have its own configuration.
 

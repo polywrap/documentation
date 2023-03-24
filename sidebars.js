@@ -104,8 +104,21 @@ module.exports = {
       label: 'Tutorials',
       items: [
         'tutorials/wrapper-schema',
-        'tutorials/env-variables',
+        'tutorials/understanding-plugins',
         'tutorials/understanding-uri-redirects',
+        'tutorials/env-variables',
+        {
+          type: 'category',
+          label: 'Integrate Wrappers',
+          items: [
+            'tutorials/integrate-wrappers/install-client',
+            'tutorials/integrate-wrappers/create-client-instance',
+            'tutorials/integrate-wrappers/configure-client',
+            'tutorials/integrate-wrappers/types-for-app',
+            'tutorials/integrate-wrappers/react-integration',
+            'tutorials/integrate-wrappers/get-wrapper-metadata'
+          ],
+        },
         {
           type: 'category',
           label: 'Create Wasm Wrappers',

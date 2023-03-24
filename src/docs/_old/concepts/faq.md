@@ -28,7 +28,7 @@ It is not possible for a nefarious actor to write Wasm code capable of accessing
 Likewise, Wasm does not allow system calls. Wasm modules cannot access the file system, make network requests, or interact with the browser.
 
 ### **How does a Wasm wrapper interact with a blockchain wallet?**
-Polywrap created [plugin wrappers](./understanding-plugins) to securely complete tasks that are not otherwise possible
+Polywrap created [plugin wrappers](/tutorials/understanding-plugins) to securely complete tasks that are not otherwise possible
 in Wasm. The Ethereum Plugin package can be configured to make Ethereum transactions with any standard Ethereum provider.
 
 ## Building Wrappers

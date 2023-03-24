@@ -3,7 +3,33 @@ id: the-polywrap-client
 title: 'The Polywrap Client'
 ---
 
-To use Wraps in your app, all you need is the Polywrap Client!
+To use [Wraps](/concepts/wraps) in your app, all you need is the **Polywrap Client**!
+
+## NodeJS application boilerplate
+
+We'll be using a simple NodeJS application boilerplate for this guide.
+
+Using `npm init` or `yarn init` within a directory initialize an empty NodeJS project.
+
+Add an `index.js` file with the following code:
+
+```javascript title="index.js"
+async function main() {
+  // your code goes here...
+}
+
+main()
+  .then(() => {
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+
+```
+
+And that's it! Use this boilerplate to try out code within this guide.
 
 ## Install the Polywrap Client
 
@@ -23,15 +49,17 @@ yarn add @polywrap/client-js
 The term "Wrap" and "Wrapper" are interchangeable. "Wrapper" is the old way in which we used to call Wraps, so don't get confused if you happen to come accross this term!
 :::
 
-In order to invoke a Wrap, we first need to instantiate the Polywrap Client:
+In order to [invoke](/concepts/invoke) a Wrap, we first need to instantiate the Polywrap Client:
 
-```javascript
+At the top of your `index.js` file, import the `PolywrapClient` and instantiate it:
+
+```javascript title="index.js"
 import { PolywrapClient } from "@polywrap/client-js";
 
 const client = new PolywrapClient();
 ```
 
-At this point, you can already invoke Wraps! In the simple example below, we will invoke the Logger Wrap:
+At this point, you can already invoke Wraps! In the simple example below, we will invoke the Logger Wrap within our `main` function:
 
 ```javascript
 const result = await client.invoke({
@@ -45,7 +73,7 @@ const result = await client.invoke({
 console.log(result);
 ```
 
-You should now see two lines appear in your console:
+Running the application using `node index.js`, you should now see two lines appear in your console:
 
 ```
 Hello Polywrap!
@@ -56,16 +84,13 @@ The first line is printed by the Logger Wrap, while the second line shows the st
 
 ### What's going on here?
 
-// TODO: Fix this up
+Using the Polywrap Client, we are invoking the `info` method of a Wrap found under the [WRAP URI](/concepts/uris) `ens/logger.polytest.eth` called the Logger Wrap.
 
-Using the Polywrap Client, we are invoking the `info` method of the Logger Wrap found on the ENS domain `logger.polytest.eth`.
+Under the hood, the Polywrap Client knows how to fetch a Wrap from a URI. It does so through a process called URI Resolution. The Polywrap Client comes pre-configured with a set of URI Resolvers, each of which knows how to resolve a certain type of URI.
 
-/// EXPLAIN WRAP URIs
-
-It then knows how to resolve this ENS domain to an IPFS hash, download the Wrap from IPFS and execute it within a WASM runtime. 
+Thanks to its pre-configured URI Resolvers, it can resolve this ENS domain to an IPFS hash, download the Wrap from IPFS and execute it within its WASM runtime. 
 
 The `PolywrapClient` comes pre-configured with everything you need for most Web2 and Web3 use-cases by default.
-
 
 ### The `InvokeResult` object
 

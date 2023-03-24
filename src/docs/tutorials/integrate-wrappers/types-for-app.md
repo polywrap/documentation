@@ -13,7 +13,7 @@ an App Manifest to automatically generate wrapper types in the language of your 
 
 The App Manifest contains the name of the project, the programming language used to write it,
 and the location of the wrapper schema that states which code to generate. 
-It can optionally contain an array of [URI Redirects](../../concepts/understanding-uri-redirects).
+It can optionally contain an array of [URI Redirects](/tutorials/understanding-uri-redirects).
 
 <Tabs
 defaultValue="schema"
