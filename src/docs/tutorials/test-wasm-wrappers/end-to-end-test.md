@@ -92,7 +92,7 @@ our wrapper project.
 
 We will invoke our wrapper using the path to our build folder. 
 We prefix the path with `wrap://fs/` to conform to the WRAP URI standard, though prefixing the path with `fs/` alone would
-work just as well. See [Understanding URIs](/tutorials/understanding-uris) to learn more.
+work just as well. See [URIs](/concepts/uris) to learn more.
 
 ```typescript
 $snippet: js-e2e-test-build
