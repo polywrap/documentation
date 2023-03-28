@@ -92,7 +92,7 @@ our wrapper project.
 
 We will invoke our wrapper using the path to our build folder. 
 We prefix the path with `wrap://fs/` to conform to the WRAP URI standard, though prefixing the path with `fs/` alone would
-work just as well. See [Understanding URIs](../../concepts/understanding-uris) to learn more.
+work just as well. See [URIs](/concepts/uris) to learn more.
 
 ```typescript
 $snippet: js-e2e-test-build
@@ -189,7 +189,7 @@ $snippet: js-e2e-test-types
 From this point, testing a function in your wrapper is no different from testing a traditional SDK. Instead of calling
 a method in a traditional SDK, you will invoke your wrapper.
 
-We will test the `setIpfsData` method we added to the SimpleStorage API in [Adding new functions](../create-wasm-wrappers/tutorial/adding-new-methods). 
+We will test the `setIpfsData` method we added to the SimpleStorage API in [Adding new functions](/tutorials/create-wasm-wrappers/tutorial/adding-new-methods). 
 For arguments, the `setIpfsData` method takes the Ethereum address of a deployed SimpleStorage contract and the data 
 the user wants to add to IPFS. It returns the IPFS hash of the data.
 

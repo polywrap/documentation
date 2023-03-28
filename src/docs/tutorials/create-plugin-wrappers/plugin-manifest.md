@@ -15,7 +15,7 @@ A plugin wrapper does not need a Polywrap Manifest; the simpler Plugin Manifest 
 The Plugin Manifest contains the name of the plugin, programming language used to write the plugin, 
 the location of the plugin's entry file (i.e. the file that exports the plugin contents),
 and the GraphQl schema that declares the plugin's interface. 
-It can optionally contain an array of [URI Redirects](../../concepts/understanding-uri-redirects).
+It can optionally contain an array of [URI Redirects](/tutorials/understanding-uri-redirects).
 
 <Tabs
 defaultValue="schema"

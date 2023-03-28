@@ -1,104 +1,30 @@
 module.exports = {
   docs: [
-    {
-      type: 'category',
-      label: 'Concepts',
-      items: [
-        'concepts/what-is-polywrap',
-        'concepts/polywrap-vs-javascript-sdks',
-        'concepts/understanding-uris',
-        'concepts/understanding-plugins',
-        'concepts/understanding-uri-redirects',
-        'concepts/plugin-vs-wasm-wrapper',
-        'concepts/wasm-languages',
-        'concepts/project-manifests',
-        'concepts/faq',
-      ],
-    },
+    'introduction',
     {
       type: 'category',
       label: 'Quick Start',
       items: [
-        {
-          type: 'category',
-          label: 'Integrate Wrappers',
-          items: [
-            'quick-start/integrate-wrappers/install-client',
-            'quick-start/integrate-wrappers/create-client-instance',
-            'quick-start/integrate-wrappers/configure-client',
-            'quick-start/integrate-wrappers/types-for-app',
-            'quick-start/integrate-wrappers/react-integration',
-            'quick-start/integrate-wrappers/get-wrapper-metadata'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Create Wasm Wrappers',
-          items: [
-            {
-              type: 'category',
-              label: 'Tutorial',
-              items: [
-                'quick-start/create-wasm-wrappers/tutorial/project-setup',
-                'quick-start/create-wasm-wrappers/tutorial/project-folder',
-                'quick-start/create-wasm-wrappers/tutorial/build-deploy-test',
-                'quick-start/create-wasm-wrappers/tutorial/adding-new-methods',
-                'quick-start/create-wasm-wrappers/tutorial/writing-tests-with-workflows',
-                'quick-start/create-wasm-wrappers/tutorial/deploy-locally-and-test',
-              ]
-            },
-            'quick-start/create-wasm-wrappers/polywrap-manifest',
-            'quick-start/create-wasm-wrappers/default-plugins',
-            'quick-start/create-wasm-wrappers/add-metadata',
-            // 'quick-start/create-wasm-wrappers/uniswapv3-to-polywrap',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Test Wasm Wrappers',
-          items: [
-            'quick-start/test-wasm-wrappers/end-to-end-test',
-            'quick-start/test-wasm-wrappers/infra-pipeline',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Build & Deploy Wasm Wrappers',
-          items: [
-            'quick-start/build-and-deploy-wasm-wrappers/build-pipeline',
-            'quick-start/build-and-deploy-wasm-wrappers/deploy-to-ipfs',
-            'quick-start/build-and-deploy-wasm-wrappers/publish-to-ens',
-            'quick-start/build-and-deploy-wasm-wrappers/deploy-pipeline',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Create Plugin Wrappers',
-          items: [
-            'quick-start/create-plugin-wrappers/create-js-plugin',
-            'quick-start/create-plugin-wrappers/plugin-manifest',
-            'quick-start/create-plugin-wrappers/plugin-architecture'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Interfaces',
-          items: [
-            'quick-start/interfaces/client-config-interfaces',
-            'quick-start/interfaces/define-implement-interfaces',
-            'quick-start/interfaces/interface-instances'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Workflows',
-          items: [
-            'quick-start/workflows/running-workflows',
-            'quick-start/workflows/workflow-validation',
-          ],
-        },
-        'quick-start/wrapper-schema',
-        'quick-start/env-variables'
+        'quick-start/the-polywrap-client',
+        'quick-start/introducing-the-polywrap-cli',
+        'quick-start/what-wraps-are-available',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Concepts',
+      items: [
+        'concepts/wraps',
+        'concepts/wasm-wraps',
+        'concepts/plugin-wraps',
+        'concepts/interface-wraps',
+        'concepts/wrap-standards',
+        'concepts/wasm',
+        'concepts/abi',
+        'concepts/uris',
+        'concepts/client',
+        'concepts/invoke',
+        'concepts/envs',
       ],
     },
     {
@@ -172,6 +98,103 @@ module.exports = {
           ],
         },
       ]
+    },
+    {
+      type: 'category',
+      label: 'Tutorials',
+      items: [
+        'tutorials/wrapper-schema',
+        'tutorials/understanding-plugins',
+        'tutorials/understanding-uri-redirects',
+        'tutorials/env-variables',
+        {
+          type: 'category',
+          label: 'Integrate Wrappers',
+          items: [
+            'tutorials/integrate-wrappers/install-client',
+            'tutorials/integrate-wrappers/create-client-instance',
+            'tutorials/integrate-wrappers/configure-client',
+            'tutorials/integrate-wrappers/types-for-app',
+            'tutorials/integrate-wrappers/react-integration',
+            'tutorials/integrate-wrappers/get-wrapper-metadata'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Create Wasm Wrappers',
+          items: [
+            {
+              type: 'category',
+              label: 'Tutorial',
+              items: [
+                'tutorials/create-wasm-wrappers/tutorial/project-setup',
+                'tutorials/create-wasm-wrappers/tutorial/project-folder',
+                'tutorials/create-wasm-wrappers/tutorial/build-deploy-test',
+                'tutorials/create-wasm-wrappers/tutorial/adding-new-methods',
+                'tutorials/create-wasm-wrappers/tutorial/writing-tests-with-workflows',
+                'tutorials/create-wasm-wrappers/tutorial/deploy-locally-and-test',
+              ]
+            },
+            'tutorials/create-wasm-wrappers/polywrap-manifest',
+            'tutorials/create-wasm-wrappers/default-plugins',
+            'tutorials/create-wasm-wrappers/add-metadata',
+            // 'tutorials/create-wasm-wrappers/uniswapv3-to-polywrap',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Test Wasm Wrappers',
+          items: [
+            'tutorials/test-wasm-wrappers/end-to-end-test',
+            'tutorials/test-wasm-wrappers/infra-pipeline',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Build & Deploy Wasm Wrappers',
+          items: [
+            'tutorials/build-and-deploy-wasm-wrappers/build-pipeline',
+            'tutorials/build-and-deploy-wasm-wrappers/deploy-to-ipfs',
+            'tutorials/build-and-deploy-wasm-wrappers/publish-to-ens',
+            'tutorials/build-and-deploy-wasm-wrappers/deploy-pipeline',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Create Plugin Wrappers',
+          items: [
+            'tutorials/create-plugin-wrappers/create-js-plugin',
+            'tutorials/create-plugin-wrappers/plugin-manifest',
+            'tutorials/create-plugin-wrappers/plugin-architecture'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Interfaces',
+          items: [
+            'tutorials/interfaces/client-config-interfaces',
+            'tutorials/interfaces/define-implement-interfaces',
+            'tutorials/interfaces/interface-instances'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Workflows',
+          items: [
+            'tutorials/workflows/running-workflows',
+            'tutorials/workflows/workflow-validation',
+          ],
+        },
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Resources',
+      items: [
+        'resources/talks-podcasts-and-videos',
+        'resources/ecosystem-tooling',
+        'resources/the-polywrap-technical-standard'
+      ],
     },
     /*{
       type: 'category',
@@ -254,14 +277,5 @@ module.exports = {
         },
       ]
     },*/
-    {
-      type: 'category',
-      label: 'Resources',
-      items: [
-        'resources/talks-podcasts-and-videos',
-        'resources/ecosystem-tooling',
-        'resources/the-polywrap-technical-standard'
-      ],
-    },
   ],
 };

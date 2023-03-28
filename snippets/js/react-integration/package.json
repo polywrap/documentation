@@ -1,7 +1,6 @@
 {
   "scripts": {
     "build": "cross-env CI=false react-scripts build",
-    "prebuild": "yarn codegen",
     "codegen": "npx polywrap codegen"
   },
   "dependencies": {
