@@ -1,6 +1,6 @@
 ---
-id: introducing-the-polywrap-cli
-title: 'Introducing the Polywrap CLI'
+id: polywrap-cli
+title: 'Polywrap CLI'
 ---
 
 Now that we have a basic understanding of the Polywrap Client, it's time to see how we can use the Polywrap CLI to create an amazing experience when working with Wraps.

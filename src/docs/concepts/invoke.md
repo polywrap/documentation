@@ -5,7 +5,7 @@ title: Invoke
 
 The term "invoke" (or "invocation") refers to the act of executing a method exposed by a [Wrap](./wraps). This can be done by using a client library that supports the [WRAP Standard](https://github.com/polywrap/specification/blob/main/standards/00_WRAP.md).
 
-Essentially, "Invoke" refers to any call to a method exposed by a Wrap, be it a [WASM Wrap](./wasm-wraps), a [Plugin Wrap](./plugin-wraps) or an [Interface Wrap](./interface-wraps), by a [WRAP-compliant](./wrap-standards) client such as the [Polywrap Client](/reference/clients/js/client-js).
+Essentially, "Invoke" refers to any call to a method exposed by a Wrap, be it a [WASM Wrap](./wasm-wraps), a [Plugin Wrap](./plugin-wraps) or an [Interface Wrap](./interface-wraps), by a [WRAP-compliant](./wrap-standard) client such as the [Polywrap Client](/reference/clients/js/client-js).
 
 Any WRAP-compatible client can perform an Invocation with the following information:
 
