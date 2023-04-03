@@ -24,7 +24,7 @@ const showcaseCards = [
     title: "Quick Start",
     description: "Get building right away with our quick start guides",
     cta: "Build",
-    link: "/quick-start/the-polywrap-client",
+    link: "/quick-start/polywrap-client",
   },
   {
     title: "Concepts",
