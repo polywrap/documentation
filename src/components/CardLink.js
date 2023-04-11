@@ -2,7 +2,7 @@ import React from "react";
 import Link from "@docusaurus/Link";
 import { makeStyles } from "@mui/styles";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
-import useThemeContext from '@theme/hooks/useThemeContext';
+import { useColorMode } from '@docusaurus/theme-common';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -16,7 +16,8 @@ export default function CardLink(props) {
   const {children, link, shine} = props;
   const theme = useTheme();
   const classes = useStyles(theme);
-  const {isDarkTheme} = useThemeContext();
+  const { colorMode } = useColorMode();
+  const isDarkTheme = colorMode === "dark";
   const isMobile = useMediaQuery(theme.breakpoints.down('md'), {
     defaultMatches: true
   });
