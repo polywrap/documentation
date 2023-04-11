@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import CardLink from "./CardLink";
 import BackgroundPolywrap from "../../static/img/polywrapper-hero-blurred.png";
-import useThemeContext from "@theme/hooks/useThemeContext";
+import { useColorMode } from '@docusaurus/theme-common';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -37,7 +37,8 @@ const showcaseCards = [
 export default function Showcase() {
   const theme = useTheme();
   const classes = useStyles(theme);
-  const { isDarkTheme } = useThemeContext();
+  const { colorMode } = useColorMode();
+  const isDarkTheme = colorMode === "dark";
 
   return (
     <Box mt={12} marginBottom={6} position="relative" zIndex={0}>

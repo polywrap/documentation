@@ -1,4 +1,18 @@
-module.exports = {
+/**
+ * Creating a sidebar enables you to:
+ - create an ordered group of docs
+ - render a sidebar for each doc of that group
+ - provide next/previous navigation
+
+ The sidebars can be generated from the filesystem, or explicitly defined here.
+
+ Create as many sidebars as you want.
+ */
+
+// @ts-check
+
+/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
+const sidebars = {
   docs: [
     'introduction',
     {
@@ -138,7 +152,6 @@ module.exports = {
             'tutorials/create-wasm-wrappers/polywrap-manifest',
             'tutorials/create-wasm-wrappers/default-plugins',
             'tutorials/create-wasm-wrappers/add-metadata',
-            // 'tutorials/create-wasm-wrappers/uniswapv3-to-polywrap',
           ],
         },
         {
@@ -196,86 +209,7 @@ module.exports = {
         'resources/the-polywrap-technical-standard'
       ],
     },
-    /*{
-      type: 'category',
-      label: 'Demos',
-      items: [
-        {
-          type: 'category',
-          label: 'Uniswap v2 Polywrap',
-          items: [
-            'demos/uniswapv2/uniswapv2-polywrap-intro',
-            'demos/uniswapv2/common-types',
-            {
-              type: 'category',
-              label: 'Queries',
-              items: [
-                'demos/uniswapv2/queries/token',
-                'demos/uniswapv2/queries/trade',
-                'demos/uniswapv2/queries/fetch',
-                'demos/uniswapv2/queries/pair',
-                'demos/uniswapv2/queries/route',
-                'demos/uniswapv2/queries/router',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Mutations',
-              items: ['demos/uniswapv2/mutations/swap'],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Uniswap v3 Polywrap',
-          items: [
-            'demos/uniswapv3/intro',
-            {
-              type: 'category',
-              label: 'Types',
-              items: [
-                'demos/uniswapv3/types/common-types',
-                'demos/uniswapv3/types/query-types',
-                'demos/uniswapv3/types/mutation-types',
-                'demos/uniswapv3/types/enum-types',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Queries',
-              items: [
-                'demos/uniswapv3/queries/token',
-                'demos/uniswapv3/queries/tickProvider',
-                'demos/uniswapv3/queries/pool',
-                'demos/uniswapv3/queries/route',
-                'demos/uniswapv3/queries/trade',
-                'demos/uniswapv3/queries/position',
-                'demos/uniswapv3/queries/router',
-                'demos/uniswapv3/queries/quoter',
-                'demos/uniswapv3/queries/nfpm',
-                'demos/uniswapv3/queries/staker',
-                'demos/uniswapv3/queries/tickUtils',
-                'demos/uniswapv3/queries/poolUtils',
-                'demos/uniswapv3/queries/positionUtils',
-                'demos/uniswapv3/queries/encodeUtils',
-                'demos/uniswapv3/queries/mathUtils',
-                'demos/uniswapv3/queries/enumUtils',
-                'demos/uniswapv3/queries/fetch',
-                'demos/uniswapv3/queries/constants',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Mutations',
-              items: [
-                'demos/uniswapv3/mutations/call',
-                'demos/uniswapv3/mutations/swap',
-                'demos/uniswapv3/mutations/deploy',
-              ],
-            },
-          ],
-        },
-      ]
-    },*/
   ],
 };
+
+module.exports = sidebars;

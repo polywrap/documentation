@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "@docusaurus/Link";
-import useThemeContext from '@theme/hooks/useThemeContext';
 import { makeStyles } from "@mui/styles";
 import { Box, Typography, useTheme } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { useColorMode } from '@docusaurus/theme-common';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -25,6 +25,16 @@ const developerLinks = [
     link: "/reference/clients/js/client-js"
   },
   {
+    title: "Rust-client",
+    description: "Rust Client",
+    link: "https://github.com/polywrap/rust-client"
+  },
+  {
+    title: "Python-client",
+    description: "Python Client",
+    link: "https://github.com/polywrap/python-client"
+  },
+  {
     title: "@polywrap/react",
     description: "React Integration",
     link: "/reference/clients/js/libraries/react"
@@ -35,7 +45,8 @@ const developerLinks = [
 export default function DeveloperLinks() {
   const theme = useTheme();
   const classes = useStyles(theme);
-  const {isDarkTheme} = useThemeContext();
+  const { colorMode } = useColorMode();
+  const isDarkTheme = colorMode === "dark";
 
   return (<>
     {developerLinks.map((card, index) => {

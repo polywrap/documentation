@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "cross-env CI=false react-scripts build",
+    "build": "cross-env CI=false NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "codegen": "npx polywrap codegen"
   },
   "dependencies": {
@@ -13,8 +13,8 @@
     "@types/node": "16.11.33",
     "@types/react": "17.0.44",
     "@types/react-dom": "17.0.16",
+    "cross-env": "^7.0.3",
     "polywrap": "0.9.5",
-    "cross-env": "7.0.3",
     "react-scripts": "3.4.4",
     "typescript": "4.6.4",
     "webpack": "4.16.0"

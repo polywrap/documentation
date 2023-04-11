@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "@docusaurus/Link";
-import useThemeContext from '@theme/hooks/useThemeContext';
 import { makeStyles } from "@mui/styles";
 import { Box, Typography, useTheme } from "@mui/material";
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import OndemandVideoOutlinedIcon from '@mui/icons-material/OndemandVideoOutlined';
+import { useColorMode } from '@docusaurus/theme-common';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -17,7 +17,12 @@ const useStyles = makeStyles(() => ({
 const resourceLinks = [
   {
     title: "Uniswap v3 Wrapper",
-    link: "demos/uniswapv3/intro",
+    link: "https://uniswap.docs.wrappers.io/",
+    icon: <DescriptionOutlinedIcon/>,
+  },
+  {
+    title: "Safe{Core} Wrapper",
+    link: "https://safe.docs.wrappers.io/",
     icon: <DescriptionOutlinedIcon/>,
   },
   {
@@ -41,7 +46,8 @@ const resourceLinks = [
 export default function ResourceLinks() {
   const theme = useTheme();
   const classes = useStyles(theme);
-  const {isDarkTheme} = useThemeContext();
+  const { colorMode } = useColorMode();
+  const isDarkTheme = colorMode === "dark";
 
   return (<>
     {resourceLinks.map((card, index) => {
