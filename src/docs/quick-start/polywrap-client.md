@@ -6,7 +6,7 @@ title: 'Polywrap Client'
 To use [Wraps](/concepts/wraps) in your app, all you need is the **Polywrap Client**!
 
 :::tip
-Currently we have a stable implementation of the Polywrap Client in Javascript. Python, Rust, Swift, C# are coming soon.
+Currently we have a stable implementation of the Polywrap Client in Javascript. Python, Rust, Swift, Kotlin, and C# are coming soon.
 :::
 
 ## NodeJS application boilerplate
@@ -78,8 +78,8 @@ At this point, you can already invoke Wraps! In the simple example below, we wil
 
 ```javascript
 const result = await client.invoke({
-  uri: "ens/logger.polytest.eth",
-  method: "info",
+  uri: "ens/wraps.eth:logger@1.0.0",
+  method: "log",
   args: {
     message: "Hello Polywrap!",
   },
@@ -99,7 +99,7 @@ The first line is printed by the Logger Wrap, while the second line shows the st
 
 ### What's going on here?
 
-Using the Polywrap Client, we are invoking the `info` method of a Wrap found under the [WRAP URI](/concepts/uris) `ens/logger.polytest.eth` called the Logger Wrap.
+Using the Polywrap Client, we are invoking the `log` method of a Wrap found under the [WRAP URI](/concepts/uris) `ens/wraps.eth:logger@1.0.0` called the Logger Wrap.
 
 Under the hood, through a process we call URI Resolution, the Polywrap Client knows how to fetch and execute the Wrap from decentralized storage.
 
@@ -122,43 +122,65 @@ One of the greatest benefits of Polywrap for the end-user (you!) lies in the fac
 
 Another important benefit of using Polywrap is that, since Wraps are downloaded from various sources, you can automatically receive patches and updates to your SDKs without having to update your codebase.
 
-Now we'll invoke the Uniswap V2 Wrap which is a port of the Uniswap SDK, but written as a Wrap.
+Now we'll invoke the Uniswap V3 Wrap which is a port of the Uniswap SDK, but written as a Wrap.
 
-We can use the Uniswap Wrap to fetch Uniswap's basic data related to the DAI token, and check the total market supply. We are also checking each result for errors.
+We can use the Uniswap Wrap to fetch Uniswap's basic data related to the WETH and USDC tokes, find the address of the pool for those two tokens. We are also checking each result for errors.
 
 ```javascript
-const daiResult = await client.invoke({
-  uri: "ens/goerli/v2.uniswap.wrappers.eth",
-  method: "fetchTokenData",
+const wethResult = await client.invoke({
+  uri: "ens/uniswap.wraps.eth:v3",
+  method: "fetchToken",
   args: {
-    address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
     chainId: "MAINNET",
   },
 });
 
 // Log the invocation error and stop execution if the invocation fails
-if(!daiResult.ok) {
-  console.log(daiResult.error)
+if(!wethResult.ok) {
+  console.log(wethResult.error)
   return;
 }
 
-console.log(daiResult.value);
+console.log("WETH:", wethResult.value);
 
-const totalSupplyResult = await client.invoke({
-  uri: "ens/goerli/v2.uniswap.wrappers.eth",
-  method: "fetchTotalSupply",
+const usdcResult = await client.invoke({
+  uri: "ens/uniswap.wraps.eth:v3",
+  method: "fetchToken",
   args: {
-    token: daiResult.value,
+    address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    chainId: "MAINNET",
   },
 });
 
-if(!totalSupplyResult.ok) {
-  console.log(totalSupplyResult.error);
+// Log the invocation error and stop execution if the invocation fails
+if(!usdcResult.ok) {
+  console.log(usdcResult.error)
   return;
 }
 
-console.log(totalSupplyResult.value);
+console.log("USDC:", usdcResult.value);
+
+const poolAddressResult = await client.invoke({
+  uri: "ens/uniswap.wraps.eth:v3",
+  method: "getPoolAddress",
+  args: {
+    tokenA: wethResult.value,
+    tokenB: usdcResult.value,
+    fee: "MEDIUM"
+  },
+});
+
+// Log the invocation error and stop execution if the invocation fails
+if(!poolAddressResult.ok) {
+  console.log(poolAddressResult.error);
+  return;
+}
+
+console.log("Pool address:", poolAddressResult.value);
 ```
+
+You can see more examples on how to use the Uniswap V3 Wrap in its [docs page](https://uniswap.docs.wrappers.io/).
 
 ## Compose everything
 
@@ -168,18 +190,17 @@ Using the Polywrap Client, we can invoke any number of SDKs, allowing us to buil
 
 In this chapter's last example, we will use two separate SDKs to figure out the IPFS hash behind the Logger Wrap's ENS domain record, then fetch that Wrap's schema (more about that in the next chapter).
 
-First, we will use the Ens Resolver Wrap to resolve the ENS domain to an IPFS Wrap URI.
+First, we will use the Ens Text Record Resolver Wrap to resolve the ENS domain to an IPFS Wrap URI.
 
 ```javascript
-const client = new PolywrapClient();
-
-// We first want to resolve the ENS address into an IPFS WRAP URI
+// We first want to resolve the ENS address (uniswap.wraps.eth)
+// and text record (v3) into an IPFS WRAP URI
 const resolutionResult = await client.invoke({
-  uri: "ens/ens-resolver.polywrap.eth",
+  uri: "ens/wraps.eth:ens-text-record-uri-resolver-ext@1.0.0",
   method: "tryResolveUri",
   args: {
     authority: "ens",
-    path: "ens/logger.polytest.eth",
+    path: "uniswap.wraps.eth:v3",
   },
 });
 
@@ -193,18 +214,19 @@ console.log(resolutionResult.value);
 
 Now, if we look at the `uri` property of `resolutionResult.value`, we will see a WRAP URI
 
-Once we have the IPFS hash, we will use the IPFS Wrap to fetch the contents of the Wrap's schema file, and print them out.
+Once we have the IPFS hash, we will use the IPFS Wrap to fetch the contents of the Wrap's manifest file (`wrap.info`), and print them out.
 
 ```javascript
 // Extract the IPFS CID from the resolution result's URI
-const cid = resolutionResult.value.uri.replace("ipfs/", "");
+const cid = resolutionResult.value.uri.replace("wrap://ipfs/", "");
 
-// Since the CID is a directory, we need to add a path to the Wrap's schema file
+// Since the CID is a directory, we need to add a path to the Wrap's manifest file
 const catResult = await client.invoke({
-  uri: "ens/ipfs.polywrap.eth",
+  uri: "ens/wraps.eth:ipfs-http-client@1.0.0",
   method: "cat",
   args: {
-    cid: cid + "/schema.graphql",
+    cid: cid + "/wrap.info",
+    ipfsProvider: "https://ipfs.wrappers.io"
   },
 });
 
@@ -216,9 +238,9 @@ if (!catResult.ok) {
 }
 
 // Turn the returned buffer into a string and log it
-const schema = catResult.value.toString();
+const schema = new TextDecoder().decode(catResult.value);
 
 console.log(schema);
 ```
 
-In this example, we printed out a Wrap's Schema file. This is the definition of what types and methods are present within a Wrap, and we'll talk more about it in the next section.
+In this example, we printed out a Wrap's Manifest file. This is a file that contains the definiton of the Wrap. Amongst other things it contains what types and methods are present within a Wrap, called the Wrap's Schema, and we'll talk more about it in the next section.
