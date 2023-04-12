@@ -19,11 +19,11 @@ However, traditional SDKs come with a number of issues for web3 developers, name
 
 - **difficult to compose.**  Due to the lack of SDK standards, the SDK for one web3 protocol may be difficult to mix-and-match with that of another.
 
-![](/img/introduction/01-composable.png)
+![](/img/docs/introduction/01-composable.png)
 
 - **not portable.**  SDKs are language-specific.  Today's deployment platforms are more varied than ever (web, mobile, server, etc.).  Thus, SDK codebases need to be duplicated and translated for each of these environments, leading to more chances for bugs to appear and higher maintenance costs.
 
-![](/img/introduction/02-portable.png)
+![](/img/docs/introduction/02-portable.png)
 
 - **not upgradable.** When traditional SDKs undergo a patch update, the entire application needs to be rebuilt and redeployed.
 
@@ -35,11 +35,11 @@ Polywrap's wrappers offer a much better strategy for code reuse and composabilit
 
 - **easily composable.**  Wrappers are developed in a standardized way, and all dApps powered by the Polywrap client library can communicate with wrappers with a familiar graphQL-esque querying.  Standardization means wrappers can be easily composed, resulting in even more sophisticated wrappers.
 
-![](/img/introduction/03-composable.png)
+![](/img/docs/introduction/03-composable.png)
 
 - **portable.** Wrappers can execute in any host environment that has the Polywrap client installed (web, mobile, IoT, servers, and more).  Instead of maintaining multiple language-specific SDKs, web3 dev teams can write their wrappers in one language that works seamlessly across all deployment platforms.
 
-![](/img/introduction/04-portable.png)
+![](/img/docs/introduction/04-portable.png)
 
 - **updatable on the fly.** Wrappers aren't bundled into applications.  Instead, they're fetched at runtime and any patch updates are done on the fly, without the need to rebuild the entire app.
 

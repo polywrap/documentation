@@ -8,23 +8,34 @@
   </a>
 </h2>
 
-# Website
+# Polywrap Docs
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 
 ```
-$ yarn
+$ yarn reset
 ```
 
 ### Local Development
+
+To fully rebuild and start a development server, run:
 
 ```
 $ yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This will rebuild all snippets and start a local development server. Most changes are reflected live.
+
+To quickly start a development server, run:
+
+```
+$ yarn start:fast
+```
+
+This will rebuild docs without rebuilding snippets, and only changes to docs will be reflected live.
+This is the fastest way of getting started after rebuilding, as usually snippets need to be built only once.
 
 ### Build
 
@@ -34,18 +45,8 @@ $ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
-
-Using SSH:
+You can also host the build locally by running:
 
 ```
-$ USE_SSH=true yarn deploy
+$ yarn serve
 ```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

@@ -7,4 +7,4 @@ title: The Polywrap Technical Standard
 
 ## Polywrap Architecture
 
-![Architecture](../assets/architecture.png)
+![Architecture](/img/docs/resources/the-polywrap-technical-standard/architecture.png)
