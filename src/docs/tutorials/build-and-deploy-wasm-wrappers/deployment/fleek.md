@@ -67,31 +67,31 @@ Make sure you signup for a Fleek account.
 * On the left-hand side menu of your `Fleek.` 
 * Account page, click on the `"Storage"` link.
 
-![Fleek Step 1](../../../../static/img/quick-start/fleek-step-1.png)
+![Fleek Step 1](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/fleek/fleek-step-1.png)
 
 * Then, click `"Create Folder"`
 
 Example: `Gm-Polywrap`
 
-![Fleek Step 2](../../../../static/img/quick-start/fleek-step-2.png)
+![Fleek Step 2](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/fleek/fleek-step-2.png)
 
 * Click `Confirm` to create the folder 
 
-![Fleek Step 3](../../../../static/img/quick-start/fleek-step-3.png)
+![Fleek Step 3](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/fleek/fleek-step-3.png)
 
 * Click the Folder 
 * After that, click `"Upload"` 
 
-![Fleek Step 4](../../../../static/img/quick-start/fleek-step-4.png)
+![Fleek Step 4](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/fleek/fleek-step-4.png)
 
 
 * Select the contents of your `build` folder onto `Fleek.`
 
-![Fleek Step 5](../../../../static/img/quick-start/fleek-step-5.png)
+![Fleek Step 5](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/fleek/fleek-step-5.png)
 
 * Click `Confirm.`
 
-![Fleek Step 6](../../../../static/img/quick-start/fleek-step-6.png)
+![Fleek Step 6](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/fleek/fleek-step-6.png)
 
 :::tip
 Due to the current Filecoin deal size limitation, files are batched together across Fleek products and uploaded as one Filecoin
