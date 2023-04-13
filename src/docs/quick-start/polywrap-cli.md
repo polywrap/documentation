@@ -97,11 +97,11 @@ In the context of an application project, the Schema file defines which Wraps ou
 Taking a look at the file, we can see two `import` statements:
 
 ```graphql title="schema.graphql"
-#import * into Logger from "ens/wraps.eth:logger@1.0.0"
+#import * into Logging from "ens/wraps.eth:logging@1.0.0"
 #import * into Ethereum from "ens/wraps.eth:ethereum@1.0.0"
 ```
 
-An `import` statement defines which Wraps we are importing, therefore using within our application. Imports are namespaced - the Wrap found under the WRAP URI `ens/wraps.eth:logger@1.0.0` is going to be found within the `Logger_` namespace.
+An `import` statement defines which Wraps we are importing, therefore using within our application. Imports are namespaced - the Wrap found under the WRAP URI `ens/wraps.eth:logging@1.0.0` is going to be found within the `Logging_` namespace.
 
 ### Generating types (`codegen`)
 
@@ -126,7 +126,10 @@ Now that we have our types generated, we can take a look at our sample applicati
 Let's first take a look at some of the imports:
 
 ```typescript
-import { HelloWorld_Module, Ethereum_Module } from "./wrap";
+import {
+  Logging_Module,
+  Ethereum_Module,
+} from "./wrap";
 ```
 
 Here we can see that we've imported Module types that represent our Wraps, according to their specified namespace. Using these types, we can invoke our Wraps in a type-safe manner, without having to repeatedly specify the Wrap URI:
@@ -134,13 +137,9 @@ Here we can see that we've imported Module types that represent our Wraps, accor
 ```typescript
 const client = new PolywrapClient();
 
-await Logger_Module.log(
-  {
-    message: "Hello there",
-    level: Logger_Logger_LogLevelEnum.INFO,
-  },
-  client
-);
+await Logging_Module.info({
+  message: "Hello there",
+}, client);
 ```
 
 This allows us to write all of our code in a type-safe manner, and allows for IDEs like VS Code to give us autocompletion suggestions via IntelliSense. Now we can explore our Wraps by simply importing them and trying them out!
