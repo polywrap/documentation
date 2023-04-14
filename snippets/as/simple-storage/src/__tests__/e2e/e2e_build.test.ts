@@ -1,6 +1,6 @@
 // $start: js-e2e-test-build
 // highlight-start
-import { buildWrapper, initTestEnvironment, stopTestEnvironment } from "@polywrap/test-env-js";
+import { Commands } from '@polywrap/cli-js';
 import path from "path";
 // highlight-end
 
@@ -13,20 +13,24 @@ describe('Wrapper Test', () => {
 
   beforeAll(async () => {
     // initialize test environment
-    await initTestEnvironment();
+    await Commands.infra("up", {
+      modules: ["eth-ens-ipfs"],
+    });
 
     // highlight-start
     // absolute path to directory with polywrap.yaml
     const wrapperDirectory: string = path.resolve(__dirname + "/../../../");
     // build the wrapper
-    await buildWrapper(wrapperDirectory);
+    await Commands.build({ cwd: wrapperDirectory });
     wrapperPath = `wrap://fs/${wrapperDirectory}/build`
     // highlight-end
   });
 
   afterAll(async () => {
     // stop test environment
-    await stopTestEnvironment();
+    await Commands.infra("down", {
+      modules: ["eth-ens-ipfs"],
+    });
   });
 
   test("", async () => { });
