@@ -31,7 +31,7 @@ Below, we explain what each part of this code means.
 
 - `from "wrap://ens/wraps.eth:http@1.1.0"`
     - `wrap://` is the Polywrap URI schema.
-    - `ens` is the URI authority. It tells the Polywrap client what kind of URI it needs to resolve. See [URIs](/docs/concepts/uris) for more information.
+    - `ens` is the URI authority. It tells the Polywrap client what kind of URI it needs to resolve. See [URIs](/concepts/uris) for more information.
     - `wraps.eth:http@1.1.0` is the URI path, which in this case is an ENS address.
 
 ## Use in Wasm Wrapper
