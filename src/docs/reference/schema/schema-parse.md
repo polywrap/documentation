@@ -36,7 +36,7 @@ interface ParserOptions {
 ```
 
 ### ABI Transforms
-ABI transformations can be used to modify the ABI structure. A variety of pre-defined transformations can be found in the [https://github.com/polywrap/toolchain/tree/origin-dev/packages/schema/parse/src/transform/](https://github.com/polywrap/toolchain/tree/origin-dev/packages/schema/parse/src/transform/) directory.
+ABI transformations can be used to modify the ABI structure. A variety of pre-defined transformations can be found in the ./src/transform/ directory.
 
 Example:
 ```typescript

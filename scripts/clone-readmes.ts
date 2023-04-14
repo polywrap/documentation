@@ -35,7 +35,6 @@ const readmeToDocPaths: GroupOrPath = {
       "./polywrap/toolchain/packages/js/msgpack/README.md": "./clients/js/libraries/msgpack-js.md",
       "./polywrap/toolchain/packages/js/os/README.md": "./clients/js/libraries/os-js.md",
       "./polywrap/toolchain/packages/js/result/README.md": "./clients/js/libraries/result.md",
-      "./polywrap/toolchain/packages/js/test-env/README.md": "./clients/js/libraries/test-env-js.md",
       "./polywrap/toolchain/packages/js/tracing/README.md": "./clients/js/libraries/tracing-js.md",
       "./polywrap/toolchain/packages/js/uri-resolver-extensions/README.md": "./clients/js/libraries/uri-resolver-extensions-js.md",
       "./polywrap/toolchain/packages/js/uri-resolvers/README.md": "./clients/js/libraries/uri-resolvers-js.md",

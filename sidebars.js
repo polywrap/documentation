@@ -90,7 +90,6 @@ const sidebars = {
                     'reference/clients/js/libraries/polywrap-manifest-types-js',
                     'reference/clients/js/libraries/react',
                     'reference/clients/js/libraries/result',
-                    'reference/clients/js/libraries/test-env-js',
                     'reference/clients/js/libraries/tracing-js',
                     'reference/clients/js/libraries/uri-resolver-extensions-js',
                     'reference/clients/js/libraries/uri-resolvers-js',
