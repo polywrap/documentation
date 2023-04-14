@@ -1,3 +1,4 @@
+# $start: yaml-simple-storage-package-manifest
 format: 0.3.0
 project:
   name: simple-storage
@@ -7,3 +8,5 @@ source:
   module: ./src/index.ts
 extensions:
   build: ./polywrap.build.yaml
+resources: "./resources"
+# $end
