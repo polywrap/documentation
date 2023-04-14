@@ -1,0 +1,11 @@
+format: 0.3.0
+project:
+  name: template-wasm-as
+  type: wasm/assemblyscript
+# $start: project-manifest-schema-example
+source:
+  module: ./src/index.ts
+  schema: ./src/schema.graphql
+# $end
+extensions:
+  build: ./polywrap.build.yaml

@@ -21,7 +21,7 @@ However, the client will throw an exception if a user attempts to invoke a metho
 A wrapper project's schema must be declared in the project manifest (Polywrap Manifest or [Plugin Manifest](./create-plugin-wrappers/plugin-manifest)).
 
 ```yaml
-schema: ./src/schema.graphql
+$snippet: project-manifest-schema-example
 ```
 
 ## Codegen
@@ -47,30 +47,13 @@ values={[
 <TabItem value="declaration">
 
 ```graphql
-type Module {
-  foo(
-    bar: String!
-    arg: Int!
-  ): ReturnType!
-}
-
-type ReturnType {
-  prop: Int!
-}
+$snippet: wasm-project-schema-graphql
 ```
 </TabItem>
 <TabItem value="implementation">
 
 ```typescript
-import { Args_foo, ReturnType } from "./wrap"; // import generated types
-
-export function foo(
-  args: Args_foo // accepts generated method arguments type
-): ReturnType { // returns generated return type
-  const parsed: i32 = I32.parseInt(args.bar) + args.arg;
-  const result: ReturnType = { prop: parsed };
-  return result;
-}
+$snippet: wasm-project-index-ts
 ```
 
 </TabItem>
