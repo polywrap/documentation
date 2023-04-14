@@ -17,17 +17,6 @@ type Module {
 $snippet: gql-simple-storage-setIpfs-schema
 ```
 
-### **Import IPFS' Polywrap wrapper**
-
-Since we'll be making use of IPFS in our Wasm wrapper, let's import the IPFS plugin wrapper. Then we will be able to call its methods from our code, allowing us to upload content:
-
-```graphql title="./src/schema.graphql"
-$snippet: gql-simple-storage-schema-ipfs-import
-
-type Module {
-  ...
-```
-
 ### **Implement the `setIpfsData` method**
 
 In the `./src/index.ts` file, import the new types we've defined:
