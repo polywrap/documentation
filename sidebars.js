@@ -129,7 +129,6 @@ const sidebars = {
             'tutorials/integrate-wrappers/configure-client',
             'tutorials/integrate-wrappers/types-for-app',
             'tutorials/integrate-wrappers/react-integration',
-            'tutorials/integrate-wrappers/get-wrapper-metadata'
           ],
         },
         {
