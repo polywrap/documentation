@@ -30,7 +30,7 @@ The generated types include:
 ```typescript title="Example: plugin template
 import { Module, Args_sampleMethod, manifest } from "./wrap"; // imports from generated "wrap" folder
 
-import { PluginFactory } from "@polywrap/core-js"; // plugin must export a PluginFactory
+import { PluginFactory, PluginPackage } from "@polywrap/plugin-js"; // plugin must export a PluginFactory
 
 export interface SamplePluginConfig {
   defaultValue: string;
@@ -48,10 +48,10 @@ export class SamplePlugin extends Module<SamplePluginConfig> { // Plugin inherit
 export const samplePlugin: PluginFactory<SamplePluginConfig> = ( // exported PluginFactory is used by Polywrap client
   config: SamplePluginConfig
 ) => {
-  return {
-    factory: () => new SamplePlugin(config), // factory method produces a Module
-    manifest, // imported from ./wrap
-  };
+  return new PluginPackage(
+    new SamplePlugin(config), // factory method produces a Module
+    manifest // imported from ./wrap
+  );
 };
 
 export const plugin = samplePlugin; // PluginFactory is exported with name "plugin"

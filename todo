@@ -3,6 +3,7 @@ x ensure all links to 0.10 branch
   - tutorials/build-and-deploy-wasm-wrappers
     x gone through basics, need a refactor
   - tutorials/create-plugin-wrappers
+    x gone through basics, need a refactor
   - tutorials/interfaces
   - tutorials/workflows
 - testing-wrappers

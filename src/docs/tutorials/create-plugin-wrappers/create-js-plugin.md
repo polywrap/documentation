@@ -50,14 +50,14 @@ Let's ensure all of your project's dependencies are installed. From inside your 
 Your project should look something like this:
 
 ```
-polywrap.plugin.yaml           # Plugin Manifest
+polywrap.yaml           # Plugin Manifest
 src/
-|   index.ts                  # Entry File
-│   schema.graphql            # Schema
+|   index.ts            # Entry File
+│   schema.graphql      # Schema
 ```
 
-### **`polywrap.plugin.yaml`**
-The [Plugin Manifest](./plugin-manifest) describes the layout of a plugin.
+### **`polywrap.yaml`**
+The [Plugin Project Manifest](./plugin-manifest) describes the layout of a plugin.
 
 ### **`schema.graphql`**
 Each wrapper project has a [Wrapper Schema](../wrapper-schema). 
@@ -78,8 +78,4 @@ yarn build # alias for "npx polywrap build"
 
 ## **Example Plugins**
 
-For inspiration, please refer to these existing JavaScript plugins:
-* [Sample Plugin](https://github.com/polywrap/monorepo/tree/prealpha/packages/templates/plugin/typescript)
-* [Toolchain Plugins](https://github.com/polywrap/monorepo/tree/prealpha/packages/js/plugins)
-* [Demo Plugins](https://github.com/polywrap/demos)
-* [Integration Plugins](https://github.com/polywrap/integrations)
+See [Understanding Plugins](../understanding-plugins.md) for some examples of Plugins used within the default configuration of the Polywrap Client.
