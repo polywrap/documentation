@@ -1,6 +1,6 @@
-#import { Module, Connection } into Ethereum from "wrap://ens/ethereum.polywrap.eth"
+#import { Module, Connection } into Ethereum from "wrap://ens/wraps.eth:ethereum@2.0.0"
 # $start: gql-simple-storage-schema-ipfs-import
-#import { Module } into Ipfs from "wrap://ens/ipfs.polywrap.eth"
+#import { Module } into Ipfs from "ens/wraps.eth:ipfs-http-client@1.0.0"
 # $end
 
 type Module {
@@ -35,6 +35,7 @@ type Module {
 # $start: gql-simple-storage-getIpfs-schema
     getIpfsData(
         address: String!
+        ipfsProvider: String!
         connection: Ethereum_Connection
     ): String!
 # $end
@@ -42,6 +43,7 @@ type Module {
 # $start: gql-simple-storage-setIpfs-schema
     setIpfsData(
         options: SetIpfsDataOptions!
+        ipfsProvider: String!
         connection: Ethereum_Connection
     ): SetIpfsDataResult!
 }

@@ -1,5 +1,7 @@
-format: 0.1.0
-name: schema-example
-language: wasm/assemblyscript
-module: ./index.ts
-schema: ./schema.example.graphql
+format: 0.3.0
+project:
+  name: schema-example
+  type: wasm/assemblyscript
+source:
+  schema: ./schema.example.graphql
+  module: ./index.ts

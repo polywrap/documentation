@@ -51,14 +51,16 @@ values={[
 <TabItem value="as">
 
 ```typescript
-// App developers are required to provide Env to invoke this method
-export function methodRequireEnv(_: Args_methodRequireEnv, env: Env): Env {
-  return env;
-}
+export class Module extends ModuleBase {
+  // App developers are required to provide Env to invoke this method
+  methodRequireEnv(_: Args_methodRequireEnv, env: Env): Env {
+    return env;
+  }
 
-// Env is optional when invoking this method
-export function methodOptionalEnv(_: Args_methodOptionalEnv, env: Env | null): Env | null {
-  return env ? (env as Env) : null;
+  // Env is optional when invoking this method
+  methodOptionalEnv(_: Args_methodOptionalEnv, env: Env | null): Env | null {
+    return env ? (env as Env) : null;
+  }
 }
 ```
 
@@ -66,14 +68,16 @@ export function methodOptionalEnv(_: Args_methodOptionalEnv, env: Env | null): E
 <TabItem value="rs">
 
 ```rust
-// App developers are required to provide Env to invoke this method
-pub fn method_require_env(_: ArgsMethodRequireEnv, env: Env) -> Env {
-  env
-}
+impl ModuleTrait for Module {
+  // App developers are required to provide Env to invoke this method
+  fn method_require_env(_: ArgsMethodRequireEnv, env: Env) -> Env {
+    env
+  }
 
-// Env is optional when invoking this method
-pub fn method_optional_env(args: ArgsMethodOptionalEnv, env: Option<Env>) -> Option<Env> {
-  env
+  // Env is optional when invoking this method
+  fn method_optional_env(args: ArgsMethodOptionalEnv, env: Option<Env>) -> Option<Env> {
+    env
+  }
 }
 ```
 

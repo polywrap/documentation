@@ -54,7 +54,7 @@ The Polywrap CLI can be used to quickly set up a template application. For this 
 To set up a Polywrap-powered application, run:
 
 ```
-polywrap create app typescript-node my-application
+polywrap create app typescript my-application
 ```
 
 This uses the `create` command to set up a template Node application written in Typescript called `my-application` inside the `my-application/` directory. Now we want to navigate into the application folder and install its dependencies.
@@ -74,7 +74,7 @@ In order for the Polywrap CLI to know what it's working with, it needs a Polywra
 
 It has a structure similar to this:
 ```yaml title="polywrap.yaml"
-format: 0.2.0
+format: 0.3.0
 project:
   name: Sample
   type: app/typescript
@@ -97,11 +97,11 @@ In the context of an application project, the Schema file defines which Wraps ou
 Taking a look at the file, we can see two `import` statements:
 
 ```graphql title="schema.graphql"
-#import * into HelloWorld from "ens/helloworld.polytest.eth"
-#import * into Ethereum from "ens/ethereum.polywrap.eth"
+#import * into Logging from "ens/wraps.eth:logging@1.0.0"
+#import * into Ethereum from "ens/wraps.eth:ethereum@1.0.0"
 ```
 
-An `import` statement defines which Wraps we are importing, therefore using within our application. Imports are namespaced - the Wrap found under the WRAP URI `ens/helloworld.polytest.eth` is going to be found within the `HelloWorld_` namespace.
+An `import` statement defines which Wraps we are importing, therefore using within our application. Imports are namespaced - the Wrap found under the WRAP URI `ens/wraps.eth:logging@1.0.0` is going to be found within the `Logging_` namespace.
 
 ### Generating types (`codegen`)
 
@@ -126,7 +126,10 @@ Now that we have our types generated, we can take a look at our sample applicati
 Let's first take a look at some of the imports:
 
 ```typescript
-import { HelloWorld_Module, Ethereum_Module } from "./wrap";
+import {
+  Logging_Module,
+  Ethereum_Module,
+} from "./wrap";
 ```
 
 Here we can see that we've imported Module types that represent our Wraps, according to their specified namespace. Using these types, we can invoke our Wraps in a type-safe manner, without having to repeatedly specify the Wrap URI:
@@ -134,8 +137,8 @@ Here we can see that we've imported Module types that represent our Wraps, accor
 ```typescript
 const client = new PolywrapClient();
 
-await HelloWorld_Module.logMessage({
-  message: "Hello there"
+await Logging_Module.info({
+  message: "Hello there",
 }, client);
 ```
 
@@ -143,44 +146,47 @@ This allows us to write all of our code in a type-safe manner, and allows for ID
 
 ## A real-world exmaple, revisited
 
-Let's revisit our Uniswap V2 Wrap example from the Quick Start tutorial. If we wanted to invoke the Uniswap V2 Wrap without codegen, we had to write the following code:
+Let's revisit our Uniswap V3 Wrap example from the Quick Start tutorial. If we wanted to invoke the Uniswap V3 Wrap without codegen, we had to write the following code:
 
 ```javascript
-const daiResult = await client.invoke({
-  uri: "ens/goerli/v2.uniswap.wrappers.eth",
-  method: "fetchTokenData",
+const usdcResult = await client.invoke({
+  uri: "ens/uniswap.wraps.eth:v3",
+  method: "fetchToken",
   args: {
-    address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
     chainId: "MAINNET",
   },
 });
 ```
 
-Instead, we can now add an `import` statement for the Uniswap V2 Wrap to our `schema.graphql` file:
+Instead, we can now add an `import` statement for the Uniswap V3 Wrap to our `schema.graphql` file:
 
 ```graphql title="schema.graphql"
-#import * into UniswapV2 from "ens/goerli/v2.uniswap.wrappers.eth"
+#import * into UniswapV3 from "ens/uniswap.wraps.eth:v3"
 ```
 
-Running `codegen` now will add all types defined inside the Uniswap V2 Wrap to our `wrap` folder:
+Running `codegen` now will add all types defined inside the Uniswap V3 Wrap to our `wrap` folder:
 
 ```
 polywrap codegen
 ```
 
-We can now import the `UniswapV2_Module` and supporting types into our `index.ts` file:
+We can now import the `UniswapV3_Module` and supporting types into our `index.ts` file:
 
 ```typescript
-import { UniswapV2_ChainIdEnum, UniswapV2_Module } from "./wrap";
+import {
+  UniswapV3_Module,
+  UniswapV3_ChainIdEnum,
+} from "./wrap";
 ```
 
-We can now invoke the Uniswap V2 Wrap by writing:
+We can now invoke the Uniswap V3 Wrap by writing:
 
 ```typescript
-const fetchTokenDataResult = await UniswapV2_Module.fetchTokenData(
+const usdcResult = await UniswapV3_Module.fetchToken(
   {
-    address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-    chainId: UniswapV2_ChainIdEnum.MAINNET,
+    address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    chainId: UniswapV3_ChainIdEnum.MAINNET,
   },
   client
 );
@@ -188,16 +194,16 @@ const fetchTokenDataResult = await UniswapV2_Module.fetchTokenData(
 
 Already inside the invocation, we can see that the `chainId` is an `enum` type, with all supported networks already listed. Polywrap also takes care of required and optional arguments, and if you play around, you will find that we omitted the `name` and `symbol` optional invocation arguments.
 
-If `fetchTokenDataResult.ok` is true, its `value` will now have a type of `UniswapV2_Token`:
+If `usdcResult.ok` is true, its `value` will now have a type of `UniswapV3_Token`:
 
 ```typescript
-if(!fetchTokenDataResult.ok) {
-  console.error(fetchTokenDataResult.error);
+if(!usdcResult.ok) {
+  console.error(usdcResult.error);
   return;
 }
 
-// token is now of type UniswapV2_Token found in "./wrap"
-const token = fetchTokenDataResult.value;
+// token is now of type UniswapV3_Token found in "./wrap"
+const token = usdcResult.value;
 
 console.log(token);
 ```

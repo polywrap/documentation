@@ -11,23 +11,28 @@ Plugins can be used to enable any native client functionality that cannot be imp
 
 ### **Default Plugin wrappers**
 
-The Polywrap client has a [default configuration](https://github.com/polywrap/monorepo/blob/origin/packages/js/client/src/default-client-config.ts) that enables developers to use the following plugins:  
-* `wrap://ens/js-logger.polywrap.eth`
-* `wrap://ens/ipfs.polywrap.eth`
-* `wrap://ens/ens-resolver.polywrap.eth`
-* `wrap://ens/ethereum.polywrap.eth`
-* `wrap://ens/http.polywrap.eth`
-* `wrap://ens/fs.polywrap.eth`
-* `wrap://ens/fs-resolver.polywrap.eth`
-* `wrap://ens/ipfs-resolver.polywrap.eth`
+The Polywrap client has a [default configuration](../reference/clients/js/client-config-builder-js.md#bundle-defaultconfig) that enables developers to use the following plugins and the interfaces they implement:  
+* [Logger Plugin](https://github.com/polywrap/logging)
+  * `wrap://ens/wraps.eth:logger@1.0.0`
+* [HTTP Plugin](https://github.com/polywrap/http)
+  * `ens/wraps.eth:http@1.1.0`
+  * `ens/wraps.eth:http@1.0.0`
+* [FileSystem Plugin](https://github.com/polywrap/file-system)
+  * `ens/wraps.eth:file-system@1.0.0`
+* [Concurrency Plugin](https://github.com/polywrap/concurrent)
+  * `ens/wraps.eth:concurrent@1.0.0`
+* [Ethereum Provider Plugin](https://github.com/polywrap/ethereum)
+  * V1
+    * `ens/wraps.eth:ethereum-provider@1.1.0`
+    * `ens/wraps.eth:ethereum-provider@1.0.0`
+  * V2
+    * `ens/wraps.eth:ethereum-provider@2.0.0`
 
-NOTE: This default configuration will be removed in the near future, and replaced by a "config builder". This will make the client agnostic, and allow users to combine and customize different "config bundles", in addition to creating their your own.
+### **Configuring Plugins**
 
-### **Plugin URI Redirects**
+Some plugins, like the Ethereum Provider, require additional configuration in certain environments like the browser. 
 
-Plugin wrappers are configured using URI Redirects. We would specify the `uri` property as the URI of the plugin we want to use, and the `plugin` property as the actual plugin.
-
-For example, we can add an Ethereum plugin that uses MetaMask (or any other Ethereum JS provider) for its provider & signer!
+We can configure the Ethereum Provider plugin to use MetaMask (or any other Ethereum JS provider) for its provider & signer using the Client Config Builder:
 
 ```typescript
 $snippet: js-metamask-provider-imports

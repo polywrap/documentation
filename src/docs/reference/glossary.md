@@ -1,6 +1,6 @@
 ---
 id: glossary
-title: Reference Documentation
+title: Glossary
 ---
 
 Reference documentation for Polywrap's various CLIs, clients, manifests, and underlying specifications.

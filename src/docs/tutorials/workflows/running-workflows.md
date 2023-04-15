@@ -39,7 +39,6 @@ jobs: # a set of one or more jobs
       - uri: fs/build # uri of invocation
         method: query # method to invoke
         args: # method arguments
-        config: # (Optional) modified client configuration for this call
 ```
 
 </TabItem>
@@ -52,52 +51,6 @@ $snippet: yaml-simple-storage-original-workflow
 </TabItem>
 </Tabs>
 
-## Configuring the Client
-
-Users can configure the Polywrap client used to execute a workflow. 
-This is done by providing the Polywrap CLI's [`test`](../../reference/cli/commands/test) command with the path to a custom 
-configuration file.
-The configuration file can be a JavaScript or TypeScript module.
-It must implement and export a function named `getClientConfig`. 
-
-The `getClientConfig` function accepts the default [`ClientConfig`](../integrate-wrappers/configure-client) as an argument and returns the custom Polywrap 
-client configuration. 
-It must be implemented with the following signature:
-
-<Tabs
-defaultValue="typescript"
-values={[
-{label: 'TypeScript', value: 'typescript'},
-{label: 'JavaScript', value: 'javascript'},
-]}>
-<TabItem value="typescript">
-
-```typescript
-// asynchronous option
-export async function getClientConfig(
-  defaultConfigs: Partial<PolywrapClientConfig>
-): Promise<Partial<PolywrapClientConfig>>
-
-// synchronous option
-export function getClientConfig(
-  defaultConfigs: Partial<PolywrapClientConfig>
-): Partial<PolywrapClientConfig>
-```
-
-</TabItem>
-<TabItem value="javascript">
-
-```javascript
-// asynchronous option
-export async function getClientConfig(defaultConfigs)
-
-// synchronous option
-export function getClientConfig(defaultConfigs)
-```
-
-</TabItem>
-</Tabs>
-
 ## Workflow output
 
 The output of a workflow can be written as a file in the JSON or YAML format with the `output-file` option of the Polywrap CLI's
@@ -105,4 +58,3 @@ The output of a workflow can be written as a file in the JSON or YAML format wit
 
 Workflow output is printed to the console by default. 
 Console output can be suppressed with the `quiet` option of the Polywrap CLI's [`test`](../../reference/cli/commands/test) command.
-

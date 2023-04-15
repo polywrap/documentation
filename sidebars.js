@@ -77,7 +77,6 @@ const sidebars = {
               items: [
                 'reference/clients/js/client-js',
                 'reference/clients/js/client-config-builder-js',
-                'reference/clients/js/client-config',
                 {
                   type: 'category',
                   label: 'Libraries',
@@ -90,7 +89,6 @@ const sidebars = {
                     'reference/clients/js/libraries/polywrap-manifest-types-js',
                     'reference/clients/js/libraries/react',
                     'reference/clients/js/libraries/result',
-                    'reference/clients/js/libraries/test-env-js',
                     'reference/clients/js/libraries/tracing-js',
                     'reference/clients/js/libraries/uri-resolver-extensions-js',
                     'reference/clients/js/libraries/uri-resolvers-js',
@@ -130,7 +128,6 @@ const sidebars = {
             'tutorials/integrate-wrappers/configure-client',
             'tutorials/integrate-wrappers/types-for-app',
             'tutorials/integrate-wrappers/react-integration',
-            'tutorials/integrate-wrappers/get-wrapper-metadata'
           ],
         },
         {
@@ -150,16 +147,15 @@ const sidebars = {
               ]
             },
             'tutorials/create-wasm-wrappers/polywrap-manifest',
-            'tutorials/create-wasm-wrappers/default-plugins',
-            'tutorials/create-wasm-wrappers/add-metadata',
+            'tutorials/create-wasm-wrappers/default-plugins'
           ],
         },
         {
           type: 'category',
-          label: 'Test Wasm Wrappers',
+          label: 'Testing Wrappers',
           items: [
-            'tutorials/test-wasm-wrappers/end-to-end-test',
-            'tutorials/test-wasm-wrappers/infra-pipeline',
+            'tutorials/testing-wrappers/in-typescript',
+            'tutorials/testing-wrappers/infra-pipeline',
           ],
         },
         {

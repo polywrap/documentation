@@ -5,8 +5,8 @@ const lightCodeTheme = require('prism-react-renderer/themes/vsLight');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
 const customFields = {
-  githubUrl: `https://github.com/polywrap/monorepo`,
-  discordUrl: `https://discord.gg/Z5m88a5qWu`,
+  githubUrl: `https://github.com/polywrap/toolchain`,
+  discordUrl: `https://discord.polywrap.io`,
   handbookUrl: `https://handbook.polywrap.io`,
   twitterUrl: 'https://twitter.com/polywrap_io',
   forumUrl: 'https://forum.polywrap.io',
@@ -17,7 +17,7 @@ const customFields = {
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Polywrap (Origin)',
-  tagline: 'The Universal Web3 Integration Standard',
+  tagline: 'Enter The Composable Future',
   favicon: 'img/favicon.png',
   url: 'https://docs.polywrap.io',
   baseUrl: '/',
@@ -117,13 +117,6 @@ const config = {
                 className: 'github-logo',
                 'aria-label': 'GitHub repository',
               },
-              // Add back in once the forum is used
-              /*{
-                label: 'Discuss',
-                href: customFields.forumUrl,
-                className: 'forum-logo',
-                'aria-label': 'Forum'
-              },*/
               {
                 label: 'Chat',
                 href: customFields.discordUrl,
@@ -194,6 +187,9 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: [
+          "rust"
+        ]
       },
     }),
 

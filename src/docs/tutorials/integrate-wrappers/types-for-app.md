@@ -28,9 +28,9 @@ format: # The manifest format version
 name: # Name of project
 language: # App programming language
 schema: # Path to wrapper schema
-import_redirects: # (Optional) Array of URI redirects
+import_abis: # (Optional) Array of URI redirects for schema imports
   - uri: # Source URI to be redirected
-    schema: # Path to schema of the module to which URI will be redirected
+    abi: # Path to a local ABI (or schema). Supported file formats: [*.graphql, *.info, *.json, *.yaml]
 ```
 
 </TabItem>

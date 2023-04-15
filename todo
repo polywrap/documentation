@@ -1,0 +1,24 @@
+x ensure all links to 0.10 branch
+- Go through:
+  - tutorials/build-and-deploy-wasm-wrappers
+    x gone through basics, needs a refactor
+  - tutorials/create-plugin-wrappers
+    x gone through basics, needs a refactor
+  - tutorials/interfaces
+    x gone through basics, needs a refactor
+  - tutorials/workflows
+    x gone through basics, needs a refactor
+- testing-wrappers
+  - in-workflows
+  - glossary
+- TODO: add cli-js to reference section
+- TODO: move "infra-pipeline" out of "test-wasm-wrappers" into something else (manage wrap infrastructure dependencies?)
+- ensure all links work
+- go through all wrap URIs, update them
+- comb through all docs, remove needless ones
+  - do we need all the different deployment options?
+- add note about wraps.eth
+- upgrade all example projects to 0.10
+- deprecate simple-storage snippet project
+- rework CoreClient snippets in toolchain repo
+  - Extract CoreClientConfig and apply it to `tutorials/configure-client.md`

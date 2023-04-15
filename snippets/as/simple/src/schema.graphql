@@ -1,0 +1,9 @@
+# $start: wasm-project-schema-graphql
+type Module {
+    sampleMethod(arg: String!): SampleResult!
+}
+
+type SampleResult {
+    result: String!
+}
+# $end

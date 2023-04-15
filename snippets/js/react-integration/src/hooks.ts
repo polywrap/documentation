@@ -9,8 +9,8 @@ const client = usePolywrapClient();
 export function usePolywrapInvoke_() {
 // $start: js-react-usePolywrapInvoke
 const { execute, data, error, loading } = usePolywrapInvoke({
-  uri: 'ens/helloworld.polytest.eth',
-  method: "logMessage",
+  uri: 'ens/wraps.eth:logging@1.0.0',
+  method: "info",
   args: {
     message: "Hello World!",
   },
@@ -22,22 +22,11 @@ export function usePolywrapInvoke_customProvider() {
 // $start: js-react-usePolywrapInvoke-custom-provider
 const { execute, data, error, loading } = usePolywrapInvoke({
   provider: "custom",
-  uri: 'ens/helloworld.polytest.eth',
-  method: "logMessage",
+  uri: 'ens/wraps.eth:logging@1.0.0',
+  method: "info",
   args: {
     message: "Hello World!",
   },
-});
-// $end
-}
-
-export function usePolywrapQuery_() {
-// $start: js-react-usePolywrapQuery
-const { execute, data, errors, loading } = usePolywrapQuery({
-  uri: 'ens/helloworld.polytest.eth',
-  query: `{
-    logMessage(message: "Hello World!")
-  }`,
 });
 // $end
 }

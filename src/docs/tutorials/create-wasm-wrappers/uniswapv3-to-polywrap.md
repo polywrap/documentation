@@ -245,7 +245,7 @@ We wrote many of our most important tests in the popular JavaScript framework `j
 
 One advantage of testing with `jest` is that it requires developers to make calls in the same way users of their wrappers are likely to make them. A disadvantage is that it requires developers to set up the Polywrap client and a test environment, which is easy but takes more time.
 
-You can learn how to set up a Polywrap test environment in JavaScript by reading [Write an end to end test](../test-wasm-wrappers/end-to-end-test).
+You can learn how to set up a Polywrap test environment in JavaScript by reading [Write an end to end test](../testing-wrappers/in-typescript.md).
 
 ### Other tips for testing in JavaScript
 

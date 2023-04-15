@@ -1,0 +1,41 @@
+# $start: yaml-simple-storage-original-workflow
+format: 0.2.0
+name: simple-storage
+validation: ./validator.cue
+jobs:
+  cases:
+    steps:
+    - uri: fs/build
+      method: deployContract
+      args:
+        connection:
+          networkNameOrChainId: "testnet"
+    jobs:
+      case1:
+        steps:
+        - uri: fs/build
+          method: setData
+          args:
+            address: "$cases.0.data"
+            value: 100
+        - uri: fs/build
+          method: getData
+          args:
+            address: "$cases.0.data"
+# $end
+# $start: yaml-simple-storage-ipfs-workflow
+      case2:
+        steps:
+          - uri: fs/build
+            method: setIpfsData
+            args:
+              options:
+                address: "$cases.0.data"
+                data: "Hello from IPFS!"
+              ipfsProvider: "http://localhost:5001"
+          - uri: fs/build
+            method: getIpfsData
+            args:
+              address: "$cases.0.data"
+              ipfsProvider: "http://localhost:5001"
+# $end

@@ -1,16 +1,18 @@
 # $start: example-graphql-schema
-#import { Module, Connection } into Ethereum from "wrap://ens/ethereum.polywrap.eth"
-#import { Module } into Ipfs from "wrap://ens/ipfs.polywrap.eth"
+#import { Module, Connection } into Ethereum from "wrap://ens/wraps.eth:ethereum@2.0.0"
+#import { Module } into Ipfs from "ens/wraps.eth:ipfs-http-client@1.0.0"
 
 type Module { # methods are declared in type Module
 
     getIpfsData(
-        address: String! # types ending with ! are non-nullable
-        connection: Ethereum_Connection # imported types are used like local types
+      address: String! # types ending with ! are non-nullable
+      ipfsProvider: String!
+      connection: Ethereum_Connection # imported types are used like local types
     ): String!
 
     setIpfsData(
       options: SetIpfsDataOptions! # custom types can be arguments
+      ipfsProvider: String!
       connection: Ethereum_Connection
     ): SetIpfsDataResult! # custom types can be return values
 }

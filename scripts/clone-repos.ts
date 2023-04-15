@@ -11,7 +11,7 @@ type Repo = {
 const repos: Repo[] = [
   {
     name: "toolchain",
-    branch: "origin"
+    branch: "origin-0.10"
   }
 ]
 
