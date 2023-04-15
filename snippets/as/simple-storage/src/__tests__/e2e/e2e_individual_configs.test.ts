@@ -1,13 +1,13 @@
-import { ClientConfig, PolywrapClient } from "@polywrap/client-js";
+import { CoreClientConfig, IWrapPackage, PolywrapClient } from '@polywrap/client-js';
 // $start: js-e2e-test-config-ethereum-import
-import { ethereumPlugin, EthereumPluginConfig } from "@polywrap/ethereum-plugin-js";
+import { ethereumProviderPlugin, ProviderConfig, Connections, Connection } from "@polywrap/ethereum-provider-js";
 // $end
-// $start: js-e2e-test-config-ipfs-import
-import { ipfsPlugin, IpfsPluginConfig } from "@polywrap/ipfs-plugin-js";
+// $start: js-e2e-test-config-builder-import
+import { ClientConfigBuilder, DefaultBundle } from '@polywrap/client-config-builder-js';
 // $end
 
-import { buildWrapper, initTestEnvironment, stopTestEnvironment, providers } from "@polywrap/test-env-js";
 import path from "path";
+import { Commands, ETH_ENS_IPFS_MODULE_CONSTANTS } from '@polywrap/cli-js';
 
 jest.setTimeout(360000);
 
@@ -21,47 +21,38 @@ describe('Wrapper Test', () => {
 
   beforeAll(async () => {
     // initialize test environment
-    await initTestEnvironment();
+    await Commands.infra("up", {
+      modules: ["eth-ens-ipfs"],
+    });
 
     // absolute path to directory with polywrap.yaml
     const wrapperDirectory: string = path.resolve(__dirname + "/../../../");
     // build the wrapper
-    await buildWrapper(wrapperDirectory);
+    await Commands.build({ cwd: wrapperDirectory });
     wrapperPath = `wrap://fs/${wrapperDirectory}/build`
 
-    // configure the ipfs plugin
-// $start: js-e2e-test-config-ipfs
-const ipfsConfig: IpfsPluginConfig = {
-  provider: providers.ipfs,
-  fallbackProviders: undefined,
-};
-// $end
-
-    // configure the ethereum plugin
+    // configure the ethereum provider plugin
 // $start: js-e2e-test-config-ethereum
-const ethereumConfig: EthereumPluginConfig = {
-  networks: {
-    testnet: {
-      provider: providers.ethereum // Ganache test network
-    },
-  },
-  defaultNetwork: "testnet",
-};
+    const ethereumConfig: ProviderConfig = {
+      connections: new Connections({
+        networks: {
+          testnet: new Connection({
+            provider: ETH_ENS_IPFS_MODULE_CONSTANTS.ethereumProvider // Ganache test network,
+          }),
+        },
+        defaultNetwork: "testnet",
+      }),
+    };
 // $end
 
     // configure the client
-    const clientConfig: Partial<ClientConfig> = {
-      plugins: [
-        {
-          uri: "wrap://ens/ipfs.polywrap.eth",
-          plugin: ipfsPlugin(ipfsConfig),
-        },
-        {
-          uri: "wrap://ens/ethereum.polywrap.eth",
-          plugin: ethereumPlugin(ethereumConfig),
-        },
-      ],
-    };
+    const clientConfig: CoreClientConfig = new ClientConfigBuilder()
+      .addDefaults()
+      .addPackage(
+        DefaultBundle.plugins.ethereumProviderV2.uri.uri,
+        ethereumProviderPlugin(ethereumConfig) as IWrapPackage
+      )
+      .build();
 
     // create client
     client = new PolywrapClient(clientConfig);
@@ -69,7 +60,9 @@ const ethereumConfig: EthereumPluginConfig = {
 
   afterAll(async () => {
     // stop test environment
-    await stopTestEnvironment();
+    await Commands.infra("down", {
+      modules: ["eth-ens-ipfs"],
+    });
   });
 
   test("", async () => { });

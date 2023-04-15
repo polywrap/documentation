@@ -106,17 +106,6 @@ invoke it. We can make sure our client is ready to invoke the wrapper by configu
 - The `ipfsResolverPlugin` can be configured using the test environment's local IPFS node.
 - The `ethereumPlugin` can be configured with an Ethereum provider for the Ganache Ethereum test network.
 
-### **Configure the IPFS Resolver Plugin**
-
-The `ipfsResolverPlugin` can be configured with a default IPFS provider and an array of fallback providers that will be tried if
-the default provider fails.
-
-```typescript
-$snippet: js-e2e-test-config-ipfs-import
-
-$snippet: js-e2e-test-config-ipfs
-```
-
 ### **Configure the Ethereum Plugin**
 
 The `ethereumPlugin` can be configured with Ethereum providers and signers. It accepts JSON RPC provider strings, 
