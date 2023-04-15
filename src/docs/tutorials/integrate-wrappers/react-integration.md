@@ -60,11 +60,3 @@ By default, the `usePolywrapInvoke` hook uses the first PolywrapProvider found i
 $snippet: js-react-usePolywrapInvoke-custom-provider
 ```
 :::
-
-### **usePolywrapQuery**
-
-The `usePolywrapQuery` hook works the same as the `usePolywrapInvoke` hook, but uses the client's `query` syntax instead.
-
-```jsx
-$snippet: js-react-usePolywrapQuery
-```

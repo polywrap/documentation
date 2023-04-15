@@ -1,5 +1,5 @@
 # $start: yaml-hello-world-app-manifest
-format: 0.2.0
+format: 0.3.0
 project:
   name: hello-world
   type: app/typescript

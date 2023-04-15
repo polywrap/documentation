@@ -11,3 +11,5 @@ x ensure all links to 0.10 branch
 - add note about wraps.eth
 - upgrade all example projects to 0.10
 - deprecate simple-storage snippet project
+- rework CoreClient snippets in toolchain repo
+  - Extract CoreClientConfig and apply it to `tutorials/configure-client.md`
