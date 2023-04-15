@@ -17,16 +17,17 @@ It is implemented by multiple plugin wrappers to help the Polywrap client query 
 ## Declaring an interface project
 
 Interface projects are declared using a [Polywrap Manifest](../create-wasm-wrappers/polywrap-manifest).
-To indicate that a project is an abstract interface, set the project language to `interface`.
+To indicate that a project is an abstract interface, set the project type to `interface`.
 
 Interface projects do not have a module. Only a [schema](../wrapper-schema) path is declared.
 
 ```yaml
-format: 0.1.0
-name: UriResolver
-deploy: ./polywrap.deploy.yaml
-language: interface
-schema: ./src/schema.graphql
+format: 0.3.0
+project:
+  name: UriResolver
+  type: interface
+source:
+  schema: ./src/schema.graphql
 ```
 
 ## Defining an interface
@@ -40,9 +41,9 @@ As described in [Wrapper Schema](../wrapper-schema#interfaces),
 an interface can be imported and then implemented with the `implements` keyword. 
 When a module `implements` an interface module, it inherits all of its method declarations.
 
-The [ENS Resolver](https://github.com/polywrap/monorepo/tree/origin-0.10/packages/js/plugins/uri-resolvers/ens-resolver) plugin
-implements the [URI Resolver](https://github.com/polywrap/monorepo/tree/origin-0.10/packages/interfaces/uri-resolver) interface
-and inherits its methods.
+The [URI Resolver Extensions](https://github.com/polywrap/uri-resolver-extensions/tree/master/implementations) plugins
+implement the [URI Resolver](https://github.com/polywrap/uri-resolver-extensions/blob/master/interface/resources/README.md) interface
+and inherit its methods.
 
 <Tabs
 defaultValue="ens"
@@ -53,8 +54,8 @@ values={[
 <TabItem value="ens">
 
 ```yaml
-#import { Module, MaybeUriOrManifest } into UriResolver from "ens/uri-resolver.core.polywrap.eth"
-#import { Module } into Ethereum from "ens/ethereum.polywrap.eth"
+#import { Module, MaybeUriOrManifest } into UriResolver from "ens/wraps.eth:uri-resolver-ext@1.1.0"
+#import { Module } into Ethereum from "ens/wraps.eth:ethereum@2.0.0"
 
 type Module implements UriResolver_Module {}
 ```
