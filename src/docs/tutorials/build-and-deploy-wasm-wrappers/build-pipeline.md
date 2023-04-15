@@ -50,48 +50,53 @@ values={[
 <TabItem value="schema">
 
 ```yml
-format:	# Polywrap YAML Format version
-docker: # (Optional) Custom Docker configuration
-  name: # (Optional) Docker image name
-  dockerfile: # (Optional) Docker image file name
-  buildx: # (Optional) Configuration options for Docker Buildx, set to true for default value.
-    cache: # (Optional) Path to cache directory, set to true for default value, set to false to disable caching
-    remove builder: # (Optional) Remove the builder instance
-  removeImage: # (Optional) Remove the image
-config: # (Optional) Custom build image configurations
-  node_version: # (Optional) Node version
-  include: # (Optional) Files to include in build
-linked_packages: # (Optional) Array of locally linked packages into docker build image
-  - name: # Package name
-    path: # Path to linked package directory
-    filter: # (Optional) Ignore files matching this regex in linked package directory
+format:  # Polywrap build manifest format version. Values: 0.3.0
+strategies:  # Custom build image configurations.
+image:  # Docker image strategy configuration
+    name:  # Docker image name.
+    dockerfile:  # Docker image file name.
+    buildx:  # Configuration options for Docker Buildx, set to true for default value.
+    removeImage:  # Remove the image.
+local:  # Local build strategy configuration
+    scriptPath:  # Custom script path for local build
+vm:  # Docker VM strategy configuration
+    baseImage:  # Base image for the Docker VM
+    defaultIncludes:  # Files to include in build VM container, by default
+linked_packages:  # Locally linked packages into docker build image.
+config:  # General configurations.
 ```
 
 </TabItem>
 <TabItem value="example">
 
 ```yml
-format: 0.1.0
+format: 0.3.0
 docker:
   name: build-env
 config:
-  node_version: '14.16.0'
+  node_version: 14.16.0
   include:
     - ./package.json
+strategies:
+  image:
+    name: build-env
+    node_version: 14.16.0
+    include:
+      - ./package.json
+    buildx:
+      keepBuilder: false
 ```
 
 </TabItem>
 <TabItem value="default">
 
 ```yml
-format: 0.1.0
-docker:
-  name: polywrap-build-env
-  dockerfile: ./Dockerfile.mustache # uses default Dockerfile
-config:
-  node_version: 16.13.0
-  include: # module folder and project manifests are always included
-    - ./package.json
+format: 0.3.0
+strategies:
+  image:
+    node_version: "17.9.1"
+    include:
+      - ./package.json
 ```
 
 </TabItem>
@@ -130,12 +135,21 @@ With Mustache, your Dockerfile will be able to recognize variable tags set withi
 For example, in your Build Manifest file, you could have a key such as `foo` with the value `hey` like so:
 
 ```yml
-format: 0.1.0
+format: 0.3.0
 docker:
   name: build-env
   dockerfile: ./Dockerfile.mustache
 config:
   foo: hey
+strategies:
+  image:
+    name: build-env
+    dockerfile: ./Dockerfile.mustache
+    node_version: 16.13.0
+    include:
+      - ./package.json
+    buildx:
+      keepBuilder: false
 ```
 
 To use this variable in your Mustache-enabled Dockerfile, simply reference the variable with curly braces like so:

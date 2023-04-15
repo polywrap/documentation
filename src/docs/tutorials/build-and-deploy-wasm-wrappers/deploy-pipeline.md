@@ -34,6 +34,7 @@ values={[
 
 ```yaml
 format: # The manifest format version
+primaryJobName: # Name of the job that runs the primary deployment sequence.
 jobs: # Each job describes series of events in the pipeline
   [name]: # Name of the job
     config: # configuration for all deployment modules, can be overridden within each step
@@ -49,11 +50,12 @@ jobs: # Each job describes series of events in the pipeline
 <TabItem value="example">
 
 ```yaml
-format: 0.2.0
+format: 0.3.0
+primaryJobName: ipfs_deploy
 jobs:
   ipfs_deploy:
     config:
-      gatewayUri: 'ipfs.wrappers.io'
+      gatewayUri: ipfs.wrappers.io
     steps:
       - name: ipfs_deploy
         package: ipfs
@@ -116,7 +118,7 @@ The Local Dev ENS module accepts an IPFS content hash (CID) as input, registers 
 The Local Dev ENS module was created with Polywrap's default test environment infrastructure in mind. 
 
 :::tip
-Polywrap's default test environment can be started with the `polywrap infra up` CLI command and stopped with the `polywrap infra down` CLI command.
+Polywrap's default test environment can be started with the `polywrap infra up eth-ens-ipfs` CLI command and stopped with the `polywrap infra down eth-ens-ipfs` CLI command.
 :::
 
 The module assumes ENS infrastructure is set up on a local Ethereum network with the ENS smart contracts deployed at the following addresses:
