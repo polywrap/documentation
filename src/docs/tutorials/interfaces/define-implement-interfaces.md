@@ -10,7 +10,7 @@ A special type of Polywrap project can be used to define an abstract interface w
 Like other wrappers, the interface is defined using a [Wrapper Schema](../wrapper-schema).
 Once an interface is written and deployed, other projects can import and implement it.
 
-For example, the [URI Resolver](https://github.com/polywrap/monorepo/tree/origin/packages/interfaces/uri-resolver) 
+For example, the [URI Resolver](https://github.com/polywrap/monorepo/tree/origin-0.10/packages/interfaces/uri-resolver) 
 interface is used to standardize the interface of URI resolvers. 
 It is implemented by multiple plugin wrappers to help the Polywrap client query different types of URIs.
 
@@ -40,8 +40,8 @@ As described in [Wrapper Schema](../wrapper-schema#interfaces),
 an interface can be imported and then implemented with the `implements` keyword. 
 When a module `implements` an interface module, it inherits all of its method declarations.
 
-The [ENS Resolver](https://github.com/polywrap/monorepo/tree/origin/packages/js/plugins/uri-resolvers/ens-resolver) plugin
-implements the [URI Resolver](https://github.com/polywrap/monorepo/tree/origin/packages/interfaces/uri-resolver) interface
+The [ENS Resolver](https://github.com/polywrap/monorepo/tree/origin-0.10/packages/js/plugins/uri-resolvers/ens-resolver) plugin
+implements the [URI Resolver](https://github.com/polywrap/monorepo/tree/origin-0.10/packages/interfaces/uri-resolver) interface
 and inherits its methods.
 
 <Tabs

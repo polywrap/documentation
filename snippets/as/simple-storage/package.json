@@ -12,10 +12,8 @@
     "deploy": "yarn deploy:api && yarn deploy:contract",
     "deploy:api": "npx polywrap deploy",
     "deploy:contract": "node ./scripts/deploy-contract.js",
-    "test": "yarn test:e2e && yarn test:workflow",
-    "test:e2e": "yarn test:e2e:codegen && jest --passWithNoTests --runInBand --verbose src/__tests__/e2e/e2e_final.test.ts",
-    "test:e2e:codegen": "npx polywrap codegen -m ./src/__tests__/types/polywrap.yaml -g ./src/__tests__/types/wrap",
-    "test:workflow": "yarn test:env:up && sleep 5 && npx polywrap test -m ./workflows/polywrap.test.yaml -c ./workflows/config.ts && yarn test:env:down",
+    "test": "yarn test:workflow",
+    "test:workflow": "yarn test:env:up && sleep 5 && npx polywrap run ./workflows/e2e.yaml -c ./workflows/config.ts -v ./workflows/validator.cue && yarn test:env:down",
     "codegen:schema": "npx polywrap codegen -m ./schema-example/polywrap.example.yaml"
   },
   "devDependencies": {

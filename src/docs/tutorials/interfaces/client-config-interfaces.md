@@ -11,7 +11,7 @@ Each `InterfaceImplementation` is assigned an interface wrapper URI and an array
 that implement the interface.
 
 For example, the URI Resolver interface is provided three implementation URIs in the 
-[Polywrap Client default configuration](https://github.com/polywrap/monorepo/blob/origin/packages/js/client/src/default-client-config.ts).
+[Polywrap Client default configuration](https://github.com/polywrap/monorepo/blob/origin-0.10/packages/js/client/src/default-client-config.ts).
 
 ```typescript
 interfaces: [

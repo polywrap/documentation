@@ -9,7 +9,7 @@ Essentially, any library that can resolve and invoke [Wraps](./wraps) is a Clien
 
 The Polywrap Foundation maintains a number of WRAP-compatible clients, most notably:
 
-- [Polywrap JS Client](https://github.com/polywrap/toolchain/tree/origin-dev/packages/js/client)
+- [Polywrap JS Client](https://github.com/polywrap/toolchain/tree/origin-0.10/packages/js/client)
 - [Polywrap Python Client](https://github.com/polywrap/python-client)
 - [Polywrap Rust Client](https://github.com/polywrap/rust-client)
 

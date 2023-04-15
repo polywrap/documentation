@@ -1,0 +1,3 @@
+# $start: testing-in-typescript-types-schema
+#import * into Wrapper from "wrap://file/build"
+# $end
