@@ -3,3 +3,4 @@ node_modules
 wrap
 .polywrap
 workflows/output.json
+yarn.lock
