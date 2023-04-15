@@ -1,4 +1,9 @@
 x ensure all links to 0.10 branch
+- Go through:
+  - tutorials/build-and-deploy-wasm-wrappers
+  - tutorials/create-plugin-wrappers
+  - tutorials/interfaces
+  - tutorials/workflows
 - testing-wrappers
   - in-workflows
   - glossary
