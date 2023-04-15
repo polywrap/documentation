@@ -11,7 +11,7 @@ Plugins can be used to enable any native client functionality that cannot be imp
 
 ### **Default Plugin wrappers**
 
-The Polywrap client has a [default configuration](https://github.com/polywrap/toolchain/blob/origin-0.10/packages/js/client-config-builder/src/bundles/default.ts) that enables developers to use the following plugins and the interfaces they implement:  
+The Polywrap client has a [default configuration](../reference/clients/js/client-config-builder-js.md#bundle-defaultconfig) that enables developers to use the following plugins and the interfaces they implement:  
 * [Logger Plugin](https://github.com/polywrap/logging)
   * `wrap://ens/wraps.eth:logger@1.0.0`
 * [HTTP Plugin](https://github.com/polywrap/http)

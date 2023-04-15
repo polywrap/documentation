@@ -1,0 +1,13 @@
+x ensure all links to 0.10 branch
+- testing-wrappers
+  - in-workflows
+  - glossary
+- TODO: add cli-js to reference section
+- TODO: move "infra-pipeline" out of "test-wasm-wrappers" into something else (manage wrap infrastructure dependencies?)
+- ensure all links work
+- go through all wrap URIs, update them
+- comb through all docs, remove needless ones
+  - do we need all the different deployment options?
+- add note about wraps.eth
+- upgrade all example projects to 0.10
+- deprecate simple-storage snippet project

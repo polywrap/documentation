@@ -148,16 +148,15 @@ const sidebars = {
               ]
             },
             'tutorials/create-wasm-wrappers/polywrap-manifest',
-            'tutorials/create-wasm-wrappers/default-plugins',
-            'tutorials/create-wasm-wrappers/add-metadata',
+            'tutorials/create-wasm-wrappers/default-plugins'
           ],
         },
         {
           type: 'category',
-          label: 'Test Wasm Wrappers',
+          label: 'Testing Wrappers',
           items: [
-            'tutorials/test-wasm-wrappers/end-to-end-test',
-            'tutorials/test-wasm-wrappers/infra-pipeline',
+            'tutorials/testing-wrappers/in-typescript',
+            'tutorials/testing-wrappers/infra-pipeline',
           ],
         },
         {
