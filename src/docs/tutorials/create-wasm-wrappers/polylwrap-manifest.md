@@ -29,16 +29,18 @@ values={[
 
 ```yaml
 format: # The manifest format version
-name: # Name of wrapper
-language: # Wrapper programming language
-schema: # Path to wrapper schema
-module: # (Optional) Path to entry file
-build: # (Optional) Path to Build Manifest file
-meta: # (Optional) Path to Meta Manifest file
-deploy: # (Optional) Path to wrapper Deploy Manifest file
-import_redirects: # (Optional) Array of URI redirects
-  - uri: # Source URI to be redirected
-    schema: # Path to schema of the module to which URI will be redirected
+project: # Project information
+  name: # Name of wrapper
+  type: # Type/language of project
+source: # Source code information
+    schema: # Path to wrapper schema
+    module: # (Optional) Path to entry file
+    import_abis: # (Optional) Array of URI redirects used to resolve imports in the schema
+      - uri: # One of the schema's import URI
+        abi: # Path to a local ABI or schema. Supported file formats: [*.graphql, *.info, *.json, *.yaml]
+extensions:
+    build: # (Optional) Path to Build Manifest file
+resources: # (Optional) Path to Resources directory
 ```
 
 </TabItem>
@@ -46,9 +48,6 @@ import_redirects: # (Optional) Array of URI redirects
 
 ```yaml
 $snippet: yaml-simple-storage-package-manifest
-import_redirects:
-  - uri: wrap://ens/imported-wrapper.eth
-    schema: ./../local-wrapper/schema.graphql
 ```
 </TabItem>
 </Tabs>

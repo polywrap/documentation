@@ -28,11 +28,11 @@ The Polywrap client has a [default configuration](../reference/clients/js/client
   * V2
     * `ens/wraps.eth:ethereum-provider@2.0.0`
 
-### **Plugin URI Redirects**
+### **Configuring Plugins**
 
-Plugin wrappers are configured using URI Redirects. We would specify the `uri` property as the URI of the plugin we want to use, and the `plugin` property as the actual plugin.
+Some plugins, like the Ethereum Provider, require additional configuration in certain environments like the browser. 
 
-For example, we can add an Ethereum plugin that uses MetaMask (or any other Ethereum JS provider) for its provider & signer!
+We can configure the Ethereum Provider plugin to use MetaMask (or any other Ethereum JS provider) for its provider & signer using the Client Config Builder:
 
 ```typescript
 $snippet: js-metamask-provider-imports

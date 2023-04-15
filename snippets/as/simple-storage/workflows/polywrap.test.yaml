@@ -1,5 +1,7 @@
 # $start: yaml-simple-storage-original-workflow
+format: 0.2.0
 name: simple-storage
+validation: ./validator.cue
 jobs:
   cases:
     steps:
@@ -30,8 +32,10 @@ jobs:
               options:
                 address: "$cases.0.data"
                 data: "Hello from IPFS!"
+              ipfsProvider: "http://localhost:5001"
           - uri: fs/build
             method: getIpfsData
             args:
               address: "$cases.0.data"
+              ipfsProvider: "http://localhost:5001"
 # $end
