@@ -5,7 +5,7 @@ title: 'Configure the Polywrap Client'
 
 The Polywrap Client accepts a [`ClientConfig`](/reference/clients/js/client-config) argument at construction. 
 
-While the [default Client Config](https://github.com/polywrap/monorepo/blob/origin/packages/js/client/src/default-client-config.ts)
+While the [default Client Config](https://github.com/polywrap/monorepo/blob/origin-0.10/packages/js/client/src/default-client-config.ts)
 is sufficient for some use cases, you will likely want to customize it.
 The config you provide to the client will modify and add to the default configuration.
 

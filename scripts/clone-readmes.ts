@@ -16,7 +16,7 @@ interface GroupOrPath {
 
 // branch used for http links
 const branches: Record<string, string> = {
-  toolchain: "origin-dev"
+  toolchain: "origin-0.10"
 }
 
 // paths are relative to clone and reference doc dirs

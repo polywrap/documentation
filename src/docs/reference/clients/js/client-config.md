@@ -104,4 +104,4 @@ The default configuration is modified by the user's configuration.
 The Client's configuration is *sanitized* when the Client is constructed.
 During the sanitization process, URI strings are validated and transformed into instances of the `Uri` class.
 
-[default config]: https://github.com/polywrap/monorepo/blob/origin/packages/js/client/src/default-client-config.ts
+[default config]: https://github.com/polywrap/monorepo/blob/origin-0.10/packages/js/client/src/default-client-config.ts
