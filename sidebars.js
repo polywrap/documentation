@@ -77,7 +77,6 @@ const sidebars = {
               items: [
                 'reference/clients/js/client-js',
                 'reference/clients/js/client-config-builder-js',
-                'reference/clients/js/client-config',
                 {
                   type: 'category',
                   label: 'Libraries',
