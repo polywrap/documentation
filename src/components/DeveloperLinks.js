@@ -33,14 +33,8 @@ const developerLinks = [
     title: "Python-client",
     description: "Python Client",
     link: "https://github.com/polywrap/python-client"
-  },
-  {
-    title: "@polywrap/react",
-    description: "React Integration",
-    link: "/reference/clients/js/libraries/react"
-  },
+  }
 ];
-
 
 export default function DeveloperLinks() {
   const theme = useTheme();

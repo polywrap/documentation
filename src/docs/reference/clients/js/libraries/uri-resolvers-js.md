@@ -321,7 +321,9 @@ export class WrapperCacheResolver<TError>
   ): Promise<Result<UriPackageOrWrapper, TError | Error>> 
 ```
 
+
 ## getUriResolutionPath
+
 ```ts
 /**
  * Get a resolution path from the history of a URI resolution attempt
@@ -335,6 +337,7 @@ export const getUriResolutionPath = (
 ```
 
 ## InfiniteLoopError
+
 ```ts
 /**
  * Error used if the URI resolution path contains an infinite loop
@@ -343,6 +346,7 @@ export class InfiniteLoopError extends Error
 ```
 
 ### constructor
+
 ```ts
   /**
    * Create an InfiniteLoopError
@@ -357,6 +361,7 @@ export class InfiniteLoopError extends Error
 ```
 
 ## ResolverWithHistory
+
 ```ts
 /** An abstract IUriResolver implementation that updates the resolution context */
 export abstract class ResolverWithHistory<TError = undefined>
@@ -366,6 +371,7 @@ export abstract class ResolverWithHistory<TError = undefined>
 ### Methods
 
 #### tryResolveUri
+
 ```ts
   /**
    * Resolve a URI to a wrap package, a wrapper, or a URI.
@@ -389,6 +395,7 @@ export abstract class ResolverWithHistory<TError = undefined>
 ```
 
 #### getStepDescription (protected)
+
 ```ts
   /**
    * A utility function for generating step descriptions to facilitate resolution context updates
@@ -404,7 +411,8 @@ export abstract class ResolverWithHistory<TError = undefined>
   ): string;
 ```
 
-#### _tryResolveUri (protected)
+#### \_tryResolveUri (protected)
+
 ```ts
   /**
    * Resolve a URI to a wrap package, a wrapper, or a URI.
@@ -423,6 +431,7 @@ export abstract class ResolverWithHistory<TError = undefined>
 ```
 
 ## ResolverWithLoopGuard
+
 ```ts
 /** An IUriResolver implementation that prevents infinite loops in the resolution path. */
 export class ResolverWithLoopGuard<TError = undefined>
@@ -430,6 +439,7 @@ export class ResolverWithLoopGuard<TError = undefined>
 ```
 
 ### constructor
+
 ```ts
   /**
    * Construct a ResolverWithLoopGuard
@@ -442,6 +452,7 @@ export class ResolverWithLoopGuard<TError = undefined>
 ### Methods
 
 #### from
+
 ```ts
   /**
    * Create a ResolverWithLoopGuard from a resolver-like object
@@ -456,6 +467,7 @@ export class ResolverWithLoopGuard<TError = undefined>
 ```
 
 #### tryResolveUri
+
 ```ts
   /**
    * Resolve a URI to a wrap package, a wrapper, or a URI.
@@ -474,6 +486,7 @@ export class ResolverWithLoopGuard<TError = undefined>
 ```
 
 ## PackageToWrapperResolver
+
 ```ts
 /**
  * An IUriResolver implementation that initalizes wrappers from resolved packages.
@@ -484,6 +497,7 @@ export class PackageToWrapperResolver<TError>
 ```
 
 ### constructor
+
 ```ts
   /**
    * Creates a PackageToWrapperResolver
@@ -502,6 +516,7 @@ export class PackageToWrapperResolver<TError>
 ### Methods
 
 #### from
+
 ```ts
   /**
    * Creates a PackageToWrapperResolver from a resolver-like object
@@ -518,6 +533,7 @@ export class PackageToWrapperResolver<TError>
 ```
 
 #### tryResolveUri
+
 ```ts
   /**
    * Resolve a URI to a wrap package, a wrapper, or a URI.
@@ -533,6 +549,46 @@ export class PackageToWrapperResolver<TError>
     client: CoreClient,
     resolutionContext: IUriResolutionContext
   ): Promise<Result<UriPackageOrWrapper, TError | Error>> 
+```
+
+## UriResolver
+
+```ts
+/** An IUriResolver factory */
+export class UriResolver 
+```
+
+### Methods
+
+#### from
+
+```ts
+  /**
+   * Create an IUriResolver instance
+   *
+   * @param resolverLike - an object that can be transformed into a resolver
+   * @param resolverName - a name to assign to the resolver in resolution history output
+   * */
+  static from<TError = undefined>(
+    resolverLike: UriResolverLike,
+    resolverName?: string
+  ): IUriResolver<TError> 
+```
+
+## UriResolverLike
+
+```ts
+/** An UriResolverLike can be one of three things:
+ * - An IUriResolver
+ * - An object that can be transformed into a static IUriResolver
+ * - An array of UriResolverLike
+ * */
+export type UriResolverLike =
+  | IUriResolver<unknown>
+  | IUriRedirect
+  | IUriPackage
+  | IUriWrapper
+  | UriResolverLike[];
 ```
 
 ## UriResolutionResult
@@ -572,42 +628,6 @@ export class UriResolutionResult<TError = undefined>
   ): Result<UriPackageOrWrapper, TError> 
 ```
 
-## UriResolver
-```ts
-/** An IUriResolver factory */
-export class UriResolver 
-```
-
-### Methods
-
-#### from
-```ts
-  /**
-   * Create an IUriResolver instance
-   *
-   * @param resolverLike - an object that can be transformed into a resolver
-   * @param resolverName - a name to assign to the resolver in resolution history output
-   * */
-  static from<TError = undefined>(
-    resolverLike: UriResolverLike,
-    resolverName?: string
-  ): IUriResolver<TError> 
-```
-
-## UriResolverLike
-```ts
-/** An UriResolverLike can be one of three things:
- * - An IUriResolver
- * - An object that can be transformed into a static IUriResolver
- * - An array of UriResolverLike
- * */
-export type UriResolverLike =
-  | IUriResolver<unknown>
-  | IUriRedirect
-  | IUriPackage
-  | IUriWrapper
-  | UriResolverLike[];
-```
 
 ## PackageResolver
 ```ts
@@ -881,7 +901,7 @@ export class RequestSynchronizerResolver<TError>
 
 ## Development
 
-This package is open-source. It lives within the [Polywrap toolchain monorepo](https://github.com/polywrap/toolchain/tree/origin/packages/js/uri-resolvers). Contributions from the community are welcomed!
+This package is open-source. It lives within the [Polywrap JavaScript Client repository](https://github.com/polywrap/javascript-client). Contributions from the community are welcomed!
 
 ### Build
 ```bash

@@ -16,30 +16,28 @@ interface GroupOrPath {
 
 // branch used for http links
 const branches: Record<string, string> = {
-  toolchain: "origin-0.10"
+  toolchain: "origin-0.10",
+  "javascript-client": "origin-0.10"
 }
 
 // paths are relative to clone and reference doc dirs
 const readmeToDocPaths: GroupOrPath = {
   toolchain: {
     cli: {
-      "./polywrap/toolchain/packages/cli/README.md": "./cli/polywrap-cli.md",
+      "./polywrap/toolchain/packages/cli/README.md": "./cli/polywrap-cli.md"
     },
     js: {
-      "./polywrap/toolchain/packages/js/asyncify/README.md": "./clients/js/libraries/asyncify-js.md",
-      "./polywrap/toolchain/packages/js/client/README.md": "./clients/js/client-js.md",
-      "./polywrap/toolchain/packages/js/client-config-builder/README.md": "./clients/js/client-config-builder-js.md",
-      "./polywrap/toolchain/packages/js/core/README.md": "./clients/js/libraries/core-js.md",
-      "./polywrap/toolchain/packages/js/manifests/wrap/README.md": "./clients/js/libraries/wrap-manifest-types-js.md",
-      "./polywrap/toolchain/packages/js/manifests/polywrap/README.md": "./clients/js/libraries/polywrap-manifest-types-js.md",
-      "./polywrap/toolchain/packages/js/msgpack/README.md": "./clients/js/libraries/msgpack-js.md",
-      "./polywrap/toolchain/packages/js/os/README.md": "./clients/js/libraries/os-js.md",
-      "./polywrap/toolchain/packages/js/result/README.md": "./clients/js/libraries/result.md",
-      "./polywrap/toolchain/packages/js/tracing/README.md": "./clients/js/libraries/tracing-js.md",
-      "./polywrap/toolchain/packages/js/uri-resolver-extensions/README.md": "./clients/js/libraries/uri-resolver-extensions-js.md",
-      "./polywrap/toolchain/packages/js/uri-resolvers/README.md": "./clients/js/libraries/uri-resolvers-js.md",
-      "./polywrap/toolchain/packages/js/validation/README.md": "./clients/js/libraries/package-validation.md",
-      "./polywrap/toolchain/packages/js/wasm/README.md": "./clients/js/libraries/wasm-js.md",
+      "./polywrap/javascript-client/packages/asyncify/README.md": "./clients/js/libraries/asyncify-js.md",
+      "./polywrap/javascript-client/packages/client/README.md": "./clients/js/client-js.md",
+      "./polywrap/javascript-client/packages/client-config-builder/README.md": "./clients/js/client-config-builder-js.md",
+      "./polywrap/javascript-client/packages/core/README.md": "./clients/js/libraries/core-js.md",
+      "./polywrap/javascript-client/packages/manifests/wrap/README.md": "./clients/js/libraries/wrap-manifest-types-js.md",
+      "./polywrap/javascript-client/packages/msgpack/README.md": "./clients/js/libraries/msgpack-js.md",
+      "./polywrap/javascript-client/packages/result/README.md": "./clients/js/libraries/result.md",
+      "./polywrap/javascript-client/packages/tracing/README.md": "./clients/js/libraries/tracing-js.md",
+      "./polywrap/javascript-client/packages/uri-resolver-extensions/README.md": "./clients/js/libraries/uri-resolver-extensions-js.md",
+      "./polywrap/javascript-client/packages/uri-resolvers/README.md": "./clients/js/libraries/uri-resolvers-js.md",
+      "./polywrap/javascript-client/packages/wasm/README.md": "./clients/js/libraries/wasm-js.md",
     },
     schema: {
       "./polywrap/toolchain/packages/schema/parse/README.md": "./schema/schema-parse.md",

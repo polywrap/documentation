@@ -264,12 +264,12 @@ The following example illustrates use of the generic type directive with the `Ma
 type Module {
   getKey(
     key: String!
-    map: Map! @annotate(type: "Map<String!, Int!\>!")
+    map: Map! @annotate(type: "Map<String!, Int!>!")
   ): Int!
 
   returnMap(
-    map: Map! @annotate(type: "Map<String!, Int!\>!")
-  ): Map! @annotate(type: "Map<String!, Int!\>!")
+    map: Map! @annotate(type: "Map<String!, Int!>!")
+  ): Map! @annotate(type: "Map<String!, Int!>!")
 }
 ```
 
@@ -347,7 +347,7 @@ type Env {
 }
 ```
 
-### Add the @env directive
+### Add the `@env` directive
 
 To access an `Env` object during a method invocation, add the `@env` directive to a method. The `@env` directive has one attribute that indicates whether the `Env` is required or optional.
 

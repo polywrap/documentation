@@ -12,6 +12,10 @@ const repos: Repo[] = [
   {
     name: "toolchain",
     branch: "origin-0.10"
+  },
+  {
+    name: "javascript-client",
+    branch: "origin-0.10"
   }
 ]
 
