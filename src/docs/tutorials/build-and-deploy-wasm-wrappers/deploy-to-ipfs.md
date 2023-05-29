@@ -11,23 +11,8 @@ The [`polywrap`](../../reference/cli/polywrap-cli) command-line tool has a [`dep
 
 For more information, see [Configure Polywrap deployment pipeline](./deploy-pipeline) and the [`deploy`](../../reference/cli/commands/deploy) command reference documentation.
 
-## Fleek
-[Fleek](https://docs.fleek.co/) makes it easy to build websites and apps on the new open web.
-
-[> Step-By-Step Guide](./deployment/fleek)
-
-## Pinata
-[Pinata](https://docs.pinata.cloud/) provides tools and infrastructure for all creators to easily create and manage content on IPFS.  
-
-[> Step-By-Step Guide](./deployment/pinata)
-
-## Crust Network
-[Crust Network](https://wiki.crust.network/docs/en/crustAccount) provides a Web3.0 decentralized storage network for the Metaverse.  
-
-[> Step-By-Step Guide](./deployment/crust)
-
-## Aleph
-[Aleph](https://docs.alephdata.org/) allows your blockchain enabled app to securely access trusted off-chain data or computation within a couple lines of code.
-
-## Arweave
-[Arweave](https://docs.arweave.org/info/) enables you to store documents and applications forever.
+/*
+TODO:
+  * run `polywrap deploy`
+  * wrappers.io will host it & pin to other public IPFS gateways for you
+*/
