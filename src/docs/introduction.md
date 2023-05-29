@@ -3,6 +3,44 @@ id: introduction
 title: Introduction
 ---
 
+**Polywrap** helps you run your code everywhere. Simply take an existing SDK, and *wrap it*.
+
+// NOTE: might want to show here how we've taken the safe JS SDK and wrapped it
+```rust
+let owners = safe.get_owners_who_approved_tx(
+    "0x..."
+).unwrap();
+```
+// NOTE: small link here to all [supported languages](https://github.com/polywrap/awesome-polywrap/README.md#supported-languages)
+
+**Wraps** can be easily composed together...TODO SOMETHING MORE HERE (in-app [sdk or client syntax?], out of app [workflow syntax]).
+
+
+```rust
+// Get the top token holders
+let top_holders = my_token.get_top_holders(5).unwrap();
+
+// Update the safe's signers
+safe.update_sigers(top_holders).unwrap();
+```
+
+```yaml
+name: update-safe-owners
+jobs:
+  run:
+    steps:
+    - name: Get Top Token Holders
+      uri: wrap/QmPhAJz5QbidN3LgT2eDiu6Z3nCFs2gYQMbjgEAncrGsis
+      method: getTopHolders
+      args:
+        n: 5
+    - name: Update Signers
+      uri: wrap/QmaLbZnnnHbcRRo3wNBQ2MhugmBGL9R2YYeBvj6Nk2QumP
+      method: updateSigners
+      args:
+        signers: "$0.data"
+```
+
 **Polywrap** is a framework that enables easy integration of Web3 protocols into any application. It makes it possible for applications on any platform, written in any language, to read and write data to Web3 protocols.
 
 :::tip
