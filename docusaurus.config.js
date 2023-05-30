@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/vsLight');
-const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+const lightCodeTheme = require('./src/theme/syntax');
+const darkCodeTheme = require('./src/theme/syntax')
 
 const customFields = {
   githubUrl: `https://github.com/polywrap/toolchain`,
@@ -16,7 +16,7 @@ const customFields = {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Polywrap (Origin)',
+  title: 'Polywrap',
   tagline: 'Enter The Composable Future',
   favicon: 'img/favicon.png',
   url: 'https://docs.polywrap.io',
@@ -70,7 +70,6 @@ const config = {
         defaultMode: "dark"
       },
       navbar: {
-        title: 'Origin',
         logo: {
           alt: 'Polywrap Icon',
           src: 'img/polywrap-logo-light.png',

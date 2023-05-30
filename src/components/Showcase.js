@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import CardLink from "./CardLink";
-import BackgroundPolywrap from "../../static/img/polywrapper-hero-blurred.png";
+// import BackgroundPolywrap from "../../static/img/polywrapper-hero-blurred.png";
 import { useColorMode } from '@docusaurus/theme-common';
 
 const useStyles = makeStyles(() => ({
@@ -56,7 +56,7 @@ export default function Showcase() {
           },
         }}
       >
-        <img src={BackgroundPolywrap} />
+        {/* <img src={BackgroundPolywrap} /> */}
       </Box>
       <Container maxWidth="lg">
         <Typography variant="h2" component="h1" align="center">

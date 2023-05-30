@@ -8,13 +8,14 @@
  */
 
 /* You can override the default Infima variables here. */
+
 :root {
   --ifm-font-family-base: -apple-system, BlinkMacSystemFont, "Roboto", Helvetica,
     Arial, sans-serif, "Apple Color Emoji";
-  --ifm-font-family-display: "Raleway", "arial", sans-serif;
+  --ifm-font-family-display: "Colton", "arial", sans-serif;
   --ifm-heading-color: #293653;
   --ifm-link-color: #27c69f;
-  --ifm-color-primary: #27c69f;
+  --ifm-color-primary: #white;
   --ifm-color-primary-dark: rgb(59, 81, 94);
   --ifm-color-primary-darker: rgb(40, 56, 65);
   --ifm-color-primary-darkest: rgb(28, 39, 45);
@@ -22,28 +23,29 @@
   --ifm-color-primary-lighter: rgb(102, 191, 211);
   --ifm-color-primary-lightest: rgb(122, 228, 252);
   --ifm-code-font-size: 95%;
-  --ifm-code-background: #293653;
-  --ifm-code-color: #9cdcfe;
+  --ifm-code-border-radius: var(--ifm-global-radius);
+  --ifm-code-background:#13171F;
   --ifm-navbar-sidebar-width: 250px;
   --ifm-alert-color: #293653;
   --ifm-background-color: #f7f8fa;
   --ifm-navbar-background-color: #f7f8fa;
+
+  padding: 1rem 2rem 1rem 2rem;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
   --ifm-font-family-base: -apple-system, BlinkMacSystemFont, "Roboto", Helvetica,
     Arial, sans-serif, "Apple Color Emoji";
-  --ifm-font-family-display: "Raleway", "arial", sans-serif;
-  --ifm-heading-color: #ffffff;
-  --ifm-link-color: #74dd9f;
-  --ifm-color-primary: #74dd9f;
+  --ifm-font-family-display: "Colton", "arial", sans-serif;
+  --ifm-heading-color:#E5E7EB;
+  --ifm-color-primary: #E5E7EB;
   --ifm-color-primary-o-25: #74dd9f40;
   --ifm-color-primary-o-50: #74dd9f78;
   --ifm-color-emphasis-100: transparent;
   --ifm-color-emphasis-300: #36415a;
-  --ifm-background-color: #1e2b45;
-  --ifm-navbar-background-color: #1d2538a6;
+  --ifm-background-color: #0F1116;
+  --ifm-navbar-background-color: transparent;
   --ifm-navbar-search-input-background-color: #00000040;
   --ifm-navbar-search-input-hover-background-color: #00000078;
   --ifm-navbar-search-input-color: #d8d8d8;
@@ -51,7 +53,44 @@ html[data-theme="dark"] {
   --ifm-dropdown-background-color: #1d2538;
   --ifm-blockquote-color: #d8d8d8;
   --ifm-heading-code-color: #74dd9f;
+  --ifm-toc-border-color: none;
+
+  color:#9CA3AF;
 }
+
+html[data-theme="light"] code {
+  color: white;
+  background-color: #13171F;
+  padding: 3px;
+  border: 1.35px solid #2A374B;
+}
+
+html[data-theme="dark"] code {
+  color: white;
+  background-color: #13171F;
+  padding: 3px;
+  border: 1.35px solid #2A374B;
+}
+
+html[data-theme="dark"] pre code {
+  border: 1.75px solid #1F2937;
+}
+
+html[data-theme="light"] .codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
+  border-top: 1.75px solid #1F2937;
+  border-right: 1.75px solid #1F2937;
+  border-left: 1.75px solid #1F2937;
+  background-color: white;
+  color: black;
+}
+
+html[data-theme="dark"] .codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
+  border-top: 1.75px solid #1F2937;
+  border-right: 1.75px solid #1F2937;
+  border-left: 1.75px solid #1F2937;
+  background-color: black;
+}
+
 
 h1,
 h2,
@@ -60,11 +99,15 @@ h4,
 h5,
 h6 {
   font-family: var(--ifm-font-family-display);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h1 {
-  font-size: 2.75rem;
+  font-size: 2.05rem;
+}
+
+h2 {
+  font-size: 1.55rem;
 }
 
 a {
@@ -81,8 +124,16 @@ th {
   font-family: var(--ifm-font-family-display);
 }
 
-#__docusaurus {
-  background: radial-gradient(circle at 20% 0%, #4fd29f14, transparent 50%);
+/* #__docusaurus { */
+  /* background: radial-gradient(circle at 20% 0%, #4fd29f14, transparent 50%); */
+/* } */
+
+.menu {
+  margin-right: 2.5rem;
+}
+
+.navbar {
+  margin-bottom: 0.5rem;
 }
 
 .navbar__brand {
@@ -90,6 +141,7 @@ th {
 }
 
 .navbar__logo {
+  height: 2.5rem;
   margin-right: 0.125rem;
 }
 .navbar__title {
@@ -112,10 +164,16 @@ a.navbar__item.navbar__link>svg {
 }
 @media (max-width: 1000px) {
   html[data-theme="dark"] {
-    --ifm-navbar-background-color: #1d2538;
+    --ifm-navbar-background-color: #181A41;
   }
   .navbar__title {
     display: none;
+  }
+  .menu {
+    margin-right: 0px;
+  }
+  .navbar__logo {
+    height: 1.85rem;
   }
 }
 
@@ -219,11 +277,11 @@ html[data-theme="dark"] .github-logo:after {
     no-repeat;
 }
 
-html[data-theme="dark"] .discord-logo:after {
+/* html[data-theme="dark"] .discord-logo:after {
   background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xOS41NCAwYzEuMzU2IDAgMi40NiAxLjEwNCAyLjQ2IDIuNDcydjIxLjUyOGwtMi41OC0yLjI4LTEuNDUyLTEuMzQ0LTEuNTM2LTEuNDI4LjYzNiAyLjIyaC0xMy42MDhjLTEuMzU2IDAtMi40Ni0xLjEwNC0yLjQ2LTIuNDcydi0xNi4yMjRjMC0xLjM2OCAxLjEwNC0yLjQ3MiAyLjQ2LTIuNDcyaDE2LjA4em0tNC42MzIgMTUuNjcyYzIuNjUyLS4wODQgMy42NzItMS44MjQgMy42NzItMS44MjQgMC0zLjg2NC0xLjcyOC02Ljk5Ni0xLjcyOC02Ljk5Ni0xLjcyOC0xLjI5Ni0zLjM3Mi0xLjI2LTMuMzcyLTEuMjZsLS4xNjguMTkyYzIuMDQuNjI0IDIuOTg4IDEuNTI0IDIuOTg4IDEuNTI0LTEuMjQ4LS42ODQtMi40NzItMS4wMi0zLjYxMi0xLjE1Mi0uODY0LS4wOTYtMS42OTItLjA3Mi0yLjQyNC4wMjRsLS4yMDQuMDI0Yy0uNDIuMDM2LTEuNDQuMTkyLTIuNzI0Ljc1Ni0uNDQ0LjIwNC0uNzA4LjM0OC0uNzA4LjM0OHMuOTk2LS45NDggMy4xNTYtMS41NzJsLS4xMi0uMTQ0cy0xLjY0NC0uMDM2LTMuMzcyIDEuMjZjMCAwLTEuNzI4IDMuMTMyLTEuNzI4IDYuOTk2IDAgMCAxLjAwOCAxLjc0IDMuNjYgMS44MjQgMCAwIC40NDQtLjU0LjgwNC0uOTk2LTEuNTI0LS40NTYtMi4xLTEuNDE2LTIuMS0xLjQxNmwuMzM2LjIwNC4wNDguMDM2LjA0Ny4wMjcuMDE0LjAwNi4wNDcuMDI3Yy4zLjE2OC42LjMuODc2LjQwOC40OTIuMTkyIDEuMDguMzg0IDEuNzY0LjUxNi45LjE2OCAxLjk1Ni4yMjggMy4xMDguMDEyLjU2NC0uMDk2IDEuMTQtLjI2NCAxLjc0LS41MTYuNDItLjE1Ni44ODgtLjM4NCAxLjM4LS43MDggMCAwLS42Ljk4NC0yLjE3MiAxLjQyOC4zNi40NTYuNzkyLjk3Mi43OTIuOTcyem0tNS41OC01LjYwNGMtLjY4NCAwLTEuMjI0LjYtMS4yMjQgMS4zMzIgMCAuNzMyLjU1MiAxLjMzMiAxLjIyNCAxLjMzMi42ODQgMCAxLjIyNC0uNiAxLjIyNC0xLjMzMi4wMTItLjczMi0uNTQtMS4zMzItMS4yMjQtMS4zMzJ6bTQuMzggMGMtLjY4NCAwLTEuMjI0LjYtMS4yMjQgMS4zMzIgMCAuNzMyLjU1MiAxLjMzMiAxLjIyNCAxLjMzMi42ODQgMCAxLjIyNC0uNiAxLjIyNC0xLjMzMiAwLS43MzItLjU0LTEuMzMyLTEuMjI0LTEuMzMyeiIvPjwvc3ZnPg==")
     no-repeat;
   filter: invert(1);
-}
+} */
 
 .twitter-logo:hover {
   opacity: 0.6;
