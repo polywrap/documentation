@@ -75,6 +75,7 @@ const config = {
           src: 'img/polywrap-logo-light.png',
           srcDark: 'img/polywrap-logo.png',
           href: '/',
+          className: 'navbar-logo'
         },
         items: [
           {
