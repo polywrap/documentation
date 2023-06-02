@@ -5,7 +5,7 @@ const lightCodeTheme = require('./src/theme/syntax');
 const darkCodeTheme = require('./src/theme/syntax')
 
 const customFields = {
-  githubUrl: `https://github.com/polywrap/toolchain`,
+  githubUrl: `https://github.com/polywrap`,
   discordUrl: `https://discord.polywrap.io`,
   handbookUrl: `https://handbook.polywrap.io`,
   twitterUrl: 'https://twitter.com/polywrap_io',
@@ -79,63 +79,24 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'docs',
-            position: 'right',
-            label: 'Docs',
-          },
-          {
             position: 'right',
             label: 'Website',
             href: 'https://polywrap.io',
           },
           {
-            label: 'Social',
             position: 'right',
-            items: [
-              {
-                label: 'Blog',
-                href: customFields.blogUrl,
-                className: 'blog-logo',
-                'aria-label': 'Polywrap Blog',
-              },
-              {
-                label: 'Twitter',
-                href: customFields.twitterUrl,
-                className: 'twitter-logo',
-                'aria-label': 'twitter account',
-              },
-            ],
+            label: 'Twitter',
+            href: customFields.twitterUrl,
           },
           {
-            label: 'Community',
             position: 'right',
-            items: [
-              {
-                label: 'Code',
-                href: customFields.githubUrl,
-                className: 'github-logo',
-                'aria-label': 'GitHub repository',
-              },
-              {
-                label: 'Chat',
-                href: customFields.discordUrl,
-                className: 'discord-logo',
-                'aria-label': 'Discord server',
-              },
-              {
-                label: 'Govern',
-                href: customFields.daoUrl,
-                className: 'dao-logo',
-                'aria-label': 'dao repo',
-              },
-              {
-                label: 'Handbook',
-                href: customFields.handbookUrl,
-                className: 'handbook-logo',
-                'aria-label': 'handbook',
-              },
-            ],
+            label: 'Discord',
+            href: customFields.discordUrl,
+          },
+          {
+            position: 'right',
+            label: 'Github',
+            href: customFields.githubUrl,
           },
         ],
       },
