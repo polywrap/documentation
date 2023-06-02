@@ -15,15 +15,7 @@
 const sidebars = {
   docs: [
     'introduction',
-    {
-      type: 'category',
-      label: 'Quick Start',
-      items: [
-        'quick-start/polywrap-client',
-        'quick-start/polywrap-cli',
-        'quick-start/what-wraps-are-available',
-      ],
-    },
+    'quick-start',
     'what-is-polywrap',
     {
       type: 'category',

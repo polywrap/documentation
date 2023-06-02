@@ -54,25 +54,19 @@ html[data-theme="dark"] {
   --ifm-blockquote-color: #d8d8d8;
   --ifm-heading-code-color: #74dd9f;
   --ifm-toc-border-color: none;
-
+  --ifm-pre-padding: 0.75rem;
   color: #e3e5ea;
 }
 
 html[data-theme="light"] code {
   color: white;
   background-color: #13171f;
-  padding: 3px;
   border: 1.35px solid #2a374b;
 }
 
 html[data-theme="dark"] code {
   color: white;
   background-color: #13171f;
-  padding: 3px;
-  border: 1.35px solid #2a374b;
-}
-
-html[data-theme="dark"] pre code {
   border: 1.75px solid #1f2937;
 }
 
