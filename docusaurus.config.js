@@ -81,17 +81,17 @@ const config = {
           {
             type: 'docSidebar',
             sidebarId: 'docs',
-            position: 'left',
+            position: 'right',
             label: 'Docs',
           },
           {
-            position: 'left',
+            position: 'right',
             label: 'Website',
             href: 'https://polywrap.io',
           },
           {
             label: 'Social',
-            position: 'left',
+            position: 'right',
             items: [
               {
                 label: 'Blog',
@@ -109,7 +109,7 @@ const config = {
           },
           {
             label: 'Community',
-            position: 'left',
+            position: 'right',
             items: [
               {
                 label: 'Code',
