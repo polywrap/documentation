@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction
+slug: /
 ---
 
 **Polywrap** is a framework that enables easy integration of Web3 protocols into any application. It makes it possible for applications on any platform, written in any language, to read and write data to Web3 protocols.
