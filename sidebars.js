@@ -24,6 +24,7 @@ const sidebars = {
         'quick-start/what-wraps-are-available',
       ],
     },
+    'what-is-polywrap',
     {
       type: 'category',
       label: 'Concepts',

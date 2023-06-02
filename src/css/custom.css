@@ -55,7 +55,7 @@ html[data-theme="dark"] {
   --ifm-heading-code-color: #74dd9f;
   --ifm-toc-border-color: none;
 
-  color: #9ca3af;
+  color: #e3e5ea;
 }
 
 html[data-theme="light"] code {
