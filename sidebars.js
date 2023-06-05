@@ -16,6 +16,8 @@ const sidebars = {
   docs: [
     'introduction',
     'quick-start',
+    'clients',
+    'cli',
     'what-is-polywrap',
     {
       type: 'category',
@@ -27,7 +29,6 @@ const sidebars = {
         'concepts/uris',
       ],
     },
-    'clients',
     {
       type: 'category',
       label: 'Tutorials',
@@ -119,7 +120,6 @@ const sidebars = {
       items: [
         'resources/talks-podcasts-and-videos',
         'resources/ecosystem-tooling',
-        'resources/the-polywrap-technical-standard'
       ],
     },
 
