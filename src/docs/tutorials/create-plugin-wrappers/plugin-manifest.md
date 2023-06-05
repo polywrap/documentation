@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Each plugin wrapper project is orchestrated by a Project Manifest `polywrap.yaml` file. 
-The Plugin Manfiest provides the Polywrap CLI with basic information it needs to generate code bindings with the [`codegen`](../../reference/cli/commands/codegen) command. 
+The Plugin Manfiest provides the Polywrap CLI with basic information it needs to generate code bindings with the [`codegen`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#codegen--g) command. 
 A plugin wrapper does not need a Polywrap Manifest; the simpler Plugin Manifest is used in its place.
 
 ## Content

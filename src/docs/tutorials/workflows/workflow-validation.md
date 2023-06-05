@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 Workflow validation can be used to verify the contents of a workflow output file.
 To validate a workflow, you must have a validation script written in `.cue` format.
-A path to the script can be passed to the [`test`](../../reference/cli/commands/test) command of the [`polywrap`](../../reference/cli/polywrap-cli) CLI using the `validate-script` option.
+A path to the script can be passed to the [`test`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#test--t) command of the [`polywrap`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli) CLI using the `validate-script` option.
 
 ## CUE
 

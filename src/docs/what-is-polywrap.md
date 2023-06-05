@@ -67,7 +67,7 @@ The Polywrap JavaScript client allows the app to use **any** deployed Wrap. Afte
 1. The URI specifying the ENS or IPFS resolving to content containing the Wrap
 2. Specifying the function and arguments provided by that Wrap
 
-For detailed information on how to integrate in apps, take a look at our [Quick Start](quick-start/polywrap-client) guide.
+For detailed information on how to integrate in apps, take a look at our [Quick Start](quick-start) guide.
 
 For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own app, see our [Creating a Wasm Wrap guide](/tutorials/create-wasm-wrappers/tutorial/project-setup).
 

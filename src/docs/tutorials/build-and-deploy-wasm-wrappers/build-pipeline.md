@@ -15,7 +15,7 @@ This article will help you understand the follow concepts:
 
 ## Build pipeline
 
-The build process begins by running the [`build`](../../reference/cli/commands/build) command from the [`polywrap`](../../reference/cli/polywrap-cli) CLI. 
+The build process begins by running the [`build`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#build--b) command from the [`polywrap`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli) CLI. 
 The command will first search for the [Polywrap Manifest](../create-wasm-wrappers/polywrap-manifest), find the wrapper schema and implementation, and move these files into a Docker image. 
 
 Within the docker image, the wrapper schema is parsed and its contents are extracted into an ABI.

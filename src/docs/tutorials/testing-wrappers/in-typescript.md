@@ -5,13 +5,13 @@ title: Testing Wrappers In TypeScript
 
 ## **Introduction**
 
-In this tutorial we'll learn how to develop custom end to end (e2e) tests for your wrapper in TypeScript. These tests will be make calls into your wrapper using the [JavaScript / TypeScript Polywrap Client](../../reference/clients/js/client-js).
+In this tutorial we'll learn how to develop custom end to end (e2e) tests for your wrapper in TypeScript. These tests will be make calls into your wrapper using the [JavaScript / TypeScript Polywrap Client](https://github.com/polywrap/javascript-client).
 
 ## **Prerequisites**
 
 You'll need the following NPM packages installed before testing your wrapper:
 
-- [`@polywrap/client-js`](../../reference/clients/js/client-js)
+- [`@polywrap/client-js`](https://www.npmjs.com/package/@polywrap/client-js)
 - [`@polywrap/cli-js`](https://www.npmjs.com/package/@polywrap/cli-js)
 - [`jest`](https://www.npmjs.com/package/jest)
 
@@ -41,7 +41,7 @@ This should result in a wrapper package being emitted to the `build/` directory.
 
 ## **Configure a Polywrap Client**
 
-Before we create a new Polywrap client, we must create a configuration for it to use. This can be done through use of the [`ClientConfigBuilder`](../../reference/clients/js/client-config-builder-js.md). In the case of this example we'll be using the [default configuration](../understanding-plugins.md#default-plugin-wrappers) bundle. If your wrapper requires any custom integration dependencies like [plugins](../../concepts/plugin-wraps.md) or [environment variables](../../concepts/envs.md), then now would be the time to configure this.
+Before we create a new Polywrap client, we must create a configuration for it to use. This can be done through use of the [`ClientConfigBuilder`](https://github.com/polywrap/javascript-client/tree/origin-dev/packages/client-config-builder). In the case of this example we'll be using the [default configuration](../understanding-plugins.md#default-plugin-wrappers) bundle. If your wrapper requires any custom integration dependencies like plugins or [environment variables](../../concepts/envs.md), then now would be the time to configure this.
 
 ```typescript
 $snippet: testing-in-typescript-config-client-import

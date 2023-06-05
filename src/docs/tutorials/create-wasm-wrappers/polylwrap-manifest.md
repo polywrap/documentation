@@ -7,8 +7,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Each Wasm wrapper is orchestrated by a Polywrap Manifest `polywrap.yaml` file. 
-The Polywrap Manfiest provides the Polywrap CLI with basic information it needs to [`build`](../../reference/cli/commands/build) the wrapper
-and generate code bindings with [`codegen`](../../reference/cli/commands/codegen).
+The Polywrap Manfiest provides the Polywrap CLI with basic information it needs to [`build`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#build--b) the wrapper
+and generate code bindings with [`codegen`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#codegen--g).
 
 ## Content
 

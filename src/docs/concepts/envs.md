@@ -15,7 +15,7 @@ For example, if we have the following Env:
 }
 ```
 
-If we were to [invoke](./invoke) the Wrap under `wrap://ens/hello.world.eth`, it would have a globally-available `Env` object, whose value would be `{ foo: "bar" }`.
+If we were to invoke the Wrap under `wrap://ens/hello.world.eth`, it would have a globally-available `Env` object, whose value would be `{ foo: "bar" }`.
 
 It is up to the Wrap developer to decide on how to use the available Env object.
 

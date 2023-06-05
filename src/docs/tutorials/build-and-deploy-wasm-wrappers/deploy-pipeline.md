@@ -6,9 +6,9 @@ title: 'Configure Polywrap deployment pipeline'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Polywrap makes it easy to create an automated wrapper deployment pipeline using a Deploy Manifest `polywrap.deploy.yaml` file and the Polywrap CLI's [`deploy`](../../reference/cli/commands/deploy) command.
+Polywrap makes it easy to create an automated wrapper deployment pipeline using a Deploy Manifest `polywrap.deploy.yaml` file and the Polywrap CLI's [`deploy`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#deploy--d) command.
 This section helps you configure a Deploy Manifest, which defines the stages of your deployment pipeline. 
-Once you've configured the manifest, you can use the Polywrap CLI's [`deploy`](../../reference/cli/commands/deploy) command to execute the pipeline.
+Once you've configured the manifest, you can use the Polywrap CLI's [`deploy`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#deploy--d) command to execute the pipeline.
 
 ## Declaration
 

@@ -8,7 +8,7 @@ Interface modules can be instantiated in a Wasm wrapper, agnostic to any concret
 ## Instantiating an interface
 
 After an interface is imported in your [Wrapper Schema](../wrapper-schema), you can update the generated classes with the
-Polywrap CLI's [`codegen`](../../reference/cli/commands/codegen) command.
+Polywrap CLI's [`codegen`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#codegen--g) command.
 You will then be able to import the interface module in your wrapper.
 
 To instantiate an interface module, you must provide a URI that resolves to a wrapper that implements the interface.

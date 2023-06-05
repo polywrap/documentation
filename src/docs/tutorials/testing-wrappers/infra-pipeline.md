@@ -6,11 +6,11 @@ title: 'Configure Polywrap infrastructure pipeline'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Polywrap CLI [`infra`](../../reference/cli/commands/infra) command interacts with an Infra Manfiest 
+The Polywrap CLI [`infra`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#infra--i) command interacts with an Infra Manfiest 
 `polywrap.infra.yaml` file to to help users manage local infrastructure for their wrappers.
 The Infra Manifest declares environmental variables and infrastructure modules that describe the locations of 
 local, remote, or default [docker-compose](https://docs.docker.com/compose/compose-file/) files. 
-The Polywrap CLI [`infra`](../../reference/cli/commands/infra) command reads the manifest and launches or halts
+The Polywrap CLI [`infra`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#infra--i) command reads the manifest and launches or halts
 modules as directed by the user.
 
 ## Declaration
@@ -104,12 +104,12 @@ modules:
 
 ### Default
 
-A default infrastructure module is included with the [`polywrap`](../../reference/cli/polywrap-cli) CLI. 
+A default infrastructure module is included with the [`polywrap`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli) CLI. 
 It is declared in the Infra Manifest as a module named *eth-ens-ipfs* and the value *default*.
 
-If an Infra Manifest is not found, the Polywrap CLI [`infra`](../../reference/cli/commands/infra) command can still use
+If an Infra Manifest is not found, the Polywrap CLI [`infra`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#infra--i) command can still use
 this module. 
-To use the default module without an Infra Manifest, pass `eth-ens-ipfs` as an argument to the [`infra`](../../reference/cli/commands/infra) command's `modules` option:
+To use the default module without an Infra Manifest, pass `eth-ens-ipfs` as an argument to the [`infra`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#infra--i) command's `modules` option:
 
 ```bash
 npx polywrap infra up --modules=eth-ens-ipfs

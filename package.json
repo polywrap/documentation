@@ -12,7 +12,7 @@
     "reset": "yarn clean && yarn && yarn build",
     "clean": "npx rimraf ./docs ./build ./node_modules ./**/build ./**/node_modules ./.docusaurus",
     "build": "yarn clone:repos && yarn clone:readmes && yarn build:snippets && yarn rebuild:docs && yarn build:app",
-    "build:fast": "yarn build:docs && yarn build:app",
+    "build:fast": "yarn rebuild:docs && yarn build:app",
     "build:app": "docusaurus build",
     "rebuild:docs": "npx rimraf ./docs && yarn build:docs",
     "build:docs": "yarn doc-snippets combine",

@@ -3,7 +3,7 @@ id: 'project-setup'
 title: 'Project setup'
 ---
 
-If you're looking to find out what it takes to build a Polywrap Wasm wrapper, you've come to the right place! This guide will help you understand Polywrap's core concepts. If you haven't checked out our [Introduction](/introduction) section yet, we recommend visiting that section first.
+If you're looking to find out what it takes to build a Polywrap Wasm wrapper, you've come to the right place! This guide will help you understand Polywrap's core concepts. If you haven't checked out our [Quick Start](/quick-start) section yet, we recommend visiting that section first.
 
 In this guide, we'll download a simple but complete project to help us get started. We'll look at the different folders and files that make up a Polywrap wrapper, such as the GraphQL schema and WebAssembly implementations. Then, we'll dive in and add more code to these existing files to expand the functionality of our wrapper. Finally, we'll learn about the different ways you can build and deploy your wrapper so that other devs can integrate your wrapper into their own apps!
 

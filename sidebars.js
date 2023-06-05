@@ -22,84 +22,12 @@ const sidebars = {
       label: 'Concepts',
       items: [
         'concepts/wraps',
-        'concepts/wasm-wraps',
-        'concepts/plugin-wraps',
-        'concepts/interface-wraps',
-        'concepts/wrap-standard',
         'concepts/wasm',
         'concepts/abi',
         'concepts/uris',
-        'concepts/client',
-        'concepts/invoke',
-        'concepts/envs',
       ],
     },
-    {
-      type: 'category',
-      label: 'Reference',
-      items: [
-        'reference/glossary',
-        {
-          type: 'category',
-          label: 'CLI',
-          items: [
-            'reference/cli/polywrap-cli',
-            {
-              type: 'category',
-              label: 'Commands',
-              items: [
-                'reference/cli/commands/create',
-                'reference/cli/commands/codegen',
-                'reference/cli/commands/build',
-                'reference/cli/commands/test',
-                'reference/cli/commands/deploy',
-                'reference/cli/commands/manifest',
-                'reference/cli/commands/docgen',
-                'reference/cli/commands/infra',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Clients',
-          items: [
-            {
-              type: 'category',
-              label: 'JavaScript',
-              items: [
-                'reference/clients/js/client-js',
-                'reference/clients/js/client-config-builder-js',
-                {
-                  type: 'category',
-                  label: 'Libraries',
-                  items: [
-                    'reference/clients/js/libraries/asyncify-js',
-                    'reference/clients/js/libraries/core-js',
-                    'reference/clients/js/libraries/msgpack-js',
-                    'reference/clients/js/libraries/result',
-                    'reference/clients/js/libraries/tracing-js',
-                    'reference/clients/js/libraries/uri-resolver-extensions-js',
-                    'reference/clients/js/libraries/uri-resolvers-js',
-                    'reference/clients/js/libraries/wasm-js',
-                    'reference/clients/js/libraries/wrap-manifest-types-js',
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Schema',
-          items: [
-            'reference/schema/schema-parse',
-            'reference/schema/schema-compose',
-            'reference/schema/schema-bind',
-          ],
-        },
-      ]
-    },
+    'clients',
     {
       type: 'category',
       label: 'Tutorials',
@@ -194,6 +122,73 @@ const sidebars = {
         'resources/the-polywrap-technical-standard'
       ],
     },
+
+    // {
+    //   type: 'category',
+    //   label: 'Reference',
+    //   items: [
+    //     'reference/glossary',
+    //     {
+    //       type: 'category',
+    //       label: 'CLI',
+    //       items: [
+    //         'reference/cli/polywrap-cli',
+    //         {
+    //           type: 'category',
+    //           label: 'Commands',
+    //           items: [
+    //             'reference/cli/commands/create',
+    //             'reference/cli/commands/codegen',
+    //             'reference/cli/commands/build',
+    //             'reference/cli/commands/test',
+    //             'reference/cli/commands/deploy',
+    //             'reference/cli/commands/manifest',
+    //             'reference/cli/commands/docgen',
+    //             'reference/cli/commands/infra',
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       type: 'category',
+    //       label: 'Clients',
+    //       items: [
+    //         {
+    //           type: 'category',
+    //           label: 'JavaScript',
+    //           items: [
+    //             'reference/clients/js/client-js',
+    //             'reference/clients/js/client-config-builder-js',
+    //             {
+    //               type: 'category',
+    //               label: 'Libraries',
+    //               items: [
+    //                 'reference/clients/js/libraries/asyncify-js',
+    //                 'reference/clients/js/libraries/core-js',
+    //                 'reference/clients/js/libraries/msgpack-js',
+    //                 'reference/clients/js/libraries/result',
+    //                 'reference/clients/js/libraries/tracing-js',
+    //                 'reference/clients/js/libraries/uri-resolver-extensions-js',
+    //                 'reference/clients/js/libraries/uri-resolvers-js',
+    //                 'reference/clients/js/libraries/wasm-js',
+    //                 'reference/clients/js/libraries/wrap-manifest-types-js',
+    //               ]
+    //             }
+    //           ]
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       type: 'category',
+    //       label: 'Schema',
+    //       items: [
+    //         'reference/schema/schema-parse',
+    //         'reference/schema/schema-compose',
+    //         'reference/schema/schema-bind',
+    //       ],
+    //     },
+    //   ]
+    // },
   ],
 };
 
