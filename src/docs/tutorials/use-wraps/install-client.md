@@ -14,7 +14,7 @@ In the future, JavaScript will be one of many supported languages. Our goal is t
 By the end of this document, you'll gain the following skills:
 
 - How to instantiate the Polywrap client in your JavaScript App
-- Invoke any wrapper using the Polywrap client
+- Invoke any wrap using the Polywrap client
 - Configure the Polywrap client
 - Build React apps with ease
 
@@ -26,7 +26,7 @@ As prerequisites for this guide, we recommend having familiarity with [TypeScrip
 
 ## **Installation**
 
-To use wrappers in your app, all you need is the Polywrap Client!
+To use wraps in your app, all you need is the Polywrap Client!
 
 ```
 npm install --save @polywrap/client-js
@@ -46,4 +46,4 @@ Some example projects that integrate the JS client can be found [here](https://g
 > Where `<project-name>` is replaced with a custom name of your choosing. For example `my-app`.
 >
 > This command will create a new project folder with a "Hello World" app that
-> lets you interact with two simple Wasm wrappers at `wrap://ens/wraps.eth:logging@1.0.0` and `wrap://ens/wraps.eth:ethereum@1.0.0`.
+> lets you interact with two simple Wasm wraps at `wrap://ens/wraps.eth:logging@1.0.0` and `wrap://ens/wraps.eth:ethereum@1.0.0`.

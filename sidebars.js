@@ -39,7 +39,7 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Integrate Wraps',
+          label: 'Use Wraps',
           items: [
             'tutorials/use-wraps/install-client',
             'tutorials/use-wraps/create-client-instance',

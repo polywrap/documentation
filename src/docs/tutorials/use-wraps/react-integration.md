@@ -47,7 +47,7 @@ $snippet: js-react-usePolywrapClient
 
 ### **usePolywrapInvoke**
 
-After enabling your React application with the PolywrapProvider, you may now use the `usePolywrapInvoke` hook to call into wrappers!
+After enabling your React application with the PolywrapProvider, you may now use the `usePolywrapInvoke` hook to call into wraps!
 
 ```jsx
 $snippet: js-react-usePolywrapInvoke

@@ -7,12 +7,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 The [`polywrap`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli) CLI's [`codegen`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#codegen--g) command interacts with 
-an App Manifest to automatically generate wrapper types in the language of your application.
+an App Manifest to automatically generate wrap types in the language of your application.
 
 ## App Manifest content
 
 The App Manifest contains the name of the project, the programming language used to write it,
-and the location of the wrapper schema that states which code to generate. 
+and the location of the wrap schema that states which code to generate. 
 It can optionally contain an array of [URI Redirects](/concepts/uri-redirects).
 
 <Tabs
@@ -27,7 +27,7 @@ values={[
 format: # The manifest format version
 name: # Name of project
 language: # App programming language
-schema: # Path to wrapper schema
+schema: # Path to wrap schema
 import_abis: # (Optional) Array of URI redirects for schema imports
   - uri: # Source URI to be redirected
     abi: # Path to a local ABI (or schema). Supported file formats: [*.graphql, *.info, *.json, *.yaml]
@@ -43,16 +43,16 @@ $snippet: yaml-hello-world-app-manifest
 </Tabs>
 
 
-## Wrapper Schema for apps
+## Wrap Schema for apps
 
 To automatically generate types for an application or test suite, we must tell the Polywrap CLI which types to generate.
-This is done using a [Wrapper Schema](/concepts/wrap-schema). 
+This is done using a [Wrap Schema](/concepts/wrap-schema). 
 
-In your wrapper schema, you can add an import statement for each wrapper you're using in your project.
-You can use the `*` syntax to import a wrapper's module and all of its types, or you can list the types you'd like to use.
+In your wrap schema, you can add an import statement for each wrap you're using in your project.
+You can use the `*` syntax to import a wrap's module and all of its types, or you can list the types you'd like to use.
 
-```graphql title="Wrapper schema for the Hello World app"
+```graphql title="Wrap schema for the Hello World app"
 $snippet: graphql-hello-world-app-schema
 ```
 
-Learn more about schema imports at [Wrapper Schema](/concepts/wrap-schema#imports).
+Learn more about schema imports at [Wrap Schema](/concepts/wrap-schema#imports).
