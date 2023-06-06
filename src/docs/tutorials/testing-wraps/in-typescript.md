@@ -41,7 +41,7 @@ This should result in a wrapper package being emitted to the `build/` directory.
 
 ## **Configure a Polywrap Client**
 
-Before we create a new Polywrap client, we must create a configuration for it to use. This can be done through use of the [`ClientConfigBuilder`](https://github.com/polywrap/javascript-client/tree/origin-dev/packages/client-config-builder). In the case of this example we'll be using the [default configuration](../understanding-plugins.md#default-plugin-wrappers) bundle. If your wrapper requires any custom integration dependencies like plugins or [environment variables](../../concepts/envs.md), then now would be the time to configure this.
+Before we create a new Polywrap client, we must create a configuration for it to use. This can be done through use of the [`ClientConfigBuilder`](https://github.com/polywrap/javascript-client/tree/origin-dev/packages/client-config-builder). In the case of this example we'll be using the [default configuration](/concepts/plugins.md#default-plugin-wrappers) bundle. If your wrapper requires any custom integration dependencies like plugins or [environment variables](/concepts/env-variables.md), then now would be the time to configure this.
 
 ```typescript
 $snippet: testing-in-typescript-config-client-import

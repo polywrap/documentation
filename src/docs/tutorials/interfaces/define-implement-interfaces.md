@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 A special type of Polywrap project can be used to define an abstract interface without providing a concrete implementation.
-Like other wrappers, the interface is defined using a [Wrapper Schema](../wrapper-schema).
+Like other wrappers, the interface is defined using a [Wrapper Schema](/concepts/wrap-schema).
 Once an interface is written and deployed, other projects can import and implement it.
 
 For example, the [URI Resolver](https://github.com/polywrap/monorepo/tree/origin-0.10/packages/interfaces/uri-resolver) 
@@ -19,7 +19,7 @@ It is implemented by multiple plugin wrappers to help the Polywrap client query 
 Interface projects are declared using a [Polywrap Manifest](../create-wasm-wraps/polywrap-manifest).
 To indicate that a project is an abstract interface, set the project type to `interface`.
 
-Interface projects do not have a module. Only a [schema](../wrapper-schema) path is declared.
+Interface projects do not have a module. Only a [schema](/concepts/wrap-schema) path is declared.
 
 ```yaml
 format: 0.3.0
@@ -32,12 +32,12 @@ source:
 
 ## Defining an interface
 
-Defining an interface is as simple as writing the [Wrapper Schema](../wrapper-schema). 
+Defining an interface is as simple as writing the [Wrapper Schema](/concepts/wrap-schema). 
 Once the schema is complete, you are ready to deploy the interface wrapper.
 
 ## Implementing an interface
 
-As described in [Wrapper Schema](../wrapper-schema#interfaces), 
+As described in [Wrapper Schema](/concepts/wrap-schema#interfaces), 
 an interface can be imported and then implemented with the `implements` keyword. 
 When a module `implements` an interface module, it inherits all of its method declarations.
 

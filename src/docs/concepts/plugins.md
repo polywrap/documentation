@@ -1,6 +1,6 @@
 ---
-id: 'understanding-plugins'
-title: Understanding plugins
+id: 'plugins'
+title: Plugins
 ---
 
 Polywrap plugins, or "plugin wrappers", enable existing SDKs implemented in the client's language (e.g. JavaScript) to be queried as if they were Wasm wrappers.

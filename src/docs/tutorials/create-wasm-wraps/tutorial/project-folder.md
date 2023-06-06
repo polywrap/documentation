@@ -21,7 +21,7 @@ scripts/                      # Smart Contract Build/Deploy
 The `polywrap.yaml` is a manifest file describing the layout of a Polywrap Wasm wrapper.
 
 ### **`schema.graphql`**
-Each wrapper project has a [Wrapper Schema](../../wrapper-schema). 
+Each wrapper project has a [Wrap Schema](/concepts/wrap-schema). 
 The schema defines the wrapper's dependencies, methods, and custom types. 
 In short, it's an interface describing how to use the wrapper.
 

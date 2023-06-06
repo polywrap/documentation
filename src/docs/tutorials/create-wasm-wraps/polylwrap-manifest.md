@@ -17,7 +17,7 @@ and the location of the wrapper schema that declares the wrapper's interface.
 
 It optionally includes a path to the wrapper's entry file (e.g. src/index.ts, src/lib.rs)
 and paths to other manifests that can be used to configure the build and deploy process.
-It can also contain an array of [URI Redirects](/tutorials/understanding-uri-redirects).
+It can also contain an array of [URI Redirects](/concepts/uri-redirects).
 
 <Tabs
 defaultValue="schema"

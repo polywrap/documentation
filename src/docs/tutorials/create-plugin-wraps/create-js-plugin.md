@@ -60,7 +60,7 @@ src/
 The [Plugin Project Manifest](./plugin-manifest) describes the layout of a plugin.
 
 ### **`schema.graphql`**
-Each wrapper project has a [Wrapper Schema](../wrapper-schema). 
+Each wrapper project has a [Wrapper Schema](/concepts/wrap-schema). 
 The schema defines the wrapper's dependencies, methods, and custom types. 
 In short, it's an interface describing how to use the wrapper.
 
@@ -78,4 +78,4 @@ yarn build # alias for "npx polywrap build"
 
 ## **Example Plugins**
 
-See [Understanding Plugins](../understanding-plugins.md) for some examples of Plugins used within the default configuration of the Polywrap Client.
+See [Understanding Plugins](/concepts/plugins.md) for some examples of Plugins used within the default configuration of the Polywrap Client.

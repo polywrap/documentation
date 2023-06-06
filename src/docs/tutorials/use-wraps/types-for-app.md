@@ -13,7 +13,7 @@ an App Manifest to automatically generate wrapper types in the language of your 
 
 The App Manifest contains the name of the project, the programming language used to write it,
 and the location of the wrapper schema that states which code to generate. 
-It can optionally contain an array of [URI Redirects](/tutorials/understanding-uri-redirects).
+It can optionally contain an array of [URI Redirects](/concepts/uri-redirects).
 
 <Tabs
 defaultValue="schema"
@@ -46,7 +46,7 @@ $snippet: yaml-hello-world-app-manifest
 ## Wrapper Schema for apps
 
 To automatically generate types for an application or test suite, we must tell the Polywrap CLI which types to generate.
-This is done using a [Wrapper Schema](../wrapper-schema). 
+This is done using a [Wrapper Schema](/concepts/wrap-schema). 
 
 In your wrapper schema, you can add an import statement for each wrapper you're using in your project.
 You can use the `*` syntax to import a wrapper's module and all of its types, or you can list the types you'd like to use.
@@ -55,4 +55,4 @@ You can use the `*` syntax to import a wrapper's module and all of its types, or
 $snippet: graphql-hello-world-app-schema
 ```
 
-Learn more about schema imports at [Wrapper Schema](../wrapper-schema#imports).
+Learn more about schema imports at [Wrapper Schema](/concepts/wrap-schema#imports).

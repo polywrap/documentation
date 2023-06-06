@@ -8,11 +8,11 @@ import TabItem from '@theme/TabItem';
 
 Wrapper developers can declare a map of environmental variables for application developers to provide.
 
-If you're an application developer, check out [`ClientConfig`](./integrate-wraps/configure-client#envs). If you're a wrapper developer, keep reading!
+If you're an application developer, check out [`ClientConfig`](/tutorials/use-wraps/configure-client#envs). If you're a wrapper developer, keep reading!
 
 ## Schema declaration
 
-To use environmental variables, wrapper developers must first declare an `Env` type and add the `@env` directive to methods in the [Wrapper Schema](./wrapper-schema). You can learn more about the schema declarations in the [Environmental Variables](./wrapper-schema#environmental-variables) section of the Wrapper Schema documentation.
+To use environmental variables, wrapper developers must first declare an `Env` type and add the `@env` directive to methods in the [Wrapper Schema](/concepts/wrap-schema). You can learn more about the schema declarations in the [Environmental Variables](/concepts/wrap-schema#environmental-variables) section of the Wrapper Schema documentation.
 
 ```graphql
 type Env {
@@ -40,7 +40,7 @@ const env: Env = this.env;
 
 ### Env in wasm wrappers
 
-Wasm wrapper developers can access the `Env` instance by accepting the `Env` as a second argument in their module's methods. When an application developer invokes the method, the environmental variables they set in their [`ClientConfig`](./integrate-wraps/configure-client#envs) will be provided.
+Wasm wrapper developers can access the `Env` instance by accepting the `Env` as a second argument in their module's methods. When an application developer invokes the method, the environmental variables they set in their [`ClientConfig`](/tutorials/use-wraps/configure-client#envs) will be provided.
 
 <Tabs
 defaultValue="as"

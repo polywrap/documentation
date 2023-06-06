@@ -1,24 +1,24 @@
 ---
-id: wrapper-schema
-title: Wrapper Schema
+id: wrap-schema
+title: Wrap Schema
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Every wrapper project has a schema. 
-The schema defines the wrapper's dependencies, methods, and custom types. 
-In short, it's an interface describing how to use the wrapper.
+Every wrap project has a schema. 
+The schema defines the wrap's dependencies, methods, and custom types. 
+In short, it's an interface describing how to use the wrap.
 
-The schema is a sort of contract between a wrapper's developers and its users.
-A Wasm wrapper will not compile unless it implements and exports all of the methods declared in the schema.
-A Wasm wrapper's users can be certain that all of the methods declared in a schema are callable using the declared method signatures.
-Plugin wrappers do not have this same guarantee.
+The schema is a sort of contract between a wrap's developers and its users.
+A Wasm wrap will not compile unless it implements and exports all of the methods declared in the schema.
+A Wasm wrap's users can be certain that all of the methods declared in a schema are callable using the declared method signatures.
+Plugin wraps do not have this same guarantee.
 However, the client will throw an exception if a user attempts to invoke a method and the method is not found.
 
 ## Declaration
 
-A wrapper project's schema must be declared in the project manifest (Polywrap Manifest or [Plugin Manifest](./create-plugin-wraps/plugin-manifest)).
+A wrap project's schema must be declared in the project manifest (Polywrap Manifest or [Plugin Manifest](/tutorials/create-plugin-wraps/plugin-manifest)).
 
 ```yaml
 $snippet: project-manifest-schema-example
@@ -26,15 +26,15 @@ $snippet: project-manifest-schema-example
 
 ## Codegen
 
-The wrapper schema tells the Polywrap compiler which types and serialization logic to generate. 
-Generated types are updated every time you [`build`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#build--b) the wrapper.
+The wrap schema tells the Polywrap compiler which types and serialization logic to generate. 
+Generated types are updated every time you [`build`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#build--b) the wrap.
 The [`Polywrap CLI`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli) also provides a [`codegen`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#codegen--g) command to
 quickly update the generated `wrap` folder where generated types are stored.
 
 The Polywrap compiler generates types for method arguments and custom schema types. 
-Wrapper developers must use the generated method arguments for methods declared in the schema, 
+Wrap developers must use the generated method arguments for methods declared in the schema, 
 and generated types for method return values when the return value is of a custom type.
-The generated types come with serialization logic that allows Wrappers to communicate with the client.
+The generated types come with serialization logic that allows Wraps to communicate with the client.
 
 The following example demonstrates this practice.
 
@@ -61,7 +61,7 @@ $snippet: wasm-project-index-ts
 
 ## Language Syntax
 
-Wrapper schemas are written in Polywrap's variant of the [GraphQL](https://graphql.org/learn/) schema definition language (SDL).
+Wrap schemas are written in Polywrap's variant of the [GraphQL](https://graphql.org/learn/) schema definition language (SDL).
 Polywrap's GraphQL variant is simpler than standard GraphQL and easy to learn.
 
 ### Custom Types
@@ -106,8 +106,8 @@ type Module {
 }
 ```
 
-Custom types and modules can be imported from other wrappers by placing an import statement at the top of the schema.
-Imports become available in the schema immediately and in the wrapper following codegen.
+Custom types and modules can be imported from other wraps by placing an import statement at the top of the schema.
+Imports become available in the schema immediately and in the wrap following codegen.
 
 ### Imports
 
@@ -148,7 +148,7 @@ defaultValue="schema"
 values={[
 {label: 'Schema', value: 'schema'},
 {label: 'Client', value: 'client'},
-{label: 'Wasm wrapper', value: 'wasm'},
+{label: 'Wasm wrap', value: 'wasm'},
 ]}>
 <TabItem value="schema">
 
@@ -205,14 +205,14 @@ values={[
 
 ### Complex Types
 
-Complex types are represented as basic types to the Polywrap client and plugin wrappers.
-Within Wasm wrappers, they are implemented as classes or structs with behavior.
+Complex types are represented as basic types to the Polywrap client and plugin wraps.
+Within Wasm wraps, they are implemented as classes or structs with behavior.
 
-For example, consider an application developer invoking a Wasm wrapper with the JavaScript client.
+For example, consider an application developer invoking a Wasm wrap with the JavaScript client.
 If the invoked method requires an argument of type `BigInt`, the application developer will provide a `string`
 representation of an integer number to satisfy the argument. 
-Within the wrapper, the `string` is deserialized into an instantion of the wrapper language's implementation of a `BigInt`.
-If the invoked method returns a `BigInt`, the wrapper will serialize the returned `BigInt`, 
+Within the wrap, the `string` is deserialized into an instantion of the wrap language's implementation of a `BigInt`.
+If the invoked method returns a `BigInt`, the wrap will serialize the returned `BigInt`, 
 which the client will then deserialize into a `string` before returning it to the application developer.
 
 <Tabs
@@ -220,7 +220,7 @@ defaultValue="schema"
 values={[
 {label: 'Schema', value: 'schema'},
 {label: 'Client', value: 'client'},
-{label: 'Wasm wrapper', value: 'wasm'},
+{label: 'Wasm wrap', value: 'wasm'},
 ]}>
 <TabItem value="schema">
 
@@ -280,7 +280,7 @@ defaultValue="schema"
 values={[
 {label: 'Schema', value: 'schema'},
 {label: 'Client', value: 'client'},
-{label: 'Wasm wrapper', value: 'wasm'},
+{label: 'Wasm wrap', value: 'wasm'},
 ]}>
 <TabItem value="schema">
 
@@ -331,9 +331,9 @@ type ImplementationType implements Interface_InterfaceType {
 
 ## Environmental Variables
 
-Wrapper developers can declare a map of environmental variables for application developers to provide. To use environmental variables, declare an `Env` type and add a directive to each schema method that will use it. 
+Wrap developers can declare a map of environmental variables for application developers to provide. To use environmental variables, declare an `Env` type and add a directive to each schema method that will use it. 
 
-You can learn how to access environmental variables in code by reading the [Access Env in the module](./env-variables#access-env-in-the-module) section of our [Environmental Variables](./env-variables) documentation for wrapper developers.
+You can learn how to access environmental variables in code by reading the [Access Env in the module](/concepts/env-variables#access-env-in-the-module) section of our [Environmental Variables](/concepts/env-variables) documentation for wrap developers.
 
 ### Declare the Env object
 
