@@ -35,7 +35,7 @@ $snippet: as-simple-storage-setIpfs-method
 
 As you can see, the `SimpleStorage.sol` smart contract already exposes a `setHash()` method.
 
-In steps `1` and `2`, our SimpleStorage wrap is sending a "sub-invocation" to the IPFS and Ethereum plugin wraps we imported in our schema. Wraps can be implemented as a WebAssembly-based wrap, or a plugin wrap in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/tutorials/create-plugin-wraps/create-js-plugin) documentation.
+In steps `1` and `2`, our SimpleStorage wrap is sending a "sub-invocation" to the IPFS and Ethereum plugin wraps we imported in our schema. Wraps can be implemented as a WebAssembly-based wrap, or a plugin wrap in the client's language (ex: JavaScript). For more information on plugins, see the ["Plugin an Existing JS SDK"](/tutorials/advanced/create-plugins/create-js-plugin) documentation.
 
 The `Ethereum_Module.callContractMethodAndWait` function also accepts an optional argument, `connection`. This option allows you to select the network which you're transacting with, by specifying a node's endpoint, or a network (name or chain ID) (e.g. `"rinkeby"`).
 

@@ -88,12 +88,18 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Create Plugin Wraps',
+          label: 'Advanced',
           items: [
-            'tutorials/create-plugin-wraps/create-js-plugin',
-            'tutorials/create-plugin-wraps/plugin-manifest',
-            'tutorials/create-plugin-wraps/plugin-architecture'
-          ],
+            {
+              type: 'category',
+              label: 'Create Plugins',
+              items: [
+                'tutorials/advanced/create-plugins/create-js-plugin',
+                'tutorials/advanced/create-plugins/plugin-manifest',
+                'tutorials/advanced/create-plugins/plugin-architecture'
+              ],
+            },
+          ]
         },
         {
           type: 'category',

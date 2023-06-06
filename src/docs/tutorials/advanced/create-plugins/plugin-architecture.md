@@ -3,7 +3,7 @@ id: plugin-architecture
 title: 'Plugin Architecture'
 ---
 
-The architecture of a plugin wrapper's code is flexible.
+The architecture of a plugin's code is flexible.
 Still, there are some simple requirements and best practices that may guide its code structure.
 
 ## Required Exports

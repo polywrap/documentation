@@ -5,10 +5,10 @@ title: Plugin an existing JS SDK
 
 ## **Introduction**
 
-In this guide, we'll walk you through creating your own JavaScript-based plugin wrapper that can be added to the JavaScript Polywrap Client.
+In this guide, we'll walk you through creating your own JavaScript-based plugin that can be added to the JavaScript Polywrap Client.
 
 :::caution
-Plugins do not retain all of Polywrap's benefits. We recommend re-writing your existing JavaScript SDKs as Wasm wrappers if possible.
+Plugins do not retain all of Polywrap's benefits. We recommend re-writing your existing JavaScript SDKs as Wasm wraps if possible.
 :::
 
 As always, if you need any help, message us on [Discord](https://discord.com/invite/Z5m88a5qWu)!
@@ -60,12 +60,12 @@ src/
 The [Plugin Project Manifest](./plugin-manifest) describes the layout of a plugin.
 
 ### **`schema.graphql`**
-Each wrapper project has a [Wrapper Schema](/concepts/wrap-schema). 
-The schema defines the wrapper's dependencies, methods, and custom types. 
-In short, it's an interface describing how to use the wrapper.
+Each wrap project has a [Wrap Schema](/concepts/wrap-schema). 
+The schema defines the wrap's dependencies, methods, and custom types. 
+In short, it's an interface describing how to use the wrap.
 
 ### **`src/index.ts`**
-The `index.ts` file exports the wrapper's method's implementations, which contain the plugin's logic.
+The `index.ts` file exports the wrap's method's implementations, which contain the plugin's logic.
 Learn more about the plugin's code architecture by reading [Plugin Architecture](./plugin-architecture)
 
 ## **Building the plugin**
