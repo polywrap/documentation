@@ -70,10 +70,10 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Testing Wraps',
+          label: 'Test Wraps',
           items: [
-            'tutorials/testing-wraps/in-typescript',
-            'tutorials/testing-wraps/infra-pipeline',
+            'tutorials/test-wraps/in-typescript',
+            'tutorials/test-wraps/infra-pipeline',
           ],
         },
         {

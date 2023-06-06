@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 The Polywrap CLI [`infra`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#infra--i) command interacts with an Infra Manfiest 
-`polywrap.infra.yaml` file to to help users manage local infrastructure for their wrappers.
+`polywrap.infra.yaml` file to to help users manage local infrastructure for their wraps.
 The Infra Manifest declares environmental variables and infrastructure modules that describe the locations of 
 local, remote, or default [docker-compose](https://docs.docker.com/compose/compose-file/) files. 
 The Polywrap CLI [`infra`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#infra--i) command reads the manifest and launches or halts
@@ -120,7 +120,7 @@ The default infrastructure module defines a docker container with:
 - A Ganache Ethereum test network at http://localhost:**8545**
 - An IPFS node at http://localhost:**5001**
 
-It also sets up ENS smart contracts at initialization, so you can build wrappers and deploy them to an ENS registry 
+It also sets up ENS smart contracts at initialization, so you can build wraps and deploy them to an ENS registry 
 on your locally hosted testnet. The Ethereum address of the ENS registry is 0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab.
 
 ```yaml title="Example: local module configuration"
