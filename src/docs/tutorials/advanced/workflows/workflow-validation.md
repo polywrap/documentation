@@ -31,9 +31,9 @@ It is compared against the output of the workflow.
 To validate a particular job in a workflow, your validation file should be modified to match the output of that particular job.
 :::
 
-The [json-rpc](https://github.com/polywrap/demos/tree/main/json-rpc/wrapper/rust) demo uses a
-[workflow](https://github.com/polywrap/demos/tree/main/json-rpc/wrapper/rust/workflows/e2e.yaml) and
-[validator](https://github.com/polywrap/demos/tree/main/json-rpc/wrapper/rust/workflows/validator.cue) to 
+The [json-rpc](https://github.com/polywrap/demos/tree/main/json-rpc/wrap/rust) demo uses a
+[workflow](https://github.com/polywrap/demos/tree/main/json-rpc/wrap/rust/workflows/e2e.yaml) and
+[validator](https://github.com/polywrap/demos/tree/main/json-rpc/wrap/rust/workflows/validator.cue) to 
 replicate its full integration test suite. 
 We've provided a sample workflow and validation script based on the json-rpc demo here:
 

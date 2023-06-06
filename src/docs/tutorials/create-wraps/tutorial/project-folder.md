@@ -32,7 +32,7 @@ The `index.ts` file exports the wrap's method's implementations, which contain t
 The `src/contracts` directory contains our protocol's Ethereum-based smart contracts.
 
 ### **`workflows/*`**
-[Workflows](../../workflows/running-workflows) provide a simple way to test your Polywrap without having to write custom testing logic (with JavaScript and Jest, for example).
+[Workflows](/tutorials/advanced/workflows/running-workflows) provide a simple way to test your Polywrap without having to write custom testing logic (with JavaScript and Jest, for example).
 
 We'll be using this functionality further down in this guide with the `polywrap run` command, allowing us to easily send test queries against our API.
 

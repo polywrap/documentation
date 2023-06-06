@@ -108,15 +108,15 @@ const sidebars = {
                 'tutorials/advanced/interfaces/interface-instances'
               ],
             },
+            {
+              type: 'category',
+              label: 'Workflows',
+              items: [
+                'tutorials/advanced/workflows/running-workflows',
+                'tutorials/advanced/workflows/workflow-validation',
+              ],
+            },
           ]
-        },
-        {
-          type: 'category',
-          label: 'Workflows',
-          items: [
-            'tutorials/workflows/running-workflows',
-            'tutorials/workflows/workflow-validation',
-          ],
         },
       ]
     },

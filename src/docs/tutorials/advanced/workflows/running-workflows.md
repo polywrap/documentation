@@ -6,7 +6,7 @@ title: Running Workflows
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A workflow is a configurable process that will execute one or more Polywrap wrapper invocations. 
+A workflow is a configurable process that will execute one or more Polywrap wrap invocations. 
 Workflows are defined in YAML or JSON. Workflows can be run with the [`test`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#test--t) command of the [`polywrap`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli) CLI.
 
 ## Writing workflows
@@ -18,7 +18,7 @@ Each `Job` runs asynchronously, and therefore `Jobs` may run in any order. Altho
 By default, [`test`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#test--t) will run all jobs in a workflow.
 A `Job` index can be provided to [`test`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#test--t) to execute a specific job.
 
-A `Step` is a wrapper invocation. An array of `Steps` runs synchronously--i.e. in the order defined in the workflow.
+A `Step` is a wrap invocation. An array of `Steps` runs synchronously--i.e. in the order defined in the workflow.
 
 
 The result of a `Job` or `Step` can be passed as an input argument to a `Job` or `Step` that is its child in the tree hierarchy.
