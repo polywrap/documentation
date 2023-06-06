@@ -50,22 +50,22 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Create Wasm Wraps',
+          label: 'Create Wraps',
           items: [
             {
               type: 'category',
               label: 'Tutorial',
               items: [
-                'tutorials/create-wasm-wraps/tutorial/project-setup',
-                'tutorials/create-wasm-wraps/tutorial/project-folder',
-                'tutorials/create-wasm-wraps/tutorial/build-deploy-test',
-                'tutorials/create-wasm-wraps/tutorial/adding-new-methods',
-                'tutorials/create-wasm-wraps/tutorial/writing-tests-with-workflows',
-                'tutorials/create-wasm-wraps/tutorial/deploy-locally-and-test',
+                'tutorials/create-wraps/tutorial/project-setup',
+                'tutorials/create-wraps/tutorial/project-folder',
+                'tutorials/create-wraps/tutorial/build-deploy-test',
+                'tutorials/create-wraps/tutorial/adding-new-methods',
+                'tutorials/create-wraps/tutorial/writing-tests-with-workflows',
+                'tutorials/create-wraps/tutorial/deploy-locally-and-test',
               ]
             },
-            'tutorials/create-wasm-wraps/polywrap-manifest',
-            'tutorials/create-wasm-wraps/default-plugins'
+            'tutorials/create-wraps/polywrap-manifest',
+            'tutorials/create-wraps/default-plugins'
           ],
         },
         {

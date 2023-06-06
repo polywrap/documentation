@@ -3,7 +3,7 @@ id: default-plugins
 title: Default plugins
 ---
 
-Polywrap plugin wrappers extend the capabilities of Wasm wrappers. Some plugin wrappers come included in the Polywrap client by default:
+Polywrap plugins extend the capabilities of wraps. Some plugin wraps come included in the Polywrap client by default:
 
 - Ethereum Provider
 - Filesystem
@@ -11,10 +11,10 @@ Polywrap plugin wrappers extend the capabilities of Wasm wrappers. Some plugin w
 - Logger
 - Concurrent
 
-In this guide, we'll show you what it's like to import these default plugins into your wrapper, and explain what some commonly used plugins do.
+In this guide, we'll show you what it's like to import these default plugins into your wrap, and explain what some commonly used plugins do.
 
 ## Import to schema
-We'll use one of the default plugins, HTTP, to show how you can import its modules into your wrapper's schema (`schema.graphql` file). We typically import plugins into a schema by importing the interface they implement and letting users of the wrapper decide which plugin to use.
+We'll use one of the default plugins, HTTP, to show how you can import its modules into your wrap's schema (`schema.graphql` file). We typically import plugins into a schema by importing the interface they implement and letting users of the wrap decide which plugin to use.
 
 `#import { Module, Request } into Http from "wrap://ens/wraps.eth:http@1.1.0"`
 
@@ -34,12 +34,12 @@ Below, we explain what each part of this code means.
     - `ens` is the URI authority. It tells the Polywrap client what kind of URI it needs to resolve. See [URIs](/concepts/uris) for more information.
     - `wraps.eth:http@1.1.0` is the URI path, which in this case is an ENS address.
 
-## Use in Wasm Wrapper
-Once types have been imported, the functionality of these imported modules can be used in wrapper development.
+## Use in Wrap
+Once types have been imported, the functionality of these imported modules can be used in wrap development.
 
 Upon `yarn build`, the imported types and modules will be made available to you in the `src/wrap` folder.  To use them, you simply need to import the specific modules that you'd like to use.
 
-If you're building an AssemblyScript-based wrapper, the import might look like this:
+If you're building an AssemblyScript-based wrap, the import might look like this:
 
 ```typescript
 import { Http_Module, Http_Request } from './wrap';
@@ -59,12 +59,12 @@ The Ethereum Provider plugin can send RPC requests to Ethereum-compatible (EVM) 
 
 Schema: [Link](https://github.com/polywrap/ethereum/blob/main/provider/interface/src/schema.graphql)
 
-Importing the Ethereum Provider plugin into your wrapper's schema:
+Importing the Ethereum Provider plugin into your wrap's schema:
 ```graphql
 #import { Module } into Provider from "plugin/ethereum-provider@2.0.0"
 ```
 
-Example: [Link](https://github.com/polywrap/ethereum/blob/main/wrapper/src/polywrap_provider/provider.rs#L50)
+Example: [Link](https://github.com/polywrap/ethereum/blob/main/wrap/src/polywrap_provider/provider.rs#L50)
 
 ```rust
 pub fn request_sync<T: Serialize + Send + Sync, R: DeserializeOwned>(
@@ -91,7 +91,7 @@ The FileSystem plugin can interact with the host filesystem.
 
 Schema: [Link](https://github.com/polywrap/file-system/blob/main/interface/src/schema.graphql)
 
-Importing the FileSystem plugin into your wrapper's schema:
+Importing the FileSystem plugin into your wrap's schema:
 ```graphql
 #import { Module } into FileSystem from "ens/wraps.eth:file-system@1.0.0"
 ```
@@ -114,11 +114,11 @@ The HTTP plugin can send HTTP requests.
 Schema: [Link](https://github.com/polywrap/http/blob/main/interface/src/schema.graphql)
 
 #### Example Implementation
-In this example, we will implement a simple `Ping` method which pings CoinGecko to see their server status using an HTTP Get request from your wrapper.
+In this example, we will implement a simple `Ping` method which pings CoinGecko to see their server status using an HTTP Get request from your wrap.
 
-In our `./src/schema.graphql file`, we’ll write the schema for our wrapper.
+In our `./src/schema.graphql file`, we’ll write the schema for our wrap.
 
-At the top of this file, import the HTTP module into your wrapper:
+At the top of this file, import the HTTP module into your wrap:
 
 ```graphql
 #import { Module, Request, Response } into HTTP from "wrap://ens/wraps.eth:http@1.1.0"
@@ -197,9 +197,9 @@ export function ping(): Ping {
 ```
 
 ### Logger
-The Logger plugin enables logging in a Wasm wrapper, which can be useful for debugging.
+The Logger plugin enables logging in a wrap, which can be useful for debugging.
 
-In our `./src/schema.graphql file`, import the Logger module into your wrapper:
+In our `./src/schema.graphql file`, import the Logger module into your wrap:
 
 ```graphql
 #import { Module } into Logger from "ens/wraps.eth:logger@1.0.0"
@@ -226,12 +226,12 @@ And use it like so:
 When you run your test e.g. `yarn test:e2e`, you will see the logged message in the console.
 
 ### Concurrent
-The Concurrent plugin enables concurrent execution of Wasm wrapper sub-invocations. The meaning of "concurrent" depends
+The Concurrent plugin enables concurrent execution of wrap sub-invocations. The meaning of "concurrent" depends
 on the plugin implementation, which varies by language.
 
 Schema: [Link](https://github.com/polywrap/concurrent/blob/main/interface/src/schema.graphql)
 
-Importing the Concurrent plugin into your wrapper's schema:
+Importing the Concurrent plugin into your wrap's schema:
 ```graphql
 #import { Module } into Concurrent from "ens/wraps.eth:concurrent@1.0.0"
 ```

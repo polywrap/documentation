@@ -27,4 +27,4 @@ the file `validator.cue`.
 $snippet: cue-simple-storage-workflow-validator
 ```
 
-With our workflow complete, we'll deploy and test our Wasm wrapper locally in the next section!
+With our workflow complete, we'll deploy and test our wrap locally in the next section!

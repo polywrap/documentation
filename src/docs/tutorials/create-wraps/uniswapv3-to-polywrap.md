@@ -1,21 +1,21 @@
 ---
 id: uniswapv3-to-polywrap
-title: "Case study: Uniswap v3 Wrapper"
+title: "Case study: Uniswap v3 Wrap"
 ---
 
-The Uniswap v3 wrapper provides the same features as Uniswap's JavaScript SDK, plus more. The wrapper is written in AssemblyScript and compiled to WebAssembly (WASM). Polywrap's JavaScript Client makes interfacing with the wrapper as easy as interfacing with any ordinary JavaScript SDK.
+The Uniswap v3 wrap provides the same features as Uniswap's JavaScript SDK, plus more. The wrap is written in AssemblyScript and compiled to WebAssembly (WASM). Polywrap's JavaScript Client makes interfacing with the wrap as easy as interfacing with any ordinary JavaScript SDK.
 
-This guide describes how we ported the Uniswap v3 JavaScript SDK to a Wasm wrapper. Reference documentation for the Uniswap v3 wrapper is available [here](https://uniswap.demo.polywrap.io/). This guide uses version **0.0.1-prealpha.75** of the Polywrap toolchain.
+This guide describes how we ported the Uniswap v3 JavaScript SDK to a wrap. Reference documentation for the Uniswap v3 wrap is available [here](https://uniswap.demo.polywrap.io/). This guide uses version **0.0.1-prealpha.75** of the Polywrap toolchain.
 
-When writing the Uniswap v3 wrapper, our goal was to provide the same user experience as the SDK. The wrapper provides feature-parity, and the "business logic" is the same. We also ported elements of the Uniswap SDK Core package, as necessary, to implement the v3 wrapper.
+When writing the Uniswap v3 wrap, our goal was to provide the same user experience as the SDK. The wrap provides feature-parity, and the "business logic" is the same. We also ported elements of the Uniswap SDK Core package, as necessary, to implement the v3 wrap.
 
 ## Project scaffolding
 
 The best way to set up a Polywrap project is to start with one of the project templates available in the Polywrap CLI. The `polywrap create` command lets you bootstrap your project structure without effort.
 
-The initial project setup includes a `mutation` folder and a `query` folder within `src`, which correspond to the two types of modules a wrapper can have.
+The initial project setup includes a `mutation` folder and a `query` folder within `src`, which correspond to the two types of modules a wrap can have.
 
-It also includes a `polywrap.yaml` manifest file, a `polywrap.build.yaml` Build Manifest file, and a `polywrap.meta.yaml` Meta Manifest file. The `polywrap.yaml` manifest tells the Polywrap CLI what language your wrapper is in, where your module schemas are located, and more. Our `polywrap.yaml` looked like this:
+It also includes a `polywrap.yaml` manifest file, a `polywrap.build.yaml` Build Manifest file, and a `polywrap.meta.yaml` Meta Manifest file. The `polywrap.yaml` manifest tells the Polywrap CLI what language your wrap is in, where your module schemas are located, and more. Our `polywrap.yaml` looked like this:
 
 ```yaml
 format: 0.0.1-prealpha.5
@@ -33,7 +33,7 @@ modules:
 
 The Build Manifest lets you customize the build process. The Meta Manifest lets you add meta-data to your project, like a description and a link to your repo.
 
-For the Uniswap v3 wrapper, we left the `polywrap.yaml` manifest and the Build Manifest unchanged. We added detail to the Meta Manifest much later, when wrapper development was largely complete.
+For the Uniswap v3 wrap, we left the `polywrap.yaml` manifest and the Build Manifest unchanged. We added detail to the Meta Manifest much later, when wrap development was largely complete.
 
 ## Writing the interface in a GraphQL Schema
 
@@ -67,13 +67,13 @@ type Query {
 }
 ```
 
-A wrapper can have two modules: a `query` module and a `mutation` module. Each module has its own schema that, along with a an optional `common` schema for shared types, are combined at build time. The difference between mutations and queries is simple: mutations modify state--this typically means blockchain state in web3 applications--while queries do not. The Uniswap v3 SDK does not modify on-chain state, so all of its functionality was placed in the `query` module schema.
+A wrap can have two modules: a `query` module and a `mutation` module. Each module has its own schema that, along with a an optional `common` schema for shared types, are combined at build time. The difference between mutations and queries is simple: mutations modify state--this typically means blockchain state in web3 applications--while queries do not. The Uniswap v3 SDK does not modify on-chain state, so all of its functionality was placed in the `query` module schema.
 
-The first draft of the Uniswap v3 wrapper's schema was written in just a few hours, though it was revised during development to fix mistakes and improve the user experience.
+The first draft of the Uniswap v3 wrap's schema was written in just a few hours, though it was revised during development to fix mistakes and improve the user experience.
 
 ## Implementing the first functions
 
-When porting an SDK, it's important to understand its project structure. The organization of the SDK's source code can indicate how wrapper development should proceed. Development should allow for iterative changes and testing.
+When porting an SDK, it's important to understand its project structure. The organization of the SDK's source code can indicate how wrap development should proceed. Development should allow for iterative changes and testing.
 
 The Unsiwap v3 SDK can be mentally modularized into a roughly linear set of dependent components. We can start with the concept of a `Token`, which is the component of a `CurrencyAmount` and a `Pool`. A `Route` is a set of pools and currencies.  A `Trade` is constructed from two currency amounts and one or more routes. Based on this pattern, it made sense for us to start with `Token`.
 
@@ -102,7 +102,7 @@ Once we generated the classes, we imported the generated types and implemented t
 
 
 ```typescript
-// An abridged copy of src/query/token.ts in the Uniswap v3 wrapper
+// An abridged copy of src/query/token.ts in the Uniswap v3 wrap
 
 import {
   Input_tokenEquals,
@@ -129,9 +129,9 @@ export function tokenSortsBefore(input: Input_tokenSortsBefore): boolean {
 
 After implementing the token functions, it was possible to build the project (after commenting out methods in the schema that had not yet been implemented) and write the first automated tests.
 
-## Importing plugins and wrappers
+## Importing plugins and wraps
 
-The Uniswap v3 wrapper imports external dependencies to help it with certain tasks. A wrapper can import other wrappers or plugins.
+The Uniswap v3 wrap imports external dependencies to help it with certain tasks. A wrap can import other wraps or plugins.
 
 One of the most important dependencies we used is Polywrap's Ethereum plugin. The Ethereum plugin is based on the popular `ethers.js` package. It can be used to prepare and send Ethereum transactions in much the same way.
 
@@ -147,13 +147,13 @@ Our `src/query/schema.graphql` schema declares several imports at the top of the
 #import { ChainId, TradeType, Currency, Token, Price, TokenAmount, Tick, Pool, FeeAmount, Route, TradeSwap, Trade, BestTradeOptions, Position, PermitOptions, FeeOptions, SwapOptions, MethodParameters, MintAmounts } from "../common/schema.graphql"
 ```
 
-Wrappers and plugins are queried at URIs. When a user wants to call an API function with the Polywrap Client, they use a URI to tell the Client which API they are calling. The URI's are also used to import wrapper dependencies. Even though the Ethereum plugin is a JavaScript package that gets loaded into memory, it is still queried at a URI that is redirected and resolved to the in-memory instance.
+Wraps and plugins are queried at URIs. When a user wants to call an API function with the Polywrap Client, they use a URI to tell the Client which API they are calling. The URI's are also used to import wrap dependencies. Even though the Ethereum plugin is a JavaScript package that gets loaded into memory, it is still queried at a URI that is redirected and resolved to the in-memory instance.
 
 Once imports are declared, we can run the `codegen` command of the Polywrap CLI to generate imported modules and types. The imported module class includes all of the methods declared in its own GraphQL schema. If we want to know what's in it, we might look there first.
 
 We used the Ethereum plugin's `encodeFunction` method to encode calldata for Uniswap's Multicall smart contract.
 ```typescript
-// An abridged copy of src/query/routerUtils.ts in the Uniswap v3 wrapper
+// An abridged copy of src/query/routerUtils.ts in the Uniswap v3 wrap
 
 import {
   Ethereum_Query,
@@ -174,7 +174,7 @@ export function encodeMulticall(input: Input_encodeMulticall): string {
 
 ## Using base schema types
 
-Polywrap schemas support additional default types beyond those found in standard GraphQL. The `BigInt` type is used in the Uniswap v3 wrapper to represent integers larger than 32 bits. Since Ethereum supports unsigned integers as large as 256 bits, we needed to support them as well.
+Polywrap schemas support additional default types beyond those found in standard GraphQL. The `BigInt` type is used in the Uniswap v3 wrap to represent integers larger than 32 bits. Since Ethereum supports unsigned integers as large as 256 bits, we needed to support them as well.
 
 ```graphql
 """An amount of a token"""
@@ -205,15 +205,15 @@ Other base schema types include `BigNumber`, `JSON`, and `Map<T,U>`. These types
 
 ## Testing
 
-We adapted all of the tests in Uniswap's SDK to work with the wrapper. This ensured that the wrapper met at least the same standards of quality the Uniswap team expected of their SDK. The Uniswap team tested their SDK with artificial data that allowed them to calculate the expected results and compare those results to the outputs of their code. We used the same test cases and expected the same results from our wrapper.
+We adapted all of the tests in Uniswap's SDK to work with the wrap. This ensured that the wrap met at least the same standards of quality the Uniswap team expected of their SDK. The Uniswap team tested their SDK with artificial data that allowed them to calculate the expected results and compare those results to the outputs of their code. We used the same test cases and expected the same results from our wrap.
 
-We also wrote tests based on real-world data, using a fork of the Ethereum Mainnet network, to compare the results of our wrapper queries with results produced by the SDK. This helped us test the wrapper with input of greater complexity.
+We also wrote tests based on real-world data, using a fork of the Ethereum Mainnet network, to compare the results of our wrap queries with results produced by the SDK. This helped us test the wrap with input of greater complexity.
 
 We wrote automated tests using two different testing frameworks: `as-pect` and `jest`.
 
 ### AssemblyScript tests with as-pect
 
-`as-pect` is an AssemblyScript testing framework, and that is why we used it. Unit tests written in the native language of the wrapper can be used to test classes and functions that are written to support the main wrapper code. This reduces the layers of complexity that would be associated with testing only the functions declared in our GraphQL schema.
+`as-pect` is an AssemblyScript testing framework, and that is why we used it. Unit tests written in the native language of the wrap can be used to test classes and functions that are written to support the main wrap code. This reduces the layers of complexity that would be associated with testing only the functions declared in our GraphQL schema.
 
 For example, we wrote a `PriorityQueue` class to sort trades for the `bestTradeExactIn` and `bestTradeExactOut` functions. We used `as-pect` to test it. This simplified testing and debugging for`bestTradeExactIn` and `bestTradeExactOut`.
 
@@ -239,11 +239,11 @@ imports: {
 
 ### End-to-end tests in JavaScript with Jest
 
-Not all tests can be written in the wrapper's native language, nor should they be. Code that depends on other wrappers or plugins must be tested by making calls to the Polywrap Client. The Client coordinates inter-API communication.
+Not all tests can be written in the wrap's native language, nor should they be. Code that depends on other wraps or plugins must be tested by making calls to the Polywrap Client. The Client coordinates inter-API communication.
 
-We wrote many of our most important tests in the popular JavaScript framework `jest`. Were we to write the Uniswap v3 wrapper again, we would actually use a lot less `as-pect` and a lot more `jest`.
+We wrote many of our most important tests in the popular JavaScript framework `jest`. Were we to write the Uniswap v3 wrap again, we would actually use a lot less `as-pect` and a lot more `jest`.
 
-One advantage of testing with `jest` is that it requires developers to make calls in the same way users of their wrappers are likely to make them. A disadvantage is that it requires developers to set up the Polywrap client and a test environment, which is easy but takes more time.
+One advantage of testing with `jest` is that it requires developers to make calls in the same way users of their wraps are likely to make them. A disadvantage is that it requires developers to set up the Polywrap client and a test environment, which is easy but takes more time.
 
 You can learn how to set up a Polywrap test environment in JavaScript by reading [Write an end to end test](../testing-wraps/in-typescript.md).
 
@@ -251,10 +251,10 @@ You can learn how to set up a Polywrap test environment in JavaScript by reading
 
 The Polywrap CLI can automatically generate TypeScript types using the `polywrap app` command. The types mirror those declared in your GraphQL schema.
 
-If you love brevity, you can write functions that "wrap" your wrapper calls. This can make your tests a bit easier to read.
+If you love brevity, you can write functions that "wrap" your wrap calls. This can make your tests a bit easier to read.
 
 ```typescript
-// This function lets us call the createRoute function in the Uniswap v3 wrapper with one line of code
+// This function lets us call the createRoute function in the Uniswap v3 wrap with one line of code
 export async function createRoute(client: PolywrapClient, ensUri: string, pools: Pool[], inToken: Token, outToken: Token): Promise<Route> {
   const query = await client.invoke<Route>({
     uri: ensUri,
@@ -277,8 +277,8 @@ const route_0_1: Route = await createRoute(client, ensUri, [pool_0_1], token0, t
 ```
 ## Documentation
 
-As a final touch, we generated ample documentation for the Uniswap v3 wrapper.
+As a final touch, we generated ample documentation for the Uniswap v3 wrap.
 
-Polywrap's GraphQL parser can read documentation comments (comments with triple quotes) from the wrapper's GraphQL schema. Using this capability, Polywrap built a tool to help developers create documentation for their wrappers.
+Polywrap's GraphQL parser can read documentation comments (comments with triple quotes) from the wrap's GraphQL schema. Using this capability, Polywrap built a tool to help developers create documentation for their wraps.
 
-The Polywrap CLI will soon be able to use GraphQL schemas to automatically generate markdown that is compatible with popular documentation tools like Docusaurus. We tested the tool to generate the [reference documentation for the Uniswap v3 wrapper](https://uniswap.demo.polywrap.io/).
+The Polywrap CLI will soon be able to use GraphQL schemas to automatically generate markdown that is compatible with popular documentation tools like Docusaurus. We tested the tool to generate the [reference documentation for the Uniswap v3 wrap](https://uniswap.demo.polywrap.io/).

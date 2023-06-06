@@ -69,6 +69,6 @@ The Polywrap JavaScript client allows the app to use **any** deployed Wrap. Afte
 
 For detailed information on how to integrate in apps, take a look at our [Quick Start](quick-start) guide.
 
-For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own app, see our [Creating a Wasm Wrap guide](/tutorials/create-wasm-wraps/tutorial/project-setup).
+For a guide on how to build your own Polywrap and deploy it for other developers to integrate into their own app, see our [Creating a Wasm Wrap guide](/tutorials/create-wraps/tutorial/project-setup).
 
 :::

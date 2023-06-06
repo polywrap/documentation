@@ -5,7 +5,7 @@ title: 'Deploy locally & run tests'
 
 ### **Deploy**
 
-With our workflow complete, let's test the Wasm wrapper on our local environment! First, let's set up our test environment with the following command in your terminal:
+With our workflow complete, let's test the wrap on our local environment! First, let's set up our test environment with the following command in your terminal:
 
 ```bash
 yarn test:env:up
@@ -21,7 +21,7 @@ yarn test:env:down
 ```
 :::
 
-Next, we will deploy our both our `SimpleStorage.sol` smart contract as well as our wrapper with the following command:
+Next, we will deploy our both our `SimpleStorage.sol` smart contract as well as our wrap with the following command:
 
 ```bash
 yarn deploy
@@ -41,8 +41,8 @@ npx polywrap deploy
 ```
 
 The polywrap CLI's deploy command executes a deployment pipeline defined in a `polywrap.deploy.yaml` manifest. 
-Our deployment pipeline builds and deploys our wrapper to our local test environment. 
-The wrapper is assigned to an Ethereum Name Service (ENS) domain registered in the test environment that is set to resolve to our local IPFS node.
+Our deployment pipeline builds and deploys our wrap to our local test environment. 
+The wrap is assigned to an Ethereum Name Service (ENS) domain registered in the test environment that is set to resolve to our local IPFS node.
 
 We next deploy the SimpleStorage smart contract to the Ethereum test network using a script we've written for you:
 
@@ -50,12 +50,12 @@ We next deploy the SimpleStorage smart contract to the Ethereum test network usi
 node ./scripts/deploy-contract.js
 ```
 
-We'll be interacting with this deployed smart contract using our Wasm wrapper.
+We'll be interacting with this deployed smart contract using our wrap.
 :::
 
 ### **Test**
 
-Now, we'll use the following command to check whether our wrapper and smart contract are working properly:
+Now, we'll use the following command to check whether our wrap and smart contract are working properly:
 
 ```bash
 yarn test:workflow
@@ -65,6 +65,6 @@ This command uses the Polywrap CLI's `run` command, which will execute a series 
 
 ### **Conclusion**
 
-🎉 **Congratulations! You've create a custom Wasm wrapper!**
+🎉 **Congratulations! You've create a custom wrap!**
 
 Hopefully this article has given you a clear understanding of the Polywrap toolchain's primary features. If at any time in this process you get stuck or have questions, please don't hesitate to reach out on [Discord](https://discord.com/invite/Z5m88a5qWu).
