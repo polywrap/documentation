@@ -78,12 +78,12 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Build & Deploy Wasm Wraps',
+          label: 'Build & Deploy Wraps',
           items: [
-            'tutorials/build-and-deploy-wasm-wraps/build-pipeline',
-            'tutorials/build-and-deploy-wasm-wraps/deploy-to-ipfs',
-            'tutorials/build-and-deploy-wasm-wraps/publish-to-ens',
-            'tutorials/build-and-deploy-wasm-wraps/deploy-pipeline',
+            'tutorials/build-and-deploy-wraps/build-pipeline',
+            'tutorials/build-and-deploy-wraps/deploy-to-ipfs',
+            'tutorials/build-and-deploy-wraps/publish-to-ens',
+            'tutorials/build-and-deploy-wraps/deploy-pipeline',
           ],
         },
         {

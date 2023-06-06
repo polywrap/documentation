@@ -5,7 +5,7 @@ title: Deploying to Pinata
 
 ## **Introduction**
 
-In this 5 step guide, we'll walk you through how to deploy your Polywrap wrapper to [Pinata](https://www.pinata.cloud/) so that other apps could integrate it into their apps!
+In this 5 step guide, we'll walk you through how to deploy your Polywrap wrap to [Pinata](https://www.pinata.cloud/) so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
 <details>
@@ -15,7 +15,7 @@ In this 5 step guide, we'll walk you through how to deploy your Polywrap wrapper
   * [What you need to get started](#what-you-need-to-get-started)
   * [Step 1. Clone the polywrap demo project](#step-1-clone-the-polywrap-demo-project)
   * [Step 2. Pull the polywrap metadata](#step-2-git-pull-metadata)
-  * [Step 3. Build the wrapper ](#step-3-build-the-wrapper)
+  * [Step 3. Build the wrap ](#step-3-build-the-wrap)
   * [Step 4. Upload the build folder to Pinata](#step-4-upload-the-build-folder-to-pinata)
   * [Step 5. Verifying the package on IPFS ](#step-5-verifying-the-package-on-ipfs)
 
@@ -51,8 +51,8 @@ Then, we will check out the demo branch with the metafiles already set up:
 git pull origin polywrap-metadata
 ```
 
-### Step 3. Build the wrapper
-Now, we can build the sample wrapper with the following commands:
+### Step 3. Build the wrap
+Now, we can build the sample wrap with the following commands:
 
 ```bash
 nvm use
@@ -98,6 +98,6 @@ You will get an IPFS hash!
 This will lead you to [IPFS link](https://gateway.pinata.cloud/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq): 
 https://gateway.pinata.cloud/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq
 
-Now that you have the IPFS hash located in the CID column in the pinata manager, you can use it as a value in the URI property of your Polywrap queries to access the functions in this wrapper. 
+Now that you have the IPFS hash located in the CID column in the pinata manager, you can use it as a value in the URI property of your Polywrap queries to access the functions in this wrap. 
 
  🎉 Congratulations 🎉 on deploying to Pinata!  

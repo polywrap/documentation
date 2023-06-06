@@ -5,7 +5,7 @@ title: Deploying to CRUST Files
 
 ## **Introduction**
 
-In this 5 step guide,  we'll walk you how to deploy your Polywrap wrapper using the `Crust Files`.
+In this 5 step guide,  we'll walk you how to deploy your Polywrap wrap using the `Crust Files`.
 so that other apps could integrate it into their apps!
 
 ## **Table of Contents**
@@ -16,7 +16,7 @@ so that other apps could integrate it into their apps!
   * [What you need to get started](#what-you-need-to-get-started)
   * [Step 1. Clone the polywrap demo project](#step-1-clone-the-polywrap-demo-project)
   * [Step 2. Pull the polywrap metadata](#step-2-git-pull-metadata)
-  * [Step 3. Build the wrapper ](#step-3-build-the-wrapper)
+  * [Step 3. Build the wrap ](#step-3-build-the-wrap)
   * [Step 4. Upload the build folder to Crust Network](#step-4-upload-the-build-folder-to-crust-network)
   * [Step 5. Verifying the package on IPFS ](#step-5-verifying-the-package-on-ipfs)
 
@@ -48,8 +48,8 @@ Then, we will check out the demo branch with the metafiles already set up:
 git pull origin polywrap-metadata
 ```
 
-### Step 3. Build the wrapper
-Now, we can build the sample wrapper with the following commands:
+### Step 3. Build the wrap
+Now, we can build the sample wrap with the following commands:
 
 ```bash
 nvm use

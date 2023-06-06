@@ -6,7 +6,7 @@ title: 'Configure Polywrap deployment pipeline'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Polywrap makes it easy to create an automated wrapper deployment pipeline using a Deploy Manifest `polywrap.deploy.yaml` file and the Polywrap CLI's [`deploy`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#deploy--d) command.
+Polywrap makes it easy to create an automated wrap deployment pipeline using a Deploy Manifest `polywrap.deploy.yaml` file and the Polywrap CLI's [`deploy`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#deploy--d) command.
 This section helps you configure a Deploy Manifest, which defines the stages of your deployment pipeline. 
 Once you've configured the manifest, you can use the Polywrap CLI's [`deploy`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#deploy--d) command to execute the pipeline.
 
@@ -55,13 +55,13 @@ primaryJobName: ipfs_deploy
 jobs:
   ipfs_deploy:
     config:
-      gatewayUri: ipfs.wrappers.io
+      gatewayUri: ipfs.wraps.io
     steps:
       - name: ipfs_deploy
         package: ipfs
         uri: fs/./build
         config:
-          gatewayUri: ipfs.wrappers.io
+          gatewayUri: ipfs.wraps.io
       - name: ens_deploy
         package: ens
         uri: $$ipfs_deploy
@@ -84,13 +84,13 @@ Polywrap currently supports three types of deployment modules:
 ### IPFS
 
 The IPFS module pins a folder's contents to IPFS and returns the content hash (CID). 
-It can be used to deploy a wrapper by [pinning](https://docs.ipfs.io/how-to/pin-files/) the contents of your project's build folder to the IPFS network. 
+It can be used to deploy a wrap by [pinning](https://docs.ipfs.io/how-to/pin-files/) the contents of your project's build folder to the IPFS network. 
 
 The IPFS module's custom configuration requires an IPFS gateway URI so the CLI knows where to send the files.
 
 ```yaml title="Example: ipfs configuration"
 config:
-  gatewayUri: 'ipfs.wrappers.io' # IPFS gateway URI
+  gatewayUri: 'ipfs.wraps.io' # IPFS gateway URI
 ```
 
 ### ENS
@@ -105,7 +105,7 @@ The ENS module's custom configuration requires three arguments and accepts an op
 
 ```yaml title="Example: ens configuration"
 config:
-  domainName: 'wrapper.eth' # ENS domain name
+  domainName: 'wrap.eth' # ENS domain name
   provider: 'http://localhost:4545' # an Ethereum JSON RPC provider URI
   ensRegistryAddress: '0x...' # The ENS Registry contract address
   privateKey: '' # a private key may be required to sign ethereum transactions
@@ -134,7 +134,7 @@ The Local Dev ENS module's custom configuration requires two arguments:
 
 ```yaml title="Example: local-dev-ens configuration"
 config:
-  domainName: 'wrapper.eth' # ENS domain name
+  domainName: 'wrap.eth' # ENS domain name
   ports:
     ethereum: 4545
 ```

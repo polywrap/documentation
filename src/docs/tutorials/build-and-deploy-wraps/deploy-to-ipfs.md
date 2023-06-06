@@ -3,11 +3,11 @@ id: deploy-to-ipfs
 title:  Deploy to IPFS
 ---
 
-There are multiple ways that can be used to deploy your newly created wrapper package
-to IPFS, enabling other apps to integrate your wrapper:
+There are multiple ways that can be used to deploy your newly created wrap package
+to IPFS, enabling other apps to integrate your wrap:
 
 ## `polywrap` CLI
-The [`polywrap`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli) CLI has a [`deploy`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#deploy--d) command for publishing Wasm wrappers to IPFS and ENS. IPFS publishing is done via a [wrap-persistence-node endpoint](https://www.npmjs.com/package/@nerfzael/wrap-persistence-node). By default it publishes to the public https://ipfs.wrappers.io endpoint.
+The [`polywrap`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli) CLI has a [`deploy`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#deploy--d) command for publishing Wasm wraps to IPFS and ENS. IPFS publishing is done via a [wrap-persistence-node endpoint](https://www.npmjs.com/package/@nerfzael/wrap-persistence-node). By default it publishes to the public https://ipfs.wraps.io endpoint.
 
 For more information, see [Configure Polywrap deployment pipeline](./deploy-pipeline) and the [`deploy`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#deploy--d) command reference documentation.
 
