@@ -39,60 +39,60 @@ const sidebars = {
         'tutorials/env-variables',
         {
           type: 'category',
-          label: 'Integrate Wrappers',
+          label: 'Integrate Wraps',
           items: [
-            'tutorials/integrate-wrappers/install-client',
-            'tutorials/integrate-wrappers/create-client-instance',
-            'tutorials/integrate-wrappers/configure-client',
-            'tutorials/integrate-wrappers/types-for-app',
-            'tutorials/integrate-wrappers/react-integration',
+            'tutorials/integrate-wraps/install-client',
+            'tutorials/integrate-wraps/create-client-instance',
+            'tutorials/integrate-wraps/configure-client',
+            'tutorials/integrate-wraps/types-for-app',
+            'tutorials/integrate-wraps/react-integration',
           ],
         },
         {
           type: 'category',
-          label: 'Create Wasm Wrappers',
+          label: 'Create Wasm Wraps',
           items: [
             {
               type: 'category',
               label: 'Tutorial',
               items: [
-                'tutorials/create-wasm-wrappers/tutorial/project-setup',
-                'tutorials/create-wasm-wrappers/tutorial/project-folder',
-                'tutorials/create-wasm-wrappers/tutorial/build-deploy-test',
-                'tutorials/create-wasm-wrappers/tutorial/adding-new-methods',
-                'tutorials/create-wasm-wrappers/tutorial/writing-tests-with-workflows',
-                'tutorials/create-wasm-wrappers/tutorial/deploy-locally-and-test',
+                'tutorials/create-wasm-wraps/tutorial/project-setup',
+                'tutorials/create-wasm-wraps/tutorial/project-folder',
+                'tutorials/create-wasm-wraps/tutorial/build-deploy-test',
+                'tutorials/create-wasm-wraps/tutorial/adding-new-methods',
+                'tutorials/create-wasm-wraps/tutorial/writing-tests-with-workflows',
+                'tutorials/create-wasm-wraps/tutorial/deploy-locally-and-test',
               ]
             },
-            'tutorials/create-wasm-wrappers/polywrap-manifest',
-            'tutorials/create-wasm-wrappers/default-plugins'
+            'tutorials/create-wasm-wraps/polywrap-manifest',
+            'tutorials/create-wasm-wraps/default-plugins'
           ],
         },
         {
           type: 'category',
-          label: 'Testing Wrappers',
+          label: 'Testing Wraps',
           items: [
-            'tutorials/testing-wrappers/in-typescript',
-            'tutorials/testing-wrappers/infra-pipeline',
+            'tutorials/testing-wraps/in-typescript',
+            'tutorials/testing-wraps/infra-pipeline',
           ],
         },
         {
           type: 'category',
-          label: 'Build & Deploy Wasm Wrappers',
+          label: 'Build & Deploy Wasm Wraps',
           items: [
-            'tutorials/build-and-deploy-wasm-wrappers/build-pipeline',
-            'tutorials/build-and-deploy-wasm-wrappers/deploy-to-ipfs',
-            'tutorials/build-and-deploy-wasm-wrappers/publish-to-ens',
-            'tutorials/build-and-deploy-wasm-wrappers/deploy-pipeline',
+            'tutorials/build-and-deploy-wasm-wraps/build-pipeline',
+            'tutorials/build-and-deploy-wasm-wraps/deploy-to-ipfs',
+            'tutorials/build-and-deploy-wasm-wraps/publish-to-ens',
+            'tutorials/build-and-deploy-wasm-wraps/deploy-pipeline',
           ],
         },
         {
           type: 'category',
-          label: 'Create Plugin Wrappers',
+          label: 'Create Plugin Wraps',
           items: [
-            'tutorials/create-plugin-wrappers/create-js-plugin',
-            'tutorials/create-plugin-wrappers/plugin-manifest',
-            'tutorials/create-plugin-wrappers/plugin-architecture'
+            'tutorials/create-plugin-wraps/create-js-plugin',
+            'tutorials/create-plugin-wraps/plugin-manifest',
+            'tutorials/create-plugin-wraps/plugin-architecture'
           ],
         },
         {
@@ -122,73 +122,6 @@ const sidebars = {
         'resources/ecosystem-tooling',
       ],
     },
-
-    // {
-    //   type: 'category',
-    //   label: 'Reference',
-    //   items: [
-    //     'reference/glossary',
-    //     {
-    //       type: 'category',
-    //       label: 'CLI',
-    //       items: [
-    //         'reference/cli/polywrap-cli',
-    //         {
-    //           type: 'category',
-    //           label: 'Commands',
-    //           items: [
-    //             'reference/cli/commands/create',
-    //             'reference/cli/commands/codegen',
-    //             'reference/cli/commands/build',
-    //             'reference/cli/commands/test',
-    //             'reference/cli/commands/deploy',
-    //             'reference/cli/commands/manifest',
-    //             'reference/cli/commands/docgen',
-    //             'reference/cli/commands/infra',
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       type: 'category',
-    //       label: 'Clients',
-    //       items: [
-    //         {
-    //           type: 'category',
-    //           label: 'JavaScript',
-    //           items: [
-    //             'reference/clients/js/client-js',
-    //             'reference/clients/js/client-config-builder-js',
-    //             {
-    //               type: 'category',
-    //               label: 'Libraries',
-    //               items: [
-    //                 'reference/clients/js/libraries/asyncify-js',
-    //                 'reference/clients/js/libraries/core-js',
-    //                 'reference/clients/js/libraries/msgpack-js',
-    //                 'reference/clients/js/libraries/result',
-    //                 'reference/clients/js/libraries/tracing-js',
-    //                 'reference/clients/js/libraries/uri-resolver-extensions-js',
-    //                 'reference/clients/js/libraries/uri-resolvers-js',
-    //                 'reference/clients/js/libraries/wasm-js',
-    //                 'reference/clients/js/libraries/wrap-manifest-types-js',
-    //               ]
-    //             }
-    //           ]
-    //         }
-    //       ]
-    //     },
-    //     {
-    //       type: 'category',
-    //       label: 'Schema',
-    //       items: [
-    //         'reference/schema/schema-parse',
-    //         'reference/schema/schema-compose',
-    //         'reference/schema/schema-bind',
-    //       ],
-    //     },
-    //   ]
-    // },
   ],
 };
 

@@ -33,7 +33,7 @@ For now, AssemblyScript and Rust are the only languages with which you can imple
 
 If you have experience programming in TypeScript, you'll feel at home with AssemblyScript since the language's syntax is very similar.
 
-👋 This guide is meant for those who want to build and deploy their own wrappers. If you're interested in integrating deployed wrappers into your own app, see our [Integrate into a JS App](../../integrate-wrappers/install-client) guide.
+👋 This guide is meant for those who want to build and deploy their own wrappers. If you're interested in integrating deployed wrappers into your own app, see our [Integrate into a JS App](../../integrate-wraps/install-client) guide.
 :::
 
 ## **Create your project**

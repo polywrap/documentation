@@ -16,7 +16,7 @@ It is implemented by multiple plugin wrappers to help the Polywrap client query 
 
 ## Declaring an interface project
 
-Interface projects are declared using a [Polywrap Manifest](../create-wasm-wrappers/polywrap-manifest).
+Interface projects are declared using a [Polywrap Manifest](../create-wasm-wraps/polywrap-manifest).
 To indicate that a project is an abstract interface, set the project type to `interface`.
 
 Interface projects do not have a module. Only a [schema](../wrapper-schema) path is declared.

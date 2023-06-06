@@ -68,24 +68,24 @@ Make sure you signup for a Pinata account.
 
 * Click `"Upload"`
 
-![Pinata Step 1](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/pinata/pinata-step-1.png)
+![Pinata Step 1](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wraps/deployment/pinata/pinata-step-1.png)
 
 * Click `"Folder"`
 
-![Pinata Step 2](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/pinata/pinata-step-2.png)
+![Pinata Step 2](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wraps/deployment/pinata/pinata-step-2.png)
 
 * Click `Select`  for a folder to upload should be the build folder 
 
-![Pinata Step 3](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/pinata/pinata-step-3.png)
+![Pinata Step 3](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wraps/deployment/pinata/pinata-step-3.png)
 
 * Give your file or folder a name.
 Example: Gm-Polywrap
 
-![Pinata Step 4](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/pinata/pinata-step-4.png)
+![Pinata Step 4](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wraps/deployment/pinata/pinata-step-4.png)
 
 * Click "Upload" from the alert message
 
-![Pinata Step 5](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/pinata/pinata-step-5.png)
+![Pinata Step 5](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wraps/deployment/pinata/pinata-step-5.png)
 
 
 ### Step 5.  **Verifying the package on IPFS**
@@ -93,7 +93,7 @@ You will get an IPFS hash!
 
 * Click the name of the folder 
 
-![Pinata Step 6](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wrappers/deployment/pinata/pinata-step-6.png)
+![Pinata Step 6](../../../../static/img/docs/tutorials/build-and-deploy-wasm-wraps/deployment/pinata/pinata-step-6.png)
 
 This will lead you to [IPFS link](https://gateway.pinata.cloud/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq): 
 https://gateway.pinata.cloud/ipfs/QmVtFE8ScFUv6b4vUrfrNsEGuUunF4rFckjaRcDxb6xayq

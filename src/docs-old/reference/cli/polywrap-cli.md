@@ -198,7 +198,7 @@ polywrap deploy
 
 `deploy` reads the Deploy manifest (`polywrap.deploy.yaml` by default) and executes the jobs and steps listed inside.
 
-For more information on the Deploy command and the Deploy manifest, see [Configure Polywrap deployment pipeline](https://docs.polywrap.io/quick-start/build-and-deploy-wasm-wrappers/deploy-pipeline).
+For more information on the Deploy command and the Deploy manifest, see [Configure Polywrap deployment pipeline](https://docs.polywrap.io/quick-start/build-and-deploy-wasm-wraps/deploy-pipeline).
 
 #### Options
 - `-m, --manifest-file <path>`
@@ -218,7 +218,7 @@ polywrap infra <action> [options]
 
 The `infra` command is used to set up infrastructure to test and deploy your wrappers locally.
 
-For more information on the `infra` command and how to create your own Infra modules, see [Configure Polywrap infrastructure pipeline](https://docs.polywrap.io/quick-start/test-wasm-wrappers/infra-pipeline)
+For more information on the `infra` command and how to create your own Infra modules, see [Configure Polywrap infrastructure pipeline](https://docs.polywrap.io/quick-start/test-wasm-wraps/infra-pipeline)
 
 #### Arguments
 - `action` (required)

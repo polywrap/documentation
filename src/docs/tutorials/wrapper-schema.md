@@ -18,7 +18,7 @@ However, the client will throw an exception if a user attempts to invoke a metho
 
 ## Declaration
 
-A wrapper project's schema must be declared in the project manifest (Polywrap Manifest or [Plugin Manifest](./create-plugin-wrappers/plugin-manifest)).
+A wrapper project's schema must be declared in the project manifest (Polywrap Manifest or [Plugin Manifest](./create-plugin-wraps/plugin-manifest)).
 
 ```yaml
 $snippet: project-manifest-schema-example
