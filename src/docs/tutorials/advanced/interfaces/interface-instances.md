@@ -3,15 +3,15 @@ id: interface-instances
 title: Interface instances
 ---
 
-Interface modules can be instantiated in a Wasm wrapper, agnostic to any concrete implementation.
+Interface modules can be instantiated in a Wasm wrap, agnostic to any concrete implementation.
 
 ## Instantiating an interface
 
-After an interface is imported in your [Wrapper Schema](/concepts/wrap-schema), you can update the generated classes with the
+After an interface is imported in your [Wrap Schema](/concepts/wrap-schema), you can update the generated classes with the
 Polywrap CLI's [`codegen`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#codegen--g) command.
-You will then be able to import the interface module in your wrapper.
+You will then be able to import the interface module in your wrap.
 
-To instantiate an interface module, you must provide a URI that resolves to a wrapper that implements the interface.
+To instantiate an interface module, you must provide a URI that resolves to a wrap that implements the interface.
 
 ```typescript
 import { MyInterface_Module, Args_foo } from "./wrap";
@@ -29,7 +29,7 @@ you can use `getImplementations` to obtain a list of interface implementations r
 
 ### Declaring getImplementations
 
-In addition to importing the interface module in the [Wrapper Schema](/concepts/wrap-schema), 
+In addition to importing the interface module in the [Wrap Schema](/concepts/wrap-schema), 
 you must declare that `getImplementations` will be used for the interface with the `use { getImplementations }` keywords.
 
 ```graphql

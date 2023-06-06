@@ -99,16 +99,16 @@ const sidebars = {
                 'tutorials/advanced/create-plugins/plugin-architecture'
               ],
             },
+            {
+              type: 'category',
+              label: 'Interfaces',
+              items: [
+                'tutorials/advanced/interfaces/client-config-interfaces',
+                'tutorials/advanced/interfaces/define-implement-interfaces',
+                'tutorials/advanced/interfaces/interface-instances'
+              ],
+            },
           ]
-        },
-        {
-          type: 'category',
-          label: 'Interfaces',
-          items: [
-            'tutorials/interfaces/client-config-interfaces',
-            'tutorials/interfaces/define-implement-interfaces',
-            'tutorials/interfaces/interface-instances'
-          ],
         },
         {
           type: 'category',
