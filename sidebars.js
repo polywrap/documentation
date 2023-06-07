@@ -18,7 +18,14 @@ const sidebars = {
     'quick-start',
     'clients',
     'cli',
-    'what-is-polywrap',
+    {
+      type: 'category',
+      label: 'Use Cases',
+      items: [
+        'use-cases/web3',
+        'use-cases/ai'
+      ]
+    },
     {
       type: 'category',
       label: 'Concepts',
