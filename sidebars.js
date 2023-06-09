@@ -128,12 +128,9 @@ const sidebars = {
       ]
     },
     {
-      type: 'category',
-      label: 'Resources',
-      items: [
-        'resources/talks-podcasts-and-videos',
-        'resources/ecosystem-tooling',
-      ],
+      type: 'link',
+      href: 'https://github.com/polywrap/awesome-polywrap',
+      label: 'Resources'
     },
   ],
 };
