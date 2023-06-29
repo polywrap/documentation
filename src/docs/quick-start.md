@@ -144,7 +144,7 @@ const usdcResult = await client.invoke({
   uri: "ens/uniswap.wraps.eth:v3",
   method: "fetchToken",
   args: {
-    address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
     chainId: "MAINNET",
   },
 });
@@ -208,7 +208,9 @@ if (!resolutionResult.ok) {
 console.log(resolutionResult.value);
 ```
 
-Now, if we look at the `uri` property of `resolutionResult.value`, we will see a WRAP URI
+Now, if we look at the `uri` property of `resolutionResult.value`, we will see a WRAP URI. 
+We can also see a `manifest` property which is set to `null`, which you can safely ignore for now.
+This is because our ENS Text Record Resolver Wrap only resolves from an ENS Text Record to another URI.
 
 Once we have the IPFS hash, we will use the IPFS Wrap to fetch the contents of the Wrap's manifest file (`wrap.info`), and print them out.
 
