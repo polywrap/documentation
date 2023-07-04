@@ -386,7 +386,7 @@ await Logging_Module.info({
 
 This allows us to write all of our code in a type-safe manner, and allows for IDEs like VS Code to give us autocompletion suggestions via IntelliSense. Now we can explore our Wraps by simply importing them and trying them out!
 
-### A real-world exmaple, revisited
+### A real-world example, revisited
 
 Let's revisit our Uniswap V3 Wrap example from the Quick Start tutorial. If we wanted to invoke the Uniswap V3 Wrap without codegen, we had to write the following code:
 
