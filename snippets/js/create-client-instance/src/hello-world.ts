@@ -7,7 +7,7 @@ const client = new PolywrapClient();
 export function helloWorld() {
 // $start: js-client-hello-world
 client.invoke({
-  uri: "ens/wraps.eth:logging@1.0.0",
+  uri: "wrapscan.io/polywrap/logging@1.0",
   method: "info",
   args: {
     message: "Hello World!"

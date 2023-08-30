@@ -23,7 +23,7 @@ export async function metamaskInEthereumPlugin() {
   const config = new ClientConfigBuilder()
     .addDefaults()
     .addPackages({
-      "wrap://ens/wraps.eth:ethereum-provider@2.0.0": ethereumProviderPlugin({
+      "wrapscan.io/polywrap/ethereum-wallet@1.0": ethereumProviderPlugin({
         connections: new Connections({
           networks: {
             goerli: new Connection({
