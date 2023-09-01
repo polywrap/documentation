@@ -46,4 +46,4 @@ Some example projects that integrate the JS client can be found [here](https://g
 > Where `<project-name>` is replaced with a custom name of your choosing. For example `my-app`.
 >
 > This command will create a new project folder with a "Hello World" app that
-> lets you interact with two simple Wasm wraps at `wrap://ens/wraps.eth:logging@1.0.0` and `wrap://ens/wraps.eth:ethereum@1.0.0`.
+> lets you interact with two simple Wasm wraps at `wrap://wrapscan.io/polywrap/logger@1.0` and `wrap://wrapscan.io/polywrap/ethereum@1.0`.

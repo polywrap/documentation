@@ -74,7 +74,7 @@ At this point, you can already invoke Wraps! In the simple example below, we wil
 
 ```javascript
 const result = await client.invoke({
-  uri: "ens/wraps.eth:logger@1.0.0",
+  uri: "wrapscan.io/polywrap/logger@1.0",
   method: "log",
   args: {
     message: "Hello Polywrap!",
@@ -95,7 +95,7 @@ The first line is printed by the Logger Wrap, while the second line shows the st
 
 #### What's going on here?
 
-Using the Polywrap Client, we are invoking the `log` method of a Wrap found under the [WRAP URI](/concepts/uris) `ens/wraps.eth:logger@1.0.0` called the Logger Wrap.
+Using the Polywrap Client, we are invoking the `log` method of a Wrap found under the [WRAP URI](/concepts/uris) `wrapscan.io/polywrap/logger@1.0` called the Logger Wrap.
 
 Under the hood, through a process we call URI Resolution, the Polywrap Client knows how to fetch and execute the Wrap from decentralized storage.
 
@@ -124,7 +124,7 @@ We can use the Uniswap Wrap to fetch Uniswap's basic data related to the WETH an
 
 ```javascript
 const wethResult = await client.invoke({
-  uri: "ens/uniswap.wraps.eth:v3",
+  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
   method: "fetchToken",
   args: {
     address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -141,7 +141,7 @@ if(!wethResult.ok) {
 console.log("WETH:", wethResult.value);
 
 const usdcResult = await client.invoke({
-  uri: "ens/uniswap.wraps.eth:v3",
+  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
   method: "fetchToken",
   args: {
     address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -158,7 +158,7 @@ if(!usdcResult.ok) {
 console.log("USDC:", usdcResult.value);
 
 const poolAddressResult = await client.invoke({
-  uri: "ens/uniswap.wraps.eth:v3",
+  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
   method: "getPoolAddress",
   args: {
     tokenA: wethResult.value,
@@ -192,11 +192,11 @@ First, we will use the Ens Text Record Resolver Wrap to resolve the ENS domain t
 // We first want to resolve the ENS address (uniswap.wraps.eth)
 // and text record (v3) into an IPFS WRAP URI
 const resolutionResult = await client.invoke({
-  uri: "ens/wraps.eth:ens-text-record-uri-resolver-ext@1.0.0",
+  uri: "wrapscan.io/polywrap/wrapscan-uri-resolver@1.0",
   method: "tryResolveUri",
   args: {
-    authority: "ens",
-    path: "uniswap.wraps.eth:v3",
+    authority: "wrapscan.io",
+    path: "polywrap/uniswap-v3@1.0",
   },
 });
 
@@ -220,7 +220,7 @@ const cid = resolutionResult.value.uri.replace("wrap://ipfs/", "");
 
 // Since the CID is a directory, we need to add a path to the Wrap's manifest file
 const catResult = await client.invoke({
-  uri: "ens/wraps.eth:ipfs-http-client@1.0.0",
+  uri: "wrapscan.io/polywrap/ipfs-http-client@1.0",
   method: "cat",
   args: {
     cid: cid + "/wrap.info",
@@ -339,11 +339,11 @@ In the context of an application project, the Schema file defines which Wraps ou
 Taking a look at the file, we can see two `import` statements:
 
 ```graphql title="schema.graphql"
-#import * into Logging from "ens/wraps.eth:logging@1.0.0"
-#import * into Ethereum from "ens/wraps.eth:ethereum@1.0.0"
+#import * into Logging from "wrapscan.io/polywrap/logging@1.0"
+#import * into Ethereum from "wrapscan.io/polywrap/ethereum@1.0"
 ```
 
-An `import` statement defines which Wraps we are importing, therefore using within our application. Imports are namespaced - the Wrap found under the WRAP URI `ens/wraps.eth:logging@1.0.0` is going to be found within the `Logging_` namespace.
+An `import` statement defines which Wraps we are importing, therefore using within our application. Imports are namespaced - the Wrap found under the WRAP URI `wrapscan.io/polywrap/logging@1.0` is going to be found within the `Logging_` namespace.
 
 #### Generating types (`codegen`)
 
@@ -392,7 +392,7 @@ Let's revisit our Uniswap V3 Wrap example from the Quick Start tutorial. If we w
 
 ```javascript
 const usdcResult = await client.invoke({
-  uri: "ens/uniswap.wraps.eth:v3",
+  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
   method: "fetchToken",
   args: {
     address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -404,7 +404,7 @@ const usdcResult = await client.invoke({
 Instead, we can now add an `import` statement for the Uniswap V3 Wrap to our `schema.graphql` file:
 
 ```graphql title="schema.graphql"
-#import * into UniswapV3 from "ens/uniswap.wraps.eth:v3"
+#import * into UniswapV3 from "wrapscan.io/polywrap/uniswap-v3@1.0"
 ```
 
 Running `codegen` now will add all types defined inside the Uniswap V3 Wrap to our `wrap` folder:
