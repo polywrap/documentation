@@ -1,6 +1,6 @@
 ---
 id: clients
-title: Clients
+title: Available Clients
 ---
 
 A Client is any library that can resolve and invoke [Wraps](./concepts/wraps).
