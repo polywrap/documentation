@@ -15,7 +15,14 @@
 const sidebars = {
   docs: [
     'introduction',
-    'quick-start',
+    {
+      type: 'category',
+      label: 'Quick Start',
+      items: [
+        'quick-start/javascript',
+        'quick-start/swift',
+      ]
+    },
     'clients',
     'cli',
     {

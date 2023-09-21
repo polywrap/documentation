@@ -1,15 +1,11 @@
 ---
-id: quick-start
-title: 'Quick start'
+id: python
+title: 'Python'
 ---
 
 ## The Polywrap Client
 
-To use [Wraps](/concepts/wraps) in your app, all you need is the **Polywrap Client**!
-
-:::tip
-Currently we have a stable implementation of the Polywrap Client in Javascript. Python, Rust, Swift, Kotlin, and C# are coming soon.
-:::
+To use [Wraps](/concepts/wraps) in your app, all you need is the [Polywrap Client](/clients)!
 
 ### NodeJS application boilerplate
 
@@ -112,7 +108,7 @@ Although not particularly useful in our last example, our next example leverages
 
 ### Universal SDKs
 
-Now that we know how a Wrap is invoked, let's see Polywrap's true use-case: **universal SDKs**!
+Now that we know how a Wrap is invoked, let's see Polywrap's true power: **universal SDKs**!
 
 One of the greatest benefits of Polywrap for the end-user (you!) lies in the fact that you can use the Polywrap Client to invoke the same Wrap from a variety of platforms and languages. If there's a Polywrap Client for your language, you can invoke any Wrap. This means that you can use the same SDK across multiple languages!
 
@@ -241,4 +237,4 @@ const schema = new TextDecoder().decode(catResult.value);
 console.log(schema);
 ```
 
-In this example, we printed out a Wrap's Manifest file. This is a file that contains the definiton of the Wrap. Amongst other things it contains what types and methods are present within a Wrap, called the Wrap's Schema, and we'll talk more about it in the next section.
+In this example, we printed out a Wrap's Manifest file. This is a file that contains the definiton of the Wrap. Amongst other things it contains what types and methods are present within a Wrap, called the Wrap's Schema, and we'll talk more about that when we look at the [Polywrap CLI](/cli).
