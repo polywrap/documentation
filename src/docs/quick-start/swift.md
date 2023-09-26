@@ -44,42 +44,20 @@ Navigate to **File -> Add Package Dependency** and enter `https://github.com/pol
 
 In order to invoke a Wrap, we first need to instantiate the Polywrap Client:
 
-At the top of your `ContentView.swift` file, import the `PolywrapClient` and instantiate it using the `ClientConfigBuilder`:
+At the top of your `index.js` file, import the `PolywrapClient` and instantiate it:
 
-```swift title="ContentView.swift"
-import SwiftUI
-import PolywrapClient
+```javascript title="index.js"
+import { PolywrapClient } from "@polywrap/client-js";
 
-func run() -> Void {
-    // Your code will go here
-    let client = BuilderConfig()
-            .addSystemDefault()
-            .build()
-}
+const client = new PolywrapClient();
 ```
 
-At this point, you can already invoke Wraps! In the simple example below, we will invoke the Logger Wrap within our `run` function:
+At this point, you can already invoke Wraps! In the simple example below, we will invoke the Logger Wrap within our `main` function:
 
 ```javascript
-struct CatArgs: Codable {
-    var cid: String
-    var ipfsProvider: String
-}
-
-let logResult: Boolean = try client.invoke(
-    uri: try Uri("wrapscan.io/polywrap/logger@1.0"),
-    method: "cat",
-    args: CatArgs(
-        cid: resolveResult.cid,
-        ipfsProvider: resolveResult.provider
-    )
-)
-
-print(catResult)
-
 const result = await client.invoke({
-  uri: "wrapscan.io/polywrap/logger@1.0",
-  method: "log",
+  uri: "wrapscan.io/polywrap/sha3@1.0",
+  method: "sha3_256",
   args: {
     message: "Hello Polywrap!",
   },
@@ -88,18 +66,20 @@ const result = await client.invoke({
 console.log(result);
 ```
 
-Running the application using `node index.js`, you should now see two lines appear in your console:
+Running the application using `node index.js`, you should now see the following appear in your console:
 
 ```
-Hello Polywrap!
-{ ok: true, value: true }
+{
+  ok: true,
+  value: 'ba5a5d5fb7674f5975f0ecd0cd9a2f4bcadc9c04f5ac2ab3a887d8f10355fc38'
+}
 ```
 
-The first line is printed by the Logger Wrap, while the second line shows the structure of the `InvokeResult` object.
+Here we can see the structure of the `InvokeResult` object. It's `ok` field denotes whether the Wrap's invocation was successful, and the `value` is the return value of the invocation.
 
 #### What's going on here?
 
-Using the Polywrap Client, we are invoking the `log` method of a Wrap found under the [WRAP URI](/concepts/uris) `wrapscan.io/polywrap/logger@1.0` called the Logger Wrap.
+Using the Polywrap Client, we are invoking the `sha3_256` method of a Wrap found under the [WRAP URI](/concepts/uris) `wrapscan.io/polywrap/sha3@1.0` called the SHA3 Wrap.
 
 Under the hood, through a process we call URI Resolution, the Polywrap Client knows how to fetch and execute the Wrap from decentralized storage.
 
@@ -188,61 +168,4 @@ So far, we've only invoked a single Wrap, essentially using Polywrap to access a
 
 Using the Polywrap Client, we can invoke any number of SDKs, allowing us to build infinitely composable applications. If there's a Wrap for it, we can invoke it and use its functionality.
 
-In this chapter's last example, we will use two separate SDKs to figure out the IPFS hash behind the Logger Wrap's ENS domain record, then fetch that Wrap's schema (more about that in the next chapter).
-
-First, we will use the Ens Text Record Resolver Wrap to resolve the ENS domain to an IPFS Wrap URI.
-
-```javascript
-// We first want to resolve the ENS address (uniswap.wraps.eth)
-// and text record (v3) into an IPFS WRAP URI
-const resolutionResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/wrapscan-uri-resolver@1.0",
-  method: "tryResolveUri",
-  args: {
-    authority: "wrapscan.io",
-    path: "polywrap/uniswap-v3@1.0",
-  },
-});
-
-if (!resolutionResult.ok) {
-  console.log(resolutionResult.error);
-  return;
-}
-
-console.log(resolutionResult.value);
-```
-
-Now, if we look at the `uri` property of `resolutionResult.value`, we will see a WRAP URI. 
-We can also see a `manifest` property which is set to `null`, which you can safely ignore for now.
-This is because our ENS Text Record Resolver Wrap only resolves from an ENS Text Record to another URI.
-
-Once we have the IPFS hash, we will use the IPFS Wrap to fetch the contents of the Wrap's manifest file (`wrap.info`), and print them out.
-
-```javascript
-// Extract the IPFS CID from the resolution result's URI
-const cid = resolutionResult.value.uri.replace("wrap://ipfs/", "");
-
-// Since the CID is a directory, we need to add a path to the Wrap's manifest file
-const catResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/ipfs-http-client@1.0",
-  method: "cat",
-  args: {
-    cid: cid + "/wrap.info",
-    ipfsProvider: "https://ipfs.wrappers.io"
-  },
-});
-
-console.log(catResult);
-
-if (!catResult.ok) {
-  console.log(catResult.error);
-  return;
-}
-
-// Turn the returned buffer into a string and log it
-const schema = new TextDecoder().decode(catResult.value);
-
-console.log(schema);
-```
-
-In this example, we printed out a Wrap's Manifest file. This is a file that contains the definiton of the Wrap. Amongst other things it contains what types and methods are present within a Wrap, called the Wrap's Schema, and we'll talk more about that when we look at the [Polywrap CLI](/cli).
+Visit [Wrapscan](https://www.wrapscan.io/) and the [awesome-polywrap](https://github.com/polywrap/awesome-polywrap) repository to find a curated list of Wraps we and our community have developed.

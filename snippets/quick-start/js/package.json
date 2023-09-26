@@ -1,0 +1,17 @@
+{
+  "name": "templates-app-typescript",
+  "description": "Polywrap App TypeScript Template",
+  "private": true,
+  "version": "0.12.0",
+  "type": "module",
+  "scripts": {
+    "codegen": "npx polywrap codegen",
+    "test": "node ./src/index.js"
+  },
+  "dependencies": {
+    "@polywrap/client-js": "~0.12.0"
+  },
+  "devDependencies": {
+    "polywrap": "0.12.0"
+  }
+}

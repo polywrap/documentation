@@ -72,10 +72,11 @@
   },
   "doc-snippets": {
     "extract": {
-      "include": "./**/*.{ts,tsx,json,yaml,txt,md,graphql,cue}",
+      "include": "./**/*.{ts,tsx,js,json,yaml,txt,md,graphql,cue}",
       "ignore": [
         "./**/node_modules/**",
-        "./**/.polywrap/**"
+        "./**/.polywrap/**",
+        "./**/build/**"
       ],
       "dir": "./snippets"
     },

@@ -61,37 +61,29 @@ In order to invoke a Wrap, we first need to instantiate the Polywrap Client:
 At the top of your `index.js` file, import the `PolywrapClient` and instantiate it:
 
 ```javascript title="index.js"
-import { PolywrapClient } from "@polywrap/client-js";
-
-const client = new PolywrapClient();
+$snippet: quickstart-js-init-client
 ```
 
 At this point, you can already invoke Wraps! In the simple example below, we will invoke the Logger Wrap within our `main` function:
 
 ```javascript
-const result = await client.invoke({
-  uri: "wrapscan.io/polywrap/logger@1.0",
-  method: "log",
-  args: {
-    message: "Hello Polywrap!",
-  },
-});
-
-console.log(result);
+$snippet: quickstart-js-1st-invoke
 ```
 
-Running the application using `node index.js`, you should now see two lines appear in your console:
+Running the application using `node index.js`, you should now see the following appear in your console:
 
 ```
-Hello Polywrap!
-{ ok: true, value: true }
+{
+  ok: true,
+  value: 'ba5a5d5fb7674f5975f0ecd0cd9a2f4bcadc9c04f5ac2ab3a887d8f10355fc38'
+}
 ```
 
-The first line is printed by the Logger Wrap, while the second line shows the structure of the `InvokeResult` object.
+Here we can see the structure of the `InvokeResult` object. It's `ok` field denotes whether the Wrap's invocation was successful, and the `value` is the return value of the invocation.
 
 #### What's going on here?
 
-Using the Polywrap Client, we are invoking the `log` method of a Wrap found under the [WRAP URI](/concepts/uris) `wrapscan.io/polywrap/logger@1.0` called the Logger Wrap.
+Using the Polywrap Client, we are invoking the `sha3_256` method of a Wrap found under the [WRAP URI](/concepts/uris) `wrapscan.io/polywrap/sha3@1.0` called the SHA3 Wrap.
 
 Under the hood, through a process we call URI Resolution, the Polywrap Client knows how to fetch and execute the Wrap from decentralized storage.
 
@@ -103,8 +95,6 @@ The `InvokeResult` object can have one of two structures:
 
 - A successful Wrap invocation returns `{ ok: true, value: ... }` with `value` being the return value of the Wrap invocation. This can be anything - a boolean value, a string, an object, etc.
 - A failed Wrap invocation returns `{ ok: false, error: ... }` with `error` describing the reason for invocation failure.
-
-Although not particularly useful in our last example, our next example leverages the fact that Wrap invocations return a value.
 
 ### Universal SDKs
 
@@ -119,57 +109,7 @@ Now we'll invoke the Uniswap V3 Wrap which is a port of the Uniswap SDK, but wri
 We can use the Uniswap Wrap to fetch Uniswap's basic data related to the WETH and USDC tokes, find the address of the pool for those two tokens. We are also checking each result for errors.
 
 ```javascript
-const wethResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
-  method: "fetchToken",
-  args: {
-    address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-    chainId: "MAINNET",
-  },
-});
-
-// Log the invocation error and stop execution if the invocation fails
-if(!wethResult.ok) {
-  console.log(wethResult.error)
-  return;
-}
-
-console.log("WETH:", wethResult.value);
-
-const usdcResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
-  method: "fetchToken",
-  args: {
-    address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-    chainId: "MAINNET",
-  },
-});
-
-// Log the invocation error and stop execution if the invocation fails
-if(!usdcResult.ok) {
-  console.log(usdcResult.error)
-  return;
-}
-
-console.log("USDC:", usdcResult.value);
-
-const poolAddressResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
-  method: "getPoolAddress",
-  args: {
-    tokenA: wethResult.value,
-    tokenB: usdcResult.value,
-    fee: "MEDIUM"
-  },
-});
-
-// Log the invocation error and stop execution if the invocation fails
-if(!poolAddressResult.ok) {
-  console.log(poolAddressResult.error);
-  return;
-}
-
-console.log("Pool address:", poolAddressResult.value);
+$snippet: quickstart-js-uniswap
 ```
 
 You can see more examples on how to use the Uniswap V3 Wrap in its [docs page](https://uniswap.docs.wrappers.io/).
@@ -180,61 +120,4 @@ So far, we've only invoked a single Wrap, essentially using Polywrap to access a
 
 Using the Polywrap Client, we can invoke any number of SDKs, allowing us to build infinitely composable applications. If there's a Wrap for it, we can invoke it and use its functionality.
 
-In this chapter's last example, we will use two separate SDKs to figure out the IPFS hash behind the Logger Wrap's ENS domain record, then fetch that Wrap's schema (more about that in the next chapter).
-
-First, we will use the Ens Text Record Resolver Wrap to resolve the ENS domain to an IPFS Wrap URI.
-
-```javascript
-// We first want to resolve the ENS address (uniswap.wraps.eth)
-// and text record (v3) into an IPFS WRAP URI
-const resolutionResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/wrapscan-uri-resolver@1.0",
-  method: "tryResolveUri",
-  args: {
-    authority: "wrapscan.io",
-    path: "polywrap/uniswap-v3@1.0",
-  },
-});
-
-if (!resolutionResult.ok) {
-  console.log(resolutionResult.error);
-  return;
-}
-
-console.log(resolutionResult.value);
-```
-
-Now, if we look at the `uri` property of `resolutionResult.value`, we will see a WRAP URI. 
-We can also see a `manifest` property which is set to `null`, which you can safely ignore for now.
-This is because our ENS Text Record Resolver Wrap only resolves from an ENS Text Record to another URI.
-
-Once we have the IPFS hash, we will use the IPFS Wrap to fetch the contents of the Wrap's manifest file (`wrap.info`), and print them out.
-
-```javascript
-// Extract the IPFS CID from the resolution result's URI
-const cid = resolutionResult.value.uri.replace("wrap://ipfs/", "");
-
-// Since the CID is a directory, we need to add a path to the Wrap's manifest file
-const catResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/ipfs-http-client@1.0",
-  method: "cat",
-  args: {
-    cid: cid + "/wrap.info",
-    ipfsProvider: "https://ipfs.wrappers.io"
-  },
-});
-
-console.log(catResult);
-
-if (!catResult.ok) {
-  console.log(catResult.error);
-  return;
-}
-
-// Turn the returned buffer into a string and log it
-const schema = new TextDecoder().decode(catResult.value);
-
-console.log(schema);
-```
-
-In this example, we printed out a Wrap's Manifest file. This is a file that contains the definiton of the Wrap. Amongst other things it contains what types and methods are present within a Wrap, called the Wrap's Schema, and we'll talk more about that when we look at the [Polywrap CLI](/cli).
+Visit [Wrapscan](https://www.wrapscan.io/) and the [awesome-polywrap](https://github.com/polywrap/awesome-polywrap) repository to find a curated list of Wraps we and our community have developed.
