@@ -51,7 +51,7 @@ You can now instantiate the Polywrap Client with a default configuration within 
 $snippet: quickstart-kt-init-client
 ```
 
-At this point, you can already invoke Wraps! In the simple example below, we will invoke the Logger Wrap within our `main` function:
+At this point, you can already invoke Wraps! In the simple example below, we will invoke the SHA3 Wrap within our `main` function:
 
 ```kotlin title="App.kt"
 $snippet: quickstart-kt-invoke-client

@@ -150,8 +150,9 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: [
           "rust",
-          "swift",
-          "kotlin"
+          "python",
+          "kotlin",
+          "swift"
         ]
       },
     }),

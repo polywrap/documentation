@@ -64,7 +64,7 @@ At the top of your `index.js` file, import the `PolywrapClient` and instantiate 
 $snippet: quickstart-js-init-client
 ```
 
-At this point, you can already invoke Wraps! In the simple example below, we will invoke the Logger Wrap within our `main` function:
+At this point, you can already invoke Wraps! In the simple example below, we will invoke the SHA3 Wrap within our `main` function:
 
 ```javascript
 $snippet: quickstart-js-1st-invoke
