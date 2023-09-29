@@ -7,89 +7,63 @@ title: 'Kotlin'
 
 To use [Wraps](/concepts/wraps) in your app, all you need is the [Polywrap Client](/clients)!
 
-### NodeJS application boilerplate
+### Kotlin application boilerplate
 
-We'll be using a simple NodeJS application boilerplate for this guide.
+We'll be using a simple console application written in Kotlin for this guide.
 
-Using `npm init` or `yarn init` within a directory initialize an empty NodeJS project.
+You can either set up a new application through an IDE of your choice, or use `gradle` to initialize a project.
 
-Within `package.json`, change the `type` of the project to `"module"`. This is not required as you can also use `require`.
+If using `gradle`, all you need to do is run `gradle init` within your project folder.
 
-```json title="package.json"
-{
-  "name": "my-app-name",
-  //...
-  "type": "module",
-  //...
+Make sure to:
+
+- Select `kotlin` as your implementation language
+- Use `Kotlin` as your build script DSL
+- Use a minimum target Java version of 17
+
+Inside `build.gradle.kts`, you need to update your `plugins` and `dependencies` sections:
+
+```kotlin title="build.gradle.kts"
+$snippet: quickstart-kt-gradle-plugins
+
+//...
+
+dependencies {
+  $snippet: quickstart-kt-gradle-dependencies
 }
 ```
 
-Add an `index.js` file with the following code:
-
-```javascript title="index.js"
-async function main() {
-  // your code goes here...
-}
-
-main()
-  .then(() => {
-    process.exit(0);
-  })
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
-
-```
-
-### Install the Polywrap Client
-
-Using `NPM`:
-```
-npm install --save @polywrap/client-js
-```
-
-Using `yarn`:
-```
-yarn add @polywrap/client-js
-```
+Now you can use the Polywrap Client inside your Kotlin app!
 
 ### Invoking your first Wrap
 
 In order to invoke a Wrap, we first need to instantiate the Polywrap Client:
 
-At the top of your `index.js` file, import the `PolywrapClient` and instantiate it:
+At the top of your app's main file (usually `App.kt`), import the Polywrap Client:
 
-```javascript title="index.js"
-import { PolywrapClient } from "@polywrap/client-js";
+```kotlin title="App.kt"
+$snippet: quickstart-kt-import-client
+```
 
-const client = new PolywrapClient();
+You can now instantiate the Polywrap Client with a default configuration within your `main` function:
+
+```kotlin title="App.kt"
+$snippet: quickstart-kt-init-client
 ```
 
 At this point, you can already invoke Wraps! In the simple example below, we will invoke the Logger Wrap within our `main` function:
 
-```javascript
-const result = await client.invoke({
-  uri: "wrapscan.io/polywrap/sha3@1.0",
-  method: "sha3_256",
-  args: {
-    message: "Hello Polywrap!",
-  },
-});
-
-console.log(result);
+```kotlin title="App.kt"
+$snippet: quickstart-kt-invoke-client
 ```
 
-Running the application using `node index.js`, you should now see the following appear in your console:
+Running the application using `./gradlew run` or through your IDE, you should now see the following appear in your console:
 
 ```
-{
-  ok: true,
-  value: 'ba5a5d5fb7674f5975f0ecd0cd9a2f4bcadc9c04f5ac2ab3a887d8f10355fc38'
-}
+Success(ba5a5d5fb7674f5975f0ecd0cd9a2f4bcadc9c04f5ac2ab3a887d8f10355fc38)
 ```
 
-Here we can see the structure of the `InvokeResult` object. It's `ok` field denotes whether the Wrap's invocation was successful, and the `value` is the return value of the invocation.
+This is the `InvokeResult` object. It's `isSuccess` and `isFailure` properties denote whether the Wrap's invocation was successful, and we will see how to get the return value of the invocation in the next section.
 
 #### What's going on here?
 
@@ -101,12 +75,9 @@ The `PolywrapClient` comes pre-configured with everything you need for most Web2
 
 #### The `InvokeResult` object
 
-The `InvokeResult` object can have one of two structures:
+The `InvokeResult` is an alias of the stdlib [`Result`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-result/) object.
 
-- A successful Wrap invocation returns `{ ok: true, value: ... }` with `value` being the return value of the Wrap invocation. This can be anything - a boolean value, a string, an object, etc.
-- A failed Wrap invocation returns `{ ok: false, error: ... }` with `error` describing the reason for invocation failure.
-
-Although not particularly useful in our last example, our next example leverages the fact that Wrap invocations return a value.
+On successful invocations, you can extract the return value of the invocation, while on errors you can extract the underlying wrap execution exception.
 
 ### Universal SDKs
 
@@ -120,58 +91,8 @@ Now we'll invoke the Uniswap V3 Wrap which is a port of the Uniswap SDK, but wri
 
 We can use the Uniswap Wrap to fetch Uniswap's basic data related to the WETH and USDC tokes, find the address of the pool for those two tokens. We are also checking each result for errors.
 
-```javascript
-const wethResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
-  method: "fetchToken",
-  args: {
-    address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-    chainId: "MAINNET",
-  },
-});
-
-// Log the invocation error and stop execution if the invocation fails
-if(!wethResult.ok) {
-  console.log(wethResult.error)
-  return;
-}
-
-console.log("WETH:", wethResult.value);
-
-const usdcResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
-  method: "fetchToken",
-  args: {
-    address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-    chainId: "MAINNET",
-  },
-});
-
-// Log the invocation error and stop execution if the invocation fails
-if(!usdcResult.ok) {
-  console.log(usdcResult.error)
-  return;
-}
-
-console.log("USDC:", usdcResult.value);
-
-const poolAddressResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
-  method: "getPoolAddress",
-  args: {
-    tokenA: wethResult.value,
-    tokenB: usdcResult.value,
-    fee: "MEDIUM"
-  },
-});
-
-// Log the invocation error and stop execution if the invocation fails
-if(!poolAddressResult.ok) {
-  console.log(poolAddressResult.error);
-  return;
-}
-
-console.log("Pool address:", poolAddressResult.value);
+```kotlin title="App.kt"
+$snippet: quickstart-kt-uniswap
 ```
 
 You can see more examples on how to use the Uniswap V3 Wrap in its [docs page](https://uniswap.docs.wrappers.io/).
