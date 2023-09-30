@@ -72,7 +72,7 @@
   },
   "doc-snippets": {
     "extract": {
-      "include": "./**/*.{ts,tsx,js,json,yaml,txt,md,graphql,cue,kt,kts,py}",
+      "include": "./**/*.{ts,tsx,js,json,yaml,txt,md,graphql,cue,kt,kts,py,swift}",
       "ignore": [
         "./**/node_modules/**",
         "./**/.polywrap/**",

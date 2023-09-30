@@ -67,45 +67,6 @@ async function main() {
 
   console.log("Pool address:", poolAddressResult.value);
 // $end
-
-// $start: quickstart-js-resolve
-  // We first want to resolve the IPFS WRAP URI of the UniswapV3 Wrap
-  const resolutionResult = await client.tryResolveUri({
-    uri: "wrapscan.io/polywrap/wrapscan-uri-resolver@1.0",
-  });
-
-  if (!resolutionResult.ok) {
-    throw resolutionResult.error;
-  }
-
-  console.log(resolutionResult.value);
-// $end
-
-// $start: quickstart-js-get-schema
-  // Extract the IPFS CID from the resolution result's URI
-  const cid = resolutionResult.value.uri.uri.replace("wrap://ipfs/", "");
-
-  // Since the CID is a directory, we need to add a path to the Wrap's manifest file
-  const catResult = await client.invoke({
-    uri: "wrapscan.io/polywrap/ipfs-http-client@1.0",
-    method: "cat",
-    args: {
-      cid: cid + "/wrap.info",
-      ipfsProvider: "https://ipfs.wrappers.io",
-    },
-  });
-
-  console.log(catResult);
-
-  if (!catResult.ok) {
-    throw catResult.error;
-  }
-
-  // Turn the returned buffer into a string and log it
-  const schema = new TextDecoder().decode(catResult.value);
-
-  console.log(schema);
-// $end
 }
 
 main()
