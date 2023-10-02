@@ -23,6 +23,7 @@ const sidebars = {
         'quick-start/python',
         'quick-start/kotlin',
         'quick-start/swift',
+        'quick-start/rust',
       ]
     },
     'clients',

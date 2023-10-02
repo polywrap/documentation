@@ -149,10 +149,12 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: [
+          "toml",
           "rust",
           "python",
           "kotlin",
-          "swift"
+          "swift",
+          "rust"
         ]
       },
     }),
