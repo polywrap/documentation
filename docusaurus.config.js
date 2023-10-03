@@ -154,7 +154,8 @@ const config = {
           "python",
           "kotlin",
           "swift",
-          "rust"
+          "rust",
+          "shell-session"
         ]
       },
     }),

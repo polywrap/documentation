@@ -1,0 +1,4 @@
+# $start: cli-ts-app-schema
+#import * into Logging from "wrapscan.io/polywrap/logging@1"
+#import * into Ethers from "wrapscan.io/polywrap/ethers@1.0"
+# $end

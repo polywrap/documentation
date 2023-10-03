@@ -1,0 +1,8 @@
+# $start: cli-swift-app-manifest
+format: 0.5.0
+project:
+  name: Sample
+  type: app/swift
+source:
+  schema: ./polywrap.graphql
+# $end

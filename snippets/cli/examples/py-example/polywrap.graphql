@@ -1,0 +1,3 @@
+# $start: cli-py-app-schema
+#import * into EthersUtils from "wrapscan.io/polywrap/ethers-utils@1"
+# $end

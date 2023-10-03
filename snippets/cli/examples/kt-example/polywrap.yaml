@@ -1,0 +1,8 @@
+# $start: cli-kt-app-manifest
+format: 0.5.0
+project:
+  name: Sample
+  type: app/kotlin
+source:
+  schema: ./polywrap.graphql
+# $end

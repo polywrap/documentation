@@ -3,39 +3,39 @@ id: cli
 title: The Polywrap CLI
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Now that we have a basic understanding of the Polywrap Client, it's time to see how we can use the Polywrap CLI to create an amazing experience when working with Wraps.
 
-### Installation
+## Installation
 
-To install the Polywrap CLI, add the `polywrap` package as a dev dependency to your project:
+:::info
+For all possible ways to install the Polywrap CLI, please refer to its [README](https://github.com/polywrap/cli/blob/origin-dev/packages/cli/README.md#the-polywrap-cli-polywrap).
+:::
 
-NPM:
-```
-npm i --save-dev polywrap
-```
+There are two main ways to install the Polywrap CLI:
 
-Yarn:
-```
-yarn add --dev polywrap
-```
+If you're developing in Javascript/Typescript and using Node, you can install the CLI globally:
 
-You can also install the Polywrap CLI globally:
-
-NPM:
-```
+```shell-sesssion
 npm i -g polywrap
 ```
 
-Yarn:
-```
-yarn global add polywrap
+Alternatively, you can use the standalone version by downloading and running its install script:
+
+```shell-session
+$ sh <(curl https://raw.githubusercontent.com/polywrap/cli/origin-dev/install.sh)
+
+# Installs to `~/.polywrap`
+# If polywrap is already installed, the script instead checks for updates
 ```
 
-### Overview
+## Overview
 
 The Polywrap CLI allows us not only to build, test, and deploy Wraps, but also generate types for our applications which use the Polywrap Client.
 
-This tutorial assumes that you installed `polywrap` globally, but you can always prefix the commands with `npx` or `yarn run` to run the locally installed version of your Polywrap CLI.
+This tutorial assumes that you installed `polywrap` globally.
 
 You can see all available commands by running:
 
@@ -43,173 +43,275 @@ You can see all available commands by running:
 polywrap help
 ```
 
-### Create a Polywrap-powered application
+## Create a Polywrap-powered application
 
-:::tip
-If you already have an application you want to add Polywrap to, it is advised that you still follow this guide and transfer/modify the `polywrap.yaml` and `src/schema.graphql` files once you're done with this tutorial.
-:::
+Polywrap allows you to integrate wraps into your app in a type-safe manner for supported languages.
 
-The Polywrap CLI can be used to quickly set up a template application. For this tutorial, we will create a sample Node application written in Typescript and use the Polywrap Client to invoke multiple Wraps.
+Currently, Polywrap has type-safety support for:
 
-To set up a Polywrap-powered application, run:
+- Typescript
+- Rust
+- Python
+- Kotlin
+- Swift
 
-```
-polywrap create app typescript my-application
-```
+The Polywrap CLI allows you to create a template project in any of these languages with type safety built in.
 
-This uses the `create` command to set up a template Node application written in Typescript called `my-application` inside the `my-application/` directory. Now we want to navigate into the application folder and install its dependencies.
+Let's start with creating a new project using the Polywrap CLI:
 
-```
-cd my-application
-yarn
-```
+<Tabs groupId="project">
+  <TabItem value="typescript" label="Typescript">
 
-If you take a look at `package.json`, you'll find the app depends on `@polywrap/client-js` and has a dev dependency on `polywrap`, with the addition of minimal dev dependencies that allow us to develop the app using Typescript.
+  ```shell-session
+  polywrap create app typescript my-app
+  ```
 
-Now let's take a look at some of the files Polywrap works with.
+  </TabItem>
+
+  <TabItem value="rust" label="Rust">
+
+  ```shell-session
+  polywrap create app rust my-app
+  ```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```shell-session
+  polywrap create app python my-app
+  ```
+
+  </TabItem>
+
+  <TabItem value="kotlin" label="Kotlin/Android">
+
+  ```shell-session
+  polywrap create app android my-app
+  ```
+
+  </TabItem>
+
+  <TabItem value="swift" label="Swift/iOS">
+
+  ```shell-session
+  polywrap create app ios my-app
+  ```
+
+  </TabItem>
+</Tabs>
+
+This will create a basic application in the language of your choice.
+There are two key files we want to take a look at, which define our Polywrap-powered project and allow us to perform code generation for type-safety. Let's take a look at them:
 
 ### The Polywrap Manifest (`polywrap.yaml`)
 
-In order for the Polywrap CLI to know what it's working with, it needs a Polywrap Manifest file to obtain some basic information about your project. This is the `polywrap.yaml` file.
+In order for the Polywrap CLI to know what kind of project it's working with, it needs a Polywrap Manifest file to obtain some basic information about your project. This is the `polywrap.yaml` file.
 
 It has a structure similar to this:
-```yaml title="polywrap.yaml"
-format: 0.3.0
-project:
-  name: Sample
-  type: app/typescript
-source:
-  schema: ./schema.graphql
-```
+
+<Tabs groupId="project">
+  <TabItem value="typescript" label="Typescript">
+
+  ```yaml title="polywrap.yaml"
+  $snippet: cli-ts-app-manifest
+  ```
+
+  </TabItem>
+
+  <TabItem value="rust" label="Rust">
+
+  ```yaml title="polywrap.yaml"
+  $snippet: cli-rust-app-manifest
+  ```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```yaml title="polywrap.yaml"
+  $snippet: cli-py-app-manifest
+  ```
+
+  </TabItem>
+
+  <TabItem value="kotlin" label="Kotlin/Android">
+
+  ```yaml title="polywrap.yaml"
+  $snippet: cli-kt-app-manifest
+  ```
+
+  </TabItem>
+
+  <TabItem value="swift" label="Swift/iOS">
+
+  ```yaml title="polywrap.yaml"
+  $snippet: cli-swift-app-manifest
+  ```
+
+  </TabItem>
+</Tabs>
 
 The `format` property denotes the version of the Polywrap Manifest format. Under `project`, you can set the `name` field to the name of your application, while the `type` field describes the project type, thus letting the CLI know how to interact with the application code.
 
 Under the `source` section, we have a `schema` field with a path that leads to a Schema file.
 
-In the context of a Polywrap-powered application project, this file defines which Wraps our application imports/uses. This will come in handy later when we'll use the CLI to generate types and code which your app will use.
+### The Schema File (`polywrap.graphql`)
 
-#### The Schema File (`schema.graphql`)
-
-Every Polywrap project has a Schema file - it defines the types found within the project, what Wraps the project imports, and, in the case of a WASM Wrap, the methods that Wrap exposes.
+Every Polywrap project has a Schema file - it defines the types found within the project, what Wraps the project imports, and, in the context of a Wrap project, the methods that Wrap exposes.
 
 In the context of an application project, the Schema file defines which Wraps our application imports and is used by the CLI to generate code with which we can invoke our Wraps in a type-safe manner.
 
-Taking a look at the file, we can see two `import` statements:
+Taking a look at the file, we can see `import` statements:
 
-```graphql title="schema.graphql"
-#import * into Logging from "wrapscan.io/polywrap/logging@1.0"
-#import * into Ethereum from "wrapscan.io/polywrap/ethereum@1.0"
-```
+<Tabs groupId="project">
+  <TabItem value="typescript" label="Typescript">
 
-An `import` statement defines which Wraps we are importing, therefore using within our application. Imports are namespaced - the Wrap found under the WRAP URI `wrapscan.io/polywrap/logging@1.0` is going to be found within the `Logging_` namespace.
+  ```yaml title="polywrap.graphql"
+  $snippet: cli-ts-app-schema
+  ```
 
-#### Generating types (`codegen`)
+  </TabItem>
 
-:::caution
-While we used Javascript in previous samples, Polywrap is native to Typescript, and all future examples will be written in Typescript.
-:::
+  <TabItem value="rust" label="Rust">
+
+  ```yaml title="polywrap.graphql"
+  $snippet: cli-rust-app-schema
+  ```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```yaml title="polywrap.graphql"
+  $snippet: cli-py-app-schema
+  ```
+
+  </TabItem>
+
+  <TabItem value="kotlin" label="Kotlin/Android">
+
+  ```yaml title="polywrap.graphql"
+  $snippet: cli-kt-app-schema
+  ```
+
+  </TabItem>
+
+  <TabItem value="swift" label="Swift/iOS">
+
+  ```yaml title="polywrap.graphql"
+  $snippet: cli-swift-app-schema
+  ```
+
+  </TabItem>
+</Tabs>
+
+An `import` statement defines which Wraps we are importing, therefore using within our application.
+
+### Generating types (`codegen`)
 
 Now that we know how we can "import" Wraps into our application, we can use the `codegen` command inside the Polywrap CLI to generate types that represent our Wraps which we can use within our application.
 
-To generate types, all we need to do is run the `codegen` command:
+To generate types, all we need to do is run the `codegen` command inside our project's root directory:
 
-```
+```shell-session
 polywrap codegen
 ```
 
-This will generate types inside the `src/wrap` directory which you will use within your application.
+This will generate types inside a `wrap` directory which you will be able to import within your application.
 
-### Introduce type-safety into your code
+## Introduce type-safety into your code
 
-Now that we have our types generated, we can take a look at our sample application's `src/index.ts` file.
+Now that we have our types generated, we can take a look at our sample application's main file.
 
 Let's first take a look at some of the imports:
 
-```typescript
-import {
-  Logging_Module,
-  Ethereum_Module,
-} from "./wrap";
+<Tabs groupId="project">
+  <TabItem value="typescript" label="Typescript">
+
+  ```typescript title="index.ts"
+  $snippet: cli-ts-app-imports
+  ```
+
+  </TabItem>
+
+  <TabItem value="rust" label="Rust">
+
+  ```rust title="lib.rs"
+  $snippet: cli-rust-app-imports
+  ```
+
+  </TabItem>
+
+  <TabItem value="python" label="Python">
+
+  ```python title="__main__.py"
+  $snippet: cli-py-app-imports
+  ```
+
+  </TabItem>
+
+  <TabItem value="kotlin" label="Kotlin/Android">
+
+  ```kotlin title="PolywrapDemoViewModel.kt"
+  $snippet: cli-kt-app-imports
+  ```
+
+  </TabItem>
+
+  <TabItem value="swift" label="Swift/iOS">
+
+  ```swift title="PolywrapDemo.swift"
+  // There is no need for imports in Swift, as all classes are in the app's namespace
+  ```
+
+  </TabItem>
+</Tabs>
+
+Here we can see that we've imported Module types that represent our Wraps, according to their specified namespace. Using these types, we can invoke our Wraps in a type-safe manner, without having to repeatedly specify the Wrap URI or do any guesswork regarding invoke argument/return types:
+
+
+<Tabs groupId="project">
+<TabItem value="typescript" label="Typescript">
+
+```typescript title="index.ts"
+$snippet: cli-ts-app-typesafe
 ```
 
-Here we can see that we've imported Module types that represent our Wraps, according to their specified namespace. Using these types, we can invoke our Wraps in a type-safe manner, without having to repeatedly specify the Wrap URI:
+</TabItem>
 
-```typescript
-const client = new PolywrapClient();
+<TabItem value="rust" label="Rust">
 
-await Logging_Module.info({
-  message: "Hello there",
-}, client);
+```rust title="lib.rs"
+$snippet: cli-rust-app-typesafe
 ```
+
+</TabItem>
+
+<TabItem value="python" label="Python">
+
+```python title="__main__.py"
+$snippet: cli-py-app-typesafe
+```
+
+</TabItem>
+
+<TabItem value="kotlin" label="Kotlin/Android">
+
+```kotlin title="PolywrapDemoViewModel.kt"
+$snippet: cli-kt-app-typesafe
+```
+
+</TabItem>
+
+<TabItem value="swift" label="Swift/iOS">
+
+```swift title="PolywrapDemo.swift"
+$snippet: cli-swift-app-typesafe
+```
+
+</TabItem>
+</Tabs>
+
 
 This allows us to write all of our code in a type-safe manner, and allows for IDEs like VS Code to give us autocompletion suggestions via IntelliSense. Now we can explore our Wraps by simply importing them and trying them out!
-
-### A real-world example, revisited
-
-Let's revisit our Uniswap V3 Wrap example from the Quick Start tutorial. If we wanted to invoke the Uniswap V3 Wrap without codegen, we had to write the following code:
-
-```javascript
-const usdcResult = await client.invoke({
-  uri: "wrapscan.io/polywrap/uniswap-v3@1.0",
-  method: "fetchToken",
-  args: {
-    address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-    chainId: "MAINNET",
-  },
-});
-```
-
-Instead, we can now add an `import` statement for the Uniswap V3 Wrap to our `schema.graphql` file:
-
-```graphql title="schema.graphql"
-#import * into UniswapV3 from "wrapscan.io/polywrap/uniswap-v3@1.0"
-```
-
-Running `codegen` now will add all types defined inside the Uniswap V3 Wrap to our `wrap` folder:
-
-```
-polywrap codegen
-```
-
-We can now import the `UniswapV3_Module` and supporting types into our `index.ts` file:
-
-```typescript
-import {
-  UniswapV3_Module,
-  UniswapV3_ChainIdEnum,
-} from "./wrap";
-```
-
-We can now invoke the Uniswap V3 Wrap by writing:
-
-```typescript
-const usdcResult = await UniswapV3_Module.fetchToken(
-  {
-    address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-    chainId: UniswapV3_ChainIdEnum.MAINNET,
-  },
-  client
-);
-```
-
-Already inside the invocation, we can see that the `chainId` is an `enum` type, with all supported networks already listed. Polywrap also takes care of required and optional arguments, and if you play around, you will find that we omitted the `name` and `symbol` optional invocation arguments.
-
-If `usdcResult.ok` is true, its `value` will now have a type of `UniswapV3_Token`:
-
-```typescript
-if(!usdcResult.ok) {
-  console.error(usdcResult.error);
-  return;
-}
-
-// token is now of type UniswapV3_Token found in "./wrap"
-const token = usdcResult.value;
-
-console.log(token);
-```
-
-As you can see, Polywrap allows us to invoke any SDK or other piece of executable logic packaged as a Wrap in a type-safe manner, accross a multitude of platforms and languages!
-
-Of course, by using the Polywrap CLI you can build your own Wraps which you will be able to run anywhere where there's a Polywrap Client.
-
-Make sure to check out our list of supported (and coming) clients, and proceed to the next section to see what Wraps are readily available!

@@ -20,10 +20,10 @@ const sidebars = {
       label: 'Quick Start',
       items: [
         'quick-start/javascript',
+        'quick-start/rust',
         'quick-start/python',
         'quick-start/kotlin',
         'quick-start/swift',
-        'quick-start/rust',
       ]
     },
     'clients',
