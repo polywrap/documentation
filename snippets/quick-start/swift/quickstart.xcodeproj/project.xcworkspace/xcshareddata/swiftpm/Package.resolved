@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "asyncobjects",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyLab/AsyncObjects.git",
+      "state" : {
+        "revision" : "93aacfba87d738ac94fb50c2a6768c43ec9d42eb",
+        "version" : "2.1.0"
+      }
+    },
+    {
+      "identity" : "messagepacker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hirotakan/MessagePacker.git",
+      "state" : {
+        "revision" : "4d8346c6bc579347e4df0429493760691c5aeca2",
+        "version" : "0.4.7"
+      }
+    },
+    {
+      "identity" : "swift-client",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/polywrap/swift-client",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9dd4e3fcc063876117fe7ccbc2e8d3acc29f4a96"
+      }
+    },
+    {
+      "identity" : "swift-collections",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-collections.git",
+      "state" : {
+        "revision" : "937e904258d22af6e447a0b72c0bc67583ef64a2",
+        "version" : "1.0.4"
+      }
+    }
+  ],
+  "version" : 2
+}

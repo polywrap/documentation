@@ -1,0 +1,3 @@
+# $start: cli-rust-app-schema
+#import * into Ipfs from "wrapscan.io/polywrap/ipfs-http-client@1.0"
+# $end

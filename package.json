@@ -32,8 +32,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "2.4.0",
-    "@docusaurus/preset-classic": "2.4.0",
+    "@docusaurus/core": "^2.4.3",
+    "@docusaurus/preset-classic": "^2.4.3",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mdx-js/react": "^1.6.22",
@@ -47,7 +47,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.4.0",
+    "@docusaurus/module-type-aliases": "^2.4.3",
     "@tsconfig/docusaurus": "^1.0.5",
     "doc-snippets": "^1.0.0",
     "npm-run-all": "^4.1.5",
@@ -72,10 +72,11 @@
   },
   "doc-snippets": {
     "extract": {
-      "include": "./**/*.{ts,tsx,json,yaml,txt,md,graphql,cue}",
+      "include": "./**/*.{ts,tsx,js,json,yaml,txt,md,graphql,cue,kt,kts,py,swift,rs}",
       "ignore": [
         "./**/node_modules/**",
-        "./**/.polywrap/**"
+        "./**/.polywrap/**",
+        "./**/build/**"
       ],
       "dir": "./snippets"
     },

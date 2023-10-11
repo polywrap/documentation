@@ -1,0 +1,4 @@
+# $start: cli-swift-app-schema
+#import * into Logging from "wrapscan.io/polywrap/logger@1.0"
+#import * into Ethers from "wrapscan.io/polywrap/ethers@1.1"
+# $end
