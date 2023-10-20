@@ -7,7 +7,7 @@ The Polywrap Client accepts an optional [`CoreClientConfig`](https://github.com/
 
 If none is provided, a default configuration is used which should be sufficient for most use-cases.
 
-However, if you wish to configure the client, you can supply your own config object by building it using the [Client Config Builder](https://github.com/polywrap/javascript-client/tree/origin-dev/packages/client-config-builder).
+However, if you wish to configure the client, you can supply your own config object by building it using the [Client Config Builder](https://github.com/polywrap/javascript-client/tree/origin-dev/packages/config-builder).
 
 ## The `ClientConfigBuilder`
 
