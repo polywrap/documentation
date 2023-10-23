@@ -1,0 +1,46 @@
+---
+id: 'introduction'
+title: 'Create a Wrap Tutorial'
+---
+
+// TODO: link to "What is Polywrap" or a wrap Concept section
+If you want to learn how to build a Polywrap "wrap", you've come to the right place! In this guide, we will build a new Polywrap wrap. The guide is split into two parts.
+
+:::tip
+👋 This guide is meant for those who want to build and deploy their own wraps. If you're interested in integrating existing wraps into your app, see our [Integrate into a JS App](../../use-wraps/install-client) guide.
+:::
+
+In Part One, we cover everything you need to know to build, test, and deploy a wrap that you can use in your app today. Part one will stick to the "happy path", where we rely on default configurations that serve most use cases well.
+
+// TODO: Add links to concepts
+
+We will learn how to:
+- Add basic project metadata to the `polywrap.yaml` project manifest
+- Define the wrap's interface in the `polywrap.graphql` schema
+- Build a wrap
+- Import and invoke other wraps
+- Import and work with interface wraps
+- Test the wrap
+- Add a readme to the wrap package
+- Deploy the wrap package to IPFS
+
+In Part Two, we discuss the various ways you can configure and customize Polywrap's build tools to suite the needs of your project. 
+
+We will touch on:
+- Overview of default Polywrap Client configuration
+  - Learn which interfaces and plugins are already available to your users
+- Advanced configuration for the `polywrap.yaml` project manifest
+- Customize the build process with the `polywrap.build.yaml` build manifest
+- Configure deployment with the `polywrap.deploy.yaml` deployment manifest
+- Easily manage local test infrastructure with the `polywrap.infra.yaml` infrastructure manifest
+- Advanced wrap testing with Polywrap Workflows and the `polywrap.test.yaml` manifest
+
+If at any time in this process you get stuck or have questions, please reach out to us on [Discord](https://discord.com/invite/Z5m88a5qWu).
+
+## **Prerequisites**
+
+If you haven't already, you'll need to [install the Polywrap CLI]. We'll be using it throughout the tutorial.
+
+To build your wrap without installing additional dependencies, you will need [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/).
+
+The Polywrap CLI uses Docker by default, and we will use it in this tutorial. You can learn how to build a wrap without Docker in [TODO: LINK TO BUILD MANIFEST TUTORIAL].
