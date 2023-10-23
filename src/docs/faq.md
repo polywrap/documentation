@@ -1,7 +1,9 @@
 ---
-id: what-is-polywrap
-title: What is Polywrap?
+id: faq
+title: FAQ
 ---
+
+## What is Polywrap?
 
 Polywrap is a framework for porable and composable SDKs. Polywrap calls these SDKs “wraps”. Wraps are essentially WebAssembly-based modules.
 
@@ -17,12 +19,11 @@ Wraps are run by clients. Clients will fetch a wrap and execute it locally in th
 
 In a nutshell, wrap execution follows these steps:
 
-1. The application requests the execution of a wrap
-2. The client fetches the requested wrap
-3. The client executes the wrap's function inside a WebAssembly runtime
-4. The client returns the result of the wrap's function call back to the application
-
-DIAGRAM HERE
+- The application requests the execution of a wrap
+- Internally, the client:
+  - Fetches the requested wrap
+  - Executes the wrap's function inside a WebAssembly runtime
+- The client returns the result of the wrap's function call back to the application
 
 ## Where do wraps come from?
 
@@ -35,7 +36,7 @@ Wraps are used within apps and other wraps. They are defined via their metadata,
 ## Why wraps?
 
 - Wraps can run and live anywhere:
-  - Clients exist in many languages.
+  - Clients exist in [many languages](/clients).
   - Wraps can be bundled with apps or downloaded when needed.
 - Wraps can call other wraps:
   - Wrap metadata is imported at built-time.
@@ -45,12 +46,23 @@ Wraps are used within apps and other wraps. They are defined via their metadata,
   - They don't have direct access to their host environment.
 
 ## How do I access host capabilities?
+
 Wraps can import host functions defined by the application developer. These native functions allow wraps to access host capabilities. Polywrap packages these capabilities as “plugins”.
 
 ## Can I write my own plugins?
+
 Yes, you can write any host capabilities you need as plugins in your application’s language. Polywrap also provides a set of basic plugins out-of-the-box:
 
 - Filesystem
 - HTTP/S
 - Ethereum wallet connection
 - Logging
+
+## How should I get started?
+
+To execute your first wrap, follow one of our Quick Start guides:
+- [Javascript/Typescript](/quick-start/javascript)
+- [Rust](/quick-start/rust)
+- [Python](/quick-start/python)
+- [Kotlin](/quick-start/kotlin)
+- [Swift](/quick-start/swift)
