@@ -25,6 +25,10 @@ In a nutshell, wrap execution follows these steps:
   - Executes the wrap's function inside a WebAssembly runtime
 - The client returns the result of the wrap's function call back to the application
 
+Or, if you prefer diagrams:
+
+![Client fetches wrap](/img/docs/faq/1-load.png)
+![Client executes wrap and returns execution result](/img/docs/faq/2-exec.png)
 ## Where do wraps come from?
 
 Wraps can be bundled with the application, or loaded from external sources: file storage, the Internet, you name it. Clients allows developers to configure this.
