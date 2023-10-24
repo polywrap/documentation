@@ -4,7 +4,7 @@ title: 'Create a Wrap Tutorial'
 ---
 
 // TODO: link to "What is Polywrap" or a wrap Concept section
-If you want to learn how to build a Polywrap "wrap", you've come to the right place! In this guide, we will build a new Polywrap wrap. The guide is split into two parts.
+If you want to learn how to build a Polywrap "wrap", you've come to the right place! In this guide, we will build a new Polywrap wrap called "OracleWrap". OracleWrap is capable of both obscuring and enlightening knowledge using hashing and generative AI. The guide is split into two parts.
 
 :::tip
 👋 This guide is meant for those who want to build and deploy their own wraps. If you're interested in integrating existing wraps into your app, see our [Integrate into a JS App](../../use-wraps/install-client) guide.

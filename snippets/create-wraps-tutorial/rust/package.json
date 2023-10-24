@@ -1,0 +1,18 @@
+{
+  "name": "template-wasm-rs",
+  "description": "Polywrap Rust Wrapper Template",
+  "private": true,
+  "version": "0.12.1",
+  "scripts": {
+    "codegen": "npx polywrap codegen",
+    "build": "npx polywrap build",
+    "deploy": "npx polywrap deploy",
+    "test": "yarn test:e2e && yarn test:workflow",
+    "test:e2e": "yarn test:e2e:codegen && cargo test --release",
+    "test:e2e:codegen": "npx polywrap codegen -m ./tests/types/polywrap.app.yaml -g ./tests/types/wrap",
+    "test:workflow": "npx polywrap test"
+  },
+  "devDependencies": {
+    "polywrap": "0.12.1"
+  }
+}

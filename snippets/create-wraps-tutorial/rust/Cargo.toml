@@ -1,0 +1,26 @@
+[package]
+name = "template_wasm_rs"
+version = "0.1.0"
+description = "A Polywrap Wasm wrapper template written in Rust"
+authors = ["Polywrap"]
+repository = "https://github.com/polywrap/monorepo"
+license = "MIT"
+edition = "2021"
+
+include = ["src"]
+
+[dependencies]
+polywrap-wasm-rs = { version = "0.12.0" }
+polywrap_msgpack_serde = "0.0.2-beta.7"
+serde = { version = "1.0", features = ["derive"] }
+
+[dev-dependencies]
+polywrap = { version = "0.1.9-beta.2" }
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+opt-level = 's'
+lto = true
+panic = 'abort'
