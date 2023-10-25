@@ -67,6 +67,21 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'NEW Create Wraps',
+          items: [
+            'tutorials/new-create-wraps/introduction',
+            {
+              type: 'category',
+              label: 'Part One',
+              items: [
+                'tutorials/new-create-wraps/part-one/project-setup',
+                'tutorials/new-create-wraps/part-one/project-manifest',
+              ]
+            }
+          ],
+        },
+        {
+          type: 'category',
           label: 'Create Wraps',
           items: [
             {
