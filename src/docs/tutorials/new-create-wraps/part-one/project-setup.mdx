@@ -59,15 +59,16 @@ Let's take a look at the contents of the project we just created. Then, in the n
   <TabItem value="rust" label="Rust">
 
 ```
-polywrap.yaml                  # Project manifest File
-polywrap.build.yaml            # Build manifest File
-polywrap.graphql               # Wrap Schema
-src/
+project/
+├── polywrap.yaml              # Project manifest File
+├── polywrap.build.yaml        # Build manifest File
+├── polywrap.graphql           # Wrap Schema
+├── src/
 │   └── lib.rs                 # Entry point; exports module defined in schema
-tests/                         # Integration tests
-Cargo.toml                     # Dependency management
-package.json                   # Build scripts
-tsconfig.json                  # TypeScript configuration (for integration tests)
+├── tests/                     # Integration tests
+├── Cargo.toml                 # Dependency management
+├── package.json               # Build scripts
+└── tsconfig.json              # TypeScript configuration (for integration tests)
 ```
 
 <ProjectDirCommon entry="src/lib.rs" testDir="tests/" />
@@ -77,16 +78,17 @@ tsconfig.json                  # TypeScript configuration (for integration tests
   <TabItem value="golang" label="Go">
 
 ```
-polywrap.yaml                  # Project manifest File
-polywrap.build.yaml            # Build manifest File
-polywrap.graphql               # Wrap Schema
-module/
+project/
+├── polywrap.yaml              # Project manifest File
+├── polywrap.build.yaml        # Build manifest File
+├── polywrap.graphql           # Wrap Schema
+├── module/
 │   ├── module.go              # Entry point; exports module defined in schema
-|   └── __tests__/             # Integration tests
-build-staging/                 # Required boilerplate; don't modify
-go.mod                         # Dependency management
-package.json                   # Build scripts
-tsconfig.json                  # TypeScript configuration (for integration tests)
+│   └── __tests__/             # Integration tests
+├── build-staging/             # Required boilerplate; don't modify
+├── go.mod                     # Dependency management
+├── package.json               # Build scripts
+└── tsconfig.json              # TypeScript configuration (for integration tests)
 ```
 
 <ProjectDirCommon entry="module/module.go" testDir="module/__tests__/" />
@@ -99,16 +101,17 @@ tsconfig.json                  # TypeScript configuration (for integration tests
   <TabItem value="typescript" label="TypeScript">
 
 ```
-polywrap.yaml                  # Project manifest File
-polywrap.build.yaml            # Build manifest File
-polywrap.graphql               # Wrap Schema
-src/
+project/
+├── polywrap.yaml              # Project manifest File
+├── polywrap.build.yaml        # Build manifest File
+├── polywrap.graphql           # Wrap Schema
+├── src/
 │   ├── index.ts               # Entry point; exports module defined in schema
-|   └── __tests__/             # Integration tests
-package.json                   # Dependency management and build scripts
-rollup.config.mjs              # Bundler configuration
-shims.js                       # Shims that provide a more native TypeScript experience
-tsconfig.json                  # TypeScript configuration
+│   └── __tests__/             # Integration tests
+├── package.json               # Dependency management and build scripts
+├── rollup.config.mjs          # Bundler configuration
+├── shims.js                   # Shims for a native TypeScript experience
+└── tsconfig.json              # TypeScript configuration
 ```
 
 <ProjectDirCommon entry="src/index.ts" testDir="src/__tests__/" />
@@ -124,15 +127,16 @@ tsconfig.json                  # TypeScript configuration
   <TabItem value="assemblyscript" label="AssemblyScript">
 
 ```
-polywrap.yaml                  # Project manifest File
-polywrap.build.yaml            # Build manifest File
-polywrap.graphql               # Wrap Schema
-src/
+project/
+├── polywrap.yaml              # Project manifest File
+├── polywrap.build.yaml        # Build manifest File
+├── polywrap.graphql           # Wrap Schema
+├── src/
 │   ├── index.ts               # Entry point; exports module defined in schema
-|   └── __tests__/             # Integration tests
-package.json                   # Dependency management and build scripts
-tsconfig.json                  # TypeScript configuration (for integration tests)
-tsconfig.build.json            # AssemblyScript configuration (for build)
+│   └── __tests__/             # Integration tests
+├── package.json               # Dependency management and build scripts
+├── tsconfig.json              # TypeScript configuration (for integration tests)
+└── tsconfig.build.json        # AssemblyScript configuration (for build)
 ```
 
 <ProjectDirCommon entry="src/index.ts" testDir="src/__tests__/" />

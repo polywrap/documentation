@@ -76,6 +76,7 @@ const sidebars = {
               items: [
                 'tutorials/new-create-wraps/part-one/project-setup',
                 'tutorials/new-create-wraps/part-one/project-manifest',
+                'tutorials/new-create-wraps/part-one/schema-and-codegen',
               ]
             }
           ],

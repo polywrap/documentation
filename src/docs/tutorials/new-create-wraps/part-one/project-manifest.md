@@ -34,11 +34,11 @@ resources:      # (Optional) Path to Resources directory
 
 ### **Project**
 
-We'll `name` our project "oracle-wrap".
+As previously suggested, let's `name` our project "oracle-wrap".
 
 The project `type` is used to determine how to generate code and build the project. It follows the syntax: `(wasm|app|plugin)/language`. So a Rust wrap will have the type `wasm/rust`, and a Rust plugin would have the type `plugin/rust`. The languages that can be used for a `wasm` wrap project are different from the languages used in `plugin` and `app` projects.
 
-<Tabs groupId="project">
+<Tabs groupId="project-manifest-project">
   <TabItem value="rust" label="Rust">
 
 ```yaml
@@ -85,7 +85,7 @@ project:
 </Tabs>
 
 // TODO: link to interface docs
-There is one additional type of project called an interface wrap (with type `interface`), which is used to define a wrap interface that can be implemented by other wraps or plugins. We'll discuss interface wraps in greater detail later on in the tutorial.
+There is one additional type of project called an "interface wrap" (with type `interface`), which is used to define a wrap interface that can be implemented by other wraps or plugins. We'll discuss interface wraps in greater detail later on in the tutorial.
 
 ### **Source**
 
@@ -94,7 +94,7 @@ The project source tells the Polywrap CLI where to find:
 - The entry file that implements the Wrap Schema in code and exports its module
 - The location of a locally-stored Wrap Schema or `wrap.info` ABI file, and an arbitrary URI you'd like to point to it
 
-<Tabs groupId="project">
+<Tabs groupId="project-manifest-source">
   <TabItem value="rust" label="Rust">
 
 ```yaml
@@ -137,22 +137,22 @@ source:
 </Tabs>
 
 :::tip
-The `import_abis` item is useful during wrap development. Let's say you need to import another Wasm wrap, interface wrap, or plugin. All the relevant information is captured in its schema or `wrap.info` ABI. You need the `wrap.wasm` web assembly module to invoke the wrap's methods at runtime, but not to import its module or types at build time. This means you can start building your new wrap without first deploying its dependency.
+The `import_abis` item is useful during wrap development. Let's say you need to import another wrap, "interface wrap", or plugin. All the relevant information is captured in its schema or `wrap.info` ABI. You need the `wrap.wasm` web assembly module to invoke the wrap's methods at runtime, but not to import its module or types at build time. This means you can start building your new wrap without first deploying its dependency.
 
-For example, the `import_abis` feature can be used in a monorepo that contains one interface wrap and a set of Wasm wraps or plugins that implement the interface. Each Wasm wrap project might contain an `import_abis` entry with a temporary URI that points to the interface `polywrap.graphql` schema. The wrap projects would use the temporary URI to import the interface in their own `polywrap.graphql` schemas, as though the interface were already published.
+For example, the `import_abis` feature can be used in a monorepo that contains one "interface wrap" and a set of Wasm wraps or plugins that implement the interface. Each Wasm wrap project might contain an `import_abis` entry with a temporary URI that points to the interface `polywrap.graphql` schema. The wrap projects would use the temporary URI to import the interface in their own `polywrap.graphql` schemas, as though the interface were already published.
 :::
 
 ### **Extensions**
 
 // TODO: link to build manifest and docs manifest documentation
-There are two types of manifest extensions you can register in the project manifest: `build` and `docs`. The `polywrap.build.yaml` build manifest enables developers to customize the wrap build process. The `polywrap.docs.yaml` manifest allows you to provide metadata for Wrapscan deployments (coming soon).
+There are two types of manifest extensions you can register in the project manifest: `build` and `docs`. The `polywrap.build.yaml` build manifest enables developers to customize the wrap build process. The `polywrap.docs.yaml` manifest allows you to provide metadata for package registries and include common documentation files such as a `README.md`.
 
 ```yaml
 extensions:
   build: ./polywrap.build.yaml
 ```
 
-We won't be using any manifest extensions in Part One of the tutorial, but we'll dive into them in Part Two. If you'd like, you can remove the `extensions` property and delete the `polywrap.build.yaml` file.
+We will use the `docs` manifest extensions later on to include a `README.md` file in our package. We won't be using the `build` extension in Part One of this tutorial, but we'll dive into it in Part Two . If you'd like, you can remove the `build` extension property and delete the `polywrap.build.yaml` file.
 
 ### **Resources**
-The `resources` attribute allows you to provide a path to a directory that you'd like included in the wrap package when deploying the wrap. We'll use it later to include a `README.md` file in our package. Note that the contents of the resources directory cannot be accessed by the wrap through the file system at runtime.
+The `resources` attribute allows you to provide a path to a directory that contains arbitrary files you'd like included in the wrap package when deploying the wrap.
