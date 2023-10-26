@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
 :::
 
-Each wrap package is described by a `polywrap.yaml` project manifest file. The project manifest provides the Polywrap CLI with basic information it needs to [`build`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#build--b) the wrap, such as where to find the `polywrap.graphql` schema that we'll write in the next section.
+Each wrap package is described by a `polywrap.yaml` project manifest file. The project manifest provides the Polywrap CLI with basic information it needs to [`build`](https://github.com/polywrap/cli/tree/origin-dev/packages/cli#build--b) the wrap, such as where to find the `polywrap.graphql` schema that we'll review in the next section.
 
 ## Manifest Content
 
