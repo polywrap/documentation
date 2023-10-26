@@ -4,6 +4,7 @@ title: 'Project Manifest'
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { NavButton } from '/src/components/NavButton'
 
 :::note
 You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
@@ -84,7 +85,6 @@ project:
   </TabItem>
 </Tabs>
 
-// TODO: link to interface docs
 There is one additional type of project called an "interface wrap" (with type `interface`), which is used to define a wrap interface that can be implemented by other wraps or plugins. We'll discuss interface wraps in greater detail later on in the tutorial.
 
 ### **Source**
@@ -144,7 +144,6 @@ For example, the `import_abis` feature can be used in a monorepo that contains o
 
 ### **Extensions**
 
-// TODO: link to build manifest and docs manifest documentation
 There are two types of manifest extensions you can register in the project manifest: `build` and `docs`. The `polywrap.build.yaml` build manifest enables developers to customize the wrap build process. The `polywrap.docs.yaml` manifest allows you to provide metadata for package registries and include common documentation files such as a `README.md`.
 
 ```yaml
@@ -152,7 +151,14 @@ extensions:
   build: ./polywrap.build.yaml
 ```
 
-We will use the `docs` manifest extensions later on to include a `README.md` file in our package. We won't be using the `build` extension in Part One of this tutorial, but we'll dive into it in Part Two . If you'd like, you can remove the `build` extension property and delete the `polywrap.build.yaml` file.
+We will use the `docs` manifest extensions later on to include a `README.md` file in our package. We won't be using the `build` extension in Part One of this tutorial, but we'll dive into it in Part Two. If you'd like, you can remove the `build` extension property and delete the `polywrap.build.yaml` file.
 
 ### **Resources**
+
 The `resources` attribute allows you to provide a path to a directory that contains arbitrary files you'd like included in the wrap package when deploying the wrap.
+
+## **Next Steps**
+
+Next we'll review the Wrap Schema, generate code bindings, and review what is generated. The generated code bindings are the key to what makes wraps different from ordinary WebAssembly modules, and you'll need to know how to use them. We'll also take a look at the sample module entry file, which imports the generated bindings and uses them to implement the Wrap Schema in code.
+
+<NavButton to="./schema-and-codegen" text="Schema and Codegen" />

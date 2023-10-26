@@ -395,3 +395,20 @@ html[data-theme="dark"] .handbook-logo:after {
   background-size: contain;
   filter: grayscale(1) invert(1);
 }
+
+.tutorial-nav-button {
+  font-size: 16px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  font-weight: 700;
+  background: #27c69f;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+}
+
+.tutorial-nav-button:hover {
+  filter: brightness(90%);
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
