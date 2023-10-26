@@ -1,0 +1,105 @@
+---
+id: 'schema-and-codegen'
+title: 'Schema and Codegen'
+---
+import CodegenDir from '../partials/_codegen-dir.mdx';
+import WrapDir from '../partials/_wrap-dir.mdx';
+import WrapModuleBase from '../partials/_wrap-module-base.mdx';
+import WrapArgs from '../partials/_wrap-args.mdx';
+import WrapCustomTypes from '../partials/_wrap-custom-types.mdx';
+import TemplateModule from '../partials/_template-module.mdx';
+
+:::note
+You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
+:::
+
+Every wrap, plugin, and "interface wrap" has a `polywrap.graphql` schema that defines its public interface. The schema is parsed and composed into a `wrap.info` ABI file that is included in the wrap package along with the `wrap.wasm` bytecode module (the code).
+
+Polywrap uses the schema to generate bindings for your wrap. The bindings handle serialization logic--so that data can pass between the Wasm module and the Polywrap Client--and provide a lightweight structure to validate the wrap's content.
+
+Wrap schemas use a simplified version of GraphQL schema syntax. We provide detailed reference documentation in [Wrap Schema](/concepts/wrap-schema), but you'll learn most of it just by following along in this guide.
+
+Since the schema's primary purpose is to communicate which code bindings should be generated, we'll learn a bit about the generated bindings as well.
+
+## **Initial Schema**
+
+First, let's take a look at the `polywrap.graphql` schema we generated when we initialized our project with the Polywrap CLI. It's located in the project root.
+
+```graphql title="polywrap.graphql"
+type Module {
+    sampleMethod(arg: String!): SampleResult!
+}
+
+type SampleResult {
+    result: String!
+}
+```
+
+We have a `Module` and a custom type named `SampleResult`. 
+
+Every wrap has exactly one declaration of `type Module` that defines the wrap's methods. Without a module, there would be nothing to invoke. If we want two or more modules, we can simply create more wraps and our wrap can invoke them. When one wrap invokes another, we call it a "subinvocation".
+
+The sample module has one method, `sampleMethod(arg: String!): SampleResult!`, that accepts a single argument named `arg` of type `String!` and returns a `SampleResult!`.
+
+Following GraphQL syntax, a `!` means a type cannot be `null`. The absence of a `!` would mean a property or argument is optional, and it's okay for users to pass in `null`. Also, primitive types start with capital letters.
+
+We'll use this schema to generate code bindings and see how they are used.
+
+## **Codegen**
+
+To generate the code bindings, change your current working directory to the project root and run `polywrap codegen` using the Polywrap CLI. A new directory called `wrap` will be generated next to your module entry file.
+
+<CodegenDir/>
+
+By default, codegen is automatically run before you build your project with `polywrap build`.
+
+## **Wrap Directory**
+
+The bindings contain generated types that we must use to implement the wrap module, as well as additional logic related to serialization and interaction with the Polywrap Client.
+
+<WrapDir/>
+
+We're going to keep it simple and discuss only the code snippets you need to be aware of:
+- Custom type implementations
+- Argument types generated for each module method
+- The Module Base (an abstract class, interface, or trait)
+
+Once we've seen the generated wrap bindings, we won't need to look at them again. The wrap schema tells you everything you need to know about the wrap directory's contents.
+
+### **Custom Type**
+
+<WrapCustomTypes/>
+
+A class (or struct) has been generated for the `SampleResult` type, mirroring its schema definition.
+
+Codegen generates custom types that mirror the custom types defined in the schema. Although we won't review it, the Polywrap CLI also generates serialization logic for each custom type.
+
+### **Args**
+
+<WrapArgs/>
+
+Likewise, a class (or struct) named `ArgsSampleMethod` (or `Args_sampleMethod`) has been generated to hold the arguments of the `sampleMethod` method defined in the schema.
+
+Codegen generates argument types for each method defined in the schema. A method's "Args" type must be used to invoke the method. As with custom types, serialization logic is generated for each Args type.
+
+:::info
+*Why do we use an Args type instead of passing method arguments directly?*
+
+*Recall that when a Polywrap Client user invokes your wrap, the user passes arguments from the Client's host language (e.g. JavaScript) to the Wasm module. The arguments are serialized before being passed into the Wasm module. The Args type simplifies deserialization within the Wasm module. And if the invoked method performs a subinvocation--i.e. invokes a different wrap--the Args type passed into the subinvocation is serialized and passed to the subinvoked wrap.*
+:::
+
+### **Module Base**
+
+<WrapModuleBase/>
+
+The Module Base is an abstract class or interface that must be implemented in your module entry file. For each method defined in the schema, the module base contains an abstract method with a matching signature.
+
+The Module Base helps wrap developers ensure their module implementation is correct by validating the module implementation at compile time. It is used by the wrap bindings to call the module's methods when a Polywrap Client invokes the wrap.
+
+## **Initial Module**
+
+From this point forward, we won't need to look at the generated code bindings again. We can instead focus on the schema and the module entry file, which is where we'll write our code.
+
+The module entry file already contains an implementation of the Module Base, which mirrors the `Module` defined in the schema. It imports the generated `ArgsSampleMethod` (or `Args_sampleMethod`) and `SampleResult` types, and uses them in to implement the `sampleMethod` method.
+
+<TemplateModule/>

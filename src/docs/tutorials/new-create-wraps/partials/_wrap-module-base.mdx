@@ -1,0 +1,50 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="wrap-module-base">
+  <TabItem value="rust" label="Rust">
+
+```rust title=wrap/module/module.rs
+pub struct Module;
+
+pub trait ModuleTrait {
+  fn sample_method(args: ArgsSampleMethod) -> Result<SampleResult, String>;
+}
+```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+```go title=wrap/types/module_args.go
+type Module interface {
+  SampleMethod(args *ArgsSampleMethod) SampleResult
+}
+```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+```ts title=wrap/module.ts
+export abstract class ModuleBase {
+  abstract sampleMethod(
+    args: Args_sampleMethod
+  ): Types.SampleResult;
+}
+```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+```ts title=wrap/Module/module.ts
+export abstract class ModuleBase {
+  abstract sampleMethod(
+    args: Types.Args_sampleMethod
+  ): Types.SampleResult;
+}
+```
+
+  </TabItem>
+</Tabs>

@@ -22,7 +22,7 @@ project:
   type:         # Type/language of project
 source:
   schema:       # Path to wrap schema
-  module:       # (Optional) Path to entry file; absent for interface wraps
+  module:       # (Optional) Path to module entry file; absent for interface wraps
   import_abis:  # (Optional) Array of URI redirects used to resolve imports in the schema
     - uri:      # One of the schema's import URI
       abi:      # Path to a local ABI or schema. Supported file formats: [*.graphql, *.info, *.json, *.yaml]
@@ -91,7 +91,7 @@ There is one additional type of project called an "interface wrap" (with type `i
 
 The project source tells the Polywrap CLI where to find:
 - The project schema--i.e. the module and types the wrap exports
-- The entry file that implements the Wrap Schema in code and exports its module
+- The module entry file that implements the Wrap Schema in code and exports its module
 - The location of a locally-stored Wrap Schema or `wrap.info` ABI file, and an arbitrary URI you'd like to point to it
 
 <Tabs groupId="project-manifest-source">
