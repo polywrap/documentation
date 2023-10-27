@@ -2,18 +2,68 @@
 id: 'first-method'
 title: 'First Method'
 ---
+import FirstMethodEmpty from '../partials/_first_method_empty.mdx';
+import FirstMethodSimple from '../partials/_first_method_simple.mdx';
 
 :::note
 You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
 :::
 
+Let's use what we've learned to implement a method in our wrap. Recall that we are building "Oracle Wrap", the wrap that can obscure and illuminate information. We're going to implement the first of Oracle Wrap's two methods, which we'll call `obscure`.
 
+The `obscure` method will be a bit contrived, but it will give us a chance to familiarize ourselves with some basics.
+
+The goal of `obscure` is to ensure that data is harder to understand. In this section, we'll implement a simple version. In the next section, we'll improve it with a hashing function that we'll import from another wrap.
 
 ## **Update the Schema**
 
+We'll let the `obscure` method take an array of strings so that we can obscure a lot of data at once, and an optional `chaosLevel` to indicate how strongly we want to obscure the data. We'll return the obscured data as a string.
+
+If we wanted to add more options, we could pass a custom type with more fields, but we'll keep it simple for now.
+
+Go ahead and update the schema with the new method:
+
+```graphql title="polywrap.graphql"
+type Module {
+    obscure(data: [String!]!, chaosLevel: Int): String!
+}
+```
+
+Before we start writing code, we'll want to run `polywrap codegen` in the terminal to update our bindings. If you installed the Polywrap CLI locally using the provided `package.json`, you can run `yarn codegen` to do this.
+
+If you'd like, feel free to take a look at the `wrap` directory and see how the bindings have changed.
+
 ## **Write the Method**
+
+When you open the module entry file, you'll see that it still has the same `Module` implementation with `sampleMethod`, which no longer exists. Let's replace it with `obscure` and fix the imports:
+
+<FirstMethodEmpty/>
+
+Now let's add a simple implementation of `obscure` that doesn't use any dependencies. For each string in the data array, we are going to shift each character by `chaosLevel`. Then we'll concatenate the strings and return the result.
+
+Don't worry too much about the implementation details. We're going to rewrite the method in the next section.
+
+<FirstMethodSimple/>
 
 ## **Build the Project**
 
+To make sure our code compiles, let's build the project with the `polywrap build` command.
+
+The Polywrap CLI typically uses Docker to build wraps. At first this may sound unnecessary, but it's actually very useful. Building Polywrap wraps involves several steps that require additional dependencies. Depending on the source language, the steps may include tasks such as configuring WebAssembly memory and ensuring the wrap will work outside a JavaScript environment. Native build tools, such as Rust's `cargo build`, don't perform all the pre- and post-processing steps that Polywrap wraps require.
+
+:::tip
+If you're writing your wrap in Rust, you can use `cargo check` to check your code for errors without building the entire project.
+:::
+
+The `polywrap build` command has three build "strategies" that you can use to build your wrap:
+- "vm": Downloads and runs a pre-built Docker image. This is the default.
+- "image": Builds and runs a Docker image.
+- "local": Runs the build script locally, without Docker. The script will attempt to install and use global dependencies. Assumes the host machine is unix-like (i.e. not Windows).
+
+We'll discuss build customization in the [Build Manifest](tutorials/build-and-deploy-wraps/build-pipeline) section in Part Two of this guide.
+
 ## **Next Steps**
 
+In the next section, we'll improve the `obscure` method by importing a hashing function from another wrap.
+
+<NavButton to="./import-and-subinvoke" text="Import and Subinvoke" />

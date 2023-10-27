@@ -1,7 +1,3 @@
 type Module {
-    sampleMethod(arg: String!): SampleResult!
-}
-
-type SampleResult {
-    result: String!
+    obscure(data: [String!]!, chaosLevel: Int): String!
 }

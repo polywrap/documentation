@@ -1,0 +1,39 @@
+---
+id: 'import-and-subinvoke'
+title: 'Import and Subinvoke'
+---
+
+:::note
+You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
+:::
+
+It's time to make the `obscure` method a little more interesting. In the previous section, we made the data hard to decipher by shifting each character in each string by a fixed amount. We can make our method far more insidious by hashing the data instead.
+
+To do this, we can import the `Sha3` wrap and subinvoke one of its hashing functions. First we'll learn how to import a wrap using a Wrap URI, and then we'll learn how to subinvoke the method using its generated Module bindings.
+
+:::tip
+Your dependencies don't have to be other wraps. You can also use language-specific libraries, such as the Rust `sha3` package that was used to build the `Sha3` wrap.
+:::
+
+## **Wrap URIs**
+
+## **Import a Wrap**
+
+
+
+```graphql title="polywrap.graphql"
+#import { Module } into Sha3 from "wrap://http/https://wraps.wrapscan.io/r/polywrap/sha3@1.0.0"
+
+type Module {
+    obscure(data: [String!]!, chaosLevel: Int): String!
+}
+```
+
+// sha3 schema (github): https://github.com/polywrap/sha3/blob/main/polywrap.graphql
+// sha3 schema (wrapscan): https://www.wrapscan.io/wrap/wrapscan.io%2Fpolywrap%2Fsha3%401.0.0/schema
+
+## **Subinvocations**
+
+
+## **Next Steps**
+
