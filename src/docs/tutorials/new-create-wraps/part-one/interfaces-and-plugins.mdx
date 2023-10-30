@@ -8,9 +8,48 @@ import { NavButton } from '/src/components/NavButton'
 You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
 :::
 
+Now that our Oracle Wrap can hide data with the `obscure` method, we're ready to add the `enlighten` method and illuminate new knowledge with generative AI. We're going to import the HTTP interface and use it to send HTTP requests to the [Perplexity API](https://blog.perplexity.ai/blog/introducing-pplx-api) for open-source large language models, a service that generates new text based on a prompt.
+
+Let's learn a bit about interface wraps and plugins to see how they can help us.
+
+## **Interfaces**
+
+An interface wrap defines a schema without implementing a module. Other wraps and plugins can implement the interface instead. An interface doesn't have knowledge of its implementations. Instead, users of the Polywrap Client can choose which wraps or plugins to register as known implementations.
+
+It is considered a best practice for users to register a URI Redirect for each interface in their Polywrap Client configuration that redirects from the interface URI to the URI of their primary implementation. This allows wrap users to directly invoke the interface URI--as if it were a Wasm wrap--without needing to know the URI of the primary implementation. In Polywrap's default Polywrap Client configuration, each interface URI is redirected to the URI of its default implementation.
+
+What if it doesn't make sense to redirect to any one default implementation? What if the Polywrap Client user did not do so? Wraps can get a list of registered implementations at runtime and invoke one or more of them. You can learn how to do this in [Interface Instances](tutorials/advanced/interfaces/interface-instances).
+
+:::info
+Polywrap's URI Resolution system uses the [URI Resolver Extension](https://github.com/polywrap/uri-resolver-extensions) wrap interface to resolve URIs.
+:::
+
+Let's talk about two cases where interfaces are useful.
+
+First, interfaces are useful when you want to allow for multiple, fungible implementations of an interface. For example, you might want to allow users to register multiple implementations of an interface that resolves URIs. This is the case with Polywrap's URI Resolution system. Users can register multiple implementations of the URI Resolver Extension interface, and the Polywrap Client will invoke all of them when trying to resolve a URI.
+
+Another case is when you want your wrap to play nicely with plugins. Plugins are ordinary, language-specific packages that cannot necessarily be resolved by immutable Wrap URIs. Users can install a plugin using a package manager (e.g. JavaScript's NPM or Python's PyPi) and register it in the Polywrap Client with an arbitrary URI. If a plugin implements an interface, users are expected to either redirect the interface URI to point to the registered plugin URI, or to register the plugin as an interface implementation that can be obtained at runtime.
+
+## **Plugins**
+
+Plugins extend the Polywrap Client to give wraps access to host capabilities while keeping users in control. Plugins are a more powerful and secure alternative to the Wasi standard used in many WebAssembly modules.
+
+Standard WebAssembly modules are securely sandboxed and cannot access host capabilities like a user's filesystem. This is a feature, not a bug, because it prevents malicious behaviors. However, many useful modules need to access host capabilities. For example, a database module needs to read and write to the filesystem. A module that implements a web server needs to listen on a port. These capabilities can be implemented in plugins.
+
+Users register plugins in the Polywrap Client, choosing which plugins they want to allow their wraps to use. Plugins are implemented as language-specific packages. For example, a plugin for the JavaScript Polywrap Client is just a JavaScript package.
+
+**From the perspective of a wrap developer, a plugin behaves like a wrap.** Plugins are imported into schemas from URIs--typically by importing an interface--and are subinvoked just like a Wasm wrap module.
+
+## **Implementation**
+
+Enough talk! Let's implement the `enlighten` method.
+
+### **Update the schema**
+
+// "wrapscan.io/polywrap/http@1.0"
+// "plugin/http@1.1.0"
 
 
-## **Wrap URIs**
-
+### **Implement the method**
 
 ## **Next Steps**
