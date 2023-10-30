@@ -1,5 +1,6 @@
 pub mod wrap;
 pub use wrap::prelude::*;
+use crate::wrap::imported::ArgsKeccak256;
 
 impl ModuleTrait for Module {
     fn obscure(args: ArgsObscure) -> Result<String, String> {
@@ -8,13 +9,11 @@ impl ModuleTrait for Module {
 
         let mut obscured = String::new();
         for data in &args.data {
-            // shift each character by the chaos level
-            for c in data.chars() {
-                let char_code = c as u32 + chaos_level as u32;
-                if let Some(new_char) = std::char::from_u32(char_code) {
-                    obscured.push(new_char);
-                }
+            let mut message = data.clone();
+            for _ in 0..chaos_level {
+                message = Sha3Module::keccak_256(&ArgsKeccak256 { message })?;
             }
+            obscured += &message;
         }
         Ok(obscured)
     }

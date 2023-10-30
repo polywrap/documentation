@@ -19,6 +19,15 @@ The goal of `obscure` is to ensure that data is harder to understand. In this se
 
 We'll let the `obscure` method take an array of strings so that we can obscure a lot of data at once, and an optional `chaosLevel` to indicate how strongly we want to obscure the data. We'll return the obscured data as a string.
 
+:::tip
+```
+UInt8       Int8       String       BigInt         Map<K,V>
+UInt16      Int16      Boolean      BigNumber
+UInt32      Int32      Bytes        JSON
+```
+The built-in schema types are detailed in the [Wrap Schema](../../../concepts/wrap-schema) reference.
+:::
+
 If we wanted to add more options, we could pass a custom type with more fields, but we'll keep it simple for now.
 
 Go ahead and update the schema with the new method:
@@ -39,7 +48,7 @@ When you open the module entry file, you'll see that it still has the same `Modu
 
 <FirstMethodEmpty/>
 
-Now let's add a simple implementation of `obscure` that doesn't use any dependencies. For each string in the data array, we are going to shift each character by `chaosLevel`. Then we'll concatenate the strings and return the result.
+Now let's add a simple implementation of `obscure` that doesn't use any dependencies. For each string in the data array, we are going to shift each character by `chaosLevel`. Then we'll concatenate the strings (for extra chaos) and return the result.
 
 Don't worry too much about the implementation details. We're going to rewrite the method in the next section.
 

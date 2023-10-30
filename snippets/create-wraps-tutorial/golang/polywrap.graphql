@@ -1,3 +1,5 @@
+#import { Module } into Sha3 from "http/https://wraps.wrapscan.io/r/polywrap/sha3@1.0.0"
+
 type Module {
     obscure(data: [String!]!, chaosLevel: Int): String!
 }

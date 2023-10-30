@@ -2,6 +2,7 @@ package module
 
 import (
 	"example.com/template-wasm-go/module/wrap/types"
+	"example.com/template-wasm-go/module/wrap/imported/sha3"
 )
 
 func Obscure(args *types.ArgsObscure) string {
@@ -13,11 +14,16 @@ func Obscure(args *types.ArgsObscure) string {
 
     var obscured string
     for _, data := range args.Data {
-        // Shift each character by the chaos level
-        for _, char := range data {
-            charCode := char + rune(chaosLevel)
-            obscured += string(charCode)
-        }
+        tempData := data
+		for i := int32(0); i < chaosLevel; i++ {
+		    hashArgs := &sha3.Sha3_ArgsKeccak_256 { Message: tempData }
+			hashed, err := sha3.Sha3_Keccak_256(hashArgs)
+			if err != nil {
+				return ""
+			}
+			tempData = hashed
+		}
+		obscured += tempData
     }
     return obscured
 }

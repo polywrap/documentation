@@ -78,7 +78,8 @@ const sidebars = {
                 'tutorials/new-create-wraps/part-one/project-manifest',
                 'tutorials/new-create-wraps/part-one/schema-and-codegen',
                 'tutorials/new-create-wraps/part-one/first-method',
-                'tutorials/new-create-wraps/part-one/import-and-subinvoke'
+                'tutorials/new-create-wraps/part-one/import-and-subinvoke',
+                'tutorials/new-create-wraps/part-one/interfaces-and-plugins'
               ]
             }
           ],

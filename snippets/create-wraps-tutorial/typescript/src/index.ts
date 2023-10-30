@@ -1,4 +1,4 @@
-import { ModuleBase, Args_obscure } from './wrap';
+import { ModuleBase, Args_obscure, Sha3_Module } from './wrap';
 
 export class Module extends ModuleBase {
   obscure(args: Args_obscure): string {
@@ -8,13 +8,13 @@ export class Module extends ModuleBase {
     // obscure the data with chaos
     let obscured: string = "";
     for (let i = 0; i < args.data.length; ++i) {
-      const data = args.data[i];
-      // shift each character by the chaos level
-      obscured += data
-        .split("")
-        .map((char: string) => char.charCodeAt(0) + chaosLevel)
-        .map((charCode: number) => String.fromCharCode(charCode))
-        .join("")
+      let data = args.data[i];
+      for (let j = 0; j < chaosLevel; ++j) {
+        const result = Sha3_Module.keccak_256({ message: data })
+        if (!result.ok) throw Error("hash failed");
+        data = result.value!!;
+      }
+      obscured += data;
     }
     return obscured;
   }
