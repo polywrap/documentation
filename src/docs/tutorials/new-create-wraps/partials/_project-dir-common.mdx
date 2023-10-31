@@ -1,9 +1,6 @@
 ### **`polywrap.yaml`**
 The `polywrap.yaml` project manifest is a high-level configuration file describing a Polywrap project.
 
-### **`polywrap.build.yaml`**
-The `polywrap.build.yaml` build manifest enables build process customization. We won't need to modify this file, but we will learn how to do so anyway in Part Two of the tutorial. The file is not needed in most projects and can in fact be deleted.
-
 ### **`polywrap.graphql`**
 Each wrap project has a [Wrap Schema](/concepts/wrap-schema). The schema defines the wrap's interface, including dependencies, methods, and custom types. Polywrap uses the schema to generate the wrap's serialization bindings and validate the wrap's implementation. The schema is compiled to a `wrap.info` ABI file at build time and stored in the wrap package. In this tutorial, we'll learn how to write a Wrap Schema. It's easy!
 
