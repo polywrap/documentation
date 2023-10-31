@@ -3,22 +3,86 @@ id: 'integration-testing'
 title: 'Integration Testing'
 ---
 import { NavButton } from '/src/components/NavButton'
+import IntegrationTests from '../partials/_integration_tests.mdx';
 
 :::note
 You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
 :::
 
-hi
+We're going to write some integration tests for our wrap to make sure our wrap works as expected in an environment that resembles the one in which it will be used.
 
-## **Interfaces**
+## **Why integration tests?**
+
+Here we will define an "integration test" as an end-to-end tests that validates the functionality of your wrap by invoking it from a Polywrap Client. This is in contrast to a "unit test", which you might use to test the functionality of specific wrap methods in isolation.
+
+We write integration tests because certain wrap functionalities depend on the Polywrap Client. The most obvious example is subinvocation. When a wrap invokes a method in another wrap, the method arguments are serialized, sent back to the Polywrap Client, and routed to the other wrap. The Polywrap Client is required to coordinate the interaction.
+
+A downside of integration testing is that we don't have Polywrap Client for every programming language for which we can write wraps. If you're writing your wrap in Go or AssemblyScript, we assume you'll be okay with testing using the TypeScript Polywrap client.
+
+We also support a language-agnostic approach to integration testing that we call [Workflows](tutorials/advanced/workflows/running-workflows). Workflows are a way to define a sequence of steps that can be executed by any Polywrap Client. The output of workflow jobs can be validated to ensure that the wrap is functioning as expected. We won't be using workflows in this tutorial.
+
+## **App Codegen**
+
+Codegen will generate different bindings for different types of projects. For integration tests, we use the codegen targeting application developers because they make testing easier and more closely replicate the wrap's end user experience. App codegen is not required--a Polywrap Client can invoke any wrap without codegen--but it's recommended.
+
+To execute app codegen without changing our `polywrap.yaml` project manifest or wrap schema, we can simply create another manifest and schema for the purpose of testing and pass them into the codegen command. I changed the namespace of my wrap import in the test schema to "Oracle" so I can refer to it as `Oracle` in my tests.
+
+<Tabs groupId="project">
+  <TabItem value="rust" label="Rust">
+
+    ```shell-session
+    polywrap codegen -m ./tests/types/polywrap.app.yaml -g ./tests/types/wrap
+    ```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+    ```shell-session
+    polywrap codegen -m ./module/__tests__/types/polywrap.app.yaml -g ./module/__tests__/types/wrap
+    ```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+    ```shell-session
+    polywrap codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/wrap
+    ```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+    ```shell-session
+    polywrap codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/wrap
+    ```
+
+  </TabItem>
+</Tabs>
+
+## **Write Tests**
+
+With app codegen, integration tests are easy to write.
+
+For Rust wraps, we'll write our integration tests in Rust using the Rust Polywrap Client. For wraps written in other languages, we'll write our tests in TypeScript.
+
+We'll invoke our wrap using a file-system Wrap URI.
+
+In your test file, you can import the module class generated with app codegen. We'll use the default Polywrap Client configuration, so we won't need to pass one in as an argument to the module constructor. The module instance can be used to invoke the methods defined in your wrap schema with type safety.
 
 :::info
-You can use my personal API key to complete this tutorial.
+You can use my personal API key to test your wrap.
 
 `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`
 
 Please do not use it outside the context of this tutorial. If it's abused, I'll have to revoke it!
 :::
 
+<IntegrationTests />
+
 ## **Next Steps**
 
+In the final part of the tutorial, we'll learn how to publish a wrap.
+
+<NavButton to="./deployment" text="Deployment" />

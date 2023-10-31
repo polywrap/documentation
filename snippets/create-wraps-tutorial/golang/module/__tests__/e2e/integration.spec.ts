@@ -1,31 +1,37 @@
-import { PolywrapClient } from "@polywrap/client-js";
 import * as App from "../types/wrap";
 import path from "path";
 
 jest.setTimeout(60000);
 
-describe("Template Wrapper End to End Tests", () => {
+describe("Oracle Wrap End to End Tests", () => {
 
-  const client: PolywrapClient = new PolywrapClient();
+  let oracle: App.Oracle;
   let wrapperUri: string;
+  let apiKey: string = process.env.PPLX_API_KEY || "";
 
   beforeAll(() => {
-    const dirname: string = path.resolve(__dirname);
-    const wrapperPath: string = path.join(dirname, "..", "..", "..");
+    const wrapperPath: string = path.join(__dirname, "..", "..", "..");
     wrapperUri = `fs/${wrapperPath}/build`;
+    oracle = new App.Oracle(undefined, undefined, wrapperUri)
   })
 
-  it("calls sampleMethod", async () => {
-    const expected: string = "polywrap";
-
-    const result = await client.invoke<App.Template_SampleResult>({
-      uri: wrapperUri,
-      method: "sampleMethod",
-      args: { arg: expected }
+  it("calls obscure", async () => {
+    const result = await oracle.obscure({
+      data: ["Hello", "World"],
+      chaosLevel: 3
     });
 
-    expect(result.ok).toBeTruthy();
-    if (!result.ok) return;
-    expect(result.value.result).toEqual(expected);
+    if (!result.ok) throw result.error;
+    expect(typeof result.value === "string").toBeTruthy();
+    expect(result.value.length).toEqual(128);
+  });
+
+  it("calls enlighten", async () => {
+    const question = "What is the meaning of life?";
+    const result = await oracle.enlighten({ question, apiKey });
+
+    if (!result.ok) throw result.error;
+    expect(typeof result.value === "string").toBeTruthy();
   });
 });
+

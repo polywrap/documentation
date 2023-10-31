@@ -1,14 +1,28 @@
 use crate::types::wrap::types::{
-    TemplateModule,
-    TemplateModuleArgsSampleMethod
+    Oracle,
+    OracleArgsObscure,
+    OracleArgsEnlighten
 };
+use std::env;
 
 #[test]
-fn sample_method() {
-    let args = TemplateModuleArgsSampleMethod {
-        arg: "input data".to_string(),
+fn obscure() {
+    let args = OracleArgsObscure {
+        data: vec![String::from("Hello"), String::from("World")],
+        chaos_level: Some(3)
     };
-    let template: TemplateModule = TemplateModule::new(None, None, None);
-    let response = template.sample_method(&args, None, None, None).unwrap();
-    assert_eq!(response.result, "input data from sample_method");
+    let oracle: Oracle = Oracle::new(None);
+    let result = oracle.obscure(&args, None).unwrap();
+    assert_eq!(result.len(), 128);
+}
+
+#[test]
+fn enlighten() {
+    let args = OracleArgsEnlighten {
+        question: String::from("What is the meaning of life?"),
+        api_key: env::var("PPLX_API_KEY").expect("API_KEY must be set")
+    };
+    let oracle: Oracle = Oracle::new(None);
+    let result = oracle.enlighten(&args, None).unwrap();
+    assert_ne!(result.len(), 0);
 }

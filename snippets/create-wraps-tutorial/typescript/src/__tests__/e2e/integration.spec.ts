@@ -3,7 +3,7 @@ import path from "path";
 
 jest.setTimeout(60000);
 
-describe("Oracle Wrap End to End Tests", () => {
+describe("Template Wrapper End to End Tests", () => {
 
   let oracle: App.Oracle;
   let wrapperUri: string;

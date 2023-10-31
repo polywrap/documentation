@@ -71,10 +71,12 @@ Now we can import the generated Http Module class to send HTTP requests.
 
 To call the HTTP `post` method, we need to use some custom types defined in the HTTP interface schema. Polywrap's codegen is smart enough to generate these types for us, even though we didn't list them in an import statement, because the Http Module class depends on them.
 
+In order to focus on learning Polywrap, we aren't going to parse the HTTP response. We'll just return the raw response body as a string.
+
 <CompleteCode />
 
 ## **Next Steps**
 
-Our Oracle Wrap is now complete! But we're not quite done yet. We still need to test our wrap and publish it so others can use it. We'll test our wrap in the next section.
+Our Oracle Wrap is now complete! But we're not quite done yet. We still need to test our wrap and publish it so others can use it. We'll test our wrap in the next section. Make sure to build your wrap and fix any compilation errors before moving on.
 
 <NavButton to="./integration-testing" text="Integration Testing" />
