@@ -2,6 +2,8 @@
 id: 'integration-testing'
 title: 'Integration Testing'
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import { NavButton } from '/src/components/NavButton'
 import IntegrationTests from '../partials/_integration_tests.mdx';
 
@@ -30,33 +32,33 @@ To execute app codegen without changing our `polywrap.yaml` project manifest or 
 <Tabs groupId="project">
   <TabItem value="rust" label="Rust">
 
-    ```shell-session
-    polywrap codegen -m ./tests/types/polywrap.app.yaml -g ./tests/types/wrap
-    ```
+```shell-session
+polywrap codegen -m ./tests/types/polywrap.app.yaml -g ./tests/types/wrap
+```
 
   </TabItem>
 
   <TabItem value="golang" label="Go">
 
-    ```shell-session
-    polywrap codegen -m ./module/__tests__/types/polywrap.app.yaml -g ./module/__tests__/types/wrap
-    ```
+```shell-session
+polywrap codegen -m ./module/__tests__/types/polywrap.app.yaml -g ./module/__tests__/types/wrap
+```
 
   </TabItem>
 
   <TabItem value="typescript" label="TypeScript">
 
-    ```shell-session
-    polywrap codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/wrap
-    ```
+```shell-session
+polywrap codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/wrap
+```
 
   </TabItem>
 
   <TabItem value="assemblyscript" label="AssemblyScript">
 
-    ```shell-session
-    polywrap codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/wrap
-    ```
+```shell-session
+polywrap codegen -m ./src/__tests__/types/polywrap.app.yaml -g ./src/__tests__/types/wrap
+```
 
   </TabItem>
 </Tabs>
