@@ -6,4 +6,4 @@ source:
   module: ./src/index.ts
   schema: ./polywrap.graphql
 extensions:
-  build: ./polywrap.build.yaml
+  docs: ./polywrap.docs.yaml
