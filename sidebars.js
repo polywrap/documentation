@@ -15,6 +15,7 @@
 const sidebars = {
   docs: [
     'introduction',
+    `faq`,
     {
       type: 'category',
       label: 'Quick Start',

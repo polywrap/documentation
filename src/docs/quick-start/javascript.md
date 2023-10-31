@@ -5,7 +5,7 @@ title: 'Javascript'
 
 ## The Polywrap Client
 
-To use [Wraps](/concepts/wraps) in your app, all you need is the [Polywrap Client](/clients)!
+To use [Wraps](/concepts/wraps) in your app, all you need is the [Polywrap Client](/clients).
 
 ### NodeJS application boilerplate
 
