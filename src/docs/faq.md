@@ -5,7 +5,13 @@ title: FAQ
 
 ## What is Polywrap?
 
-Polywrap is a framework for porable and composable SDKs. Polywrap calls these SDKs “wraps”. Wraps are essentially WebAssembly-based modules.
+Polywrap is a framework for portable and composable SDKs. Polywrap calls these SDKs “wraps”. 
+
+Wraps are WebAssembly (Wasm) modules with superpowers--every wrap contains auto-generated, standardized bindings that enable communication between modules and a host language. The Wasm modules are fully composable, meaning any two wraps can call each others' methods even when their source codes were written in different languages.
+
+When used with any Polywrap Client written for any host language, all the effort involved in marshaling data between the host language and the Wasm module is handled for you, automagically. The Polywrap client handles invocations between the user and Wasm modules, and also between the modules when the modules invoke each other.
+
+Polywrap abstracts away the complexity, providing users a seamless user experience that closely resembles the native experience of their favorite high-level programming language.
 
 ## What are wraps?
 
@@ -51,7 +57,9 @@ Wraps are used within apps and other wraps. They are defined via their metadata,
 
 ## How do I access host capabilities?
 
-Wraps can import host functions defined by the application developer. These native functions allow wraps to access host capabilities. Polywrap packages these capabilities as “plugins”.
+Polywrap has a plugin system that enables application developers to allow access to host capabilities. Wraps can call host functions defined in plugins. Plugins are also infused with Polywrap superpowers--bindings that allow them to appear to the Polywrap client and be invoked just like a wrap.
+
+Unlike wraps, plugins are not portable. Plugins are written in a Polywrap Client's native language and must be registered with the client at runtime.
 
 ## Can I write my own plugins?
 
