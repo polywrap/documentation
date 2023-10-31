@@ -16,7 +16,7 @@ It is implemented by multiple plugin wraps to help the Polywrap client query dif
 
 ## Declaring an interface project
 
-Interface projects are declared using a [Polywrap Manifest](/tutorials/create-wraps/polywrap-manifest).
+Interface projects are declared using a [Polywrap Manifest](/tutorials/create-wraps/part-two/polywrap-manifest).
 To indicate that a project is an abstract interface, set the project type to `interface`.
 
 Interface projects do not have a module. Only a [schema](/concepts/wrap-schema) path is declared.

@@ -67,43 +67,32 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'NEW Create Wraps',
+          label: 'Create Wraps',
           items: [
-            'tutorials/new-create-wraps/introduction',
+            'tutorials/create-wraps/introduction',
             {
               type: 'category',
               label: 'Part One',
               items: [
-                'tutorials/new-create-wraps/part-one/project-setup',
-                'tutorials/new-create-wraps/part-one/project-manifest',
-                'tutorials/new-create-wraps/part-one/schema-and-codegen',
-                'tutorials/new-create-wraps/part-one/first-method',
-                'tutorials/new-create-wraps/part-one/import-and-subinvoke',
-                'tutorials/new-create-wraps/part-one/interfaces-and-plugins',
-                'tutorials/new-create-wraps/part-one/integration-testing',
-                'tutorials/new-create-wraps/part-one/deployment'
-              ]
-            }
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Create Wraps',
-          items: [
-            {
-              type: 'category',
-              label: 'Tutorial',
-              items: [
-                'tutorials/create-wraps/tutorial/project-setup',
-                'tutorials/create-wraps/tutorial/project-folder',
-                'tutorials/create-wraps/tutorial/build-deploy-test',
-                'tutorials/create-wraps/tutorial/adding-new-methods',
-                'tutorials/create-wraps/tutorial/writing-tests-with-workflows',
-                'tutorials/create-wraps/tutorial/deploy-locally-and-test',
+                'tutorials/create-wraps/part-one/project-setup',
+                'tutorials/create-wraps/part-one/project-manifest',
+                'tutorials/create-wraps/part-one/schema-and-codegen',
+                'tutorials/create-wraps/part-one/first-method',
+                'tutorials/create-wraps/part-one/import-and-subinvoke',
+                'tutorials/create-wraps/part-one/interfaces-and-plugins',
+                'tutorials/create-wraps/part-one/integration-testing',
+                'tutorials/create-wraps/part-one/deployment'
               ]
             },
-            'tutorials/create-wraps/polywrap-manifest',
-            'tutorials/create-wraps/default-plugins'
+            {
+              type: 'category',
+              label: 'Part Two',
+              items: [
+                'tutorials/create-wraps/part-two/polywrap-manifest',
+                'tutorials/create-wraps/part-two/default-plugins',
+                'tutorials/create-wraps/part-two/writing-tests-with-workflows'
+              ]
+            }
           ],
         },
         {
