@@ -3,6 +3,7 @@ id: 'interfaces-and-plugins'
 title: 'Interfaces and Plugins'
 ---
 import { NavButton } from '/src/components/NavButton'
+import CompleteCode from '../partials/_complete_code.mdx';
 
 :::note
 You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
@@ -50,21 +51,27 @@ Enough talk! Let's implement the `enlighten` method.
 
 ### **Update the schema**
 
-Let's add the `enlighten` method and an import statement for the HTTP interface to the schema. We'll keep the enlighten method's signature simple.
+Let's add the `enlighten` method and an import statement for the HTTP interface to the schema. The method will take a question and a [Perplexity](https://docs.perplexity.ai/) API key as arguments, and will return a response. Remember to run codegen after updating the schema.
+
+You can view the HTTP interface wrap's schema on [GitHub](https://github.com/polywrap/http/blob/main/interface/polywrap.graphql).;
 
 ```graphql
-#import { Module } into Sha3 from "http/https://wraps.wrapscan.io/r/polywrap/sha3@1.0.0"
+#import { Module } into Sha3 from "wrapscan.io/polywrap/sha3@1.0.0"
 #import { Module } into Http from "wrapscan.io/polywrap/http@1.0"
 
 type Module {
     obscure(data: [String!]!, chaosLevel: Int): String!
-    enlighten(question: String!): String!
+    enlighten(question: String!, apiKey: String!): String!
 }
 ```
 
 ### **Implement the method**
 
+Now we can import the generated Http Module class to send HTTP requests.
 
+To call the HTTP `post` method, we need to use some custom types defined in the HTTP interface schema. Polywrap's codegen is smart enough to generate these types for us, even though we didn't list them in an import statement, because the Http Module class depends on them.
+
+<CompleteCode />
 
 ## **Next Steps**
 

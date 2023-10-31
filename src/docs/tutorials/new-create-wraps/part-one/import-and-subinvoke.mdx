@@ -34,7 +34,7 @@ A wrap URI is valid so long as it follows the Wrap URI format and can be resolve
 
 ## **Import a Wrap**
 
-We'll import our first dependency using a Wrap URI with the `http` authority. The URI points to Polywrap's own Wrapscan registry, which is still in construction as of the time of this writing.
+We'll import our first dependency using a Wrap URI with the `wrapscan.io` authority. The URI points to Polywrap's own Wrapscan registry, which is still in construction as of the time of this writing.
 
 The syntax of an import statement is:
 
@@ -44,7 +44,7 @@ The syntax of an import statement is:
 Import statements are placed in the Wrap Schema. Let's add an import statement for the Sha3 wrap.
 
 ```graphql title="polywrap.graphql"
-#import { Module } into Sha3 from "http/https://wraps.wrapscan.io/r/polywrap/sha3@1.0.0"
+#import { Module } into Sha3 from "wrapscan.io/polywrap/sha3@1.0.0"
 
 type Module {
     obscure(data: [String!]!, chaosLevel: Int): String!
