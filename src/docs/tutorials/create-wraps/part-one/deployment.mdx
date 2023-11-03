@@ -1,0 +1,53 @@
+---
+id: 'deployment'
+title: 'Deployment'
+---
+
+:::note
+You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
+:::
+
+We've written our wrap and tested it. Let's add a readme and deploy to IPFS.
+
+## **Add a Readme**
+
+Users can add descriptive metadata to their wraps by adding a `polywrap.docs.yaml` documentation manifest. We won't discuss the full breadth of the documentation manifest here, but we'll use it to add a readme file that will be published with our wrap package.
+
+```yaml title="polywrap.docs.yaml"
+format: 0.1.0
+readme: ./README.md
+```
+
+```markdown title="README.md"
+// Write a readme for your wrap here.
+```
+
+For the Polywrap CLI to recognize our documentation manifest, we need to add the extension to our `polywrap.yaml` file.
+
+```yaml title="polywrap.yaml"
+format: 0.3.0
+project:
+  name: template-wasm-as
+  type: wasm/assemblyscript
+source:
+  module: ./src/index.ts
+  schema: ./polywrap.graphql
+extensions:
+  docs: ./polywrap.docs.yaml
+```
+
+## **Deploy to IPFS**
+
+Deploying a wrap to IPFS couldn't be easier. With the `polywrap deploy` command in the Polywrap CLI, the CLI will by default automatically upload and pin your wrap to `https://ipfs.wrappers.io`. This is a free service provided by Polywrap to make it easy to deploy and use wraps.
+
+```shell-session
+polywrap deploy
+```
+
+## **Final Thoughts**
+
+You've come so far and learned so much. You've built a wrap, tested it, and deployed it to IPFS. We're excited to see what you build next!
+
+When you're ready, hop on over to Part 2 of the tutorial to learn how to customize various aspects of the wrap development process.
+
+Join us on discord to share your thoughts and ask questions. We'd love to hear from you!

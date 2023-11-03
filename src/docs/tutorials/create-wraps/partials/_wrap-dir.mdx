@@ -1,0 +1,71 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="wrap-dir">
+  <TabItem value="rust" label="Rust">
+
+```
+wrap/
+├── module/
+│   ├── mod.rs
+│   ├── module.rs       # Module Trait
+│   └── wrapped.rs      # Args types and method wrappers
+├── sample_result/
+│   └── mod.rs          # Custom type implementations
+├── mod.rs
+├── entry.rs            # Wrap entry file
+└── prelude.rs
+```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+```
+wrap/
+├── main/
+│   └── main.go                                 # Wrap entry file
+├── module_wrapped/
+│   ├── module_serialization.go                 # Module serialization logic
+│   └── module_wrapped.go                       # Method wrappers
+├── types/
+│   ├── module_args.go                          # Module interface and Args types
+│   ├── object_sample_result.go                 # Custom type implementations
+│   └── object_sample_result_serialization.go   # Custom type serialization logic
+└── wrap.go
+```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+```
+wrap/
+├── common.ts           # Core types available in every wrap
+├── entry.ts            # Wrap entry file
+├── globals.d.ts        # Wrap binding method declarations
+├── index.ts
+├── module.ts           # Module base class and Args types
+└── types.ts            # Custom type implementations
+```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+```
+wrap/
+├── Module/
+│   ├── index.ts
+│   ├── module.ts            # Module base class
+│   ├── serialization.ts     # Args types and Module serialization logic
+│   └── wrapped.ts           # Method wrappers
+├── SampleResult/
+│   ├── index.ts             # Custom type implementations
+│   └── serialization.ts     # Custom type serialization logic
+├── entry.ts                 # Wrap entry file
+└── index.ts
+```
+
+  </TabItem>
+</Tabs>

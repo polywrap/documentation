@@ -1,0 +1,7 @@
+#import { Module } into Sha3 from "wrapscan.io/polywrap/sha3@1.0.0"
+#import { Module } into Http from "wrapscan.io/polywrap/http@1.0"
+
+type Module {
+    obscure(data: [String!]!, chaosLevel: Int): String!
+    enlighten(question: String!, apiKey: String!): String!
+}

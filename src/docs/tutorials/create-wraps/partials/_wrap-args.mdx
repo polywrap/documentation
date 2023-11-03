@@ -1,0 +1,45 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="wrap-args">
+  <TabItem value="rust" label="Rust">
+
+```rust title=wrap/module/wrapped.rs
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct ArgsSampleMethod {
+  pub arg: String,
+}
+```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+```go title=wrap/types/module_args.go
+type ArgsSampleMethod struct {
+  Arg string `json:"arg"`
+}
+```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+```ts title=wrap/module.ts
+export class Args_sampleMethod {
+  arg: string;
+}
+```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+```ts title=wrap/Module/serialization.ts
+export class Args_sampleMethod {
+  arg: string;
+}
+```
+
+  </TabItem>
+</Tabs>

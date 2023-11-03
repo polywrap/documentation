@@ -1,0 +1,63 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="first-method-empty">
+  <TabItem value="rust" label="Rust">
+
+```rust title=src/lib.rs
+pub mod wrap;
+pub use wrap::prelude::*;
+
+impl ModuleTrait for Module {
+    fn obscure(args: ArgsObscure) -> Result<String, String> {
+        Ok(String::from(""))
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+```go title=module/module.go
+package module
+
+import (
+	"example.com/template-wasm-go/module/wrap/types"
+)
+
+func Obscure(args *types.ArgsObscure) string {
+	return ""
+}
+```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+```ts title=src/index.ts
+import { ModuleBase, Args_obscure } from './wrap';
+
+export class Module extends ModuleBase {
+  obscure(args: Args_obscure): string {
+    return "";
+  }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+```ts title=src/index.ts
+import { ModuleBase, Args_obscure } from './wrap';
+
+export class Module extends ModuleBase {
+  obscure(args: Args_obscure): string {
+    return "";
+  }
+}
+```
+
+  </TabItem>
+</Tabs>

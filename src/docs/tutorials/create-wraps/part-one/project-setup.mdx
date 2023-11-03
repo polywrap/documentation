@@ -1,0 +1,155 @@
+---
+id: 'project-setup'
+title: 'Project Setup'
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ProjectDirCommon from '../partials/_project-dir-common.mdx';
+import { NavButton } from '/src/components/NavButton'
+
+:::note
+You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
+:::
+
+Welcome to Part One of the Create Wraps tutorial. We will build a new Polywrap wrap called "Oracle Wrap". Oracle Wrap is capable of both obscuring and illuminating knowledge using hashing and generative AI.
+
+Please read the [Introduction](../introduction) if you haven't done so already. Otherwise, let's dive right in!
+
+## **Create the Project**
+
+We will generate our project scaffolding using the Polywrap CLI. The `create` command of the Polywrap CLI uses the syntax `polywrap create <project type> <language> <name>` to download a project template. This tutorial is about building Wasm wraps, so let's create a `wasm` project and name it `oracle-wrap`
+
+<Tabs groupId="project">
+  <TabItem value="rust" label="Rust">
+
+  ```shell-session
+  polywrap create wasm rust oracle-wrap
+  ```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+  ```shell-session
+  polywrap create wasm golang oracle-wrap
+  ```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+  ```shell-session
+  polywrap create wasm typescript oracle-wrap
+  ```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+  ```shell-session
+  polywrap create wasm assemblyscript oracle-wrap
+  ```
+
+  </TabItem>
+</Tabs>
+
+
+After running this command, you'll see a new folder appear with the project name.
+
+## Project Contents
+
+Let's take a look at the contents of the project we just created. Then, in the next section, we'll review the project manifest file and learn how to configure it.
+
+<Tabs groupId="project">
+  <TabItem value="rust" label="Rust">
+
+```
+project/
+├── polywrap.yaml              # Project manifest File
+├── polywrap.graphql           # Wrap Schema
+├── src/
+│   └── lib.rs                 # Entry point; exports module defined in schema
+├── tests/                     # Integration tests
+├── Cargo.toml                 # Dependency management
+├── package.json               # Build scripts
+└── tsconfig.json              # TypeScript configuration (for integration tests)
+```
+
+<ProjectDirCommon entry="src/lib.rs" testDir="tests/" />
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+```
+project/
+├── polywrap.yaml              # Project manifest File
+├── polywrap.graphql           # Wrap Schema
+├── module/
+│   ├── module.go              # Entry point; exports module defined in schema
+│   └── __tests__/             # Integration tests
+├── build-staging/             # Required boilerplate; don't modify
+├── go.mod                     # Dependency management
+├── package.json               # Build scripts
+└── tsconfig.json              # TypeScript configuration (for integration tests)
+```
+
+<ProjectDirCommon entry="module/module.go" testDir="module/__tests__/" />
+
+<h3><b><code>build-staging/</code></b></h3>
+<p>Required boilerplate; don't modify.</p>
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+```
+project/
+├── polywrap.yaml              # Project manifest File
+├── polywrap.graphql           # Wrap Schema
+├── src/
+│   ├── index.ts               # Entry point; exports module defined in schema
+│   └── __tests__/             # Integration tests
+├── package.json               # Dependency management and build scripts
+├── rollup.config.mjs          # Bundler configuration
+├── shims.js                   # Shims for a native TypeScript experience
+└── tsconfig.json              # TypeScript configuration
+```
+
+<ProjectDirCommon entry="src/index.ts" testDir="src/__tests__/" />
+
+<h3><b><code>rollup.config.mjs</code></b></h3>
+<p>Used to configure bundling for the wrap.</p>
+
+<h3><b><code>shims.js</code></b></h3>
+<p>Used to provide a more native TypeScript experience.</p>
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+```
+project/
+├── polywrap.yaml              # Project manifest File
+├── polywrap.graphql           # Wrap Schema
+├── src/
+│   ├── index.ts               # Entry point; exports module defined in schema
+│   └── __tests__/             # Integration tests
+├── package.json               # Dependency management and build scripts
+├── tsconfig.json              # TypeScript configuration (for integration tests)
+└── tsconfig.build.json        # AssemblyScript configuration (for build)
+```
+
+<ProjectDirCommon entry="src/index.ts" testDir="src/__tests__/" />
+
+<h3><b><code>tsconfig.build.json</code></b></h3>
+<p>Used to configure AssemblyScript for wrap development.</p>
+
+  </TabItem>
+</Tabs>
+
+## **Next Steps**
+
+In the next section we will set up the Project Manifest file, which contains metadata the Polywrap CLI needs to build your wrap.
+
+<NavButton to="./project-manifest" text="Project Manifest" />

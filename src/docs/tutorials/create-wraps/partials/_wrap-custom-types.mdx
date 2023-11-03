@@ -1,0 +1,56 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="wrap-custom-types">
+  <TabItem value="rust" label="Rust">
+
+```rust title=wrap/sample_result/mod.rs
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct SampleResult {
+  pub result: String,
+}
+
+impl SampleResult {
+  pub fn new() -> SampleResult {
+    SampleResult {
+      result: String::new(),
+    }
+  }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+```go title=wrap/types/object_sample_result.go
+type SampleResult struct {
+  Result string `json:"result"`
+}
+```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+```ts title=wrap/types.ts
+export class SampleResult {
+  result: string;
+}
+```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+```ts title=wrap/SampleResult/index.ts
+export class SampleResult {
+  result: string;
+
+  // static methods for serialization
+  ...
+}
+```
+
+  </TabItem>
+</Tabs>

@@ -1,0 +1,9 @@
+format: 0.3.0
+project:
+  name: template-wasm-go
+  type: wasm/golang
+source:
+  schema: ./polywrap.graphql
+  module: ./go.mod
+extensions:
+  docs: ./polywrap.docs.yaml

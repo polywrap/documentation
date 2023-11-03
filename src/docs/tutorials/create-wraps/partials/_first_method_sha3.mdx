@@ -1,0 +1,122 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="first-method-sha3">
+  <TabItem value="rust" label="Rust">
+
+```rust title=src/lib.rs
+pub mod wrap;
+pub use wrap::prelude::*;
+use crate::wrap::imported::ArgsKeccak256;
+
+impl ModuleTrait for Module {
+    fn obscure(args: ArgsObscure) -> Result<String, String> {
+        // handle default values
+        let chaos_level = args.chaos_level.unwrap_or(1).max(1);
+
+        let mut obscured = String::new();
+        for data in &args.data {
+            let mut message = data.clone();
+            for _ in 0..chaos_level {
+                message = Sha3Module::keccak_256(&ArgsKeccak256 { message })?;
+            }
+            obscured += &message;
+        }
+        Ok(obscured)
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+```go title=module/module.go
+package module
+
+import (
+	"example.com/template-wasm-go/module/wrap/types"
+	"example.com/template-wasm-go/module/wrap/imported/sha3"
+)
+
+func Obscure(args *types.ArgsObscure) string {
+	// Handle default values
+    chaosLevel := int32(1)
+    if args.ChaosLevel != nil && *args.ChaosLevel >= 1 {
+        chaosLevel = *args.ChaosLevel
+    }
+
+    var obscured string
+    for _, data := range args.Data {
+        tempData := data
+		for i := int32(0); i < chaosLevel; i++ {
+		    hashArgs := &sha3.Sha3_ArgsKeccak_256 { Message: tempData }
+			hashed, err := sha3.Sha3_Keccak_256(hashArgs)
+			if err != nil {
+				return ""
+			}
+			tempData = hashed
+		}
+		obscured += tempData
+    }
+    return obscured
+}
+```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+```ts title=src/index.ts
+import { ModuleBase, Args_obscure, Sha3_Module } from './wrap';
+
+export class Module extends ModuleBase {
+  obscure(args: Args_obscure): string {
+    // handle default values
+    const chaosLevel = args.chaosLevel || 1;
+
+    // obscure the data with chaos
+    let obscured: string = "";
+    for (let i = 0; i < args.data.length; ++i) {
+      let data = args.data[i];
+      for (let j = 0; j < chaosLevel; ++j) {
+        const result = Sha3_Module.keccak_256({ message: data })
+        if (!result.ok) throw Error("hash failed");
+        data = result.value!!;
+      }
+      obscured += data;
+    }
+    return obscured;
+  }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+```ts title=src/index.ts
+import { ModuleBase, Args_obscure, Sha3_Module } from './wrap';
+
+export class Module extends ModuleBase {
+  obscure(args: Args_obscure): string {
+    // handle default values
+    const chaosLevel: i32 = (args.chaosLevel == null || args.chaosLevel!!.unwrap() < 1)
+      ? 1
+      : args.chaosLevel!!.unwrap();
+
+    let obscured: string = "";
+    for (let i = 0; i < args.data.length; ++i) {
+      let data = args.data[i];
+      for (let j = 0; j < chaosLevel; ++j) {
+        data = Sha3_Module.keccak_256({ message: data }).expect("hash failed");
+      }
+      obscured += data;
+    }
+    return obscured;
+  }
+}
+```
+
+  </TabItem>
+</Tabs>

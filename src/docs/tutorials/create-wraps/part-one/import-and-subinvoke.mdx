@@ -1,0 +1,81 @@
+---
+id: 'import-and-subinvoke'
+title: 'Import and Subinvoke'
+---
+import FirstMethodSha3 from '../partials/_first_method_sha3.mdx';
+import { NavButton } from '/src/components/NavButton'
+
+:::note
+You're reading Part One of the [Create Wraps](../introduction) tutorial, where we learn everything you need to know to productively develop Polywrap wraps.
+:::
+
+It's time to make the `obscure` method a little more interesting. In the previous section, we made the data hard to decipher by shifting each character in each string by a fixed amount. We can make our method far more insidious by hashing the data instead.
+
+To do this, we can import the `Sha3` wrap and subinvoke one of its hashing functions. First we'll learn how to import a wrap using a Wrap URI, and then we'll learn how to subinvoke the method using its generated Module bindings.
+
+:::tip
+Your dependencies don't have to be other wraps. You can also use language-specific libraries, such as the Rust `sha3` package that was used to build the `Sha3` wrap.
+:::
+
+## **Wrap URIs**
+
+Wrap URIs are a simple, flexible URI format used by Polywrap to identify and import wraps. They allow wraps to be stored and retrieved from a variety of sources, including IPFS, HTTP, and the local filesystem.
+
+Wrap URIs have the benefit of decentralization: developers are not required to use a centralized registry to publish their wraps. Instead, they can publish their wraps to any storage network and resolve them using a Polywrap Client.
+
+A Wrap URI has three parts:
+- Scheme (optional): `wrap://`
+- Authority: e.g. `http`, `ipfs`, `fs`
+- Path: e.g. `ipfs/Qm...`, `http/https://...`, `fs/path/to/wrap`
+
+You can learn more about the Wrap URI format in the [Wrap URI specification](/concepts/uris).
+
+A wrap URI is valid so long as it follows the Wrap URI format and can be resolved by a Polywrap Client. The Polywrap Client resolves URIs using implementations of the `UriResolver` interface. The Polywrap Client's default configuration includes several resolvers for common URI authorities, including IPFS, HTTP, ENS, and the local filesystem. Users can also configure the Polywrap Client with custom resolvers to resolve URIs from other sources.
+
+## **Import a Wrap**
+
+We'll import our first dependency using a Wrap URI with the `wrapscan.io` authority. The URI points to Polywrap's own Wrapscan registry, which is still in construction as of the time of this writing.
+
+The syntax of an import statement is:
+
+```graphql
+#import { <type1, type2, ...> } into <Namespace> from <WrapUri>
+```
+Import statements are placed in the Wrap Schema. Let's add an import statement for the Sha3 wrap.
+
+```graphql title="polywrap.graphql"
+#import { Module } into Sha3 from "wrapscan.io/polywrap/sha3@1.0.0"
+
+type Module {
+    obscure(data: [String!]!, chaosLevel: Int): String!
+}
+```
+
+This import statement ensures a `Module` type will be available in the `Sha3` namespace. Make sure to run codegen once more to update the bindings.
+
+## **Subinvocations**
+
+Once we've successfully updated our generated bindings for the Sha3 dependency, we can use them to invoke a hash function.
+
+But how do we know which hash functions are available in the Sha3 wrap? Once again, the Wrap Schema comes in clutch. Even without package documentation, we can always know a wrap's interface by looking at its schema. You can view the schema for the `Sha3` wrap on [Github](https://github.com/polywrap/sha3/blob/main/polywrap.graphql) or [Wrapscan](https://www.wrapscan.io/wrap/wrapscan.io%2Fpolywrap%2Fsha3%401.0.0/schema). The schemas of wraps pinned on IPFS to the `https://ipfs.wrappers.io` gateway can also be viewed on [Wrappers.io](https://wrappers.io/all).
+
+:::tip
+Great places to find wraps
+ - [Awesome Polywrap](https://github.com/polywrap/awesome-polywrap) Github Repo
+ - [Wrapscan Registry](https://www.wrapscan.io/) (under construction)
+ - [Wrappers.io](https://wrappers.io/all) list of all wrappers pinned to `https://ipfs.wrappers.io`
+:::
+
+We'll use the `keccak256` hash function for the tutorial. Import the Sha3 module and the Args type for the keccak256 method. The imported Sha3 module exposes its functions as static methods, so you can call them without creating an instance.
+
+<FirstMethodSha3 />
+
+When one wrap invokes another, we call it a subinvocation. Subinvocations are a special feature of Polywrap that aren't available in ordinary WebAssembly modules. The wrap standard makes it possible to invoke the Sha3 wrap from any wrap or Polywrap Client without knowing its source language.
+
+Subinvocations never throw errors. The return type of a subinvocation is always the `Result` type, or a language-specific equivalent. The `Result` type wraps the return value and contains either the expected value or an error.
+
+## **Next Steps**
+
+Next we'll talk about interfaces and plugins. Interfaces are a powerful feature that allows wraps to implement a standard API. Plugins are extensions of a Polywrap Client, written in the client's host language, that give wraps access to host capabilities like networking and the filesystem.
+
+<NavButton to="./interfaces-and-plugins" text="Interfaces and Plugins" />

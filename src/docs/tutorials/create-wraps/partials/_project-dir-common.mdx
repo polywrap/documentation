@@ -1,0 +1,23 @@
+### **`polywrap.yaml`**
+The `polywrap.yaml` project manifest is a high-level configuration file describing a Polywrap project.
+
+### **`polywrap.graphql`**
+Each wrap project has a [Wrap Schema](/concepts/wrap-schema). The schema defines the wrap's interface, including dependencies, methods, and custom types. Polywrap uses the schema to generate the wrap's serialization bindings and validate the wrap's implementation. The schema is compiled to a `wrap.info` ABI file at build time and stored in the wrap package. In this tutorial, we'll learn how to write a Wrap Schema. It's easy!
+
+<h3><span><b><code>{props.entry}</code></b></span></h3>
+<p>The entry point file differs by language, but in all cases it exports the wrap module implementation.</p>
+
+<h3><span><b><code>{props.testDir}</code></b></span></h3>
+<p>The tests directory contains integration tests for the wrap. Integration tests are performed using a Polywrap Client to invoke the wrap, just as a developer would do when using your wrap in their application. Without a client, you wouldn't be able to test the parts of your code that invoke other wraps or plugins.</p>
+
+<p>The tests directory contains a `types` folder with configuration files used to generate bindings for the tests in the client language. Depending on your project's language, the test types will be generated in TypeScript or Rust. The bindings are based on your wrap's schema and allow you to call methods on your wrap with an experience similar to the native programming language of the tests (i.e. TypeScript or Rust). The bindings are optional, but we recommend using them.</p>
+
+### **`package.json`**
+We include a `package.json` file with pre-written build scripts and developer dependencies for testing, even if your wrap is not written in TypeScript or AssemblyScript.
+
+If you're building a Rust wrap, the `package.json` file is used only for build scripts and is not required for testing. Feel free to delete it or use it only as a reference.
+
+We understand that not every user wants to install NodeJS to build with Polywrap. Don't worry! In Part Two of the tutorial, we will learn how to write language-agnostic tests without any JavaScript dependencies.
+
+### **`tsconfig.json`**
+Used to configure TypeScript for integration tests.

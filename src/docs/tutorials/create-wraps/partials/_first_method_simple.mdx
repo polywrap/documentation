@@ -1,0 +1,118 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="first-method-simple">
+  <TabItem value="rust" label="Rust">
+
+```rust title=src/lib.rs
+pub mod wrap;
+pub use wrap::prelude::*;
+
+impl ModuleTrait for Module {
+    fn obscure(args: ArgsObscure) -> Result<String, String> {
+        // handle default values
+        let chaos_level = args.chaos_level.unwrap_or(1).max(1);
+
+        let mut obscured = String::new();
+        for data in &args.data {
+            // shift each character by the chaos level
+            for c in data.chars() {
+                let char_code = c as u32 + chaos_level as u32;
+                if let Some(new_char) = std::char::from_u32(char_code) {
+                    obscured.push(new_char);
+                }
+            }
+        }
+        Ok(obscured)
+    }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+```go title=module/module.go
+package module
+
+import (
+	"example.com/template-wasm-go/module/wrap/types"
+)
+
+func Obscure(args *types.ArgsObscure) string {
+	// Handle default values
+    chaosLevel := int32(1)
+    if args.ChaosLevel != nil && *args.ChaosLevel >= 1 {
+        chaosLevel = *args.ChaosLevel
+    }
+
+    var obscured string
+    for _, data := range args.Data {
+        // Shift each character by the chaos level
+        for _, char := range data {
+            charCode := char + rune(chaosLevel)
+            obscured += string(charCode)
+        }
+    }
+    return obscured
+}
+```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+```ts title=src/index.ts
+import { ModuleBase, Args_obscure } from './wrap';
+
+export class Module extends ModuleBase {
+  obscure(args: Args_obscure): string {
+    // handle default values
+    const chaosLevel = args.chaosLevel || 1;
+
+    // obscure the data with chaos
+    let obscured: string = "";
+    for (let i = 0; i < args.data.length; ++i) {
+      const data = args.data[i];
+      // shift each character by the chaos level
+      obscured += data
+        .split("")
+        .map((char: string) => char.charCodeAt(0) + chaosLevel)
+        .map((charCode: number) => String.fromCharCode(charCode))
+        .join("")
+    }
+    return obscured;
+  }
+}
+```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+```ts title=src/index.ts
+import { ModuleBase, Args_obscure } from './wrap';
+
+export class Module extends ModuleBase {
+  obscure(args: Args_obscure): string {
+    // handle default values
+    const chaosLevel: i32 = (args.chaosLevel == null || args.chaosLevel!!.unwrap() < 1)
+      ? 1
+      : args.chaosLevel!!.unwrap();
+
+    let obscured: string = "";
+    for (let i = 0; i < args.data.length; ++i) {
+      const data = args.data[i];
+      // shift each character by the chaos level
+      for (let j = 0; j < data.length; ++j) {
+        const charCode = data.charCodeAt(j) + chaosLevel;
+        obscured += String.fromCharCode(charCode);
+      }
+    }
+    return obscured;
+  }
+}
+```
+
+  </TabItem>
+</Tabs>

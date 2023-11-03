@@ -1,0 +1,47 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="codegen-dir">
+  <TabItem value="rust" label="Rust">
+
+```
+src/
+├── lib.rs                  # Entry point; exports module defined in schema
+└── wrap                    # Generated types
+```
+
+  </TabItem>
+
+  <TabItem value="golang" label="Go">
+
+```
+module/
+├── module.go              # Entry point; exports module defined in schema
+├── __tests__/             # Integration tests
+└── wrap                   # Generated types
+```
+
+  </TabItem>
+
+  <TabItem value="typescript" label="TypeScript">
+
+```
+src/
+├── index.ts               # Entry point; exports module defined in schema
+├── __tests__/             # Integration tests
+└── wrap                   # Generated types
+```
+
+  </TabItem>
+
+  <TabItem value="assemblyscript" label="AssemblyScript">
+
+```
+src/
+├── index.ts               # Entry point; exports module defined in schema
+├── __tests__/             # Integration tests
+└── wrap                   # Generated types
+```
+
+  </TabItem>
+</Tabs>
