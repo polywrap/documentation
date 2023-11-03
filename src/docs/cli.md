@@ -60,45 +60,45 @@ The Polywrap CLI allows you to create a template project in any of these languag
 Let's start with creating a new project using the Polywrap CLI:
 
 <Tabs groupId="project">
-  <TabItem value="typescript" label="Typescript">
+<TabItem value="typescript" label="Typescript">
 
-  ```shell-session
-  polywrap create app typescript my-app
-  ```
+```shell-session
+polywrap create app typescript my-app
+```
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value="rust" label="Rust">
+<TabItem value="rust" label="Rust">
 
-  ```shell-session
-  polywrap create app rust my-app
-  ```
+```shell-session
+polywrap create app rust my-app
+```
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value="python" label="Python">
+<TabItem value="python" label="Python">
 
-  ```shell-session
-  polywrap create app python my-app
-  ```
+```shell-session
+polywrap create app python my-app
+```
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value="kotlin" label="Kotlin/Android">
+<TabItem value="kotlin" label="Kotlin/Android">
 
-  ```shell-session
-  polywrap create app android my-app
-  ```
+```shell-session
+polywrap create app android my-app
+```
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value="swift" label="Swift/iOS">
+<TabItem value="swift" label="Swift/iOS">
 
-  ```shell-session
-  polywrap create app ios my-app
-  ```
+```shell-session
+polywrap create app ios my-app
+```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 This will create a basic application in the language of your choice.
@@ -111,45 +111,45 @@ In order for the Polywrap CLI to know what kind of project it's working with, it
 It has a structure similar to this:
 
 <Tabs groupId="project">
-  <TabItem value="typescript" label="Typescript">
+<TabItem value="typescript" label="Typescript">
 
-  ```yaml title="polywrap.yaml"
-  $snippet: cli-ts-app-manifest
-  ```
+```yaml title="polywrap.yaml"
+$snippet: cli-ts-app-manifest
+```
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value="rust" label="Rust">
+<TabItem value="rust" label="Rust">
 
-  ```yaml title="polywrap.yaml"
-  $snippet: cli-rust-app-manifest
-  ```
+```yaml title="polywrap.yaml"
+$snippet: cli-rust-app-manifest
+```
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value="python" label="Python">
+<TabItem value="python" label="Python">
 
-  ```yaml title="polywrap.yaml"
-  $snippet: cli-py-app-manifest
-  ```
+```yaml title="polywrap.yaml"
+$snippet: cli-py-app-manifest
+```
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value="kotlin" label="Kotlin/Android">
+<TabItem value="kotlin" label="Kotlin/Android">
 
-  ```yaml title="polywrap.yaml"
-  $snippet: cli-kt-app-manifest
-  ```
+```yaml title="polywrap.yaml"
+$snippet: cli-kt-app-manifest
+```
 
-  </TabItem>
+</TabItem>
 
-  <TabItem value="swift" label="Swift/iOS">
+<TabItem value="swift" label="Swift/iOS">
 
-  ```yaml title="polywrap.yaml"
-  $snippet: cli-swift-app-manifest
-  ```
+```yaml title="polywrap.yaml"
+$snippet: cli-swift-app-manifest
+```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 The `format` property denotes the version of the Polywrap Manifest format. Under `project`, you can set the `name` field to the name of your application, while the `type` field describes the project type, thus letting the CLI know how to interact with the application code.
